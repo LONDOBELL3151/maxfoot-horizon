@@ -1,0 +1,324 @@
+{% comment %}
+  Maxfoot Featured Categories Section
+  Three category cards: Mountain, Cruisers, Cargo
+{% endcomment %}
+
+<section
+  id="MaxfootCategories-{{ section.id }}"
+  class="maxfoot-categories color-{{ section.settings.color_scheme }}"
+>
+  <div class="maxfoot-categories__header">
+    <h2 class="maxfoot-categories__title">{{ section.settings.section_title }}</h2>
+    <a href="{{ section.settings.view_all_link }}" class="maxfoot-categories__view-all">
+      {{ section.settings.view_all_text }}
+      <svg class="maxfoot-categories__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </a>
+  </div>
+
+  <div class="maxfoot-categories__grid">
+    {% for block in section.blocks %}
+      {% case block.type %}
+        {% when 'category_card' %}
+          <a
+            href="{{ block.settings.link }}"
+            class="maxfoot-category-card"
+            {{ block.shopify_attributes }}
+          >
+            <div class="maxfoot-category-card__image-wrapper">
+              {% if block.settings.image != blank %}
+                {{
+                  block.settings.image
+                  | image_url: width: 800
+                  | image_tag:
+                    class: 'maxfoot-category-card__image',
+                    alt: block.settings.title,
+                    widths: '400, 600, 800',
+                    sizes: '(min-width: 768px) 33vw, 100vw',
+                    loading: 'lazy'
+                }}
+              {% else %}
+                <div class="maxfoot-category-card__placeholder"></div>
+              {% endif %}
+              <div class="maxfoot-category-card__overlay"></div>
+            </div>
+            <div class="maxfoot-category-card__content">
+              <h3 class="maxfoot-category-card__title">{{ block.settings.title }}</h3>
+              <p class="maxfoot-category-card__description">{{ block.settings.description }}</p>
+            </div>
+          </a>
+      {% endcase %}
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .maxfoot-categories {
+    padding: 120px 24px;
+    background-color: var(--color-background, #f9f9f9);
+  }
+
+  .maxfoot-categories__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 48px;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .maxfoot-categories__title {
+    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-foreground-heading, #1a1c1c);
+    margin: 0;
+  }
+
+  .maxfoot-categories__view-all {
+    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
+    font-size: 0.875rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-foreground, #1a1c1c);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    padding-bottom: 0.25rem;
+  }
+
+  .maxfoot-categories__view-all:hover {
+    color: var(--color-primary, #ffc426);
+    border-bottom-color: var(--color-primary, #ffc426);
+  }
+
+  .maxfoot-categories__arrow {
+    width: 20px;
+    height: 20px;
+  }
+
+  .maxfoot-categories__grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 24px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    .maxfoot-categories__grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  .maxfoot-category-card {
+    position: relative;
+    display: block;
+    height: 500px;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    background-color: var(--color-surface, #eeeeee);
+  }
+
+  .maxfoot-category-card__image-wrapper {
+    position: absolute;
+    inset: 0;
+  }
+
+  .maxfoot-category-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.7s ease;
+  }
+
+  .maxfoot-category-card:hover .maxfoot-category-card__image {
+    transform: scale(1.05);
+  }
+
+  .maxfoot-category-card__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      to top,
+      rgba(26, 28, 28, 0.95) 0%,
+      rgba(26, 28, 28, 0.5) 50%,
+      transparent 100%
+    );
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+  }
+
+  .maxfoot-category-card:hover .maxfoot-category-card__overlay {
+    opacity: 0.9;
+  }
+
+  .maxfoot-category-card__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 24px;
+    z-index: 1;
+  }
+
+  .maxfoot-category-card__title {
+    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
+    font-size: 2rem;
+    font-weight: 600;
+    line-height: 1.3;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 0.5rem;
+    transition: color 0.3s ease;
+  }
+
+  .maxfoot-category-card:hover .maxfoot-category-card__title {
+    color: var(--color-primary, #ffc426);
+  }
+
+  .maxfoot-category-card__description {
+    font-family: var(--font-body-family, 'Lexend', sans-serif);
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #e8e8e8;
+    margin: 0;
+  }
+
+  .maxfoot-category-card__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #eeeeee 0%, #dadada 100%);
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-categories {
+      padding: 80px 16px;
+    }
+
+    .maxfoot-categories__header {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .maxfoot-category-card {
+      height: 350px;
+    }
+
+    .maxfoot-category-card__title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Maxfoot Categories",
+  "tag": "section",
+  "class": "maxfoot-categories-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "Featured Categories"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Link Text",
+      "default": "View All"
+    },
+    {
+      "type": "text",
+      "id": "view_all_link",
+      "label": "View All Link",
+      "default": "/collections/all"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "maxfoot-light"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "category_card",
+      "name": "Category Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Category Title",
+          "default": "Mountain"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Dominate the roughest trails with advanced suspension."
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Category Image"
+        },
+        {
+          "type": "text",
+          "id": "link",
+          "label": "Link",
+          "default": "/collections/mountain"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot Categories",
+      "blocks": [
+        {
+          "type": "category_card",
+          "settings": {
+            "title": "Mountain",
+            "description": "Dominate the roughest trails with advanced suspension.",
+            "link": "/collections/mountain"
+          }
+        },
+        {
+          "type": "category_card",
+          "settings": {
+            "title": "Cruisers",
+            "description": "Effortless style and comfort for urban exploration.",
+            "link": "/collections/cruisers"
+          }
+        },
+        {
+          "type": "category_card",
+          "settings": {
+            "title": "Cargo",
+            "description": "Built for heavy loads and uncompromising utility.",
+            "link": "/collections/cargo"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

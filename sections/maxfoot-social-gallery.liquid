@@ -1,0 +1,182 @@
+{% comment %}
+  Maxfoot Social Gallery Section
+  Instagram-style grid showcasing rider photos
+{% endcomment %}
+
+<section
+  id="MaxfootGallery-{{ section.id }}"
+  class="maxfoot-gallery color-{{ section.settings.color_scheme }}"
+>
+  <div class="maxfoot-gallery__header">
+    <h2 class="maxfoot-gallery__title">{{ section.settings.title }}</h2>
+    <p class="maxfoot-gallery__handle">{{ section.settings.instagram_handle }}</p>
+  </div>
+
+  <div class="maxfoot-gallery__grid">
+    {% for i in (1..4) %}
+      {% assign image_key = 'image_' | append: i %}
+      {% assign image = section.settings[image_key] %}
+      <div class="maxfoot-gallery__item">
+        {% if image != blank %}
+          {{
+            image
+            | image_url: width: 600
+            | image_tag:
+              class: 'maxfoot-gallery__image',
+              alt: 'Rider photo',
+              widths: '300, 450, 600',
+              sizes: '(min-width: 768px) 25vw, 50vw',
+              loading: 'lazy'
+          }}
+        {% else %}
+          <div class="maxfoot-gallery__placeholder"></div>
+        {% endif %}
+      </div>
+    {% endfor %}
+  </div>
+</section>
+
+<style>
+  .maxfoot-gallery {
+    padding: 120px 24px;
+    background-color: var(--color-background, #f9f9f9);
+    text-align: center;
+  }
+
+  .maxfoot-gallery__header {
+    margin-bottom: 48px;
+  }
+
+  .maxfoot-gallery__title {
+    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: var(--color-foreground-heading, #1a1c1c);
+    margin: 0 0 0.5rem;
+  }
+
+  .maxfoot-gallery__handle {
+    font-family: var(--font-body-family, 'Lexend', sans-serif);
+    font-size: 1rem;
+    color: var(--color-foreground, #1a1c1c);
+    margin: 0;
+    opacity: 0.7;
+  }
+
+  .maxfoot-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  @media screen and (min-width: 768px) {
+    .maxfoot-gallery__grid {
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+  }
+
+  .maxfoot-gallery__item {
+    aspect-ratio: 1;
+    overflow: hidden;
+    border-radius: 0.5rem;
+    background-color: var(--color-surface, #eeeeee);
+  }
+
+  .maxfoot-gallery__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+
+  .maxfoot-gallery__item:hover .maxfoot-gallery__image {
+    transform: scale(1.05);
+  }
+
+  .maxfoot-gallery__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #eeeeee 0%, #e8e8e8 100%);
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-gallery {
+      padding: 80px 16px;
+    }
+
+    .maxfoot-gallery__header {
+      margin-bottom: 2rem;
+    }
+
+    .maxfoot-gallery__title {
+      font-size: 1.75rem;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Maxfoot Social Gallery",
+  "tag": "section",
+  "class": "maxfoot-gallery-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Join The Ride"
+    },
+    {
+      "type": "text",
+      "id": "instagram_handle",
+      "label": "Instagram Handle",
+      "default": "@MAXFOOT_EBIKES"
+    },
+    {
+      "type": "header",
+      "content": "Images"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_1",
+      "label": "Image 1"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_2",
+      "label": "Image 2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_3",
+      "label": "Image 3"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_4",
+      "label": "Image 4"
+    },
+    {
+      "type": "header",
+      "content": "Appearance"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color scheme",
+      "default": "maxfoot-light"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot Social Gallery"
+    }
+  ]
+}
+{% endschema %}
