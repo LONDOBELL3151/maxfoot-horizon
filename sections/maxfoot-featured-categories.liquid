@@ -1,7 +1,10 @@
 {% comment %}
   Maxfoot Featured Categories Section - Homepage v4
-  Three category cards with diagonal-cut, hover effects, and stats
+  Three category cards displaying products from selected collection
 {% endcomment %}
+
+{%- assign collection = collections[section.settings.collection] -%}
+{%- assign products_to_show = section.settings.products_to_show | default: 3 -%}
 
 <section
   id="MaxfootCategories-{{ section.id }}"
@@ -17,54 +20,89 @@
     </div>
 
     <div class="maxfoot-categories__grid">
-      {% for block in section.blocks %}
-        {% case block.type %}
-          {% when 'category_card' %}
-            <a
-              href="{{ block.settings.link }}"
-              class="maxfoot-category-card"
-              {{ block.shopify_attributes }}
-            >
-              <div class="maxfoot-category-card__image-wrapper">
-                {% if block.settings.image != blank %}
-                  {{
-                    block.settings.image
-                    | image_url: width: 800
-                    | image_tag:
-                      class: 'maxfoot-category-card__image',
-                      alt: block.settings.title,
-                      widths: '400, 600, 800',
-                      sizes: '(min-width: 768px) 33vw, 100vw',
-                      loading: 'lazy'
-                  }}
-                {% else %}
-                  <div class="maxfoot-category-card__placeholder"></div>
+      {% if collection and collection.products.size > 0 %}
+        {% for product in collection.products limit: products_to_show %}
+          <a
+            href="{{ product.url }}"
+            class="maxfoot-category-card"
+          >
+            <div class="maxfoot-category-card__image-wrapper">
+              {% if product.featured_image != blank %}
+                {{
+                  product.featured_image
+                  | image_url: width: 800
+                  | image_tag:
+                    class: 'maxfoot-category-card__image',
+                    alt: product.title,
+                    widths: '400, 600, 800',
+                    sizes: '(min-width: 768px) 33vw, 100vw',
+                    loading: 'lazy'
+                }}
+              {% else %}
+                <div class="maxfoot-category-card__placeholder"></div>
+              {% endif %}
+              <div class="maxfoot-category-card__overlay"></div>
+            </div>
+            <div class="maxfoot-category-card__content">
+              {% if product.compare_at_price > product.price %}
+                <span class="maxfoot-category-card__badge">{{ 'products.product.on_sale' | t }}</span>
+              {% elsif product.tags.first %}
+                <span class="maxfoot-category-card__badge">{{ product.tags.first }}</span>
+              {% endif %}
+              <h3 class="maxfoot-category-card__title">{{ product.title }}</h3>
+              <div class="maxfoot-category-card__stats">
+                <div class="maxfoot-category-card__stat">
+                  <p class="maxfoot-category-card__stat-label">{{ 'products.product.price.label' | t | default: 'Price' }}</p>
+                  <p class="maxfoot-category-card__stat-value">
+                    {% if product.compare_at_price > product.price %}
+                      <span class="sale-price">{{ product.price | money }}</span>
+                    {% else %}
+                      {{ product.price | money }}
+                    {% endif %}
+                  </p>
+                </div>
+                {% if product.metafields.custom.peak_power %}
+                  <div class="maxfoot-category-card__stat">
+                    <p class="maxfoot-category-card__stat-label">Peak Power</p>
+                    <p class="maxfoot-category-card__stat-value">{{ product.metafields.custom.peak_power }}</p>
+                  </div>
+                {% elsif product.type %}
+                  <div class="maxfoot-category-card__stat">
+                    <p class="maxfoot-category-card__stat-label">Type</p>
+                    <p class="maxfoot-category-card__stat-value">{{ product.type }}</p>
+                  </div>
                 {% endif %}
-                <div class="maxfoot-category-card__overlay"></div>
               </div>
-              <div class="maxfoot-category-card__content">
-                {% if block.settings.badge != blank %}
-                  <span class="maxfoot-category-card__badge">{{ block.settings.badge }}</span>
-                {% endif %}
-                <h3 class="maxfoot-category-card__title">{{ block.settings.title }}</h3>
-                <div class="maxfoot-category-card__stats">
-                  {% if block.settings.stat_label_1 != blank %}
-                    <div class="maxfoot-category-card__stat">
-                      <p class="maxfoot-category-card__stat-label">{{ block.settings.stat_label_1 }}</p>
-                      <p class="maxfoot-category-card__stat-value">{{ block.settings.stat_value_1 }}</p>
-                    </div>
-                  {% endif %}
-                  {% if block.settings.stat_label_2 != blank %}
-                    <div class="maxfoot-category-card__stat">
-                      <p class="maxfoot-category-card__stat-label">{{ block.settings.stat_label_2 }}</p>
-                      <p class="maxfoot-category-card__stat-value">{{ block.settings.stat_value_2 }}</p>
-                    </div>
-                  {% endif %}
+            </div>
+          </a>
+        {% endfor %}
+      {% else %}
+        {% for i in (1..3) %}
+          <a
+            href="#"
+            class="maxfoot-category-card"
+          >
+            <div class="maxfoot-category-card__image-wrapper">
+              <div class="maxfoot-category-card__placeholder"></div>
+              <div class="maxfoot-category-card__overlay"></div>
+            </div>
+            <div class="maxfoot-category-card__content">
+              <span class="maxfoot-category-card__badge">Sample Badge</span>
+              <h3 class="maxfoot-category-card__title">Product Title {{ i }}</h3>
+              <div class="maxfoot-category-card__stats">
+                <div class="maxfoot-category-card__stat">
+                  <p class="maxfoot-category-card__stat-label">Price</p>
+                  <p class="maxfoot-category-card__stat-value">${{ 1000 | times: i }}</p>
+                </div>
+                <div class="maxfoot-category-card__stat">
+                  <p class="maxfoot-category-card__stat-label">Power</p>
+                  <p class="maxfoot-category-card__stat-value">{{ 500 | times: i }}W</p>
                 </div>
               </div>
-            </a>
-        {% endcase %}
-      {% endfor %}
+            </div>
+          </a>
+        {% endfor %}
+      {% endif %}
     </div>
   </div>
 </section>
@@ -283,6 +321,21 @@
       "default": "01"
     },
     {
+      "type": "collection",
+      "id": "collection",
+      "label": "Product Collection",
+      "info": "Select a collection to display products from"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "label": "Products to Show",
+      "min": 1,
+      "max": 6,
+      "step": 1,
+      "default": 3
+    },
+    {
       "type": "header",
       "content": "Appearance"
     },
@@ -293,102 +346,9 @@
       "default": "maxfoot-light"
     }
   ],
-  "blocks": [
-    {
-      "type": "category_card",
-      "name": "Category Card",
-      "settings": [
-        {
-          "type": "text",
-          "id": "badge",
-          "label": "Badge Text",
-          "default": "Pro Spec"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Category Title",
-          "default": "Trail Master"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Category Image"
-        },
-        {
-          "type": "text",
-          "id": "link",
-          "label": "Link",
-          "default": "/collections/mountain"
-        },
-        {
-          "type": "text",
-          "id": "stat_label_1",
-          "label": "Stat 1 Label",
-          "default": "Range"
-        },
-        {
-          "type": "text",
-          "id": "stat_value_1",
-          "label": "Stat 1 Value",
-          "default": "60mi"
-        },
-        {
-          "type": "text",
-          "id": "stat_label_2",
-          "label": "Stat 2 Label",
-          "default": "Peak Power"
-        },
-        {
-          "type": "text",
-          "id": "stat_value_2",
-          "label": "Stat 2 Value",
-          "default": "1200w"
-        }
-      ]
-    }
-  ],
   "presets": [
     {
-      "name": "Maxfoot Categories",
-      "blocks": [
-        {
-          "type": "category_card",
-          "settings": {
-            "badge": "Pro Spec",
-            "title": "Trail Master",
-            "link": "/collections/mountain",
-            "stat_label_1": "Range",
-            "stat_value_1": "60mi",
-            "stat_label_2": "Peak Power",
-            "stat_value_2": "1200w"
-          }
-        },
-        {
-          "type": "category_card",
-          "settings": {
-            "badge": "Urban Core",
-            "title": "City Phantom",
-            "link": "/collections/commuter",
-            "stat_label_1": "Speed",
-            "stat_value_1": "28mph",
-            "stat_label_2": "Weight",
-            "stat_value_2": "48lbs"
-          }
-        },
-        {
-          "type": "category_card",
-          "settings": {
-            "badge": "Heavy Duty",
-            "title": "Cargo X-Treme",
-            "link": "/collections/cargo",
-            "stat_label_1": "Payload",
-            "stat_value_1": "400lbs",
-            "stat_label_2": "Dual Bat",
-            "stat_value_2": "Ready"
-          }
-        }
-      ]
+      "name": "Maxfoot Categories"
     }
   ]
 }
