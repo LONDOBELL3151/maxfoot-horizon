@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>MAXFOOT | Engineered Series v5</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed": "#251a00",
+                        "on-primary": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c346",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-low": "#f3f3f4",
+                        "outline": "#817660",
+                        "secondary": "#5f5e5e",
+                        "surface-bright": "#f9f9f9",
+                        "inverse-primary": "#f8be1e",
+                        "tertiary": "#735c00",
+                        "secondary-fixed": "#e5e2e1",
+                        "inverse-surface": "#2f3131",
+                        "on-surface-variant": "#4f4633",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#6a5400",
+                        "surface-container": "#eeeeee",
+                        "on-secondary": "#ffffff",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#231b00",
+                        "primary-container": "#ffc426",
+                        "surface-container-lowest": "#ffffff",
+                        "on-primary-container": "#6f5200",
+                        "on-error-container": "#93000a",
+                        "error-container": "#ffdad6",
+                        "primary-fixed-dim": "#f8be1e",
+                        "surface-container-highest": "#e2e2e2",
+                        "on-secondary-fixed-variant": "#474646",
+                        "inverse-on-surface": "#f0f1f1",
+                        "surface-tint": "#785a00",
+                        "primary-fixed": "#ffdf9d",
+                        "background": "#f9f9f9",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "primary": "#785a00",
+                        "on-secondary-container": "#656464",
+                        "on-surface": "#1a1c1c",
+                        "surface-dim": "#dadada",
+                        "outline-variant": "#d3c5ac",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1c",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "secondary-container": "#e5e2e1",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "surface-container-high": "#e8e8e8",
+                        "on-tertiary": "#ffffff",
+                        "tertiary-container": "#f0c94b",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "tertiary-fixed": "#ffe086"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "stack-lg": "48px",
+                        "container-max": "1440px",
+                        "base": "8px",
+                        "stack-sm": "12px",
+                        "section-padding": "120px",
+                        "stack-md": "24px",
+                        "gutter": "24px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Space Grotesk"],
+                        "label-md": ["Space Grotesk"],
+                        "label-lg": ["Space Grotesk"],
+                        "body-md": ["Lexend"],
+                        "headline-xl": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Lexend"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                        "label-md": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                        "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                        "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                        "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                        "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { font-family: 'Lexend', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-on-surface overflow-x-hidden">
+<nav class="bg-white dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-900 docked full-width top-0 z-50 sticky">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-neutral-900 dark:text-white font-headline-lg">MAXFOOT</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-neutral-600 dark:text-neutral-400 font-medium text-sm tracking-widest uppercase hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors duration-200 font-label-md" href="#">Engineered Series</a>
+<a class="text-neutral-600 dark:text-neutral-400 font-medium text-sm tracking-widest uppercase hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors duration-200 font-label-md" href="#">Cruiser</a>
+<a class="text-neutral-600 dark:text-neutral-400 font-medium text-sm tracking-widest uppercase hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors duration-200 font-label-md" href="#">Folding</a>
+<a class="text-neutral-600 dark:text-neutral-400 font-medium text-sm tracking-widest uppercase hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors duration-200 font-label-md" href="#">Support</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="flex gap-4 items-center">
+<button class="material-symbols-outlined text-neutral-600 hover:text-yellow-500 transition-colors">search</button>
+<button class="material-symbols-outlined text-neutral-600 hover:text-yellow-500 transition-colors">shopping_cart</button>
+</div>
+<button class="hidden lg:block bg-primary-container text-on-primary-container px-6 py-2 rounded font-label-lg uppercase scale-95 active:scale-100 transition-transform">
+                    Shop Now
+                </button>
+</div>
+</div>
+</nav>
+<main class="max-w-[1440px] mx-auto px-gutter py-section-padding">
+<header class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-stack-lg items-end">
+<div class="md:col-span-5">
+<h2 class="font-headline-xl text-headline-xl text-on-surface uppercase tracking-tight">ENGINEERED SERIES</h2>
+</div>
+<div class="md:col-span-7 pb-2 border-l border-outline-variant pl-gutter">
+<p class="font-body-lg text-body-lg text-secondary max-w-2xl">
+                    Pushing the boundaries of electric mobility. Our Engineered Series combines high-performance power units with aerospace-grade materials for the ultimate riding experience.
+                </p>
+</div>
+</header>
+<section class="grid grid-cols-1 md:grid-cols-3 gap-stack-md">
+<div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full">
+<div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Rugged professional mountain electric bike with chunky tires and high-end suspension, parked on a dusty mountain trail at dawn" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCLZmhVNCqQihb_NbW5wNxY1403TQ-Ww7ElC8FJ8FP8s2OJ3zXfs2b1UfW18PZQJcjnJt_2efc7Voa2mgwFIgsi7zvfW0gEJ_RRuLCvm9H_p6VQpTsQdg8RNGaE4s_uSvpMjcmUbLYmS8ETlcf33XCGKJv-kLeB6dBnXWU-Zw6RGDsZDnpIP4HgYO4q9x9nl-hcBa592BMBhFA1Zoc49ClgQOCN6bbxVzg7N42BW3VWZQAKJlwtqjvTkLKM_gUbV7yvpcyh4fximWTe"/>
+<span class="absolute top-4 left-4 bg-on-surface text-white px-3 py-1 rounded-full font-label-md text-label-md">
+                        Pro Spec
+                    </span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-lg text-headline-lg mb-2">Trail Master</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">Unrivaled off-road performance for explorers who refuse to compromise on power.</p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20">
+<div>
+<p class="font-label-md text-label-md text-secondary uppercase">Range</p>
+<p class="font-headline-lg text-2xl text-on-surface">60mi</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-secondary uppercase">Power</p>
+<p class="font-headline-lg text-2xl text-primary">1200w</p>
+</div>
+</div>
+<button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button>
+</div>
+<div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full">
+<div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Sleek black urban e-bike with integrated lights leaning against a minimalist concrete wall in an architectural city setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAs1o1UX0KMaQxLuEIJlwRyXiBCIhzTxty3Visz16RUx-IELbN0HpM9TkVc4m_RJdOI5QIIRvRVfL3vpzxAYSAg_O2yDR7lOfGGJSGF1aWDvppsrPfb-uHTLpBAMpUYE9Yn8RVBuBaoMiGLDdu0CauPlAdoBWKx9jEZ13a81hqInu40FnJl0ubTOSzKMvxyXDj8gN7pDwne6xkkXTS24HSWYpQbhnS_-ekWbBgkO8m3ma6sWmURURH5vWCbbWc46rJyumdMomCPk1HI"/>
+<span class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md">
+                        Urban Core
+                    </span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-lg text-headline-lg mb-2">City Phantom</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">Silent, stealthy, and incredibly agile. Engineered for the high-speed urban commute.</p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20">
+<div>
+<p class="font-label-md text-label-md text-secondary uppercase">Speed</p>
+<p class="font-headline-lg text-2xl text-on-surface">28mph</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-secondary uppercase">Weight</p>
+<p class="font-headline-lg text-2xl text-primary">48lbs</p>
+</div>
+</div>
+<button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button>
+</div>
+<div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full">
+<div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]">
+<img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="Heavy duty electric cargo bike with dual racks and thick tires, loaded with gear on a bright coastal road" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAod_nEJctN9yNn-C4ZvXppiZIk6U4VnX3YwLiCnDmzrLHltUCIvUks7q_a_GkEXgepQomy-xeEpAgmusg2_MKYNWLgJSFzUtWTwKvTw1KQuhRY95BGBa-79QfSxALpLJ4WY1hQRZmee08nRqE7LPCBN-KRLPZI1sZbLCRG7XSYhuaMNw8q9L582cJI6FtvkM35P1C72JcHcRYVGdSIPjKu2m0hJ3GndyNE4m-BfDcUCkUBKnX-xr7bsBSkHJaaq8P0255Okr4nJ6UM"/>
+<span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-md text-label-md">
+                        Heavy Duty
+                    </span>
+</div>
+<div class="flex-grow">
+<h3 class="font-headline-lg text-headline-lg mb-2">Cargo X-Treme</h3>
+<p class="font-body-md text-body-md text-secondary mb-6">Maximum utility meets extreme power. The ultimate pack-mule for any adventure or job.</p>
+</div>
+<div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20">
+<div>
+<p class="font-label-md text-label-md text-secondary uppercase">Payload</p>
+<p class="font-headline-lg text-2xl text-on-surface">400lbs</p>
+</div>
+<div>
+<p class="font-label-md text-label-md text-secondary uppercase">Battery</p>
+<p class="font-headline-lg text-2xl text-primary">Dual</p>
+</div>
+</div>
+<button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button>
+</div>
+<!-- Card 4 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="Modern e-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBMj18uS_XevJUbc5p0n1nSu41jwCvDbELrOsqQKmKV89KfG9cIaIRV0B2NFLpB-V66lY7sh1SyOAuu7vSu2JcwuhWgUtVqnGmGcqUihjpOhloqLwo9kITEGVrwOL8ArVopQhoge3168-XrsxCj9XsX3yU8qlLR6mJwiWTHXwJEHwe4tHQOc4CPi6Rj5LidBo7QHSjTzXD8JBiC776blLG5ofqQc8vjnyzVHUxCEco1Zc2_RXkYZzbv7-rKuYlR8qKZyIjqrwoSCOBW"/><span class="absolute top-4 left-4 bg-on-surface text-white px-3 py-1 rounded-full font-label-md text-label-md">Elite Edition</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Summit Peak</h3><p class="font-body-md text-body-md text-secondary mb-6">Climb higher with advanced torque sensors and mountain-grade battery tech.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Range</p><p class="font-headline-lg text-2xl text-on-surface">55mi</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Power</p><p class="font-headline-lg text-2xl text-primary">1000w</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 5 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAsZOTgCHX8vQ12E0VkeN1-S7eMtO7t-d30BvXXfMZCBBGP4o1aVlsEqSB6Uzrnf6W_sBDqB2-mXUVoZH9aHOdYVCqLHGQmQpd6vSfg8P94xrpbi5GceHJ0rA3JBnUTkuB_gMqYoRYiHGZleouv3Pr-hnMtei1EaaQBJFAIsc-KaAYCaMOs1pHUnRNM9TXZZEua2_Otq2TZ_Ca6RWDJZGpZlbOwk5k3NLuNuVu3EwYmkcJaHOYF3Up6R1t2kGaJShcOALG6gyFjZcqy"/><span class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md">Urban Pro</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Metro Glide</h3><p class="font-body-md text-body-md text-secondary mb-6">The perfect balance of style and efficiency for the daily city explorer.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Speed</p><p class="font-headline-lg text-2xl text-on-surface">25mph</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Weight</p><p class="font-headline-lg text-2xl text-primary">42lbs</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 6 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNKCnEtI5sF51ktX42QPO4HyM4cmvu0M5PBQCXbLHt2ZRpqCnSVUO6krPfSFF5GGgl2jVDQAqX-lrIy4Ii_eFfwOzRU0D4oIM2-DLlRac96YfrfOjzbD2ut1RacB4XaQTpqow6NFghI2iU4gzTWqhgV1RJ8Vph3dbjiTO8w5W5Jld5kOSwG14mArGIuTputp_d263OSc9tqsKFjSG9v1gMkg6UUqas2idQGZo_P26gd8hsXuY1WOtCbEqxZTmiP5jXOji3ttaoa2q3"/><span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-md text-label-md">Rugged Pack</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Terra Hauler</h3><p class="font-body-md text-body-md text-secondary mb-6">A heavy-duty beast built to carry your dreams across any terrain.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Payload</p><p class="font-headline-lg text-2xl text-on-surface">350lbs</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Battery</p><p class="font-headline-lg text-2xl text-primary">720Wh</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 7 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-ALCOs1WWBZttSyCF1xtHWCITzDYG9cCDQ1ef1UpScX1JOBLH05727b4zJ2DSf2XSHg_SuUOvV9d-h1AKZ7nTZ4-gAaHZueL9QqXMFI81oNTDkFq6yuxHMGzNiIvl4-kgIGVHhL-Y8S0M5JriSep5_nisAkV-Nts-mr_wNOrfqJCMieR0SVFuYtXsrKy3QbZ1Y1EqHnaevPv9pO8eD62I8Im036xEzEz8OmHp7Z0pwEsHR92ZGexrusc5NCU2V0IKYOZltm6QN8qs"/><span class="absolute top-4 left-4 bg-on-surface text-white px-3 py-1 rounded-full font-label-md text-label-md">Stealth Black</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Dark Matter</h3><p class="font-body-md text-body-md text-secondary mb-6">Minimalist aesthetics meet maximalist performance in this matte frame.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Range</p><p class="font-headline-lg text-2xl text-on-surface">65mi</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Power</p><p class="font-headline-lg text-2xl text-primary">750w</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 8 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCycVXmR7xt-uE3qaXMGCCxuEj8tgIDgo4avc78nHX_qLEhaUfi0ajH9G3C3rRca_rOSeGTS3_a8Wj-hwd1eKg2QAZlp320fkBNzgcjjhXQIirxUzbyaDvRwWHu5Pf-kjk5y4X0bJFV6CNFMDBQE-Vdej7kSPA_yWPhGIJMgkKqap7VTzC9BBA_CiMr1ePWWFAZq-gsAwU4rkIxK4iZ_VRMExJV3J3lNpLrtbShsoaN47K8Wuwrk9G1nW35sV6Vm6jP0V2eGQ9Ie6Sa"/><span class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md">Touring</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Horizon Voyager</h3><p class="font-body-md text-body-md text-secondary mb-6">Designed for the long haul with ergonomic grips and long-range cells.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Range</p><p class="font-headline-lg text-2xl text-on-surface">80mi</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Weight</p><p class="font-headline-lg text-2xl text-primary">52lbs</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 9 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDDl16yEaEqgVJ_qjmsJ5KmS1Q_DVdOEIl0CXiFj1y7hOWP3PNTobUW8itCt7z5XcmLCgQSwYecAmvTcnmuqiyl7RzPKg9emdBn0P8iF2GXJ2VRzjLcm0vTlNkEWtM-T7axM35-AM6E_nr9SRCd9dgq7lQCtgwOGDTQVK5Is4rPSzI9hL2lv2EDaaDzK0QmAQ13wTnNZ1oztV6zjFGmZWgNsYskJcd2JiKQtgLXNPAJfcE9ivQMiQsqKyrwZxDzGXJCpeCpc0T4chcG"/><span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-md text-label-md">Workforce</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Jobsite Juggernaut</h3><p class="font-body-md text-body-md text-secondary mb-6">The ultimate tool for the working professional on two wheels.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Payload</p><p class="font-headline-lg text-2xl text-on-surface">450lbs</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Battery</p><p class="font-headline-lg text-2xl text-primary">Triple</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 10 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBJYqDetjw9Ce69NN3AHcIcWCPF2kK3ao3HsCQitgr9kDdvcG8qfavZ3pLi908euI7OEfPgTq1BxFyjwsQU6V8fZaTeWCv0kqD7u4l6iFAAPqq7x7TcZclsvEO4wiVSZWnaNdUqEYx-F4dVSwV_sgXhFsqa5rXcEovyt8JGqiPnABCfOkNLYDFTM4cggofxiJkE-_yZtBybfq5CER2CRLuQMnz5QM54EKxHYBm21p-Q0HyUpIj4MRJfM16vRtICiHWMxkaJQ-c8cqn0"/><span class="absolute top-4 left-4 bg-on-surface text-white px-3 py-1 rounded-full font-label-md text-label-md">Sport</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Velocity RX</h3><p class="font-body-md text-body-md text-secondary mb-6">Speed redefined with a carbon fiber frame and precision components.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Speed</p><p class="font-headline-lg text-2xl text-on-surface">32mph</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Power</p><p class="font-headline-lg text-2xl text-primary">1500w</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 11 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuACdc5mMWTDgmIfZFkmb4Bo-pjm8UvQQDIk1XrcFmxI3bTbCjdSqz8KqLvUE9jwiidC6tKXEZa2_B8odNTfkGdDO2P6i8YBPRK3WtVKhetBZZ7BkihDsrVbEIZLIN7zvCm9s-x7f6D0HyL0hCnJ-w9xWClYqKY8WEkTGhWQnJtdFWz3IVxySfu6cgJEQOtt4xIYE31ntlRyqblP5I8c4e0v3IBFBJGxhIksCod-jwnlCU-Jw68p8phlnNkvJRMIHBFyAnAqUiS3Z1K8"/><span class="absolute top-4 left-4 bg-primary-container text-on-primary-container px-3 py-1 rounded-full font-label-md text-label-md">Lifestyle</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Coastline Cruiser</h3><p class="font-body-md text-body-md text-secondary mb-6">Relaxed geometry for scenic rides along the boardwalk or beach.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Range</p><p class="font-headline-lg text-2xl text-on-surface">50mi</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Weight</p><p class="font-headline-lg text-2xl text-primary">45lbs</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div><!-- Card 12 --><div class="group bg-white rounded-xl border border-outline-variant/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full"><div class="relative overflow-hidden rounded-xl bg-surface mb-stack-md aspect-[4/3]"><img alt="E-bike" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCeqpwxcee_f5GA5gMOByTEISB7_91lrJ2QFFIF6yA0xz9qrkLH366eWOr3mnhw-tjw9NpTKY8IKHe_MYIbQ-BYaqrbMFZj_q_vVliL_6ntuO_7MKNLnRzk0tLI_v3nICIwMRll6dojaLi3nfFwbI9RXBAzNjxEoNPg9kOLEUiBGHWYHC7CD8Qpc37864X-3H8XXceetwyidmcMAlQZPLmY4DV1ycd0TmJEZbf32jRnD448vZnnf1Tr2W6iZcw0g0rCJbyNRGv5YF-U"/><span class="absolute top-4 left-4 bg-tertiary-container text-on-tertiary-container px-3 py-1 rounded-full font-label-md text-label-md">Heavy Utility</span></div><div class="flex-grow"><h3 class="font-headline-lg text-headline-lg mb-2">Atlas Carrier</h3><p class="font-body-md text-body-md text-secondary mb-6">Unmatched cargo capacity for grocery hauls or camping gear.</p></div><div class="grid grid-cols-2 gap-4 pt-6 border-t border-outline-variant/20"><div><p class="font-label-md text-label-md text-secondary uppercase">Payload</p><p class="font-headline-lg text-2xl text-on-surface">500lbs</p></div><div><p class="font-label-md text-label-md text-secondary uppercase">Battery</p><p class="font-headline-lg text-2xl text-primary">Dual Plus</p></div></div><button class="mt-6 w-full py-4 bg-on-surface text-white font-label-lg uppercase rounded-lg group-hover:bg-primary-container group-hover:text-on-primary-container transition-colors">Add to Cart</button></div></section>
+</main>
+<footer class="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 full-width py-20 mt-32">
+<div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+<div class="col-span-2">
+<div class="text-xl font-bold text-neutral-900 dark:text-white font-headline-lg mb-6">MAXFOOT</div>
+<p class="text-neutral-500 dark:text-neutral-400 text-sm mb-8 font-body-md">
+                    Engineered for high-performance adventure and sustainable urban mobility. Designed in the USA.
+                </p>
+<div class="flex gap-4">
+<span class="material-symbols-outlined text-neutral-400 hover:text-primary transition-colors cursor-pointer">public</span>
+<span class="material-symbols-outlined text-neutral-400 hover:text-primary transition-colors cursor-pointer">share</span>
+<span class="material-symbols-outlined text-neutral-400 hover:text-primary transition-colors cursor-pointer">mail</span>
+</div>
+</div>
+<div class="flex flex-col gap-4">
+<p class="font-headline-lg text-sm text-neutral-900 dark:text-white uppercase tracking-widest">Support</p>
+<a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="#">Tech Specs</a>
+<a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="#">Warranty</a>
+<a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="#">Contact Us</a>
+</div>
+<div class="flex flex-col gap-4">
+<p class="font-headline-lg text-sm text-neutral-900 dark:text-white uppercase tracking-widest">Company</p>
+<a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="#">Dealer Locator</a>
+<a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="#">Privacy Policy</a>
+<a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="#">Terms of Service</a>
+</div>
+<div class="col-span-2 lg:col-span-2">
+<p class="font-headline-lg text-sm text-neutral-900 dark:text-white uppercase tracking-widest mb-6">Newsletter</p>
+<div class="flex gap-2">
+<input class="bg-transparent border-b-2 border-neutral-300 dark:border-neutral-700 py-2 w-full focus:outline-none focus:border-primary transition-colors text-sm font-label-md" placeholder="ENTER EMAIL" type="email"/>
+<button class="bg-on-surface text-white p-2 flex items-center justify-center">
+<span class="material-symbols-outlined">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+<div class="max-w-7xl mx-auto px-8 mt-20 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+<p class="text-neutral-500 dark:text-neutral-400 text-xs font-label-md">
+                © 2024 MAXFOOT ELECTRIC BIKES. ENGINEERED FOR ADVENTURE.
+            </p>
+</div>
+</footer>
+</body></html>

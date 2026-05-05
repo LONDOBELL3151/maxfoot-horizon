@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "maxfoot-v5-blog-listing": {
+      "type": "maxfoot-v5-blog-listing",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "maxfoot-v5-blog-listing"
+  ]
+}

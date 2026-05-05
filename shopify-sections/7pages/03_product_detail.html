@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "inverse-primary": "#f8be1e",
+                        "on-error": "#ffffff",
+                        "tertiary-fixed-dim": "#e9c346",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "on-primary-container": "#6f5200",
+                        "tertiary-container": "#f0c94b",
+                        "error-container": "#ffdad6",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "on-primary": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-fixed-variant": "#474646",
+                        "primary-fixed": "#ffdf9d",
+                        "inverse-surface": "#2f3131",
+                        "on-error-container": "#93000a",
+                        "primary-container": "#ffc426",
+                        "on-surface": "#1a1c1c",
+                        "error": "#ba1a1a",
+                        "on-background": "#1a1c1c",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "surface-tint": "#785a00",
+                        "on-primary-fixed": "#251a00",
+                        "on-tertiary-container": "#6a5400",
+                        "tertiary": "#735c00",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "secondary-container": "#e5e2e1",
+                        "surface-bright": "#f9f9f9",
+                        "surface-container-high": "#e8e8e8",
+                        "outline": "#817660",
+                        "inverse-on-surface": "#f0f1f1",
+                        "outline-variant": "#d3c5ac",
+                        "surface-container-highest": "#e2e2e2",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-low": "#f3f3f4",
+                        "primary": "#785a00",
+                        "primary-fixed-dim": "#f8be1e",
+                        "secondary-fixed": "#e5e2e1",
+                        "on-tertiary": "#ffffff",
+                        "on-secondary-container": "#656464",
+                        "tertiary-fixed": "#ffe086",
+                        "secondary": "#5f5e5e",
+                        "surface": "#f9f9f9",
+                        "surface-dim": "#dadada",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-surface-variant": "#4f4633"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "stack-md": "24px",
+                        "section-padding": "120px",
+                        "stack-lg": "48px",
+                        "base": "8px",
+                        "stack-sm": "12px"
+                    },
+                    "fontFamily": {
+                        "body-md": ["Lexend"],
+                        "label-md": ["Space Grotesk"],
+                        "label-lg": ["Space Grotesk"],
+                        "headline-xl": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"],
+                        "body-lg": ["Lexend"],
+                        "display-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                    }
+                }
+            }
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary-container selection:text-on-primary-container">
+<!-- HEADER (As per SCREEN_30 Hierarchy) -->
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
+<div class="max-w-[1440px] mx-auto flex justify-between items-center px-8 h-20">
+<div class="flex items-center gap-12">
+<span class="text-2xl font-black tracking-widest text-black font-['Space_Grotesk'] uppercase">VELOCITY</span>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-yellow-500 border-b-2 border-yellow-500 pb-1 font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-sm" href="#">MODELS</a>
+<a class="text-black/70 hover:text-black transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-sm" href="#">TECHNOLOGY</a>
+<a class="text-black/70 hover:text-black transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-sm" href="#">ACCESSORIES</a>
+<a class="text-black/70 hover:text-black transition-colors font-['Space_Grotesk'] font-bold tracking-tighter uppercase text-sm" href="#">SUPPORT</a>
+</div>
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">shopping_cart</span>
+<span class="material-symbols-outlined cursor-pointer hover:text-primary transition-colors">person</span>
+<button class="md:hidden material-symbols-outlined">menu</button>
+</div>
+</div>
+</nav>
+<main class="pt-20">
+<!-- PRODUCT GALLERY -->
+<section class="max-w-[1440px] mx-auto px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white">
+<div class="lg:col-span-7">
+<div class="aspect-[16/10] bg-surface-container overflow-hidden rounded">
+<img class="w-full h-full object-cover" data-alt="A side-profile high-resolution studio shot of the MF-1000 HORIZON electric bike, featuring a sleek matte black aluminum frame with vibrant yellow accents on the hubs and seat post. The lighting is crisp and professional, highlighting the mechanical precision of the 1000W motor and the rugged off-road tires. The background is a clean, neutral off-white, emphasizing the bike's high-performance adventure aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIYeM8Zo048XseM5hZ7Z1LWxmsHI54AyP_iQyu58RnjIMC2gAHJLcp1mXa5NWNSoILM0dWjHyoCpuJDfsQIA2uFsxQktjNChSACe3rrMvTxlOupY3Vkz-Fwg0M_NfqKIBRihneaKfOvtjdUelreyucPkXXYbhnEoFnqXEf8hJx-Tny536D64h7tRFaXn1JuqD43fxfWC-vrQtHRbx_CMF6UHvQHfLeintBPoSTCo0-JMTzTFVHlMKem_CH3D4nPY5gWZE6qKF89H16"/>
+</div>
+<div class="grid grid-cols-4 gap-4 mt-4">
+<div class="aspect-square bg-surface-container rounded cursor-pointer border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="Close-up detail of the MF-1000 HORIZON's handlebar cockpit showing the smart LCD display and leather grips against a bright, minimalist background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg6G_C7k9s0l1dDk9fdgSOnkYvHIcTiRxEoefWGUNVmtOhyADf_HC8_pN6sRvMds7Pnviqaqd8gH5T_14Rm_XkZd7buA_CrTR8Uitu0sQDgY6yA78EREr4Dkepwy45vmda5g0jGLDA1KommwMu6xHiyGB-kI67DqKMdEtgbFig8t2qqnnWa4y-8TLnCU3GLzp13yO3oUA78oI0WpW6zmFI2lZigVVvF38nU5HKOoGDfC_PXURRfSI1KU9Zq-CFWYLKuPrZ7yf8bY3l"/>
+</div>
+<div class="aspect-square bg-surface-container rounded cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Rear 45-degree angle shot of the MF-1000 HORIZON eBike focusing on the integrated battery pack and heavy-duty drivetrain, clean studio lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCv0KJbOhCztDDll6dfM9K0z4pt5BElylIDQCNutIg16JNKNvA5SKXIAilwOFHZ0id5QJxlivMpZ3LkspLwSa7jdN9y1FchFJ-6HtuZRVqc41Ih8Ziz0fDbOZn9ASwCS0Hpxeon56YqLu_ZKEmObVNFRc66Riaee-Xi0Tox86-o3m-bnUCvxacON9DqZc-Y3HePL1ks5mX2VuO4j0xBPH2fKPVPLJwbopXxnruLAxCo10mtawSZTiufXz4jdYg-tL5DYtfF7EgD3mMM"/>
+</div>
+<div class="aspect-square bg-surface-container rounded cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Front view of the MF-1000 HORIZON showing the powerful LED headlight and air-suspension fork, minimalist high-key photography style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCm3cSS5OnWbKUnsohDdeRf8Pnm9wnuyLJV-XbWWMpaRCtrkXm9PvRktGFyBm6BGigdZTbHSszEpDEmroQD_D7TcuksneC03EpsDOfHmEJtSyhO-06T18JYh96Znq2AkKraoN8t52EA4XupraL8LbAcQDLIJGy5Zh_rvHCImGgGyvVnCRp9lS7pmCRszPaeOzfJ7uDa_ES8IQySvYTgX-96lthow9DxTj9kAJJrOiKyOhT0N0a0ZbJVIg28rkMSMtnk2kup_tHK7fFx"/>
+</div>
+<div class="aspect-square bg-surface-container rounded cursor-pointer hover:opacity-80 transition-opacity">
+<img class="w-full h-full object-cover" data-alt="Abstract detail of the 1000W electric motor hub on the MF-1000 HORIZON, emphasizing technical engineering and metallic textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBylJI58lPKLbBY5rZldcCuYB1gHh6rVCsv2ZAG-PFO03NOYucj1RYUrDF9pSkcDcmwS44rwofflvmV0_AOVLmksqT9ZIRk6yGnS4ERP_EtWNDz8T4LCr-Ecqmmhuw-tzgRjgxfZDduBcv9j5noXw7VYpdsUucTJ7B3ci4m80AHep03qPsFxgcSMK4N6ZO5w4e8wcDr8hFx0AutDS0iTUMwws_2DV69UNIfFlOiKW8VvtIBVQtuRkRCVdLgOuu6KMSOqMvMKJuj7dWK"/>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col justify-center">
+<div class="space-y-6">
+<div class="flex items-center gap-2">
+<span class="bg-on-surface text-primary-container px-3 py-1 text-[10px] font-bold tracking-widest uppercase">BEST SELLER</span>
+<div class="flex text-primary">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h1 class="font-headline-xl text-headline-xl uppercase tracking-tighter">MF-1000 HORIZON</h1>
+<p class="font-body-lg text-body-lg text-secondary max-w-md">Our flagship powerhouse designed for the explorer who demands zero compromises. Engineered for torque, range, and unrivaled stability.</p>
+<div class="text-4xl font-headline-xl font-black text-on-background">$3,499.00</div>
+<div class="pt-8 space-y-4">
+<p class="font-label-lg text-label-lg">SELECT COLOR</p>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-black ring-2 ring-offset-2 ring-primary"></button>
+<button class="w-10 h-10 rounded-full bg-zinc-400 ring-2 ring-offset-2 ring-transparent hover:ring-zinc-300"></button>
+<button class="w-10 h-10 rounded-full bg-zinc-100 border border-black/10 ring-2 ring-offset-2 ring-transparent hover:ring-zinc-200"></button>
+</div>
+</div>
+<div class="pt-10 flex gap-4">
+<button class="flex-1 bg-on-surface text-primary-container h-16 font-label-lg uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-black transition-all">
+                            ADD TO CART
+                            <span class="material-symbols-outlined">arrow_forward</span>
+</button>
+<button class="w-16 h-16 border border-black/10 flex items-center justify-center hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">favorite</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- KEY FEATURES HIGHLIGHTS -->
+<section class="bg-on-surface py-20">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+<div class="flex flex-col items-center text-center p-6 border border-white/10 group hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">distance</span>
+<h4 class="text-white font-label-lg text-label-lg">60+ MI RANGE</h4>
+<p class="text-zinc-500 text-[10px] mt-1 font-label-md">SAMSUNG CELLS</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 border border-white/10 group hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">speed</span>
+<h4 class="text-white font-label-lg text-label-lg">28 MPH TOP SPEED</h4>
+<p class="text-zinc-500 text-[10px] mt-1 font-label-md">CLASS 3 PERFORMANCE</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 border border-white/10 group hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">bolt</span>
+<h4 class="text-white font-label-lg text-label-lg">2HR FAST CHARGE</h4>
+<p class="text-zinc-500 text-[10px] mt-1 font-label-md">5A SMART CHARGER</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 border border-white/10 group hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">settings_input_component</span>
+<h4 class="text-white font-label-lg text-label-lg">1000W MOTOR</h4>
+<p class="text-zinc-500 text-[10px] mt-1 font-label-md">85NM PEAK TORQUE</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 border border-white/10 group hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">devices</span>
+<h4 class="text-white font-label-lg text-label-lg">SMART LCD</h4>
+<p class="text-zinc-500 text-[10px] mt-1 font-label-md">COLOR HUD</p>
+</div>
+<div class="flex flex-col items-center text-center p-6 border border-white/10 group hover:bg-white/5 transition-colors">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">architecture</span>
+<h4 class="text-white font-label-lg text-label-lg">ALU FRAME</h4>
+<p class="text-zinc-500 text-[10px] mt-1 font-label-md">AIRCRAFT GRADE 6061</p>
+</div>
+</div>
+</div>
+</section>
+<!-- PRODUCT STORY -->
+<section class="max-w-[1440px] mx-auto px-8 py-32 flex flex-col lg:flex-row items-center gap-20">
+<div class="lg:w-1/2 space-y-8">
+<h2 class="font-headline-xl text-headline-xl leading-none uppercase italic font-black">THE ENGINEERED SPIRIT</h2>
+<div class="w-24 h-2 bg-primary-container"></div>
+<p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+                    Adventure isn't just about the destination; it's about the confidence to go further. The MF-1000 HORIZON was born from a singular obsession: creating an electric platform that feels as natural as it is powerful. Every weld, every cable route, and every component choice reflects our commitment to precision engineering.
+                </p>
+<p class="font-body-lg text-body-lg text-secondary leading-relaxed">
+                    We've balanced raw 1000W torque with a refined geometry that ensures stability at high speeds, whether you're carving urban canyons or traversing rugged trailheads. This is more than a bike; it's your horizon, expanded.
+                </p>
+<button class="border border-on-background px-8 py-4 font-label-lg uppercase hover:bg-on-background hover:text-white transition-all">DISCOVER OUR TECH</button>
+</div>
+<div class="lg:w-1/2">
+<div class="relative">
+<img class="w-full aspect-square object-cover grayscale brightness-75 rounded" data-alt="An atmospheric landscape photograph of a rider on an electric bike moving through a misty forest trail at dawn. The lighting is moody and cinematic, with soft light filtering through the trees, casting long shadows. The overall aesthetic is one of high-performance adventure and serene connection with nature, mirroring the Velocity brand's sophisticated outdoor philosophy." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfbvJNp3RHK5qAIc6JjUX1m1GfHnoOnc2K6cHKtjOn7tNdWqJo2eRnFqEyVExo-HmmzgVI1APfe2C0xC55Q47xKfqRp-q8DPFPxGWY_dA_XHl8QuTuOI2SjtI2lHjzwzZLDs2Wh4qgj5YeaiSChTS4N-WJ-5lno5GKOG5o4zKmj5b-JzhuKCU9ebPVvYv-5fTH_4IKTSMtt0OQFfY_m1aFJGPPhrVE03c_hLQptIwWWEKF03Z4Nmz6yCM5aVeSTeg2RZIv4McMPFm5"/>
+<div class="absolute -bottom-8 -left-8 bg-primary-container p-12 hidden lg:block">
+<span class="text-6xl font-black font-headline-xl">2024</span>
+</div>
+</div>
+</div>
+</section>
+<!-- FULL SPECIFICATIONS -->
+<section class="bg-zinc-50 py-32">
+<div class="max-w-[1440px] mx-auto px-8">
+<h3 class="font-headline-lg text-headline-lg uppercase mb-16 text-center">TECHNICAL SPECIFICATIONS</h3>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-4">
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">MOTOR</span>
+<span class="font-body-md font-bold">1000W Hub Motor (1500W Peak)</span>
+</div>
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">BATTERY</span>
+<span class="font-body-md font-bold">48V 20Ah Samsung Lithium-Ion</span>
+</div>
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">TOP SPEED</span>
+<span class="font-body-md font-bold">28 MPH (Class 3)</span>
+</div>
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">RANGE</span>
+<span class="font-body-md font-bold">45-65 Miles per charge</span>
+</div>
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">WEIGHT</span>
+<span class="font-body-md font-bold">68 lbs (with battery)</span>
+</div>
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">PAYLOAD</span>
+<span class="font-body-md font-bold">300 lbs Maximum Capacity</span>
+</div>
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">TIRES</span>
+<span class="font-body-md font-bold">26" x 4.0" Kenda All-Terrain Fat Tires</span>
+</div>
+<div class="flex justify-between py-6 border-b border-black/5">
+<span class="font-label-lg text-secondary uppercase">BRAKES</span>
+<span class="font-body-md font-bold">Tektro Hydraulic Disc Brakes (180mm)</span>
+</div>
+</div>
+</div>
+</section>
+<!-- GEOMETRY & SIZING -->
+<section class="max-w-[1440px] mx-auto px-8 py-32 text-center">
+<h3 class="font-headline-lg text-headline-lg uppercase mb-4">GEOMETRY &amp; SIZING</h3>
+<p class="font-body-lg text-secondary mb-16">Find the perfect fit for your riding style.</p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div>
+<img class="w-full grayscale brightness-90 rounded" data-alt="A technical blueprint-style illustration of an electric bike frame against a clean white background. Subtle yellow measurement lines indicate seat height, reach, and stand-over height. The style is modern, technical, and minimalist, emphasizing the precision engineering of the bike's design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHUsAsTZCVxyI7psa8RQZj4IMU8hFph7MN1tak3RROjParKr8U61eZ2LOJMUQmmjoUrnkIQpmILY3GFKQr470-JJp8hV6soDIV8OmsGohnPgA5Bl59Q7HtEknMhq2CEcoClRYF9i3ED4VaKor2zkCAfTsO8akM1hpn9oAOk-3tmcc_h4y0nij5j6KoSAPRj0NLutp9EilrdkGdx6JdO0aPI-cXECacr81bbFzMK_aAhQKFnGY83leiR9k7vMzbSbqCk5uZKgR8KMxM"/>
+</div>
+<div class="text-left space-y-8">
+<div class="border-l-4 border-primary-container pl-6">
+<h5 class="font-headline-lg text-xl uppercase mb-2">STANDARD FRAME</h5>
+<p class="font-body-md text-secondary">Optimized for riders 5'4" to 6'0".</p>
+</div>
+<div class="border-l-4 border-zinc-200 pl-6">
+<h5 class="font-headline-lg text-xl uppercase mb-2 text-zinc-400">TALL FRAME</h5>
+<p class="font-body-md text-secondary">Designed for riders 6'1" to 6'6".</p>
+</div>
+<table class="w-full mt-8">
+<thead>
+<tr class="border-b-2 border-on-background">
+<th class="text-left py-4 font-label-lg uppercase">DIMENSION</th>
+<th class="text-center py-4 font-label-lg uppercase">STD</th>
+<th class="text-center py-4 font-label-lg uppercase">TALL</th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr class="border-b border-black/5">
+<td class="py-4 text-secondary">A: Seat Height</td>
+<td class="py-4 text-center">32" - 38"</td>
+<td class="py-4 text-center">34" - 40"</td>
+</tr>
+<tr class="border-b border-black/5">
+<td class="py-4 text-secondary">B: Reach</td>
+<td class="py-4 text-center">16.5"</td>
+<td class="py-4 text-center">18"</td>
+</tr>
+<tr class="border-b border-black/5">
+<td class="py-4 text-secondary">C: Total Length</td>
+<td class="py-4 text-center">74"</td>
+<td class="py-4 text-center">76"</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- WHAT'S IN THE BOX -->
+<section class="bg-on-surface py-20">
+<div class="max-w-[1440px] mx-auto px-8">
+<h3 class="font-headline-lg text-headline-lg text-white uppercase mb-16 text-center">WHAT'S IN THE BOX</h3>
+<div class="grid grid-cols-2 md:grid-cols-5 gap-8">
+<div class="flex flex-col items-center text-white gap-4">
+<div class="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-container">pedal_bike</span>
+</div>
+<span class="font-label-lg uppercase tracking-widest text-center">MF-1000 EBIKE</span>
+</div>
+<div class="flex flex-col items-center text-white gap-4">
+<div class="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-container">battery_charging_full</span>
+</div>
+<span class="font-label-lg uppercase tracking-widest text-center">48V BATTERY</span>
+</div>
+<div class="flex flex-col items-center text-white gap-4">
+<div class="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-container">power</span>
+</div>
+<span class="font-label-lg uppercase tracking-widest text-center">SMART CHARGER</span>
+</div>
+<div class="flex flex-col items-center text-white gap-4">
+<div class="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-container">handyman</span>
+</div>
+<span class="font-label-lg uppercase tracking-widest text-center">MULTI-TOOL</span>
+</div>
+<div class="flex flex-col items-center text-white gap-4">
+<div class="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
+<span class="material-symbols-outlined text-4xl text-primary-container">menu_book</span>
+</div>
+<span class="font-label-lg uppercase tracking-widest text-center">OWNER MANUAL</span>
+</div>
+</div>
+</div>
+</section>
+<!-- REAL RIDER REVIEWS -->
+<section class="max-w-[1440px] mx-auto px-8 py-32">
+<div class="flex justify-between items-end mb-16">
+<div>
+<h3 class="font-headline-lg text-headline-lg uppercase">RIDER PERSPECTIVES</h3>
+<p class="text-secondary mt-2">Verified stories from the trail.</p>
+</div>
+<div class="flex gap-4">
+<button class="w-12 h-12 border border-black/10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 border border-black/10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<div class="p-8 bg-surface-container-low rounded border border-black/[0.05]">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-background leading-relaxed mb-6 italic">"The torque on this machine is actually frightening in a good way. I climb hills now that I used to struggle with on my mountain bike. Build quality is exceptional."</p>
+<div>
+<p class="font-label-lg uppercase">MARCUS V.</p>
+<p class="text-xs text-zinc-400">Verified Owner</p>
+</div>
+</div>
+<div class="p-8 bg-surface-container-low rounded border border-black/[0.05]">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<p class="font-body-md text-on-background leading-relaxed mb-6 italic">"Living in Seattle, I needed something reliable in the rain. The hydraulic brakes and integrated lights make me feel safe during my night commutes. 10/10."</p>
+<div>
+<p class="font-label-lg uppercase">SARAH K.</p>
+<p class="text-xs text-zinc-400">Verified Owner</p>
+</div>
+</div>
+<div class="p-8 bg-surface-container-low rounded border border-black/[0.05]">
+<div class="flex text-primary mb-6">
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star_half</span>
+</div>
+<p class="font-body-md text-on-background leading-relaxed mb-6 italic">"Range is exactly as advertised. I got 58 miles on my first charge with moderate pedaling. The yellow accents look even better in person."</p>
+<div>
+<p class="font-label-lg uppercase">DAVID L.</p>
+<p class="text-xs text-zinc-400">Verified Owner</p>
+</div>
+</div>
+</div>
+</section>
+<!-- FAQ ACCORDION -->
+<section class="bg-zinc-50 py-32">
+<div class="max-w-[800px] mx-auto px-8">
+<h3 class="font-headline-lg text-headline-lg uppercase text-center mb-16">FREQUENTLY ASKED</h3>
+<div class="space-y-4">
+<div class="bg-white border border-black/10">
+<button class="w-full flex justify-between items-center px-8 py-6 text-left group">
+<span class="font-label-lg uppercase">How fast can it really go?</span>
+<span class="material-symbols-outlined text-primary transition-transform group-hover:rotate-45">add</span>
+</button>
+</div>
+<div class="bg-white border border-black/10">
+<button class="w-full flex justify-between items-center px-8 py-6 text-left group">
+<span class="font-label-lg uppercase">What is the battery life expectancy?</span>
+<span class="material-symbols-outlined text-primary transition-transform group-hover:rotate-45">add</span>
+</button>
+</div>
+<div class="bg-white border border-black/10">
+<button class="w-full flex justify-between items-center px-8 py-6 text-left group">
+<span class="font-label-lg uppercase">How much assembly is required?</span>
+<span class="material-symbols-outlined text-primary transition-transform group-hover:rotate-45">add</span>
+</button>
+</div>
+<div class="bg-white border border-black/10">
+<button class="w-full flex justify-between items-center px-8 py-6 text-left group">
+<span class="font-label-lg uppercase">Shipping timeframes?</span>
+<span class="material-symbols-outlined text-primary transition-transform group-hover:rotate-45">add</span>
+</button>
+</div>
+</div>
+</div>
+</section>
+<!-- COMPARE MODELS -->
+<section class="max-w-[1440px] mx-auto px-8 py-32">
+<h3 class="font-headline-lg text-headline-lg uppercase text-center mb-16">FIND YOUR VELOCITY</h3>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="bg-on-surface text-white">
+<th class="p-8 text-left font-label-lg uppercase">FEATURE</th>
+<th class="p-8 text-center font-label-lg uppercase bg-primary-container text-on-surface">MF-1000 HORIZON</th>
+<th class="p-8 text-center font-label-lg uppercase">MF-19 ELITE</th>
+<th class="p-8 text-center font-label-lg uppercase">MF-17 CORE</th>
+</tr>
+</thead>
+<tbody class="font-body-md">
+<tr class="border-b border-black/10">
+<td class="p-8 font-bold">Motor Power</td>
+<td class="p-8 text-center bg-zinc-50 font-black">1000W</td>
+<td class="p-8 text-center">750W</td>
+<td class="p-8 text-center">500W</td>
+</tr>
+<tr class="border-b border-black/10">
+<td class="p-8 font-bold">Max Torque</td>
+<td class="p-8 text-center bg-zinc-50 font-black">85 Nm</td>
+<td class="p-8 text-center">65 Nm</td>
+<td class="p-8 text-center">50 Nm</td>
+</tr>
+<tr class="border-b border-black/10">
+<td class="p-8 font-bold">Battery Capacity</td>
+<td class="p-8 text-center bg-zinc-50 font-black">960 Wh</td>
+<td class="p-8 text-center">720 Wh</td>
+<td class="p-8 text-center">528 Wh</td>
+</tr>
+<tr class="border-b border-black/10">
+<td class="p-8 font-bold">Price</td>
+<td class="p-8 text-center bg-zinc-50 font-black">$3,499</td>
+<td class="p-8 text-center">$2,799</td>
+<td class="p-8 text-center">$1,999</td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<!-- RELATED PRODUCTS -->
+<section class="bg-white py-32 border-t border-black/5">
+<div class="max-w-[1440px] mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<h3 class="font-headline-lg text-headline-lg uppercase">ESSENTIAL GEAR</h3>
+<a class="font-label-lg text-primary uppercase underline underline-offset-8" href="#">VIEW ALL ACCESSORIES</a>
+</div>
+<div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container overflow-hidden rounded mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A minimalist studio photograph of a premium matte black cycling helmet with carbon fiber accents. The lighting is high-contrast, emphasizing the aerodynamic curves and ventilation ports. It sits on a polished white surface, projecting a sense of high-tech safety and professional cycling gear." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdXebrUisMyEkt2cBpV5XN1pufHCp4L2Ix4u9WU9G5EOHVFDqRodrxCsejk9YmgWaYXL3giDw4vYPwQFOLRQol60fYJY5MuFGWEkFeXmhVf707q4GY2sUdO-GfghP737or7Z5FyQXkrESLnv_vH7rhNHrDnRYn-FW2mI1D1pP6TkSVgQAivomIkiKC2qPO76Z0bEzhYnvc-AigzZogNVOlIwS4aPbyCWZkvlZ2Yw1aKcyyqrqSf2QKKqbqYeby2PAJEGnbVrXu-Mil"/>
+</div>
+<h4 class="font-label-lg uppercase mb-2">STEALTH MIPS HELMET</h4>
+<p class="font-headline-xl text-lg">$189.00</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container overflow-hidden rounded mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A durable, water-resistant heavy-duty pannier bag in dark grey canvas with bright yellow interior lining. The bag is shown in a professional studio setting with clean lighting that highlights the rugged stitching and metallic mounting clips. The design feels technical and expedition-ready." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBN7dLIc3JsUWQXWs42IjBnp2WBlMIr4AW2xjqfLYBfbjhU4Ucqkartnx-eYtJb9ogPK3FfG3Htza8LIxwcBuo8T-dH19hDOibz8BNCBjWAfxoTRsOTXlYa4OkZNOPCP7h3UXChFIsDWNPNoZG9EvfvQOxjv53TbE79El4nNy6API5C_MNkyj-DPP6tHRQFQeM-8JAWcq5JXQAdEJNEb5-q-cpab7og6x6YFxjEcpNLf_oXzEo4Xm1BX-NNX0x3eqgbd_IZhZbJ4RyL"/>
+</div>
+<h4 class="font-label-lg uppercase mb-2">EXPEDITION PANNIERS</h4>
+<p class="font-headline-xl text-lg">$120.00</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container overflow-hidden rounded mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A high-security heavy-duty U-lock made of hardened steel with a matte black rubber coating and yellow branding details. Photographed in a sharp, minimalist style that emphasizes its industrial strength and theft-deterrent properties. The mood is one of uncompromising security and quality." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-5N_SXvhKDeXpKY1VXoIRz9lOYDjpv7tF4xG4GsGGULi8k10Z8a8hhGzmTYWIq_lN9HGQ5bYtf3oZnPvwf6oZKcTux5-TEM61cFt2QMidsXd5falA3_TFDWh3q_nKWqUO2eXPKQTGiTsaW56BYCFtkJAp8qJDjMSvUZsVSWZiSnuRuM76YtQriQdDg1EZuBtmDOx_BWZtEr0Kdh16ddgBV-N9IlkvAvbC5rtrQs0QwcFS9gzT9IwyY4C9KtINaAnMAjBlenm_mxqR"/>
+</div>
+<h4 class="font-label-lg uppercase mb-2">TITAN CHAIN LOCK</h4>
+<p class="font-headline-xl text-lg">$95.00</p>
+</div>
+<div class="group cursor-pointer">
+<div class="aspect-square bg-surface-container overflow-hidden rounded mb-6">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A technical performance cycling jacket in deep charcoal grey with reflective yellow trim along the zippers. The fabric texture appears high-end and breathable. It is displayed in a minimalist gallery style with cool lighting that accentuates the athletic, high-performance tailoring of the garment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA6EKXoDKHH9ucg3NF_9ajvlGycC5Qbo1r26ek3DRMBgMyQkmaBL-zh5Qksza6i4mLTUANWTets__f7pDBLY807WCNvzqo3udMh8qmNnBQJq9C66AcAC0pPKOYEM_ul7n8pFxfSIhbvBSCxxP17TxLVLW0Gjh21nkkv6Xx8UHeOXnhkstRsNd1QKCDN2e2QZBErVgj8XYO0RZNu7X_3eDZlUFXXzew5RaiU3H-KPClzJgtNwefFTed6OSqvJ8xPG_mZaSWgCFjJBawe"/>
+</div>
+<h4 class="font-label-lg uppercase mb-2">AERO-DRY JACKET</h4>
+<p class="font-headline-xl text-lg">$245.00</p>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- FOOTER -->
+<footer class="bg-zinc-50 dark:bg-zinc-950 w-full py-12 border-t border-black/10 dark:border-white/10">
+<div class="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="flex flex-col items-center md:items-start">
+<span class="text-lg font-bold text-black dark:text-white font-['Space_Grotesk']">VELOCITY</span>
+<p class="text-zinc-500 text-[10px] tracking-[0.2em] font-['Space_Grotesk'] mt-2 uppercase">© 2024 VELOCITY ELECTRIC. PRECISION ENGINEERING.</p>
+</div>
+<div class="flex gap-8">
+<a class="text-zinc-500 hover:text-yellow-500 underline-offset-4 hover:underline text-[10px] tracking-[0.2em] font-['Space_Grotesk'] uppercase" href="#">PRIVACY</a>
+<a class="text-zinc-500 hover:text-yellow-500 underline-offset-4 hover:underline text-[10px] tracking-[0.2em] font-['Space_Grotesk'] uppercase" href="#">WARRANTY</a>
+<a class="text-zinc-500 hover:text-yellow-500 underline-offset-4 hover:underline text-[10px] tracking-[0.2em] font-['Space_Grotesk'] uppercase" href="#">DEALER LOCATOR</a>
+<a class="text-zinc-500 hover:text-yellow-500 underline-offset-4 hover:underline text-[10px] tracking-[0.2em] font-['Space_Grotesk'] uppercase" href="#">CONTACT</a>
+</div>
+</div>
+</footer>
+</body></html>

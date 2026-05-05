@@ -1,0 +1,498 @@
+{% schema %}
+{
+  "name": "Maxfoot V5 Homepage",
+  "tag": "section",
+  "class": "maxfoot-v5-homepage",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "MAXFOOT"
+    },
+    {
+      "type": "text",
+      "id": "hero_badge",
+      "label": "Hero Badge Text",
+      "default": "Next Generation Performance"
+    },
+    {
+      "type": "text",
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "ENGINEERED TO DOMINATE"
+    },
+    {
+      "type": "textarea",
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Pushing the boundaries of electric mobility with aerospace-grade materials and industry-leading torque management."
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_primary",
+      "label": "Primary CTA Text",
+      "default": "Experience Power"
+    },
+    {
+      "type": "text",
+      "id": "hero_cta_secondary",
+      "label": "Secondary CTA Text",
+      "default": "White Papers"
+    },
+    {
+      "type": "text",
+      "id": "hero_stat_value",
+      "label": "Hero Stat Value (Nm)",
+      "default": "95"
+    },
+    {
+      "type": "text",
+      "id": "hero_stat_label",
+      "label": "Hero Stat Label",
+      "default": "Instant Peak Torque"
+    },
+    {
+      "type": "text",
+      "id": "hero_stat_1_value",
+      "label": "Hero Stat 1 Value",
+      "default": "4.2s"
+    },
+    {
+      "type": "text",
+      "id": "hero_stat_1_label",
+      "label": "Hero Stat 1 Label",
+      "default": "0-20 MPH"
+    },
+    {
+      "type": "text",
+      "id": "hero_stat_2_value",
+      "label": "Hero Stat 2 Value",
+      "default": "98%"
+    },
+    {
+      "type": "text",
+      "id": "hero_stat_2_label",
+      "label": "Hero Stat 2 Label",
+      "default": "Efficiency"
+    },
+    {
+      "type": "text",
+      "id": "section_title_1",
+      "label": "Core Innovations Title",
+      "default": "Core Innovations"
+    },
+    {
+      "type": "text",
+      "id": "section_title_2",
+      "label": "Riding Adaptivity Title",
+      "default": "Riding Adaptivity"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle_2",
+      "label": "Riding Adaptivity Subtitle",
+      "default": "One machine, multiple personalities. Switch profiles instantly via the integrated cockpit."
+    },
+    {
+      "type": "text",
+      "id": "cta_title",
+      "label": "CTA Title",
+      "default": "STOP WATCHING.\nSTART RIDING."
+    },
+    {
+      "type": "text",
+      "id": "cta_primary",
+      "label": "CTA Primary Button",
+      "default": "Book a Test Flight"
+    },
+    {
+      "type": "text",
+      "id": "cta_secondary",
+      "label": "CTA Secondary Button",
+      "default": "Configure Yours"
+    },
+    {
+      "type": "text",
+      "id": "footer_copyright",
+      "label": "Footer Copyright",
+      "default": "2024 High-Performance Adventure. All rights reserved."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Navigation Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_active",
+          "label": "Is Active Link",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "bento_feature",
+      "name": "Bento Feature Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tag",
+          "label": "Tag Label",
+          "default": "Flagship Tech"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Feature Title",
+          "default": "Power Cell v4"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Feature Description"
+        },
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Feature Image"
+        },
+        {
+          "type": "select",
+          "id": "size",
+          "label": "Card Size",
+          "options": [
+            {"value": "large", "label": "Large (8 col, 2 row)"},
+            {"value": "small", "label": "Small (4 col)"},
+            {"value": "wide", "label": "Wide (12 col)"}
+          ],
+          "default": "large"
+        },
+        {
+          "type": "checkbox",
+          "id": "dark_background",
+          "label": "Dark Background",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "stat_item",
+      "name": "Efficiency Stat",
+      "settings": [
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Stat Value",
+          "default": "28"
+        },
+        {
+          "type": "text",
+          "id": "unit",
+          "label": "Stat Unit/Label",
+          "default": "MPH TOP SPEED"
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Stat Description"
+        },
+        {
+          "type": "range",
+          "id": "progress",
+          "label": "Progress Bar %",
+          "min": 0,
+          "max": 100,
+          "default": 85
+        }
+      ]
+    },
+    {
+      "type": "riding_mode",
+      "name": "Riding Mode",
+      "settings": [
+        {
+          "type": "text",
+          "id": "mode_name",
+          "label": "Mode Name",
+          "default": "Urban Flow"
+        },
+        {
+          "type": "text",
+          "id": "mode_subtitle",
+          "label": "Mode Subtitle",
+          "default": "Eco-Optimized"
+        },
+        {
+          "type": "textarea",
+          "id": "performance",
+          "label": "Performance Description"
+        },
+        {
+          "type": "text",
+          "id": "range_impact",
+          "label": "Range Impact",
+          "default": "+25% Extension"
+        },
+        {
+          "type": "range",
+          "id": "versatility_rating",
+          "label": "Versatility Rating (1-5)",
+          "min": 1,
+          "max": 5,
+          "default": 4
+        }
+      ]
+    },
+    {
+      "type": "footer_link",
+      "name": "Footer Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot V5 Homepage",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+  .hero-gradient {
+    background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(243,243,244,1) 100%);
+  }
+  .progress-gradient {
+    background: linear-gradient(90deg, #3b82f6 0%, #FFC426 100%);
+  }
+  .bento-card {
+    transition: transform 0.2s ease-out;
+  }
+  .bento-card:hover {
+    transform: translateY(-4px);
+  }
+</style>
+{% endstylesheet %}
+
+<!-- TopNavBar -->
+<nav class="bg-white/95 backdrop-blur-md border-b border-zinc-100 docked full-width top-0 sticky z-50 transition-all duration-200 ease-in-out">
+  <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+    <div class="text-2xl font-bold tracking-tighter text-zinc-900">{{ section.settings.brand_name }}</div>
+    <div class="hidden md:flex items-center gap-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <a
+            class="text-zinc-600 hover:text-zinc-900 transition-colors font-label-lg uppercase {% if block.settings.is_active %}text-[#785a00] border-b-2 border-[#FFC426] pb-1{% endif %}"
+            href="{{ block.settings.link_url }}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.link_text }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="hidden lg:flex items-center bg-surface-container px-4 py-2 rounded-lg">
+        <span class="material-symbols-outlined text-zinc-400 mr-2">search</span>
+        <input class="bg-transparent border-none focus:ring-0 text-sm w-32 font-body-md" placeholder="Search technology..." type="text"/>
+      </div>
+      <button class="bg-[#FFC426] text-[#6f5200] px-6 py-2.5 rounded-lg font-label-lg transition-all hover:opacity-90">Shop Now</button>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<header class="relative min-h-[921px] flex flex-col justify-center overflow-hidden hero-gradient">
+  <div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-[120px]">
+    <div class="z-10">
+      <div class="inline-flex items-center bg-[#FFC426] text-[#6f5200] px-4 py-1.5 rounded-full mb-8">
+        <span class="font-label-lg uppercase tracking-widest text-[11px]">{{ section.settings.hero_badge }}</span>
+      </div>
+      <h1 class="font-bold text-6xl md:text-7xl text-[#1a1c1c] uppercase mb-6 leading-[0.95] tracking-tight">{{ section.settings.hero_title }}</h1>
+      <p class="text-lg text-[#4f4633] max-w-md mb-10">
+        {{ section.settings.hero_description }}
+      </p>
+      <div class="flex flex-wrap gap-4">
+        <button class="bg-[#FFC426] text-[#6f5200] px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:scale-105">{{ section.settings.hero_cta_primary }}</button>
+        <button class="border-2 border-zinc-900 text-zinc-900 px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:bg-zinc-900 hover:text-white">{{ section.settings.hero_cta_secondary }}</button>
+      </div>
+    </div>
+    <div class="relative flex justify-center">
+      <div class="absolute -z-10 w-[140%] h-[140%] bg-[#FFC426]/10 blur-[100px] rounded-full"></div>
+      <div class="bg-white p-8 rounded-xl shadow-2xl border border-zinc-100 flex flex-col items-center">
+        <div class="text-[120px] font-bold text-[#785a00] leading-none mb-2">{{ section.settings.hero_stat_value }}<span class="text-4xl font-headline-lg ml-2">Nm</span></div>
+        <div class="font-label-lg uppercase tracking-widest text-[#4f4633]">{{ section.settings.hero_stat_label }}</div>
+        <div class="w-full h-px bg-zinc-100 my-8"></div>
+        <div class="grid grid-cols-2 gap-8 w-full">
+          <div>
+            <div class="font-headline-lg text-[#1a1c1c]">{{ section.settings.hero_stat_1_value }}</div>
+            <div class="text-[10px] font-label-md uppercase text-zinc-400">{{ section.settings.hero_stat_1_label }}</div>
+          </div>
+          <div>
+            <div class="font-headline-lg text-[#1a1c1c]">{{ section.settings.hero_stat_2_value }}</div>
+            <div class="text-[10px] font-label-md uppercase text-zinc-400">{{ section.settings.hero_stat_2_label }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Core Innovations (Bento Grid) -->
+<section class="bg-white py-[120px]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="flex flex-col items-center text-center mb-16">
+      <h2 class="font-bold text-4xl md:text-5xl text-[#1a1c1c] uppercase mb-4 tracking-tight">{{ section.settings.section_title_1 }}</h2>
+      <div class="w-20 h-1.5 bg-[#FFC426]"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'bento_feature' -%}
+          <div
+            class="bento-card {% if block.settings.size == 'large' %}md:col-span-8 md:row-span-2{% elsif block.settings.size == 'small' %}md:col-span-4{% else %}md:col-span-12{% endif %} {% if block.settings.dark_background %}bg-zinc-900 text-white{% else %}bg-surface-container-low{% endif %} rounded-xl overflow-hidden group"
+            {{ block.shopify_attributes }}
+          >
+            <div class="h-full w-full relative">
+              {%- if block.settings.image -%}
+                <img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" src="{{ block.settings.image | image_url }}" alt="{{ block.settings.title }}">
+              {%- endif -%}
+              <div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
+              <div class="absolute bottom-0 left-0 p-10 text-white">
+                <span class="bg-[#FFC426] text-[#6f5200] px-3 py-1 rounded font-label-md uppercase mb-4 inline-block">{{ block.settings.tag }}</span>
+                <h3 class="font-bold text-3xl md:text-4xl uppercase mb-4 tracking-tight">{{ block.settings.title }}</h3>
+                <p class="text-zinc-300 text-base max-w-md">{{ block.settings.description }}</p>
+              </div>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- Efficiency Stats Section -->
+<section class="bg-[#f3f3f4] py-[120px]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'stat_item' -%}
+          <div class="space-y-6" {{ block.shopify_attributes }}>
+            <div class="flex justify-between items-end">
+              <div class="text-7xl font-bold leading-none text-[#1a1c1c]">{{ block.settings.value }}</div>
+              <div class="font-label-lg text-[#785a00] mb-2">{{ block.settings.unit }}</div>
+            </div>
+            <div class="w-full h-4 bg-white rounded-full overflow-hidden">
+              <div class="h-full progress-gradient" style="width: {{ block.settings.progress }}%"></div>
+            </div>
+            <p class="text-base text-[#4f4633]">{{ block.settings.description }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+<!-- Riding Adaptivity (Comparison Table) -->
+<section class="bg-white py-[120px]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="mb-16">
+      <h2 class="font-bold text-4xl md:text-5xl text-[#1a1c1c] uppercase mb-2 tracking-tight">{{ section.settings.section_title_2 }}</h2>
+      <p class="text-lg text-[#4f4633] max-w-2xl">{{ section.settings.section_subtitle_2 }}</p>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b-2 border-zinc-900">
+            <th class="py-6 text-left font-label-lg uppercase tracking-wider">Mode</th>
+            <th class="py-6 text-left font-label-lg uppercase tracking-wider">Performance</th>
+            <th class="py-6 text-left font-label-lg uppercase tracking-wider">Range Impact</th>
+            <th class="py-6 text-center font-label-lg uppercase tracking-wider">Versatility</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for block in section.blocks -%}
+            {%- if block.type == 'riding_mode' -%}
+              <tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
+                <td class="py-8">
+                  <div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">{{ block.settings.mode_name }}</div>
+                  <div class="text-xs font-label-md text-zinc-400 uppercase">{{ block.settings.mode_subtitle }}</div>
+                </td>
+                <td class="py-8 text-base">{{ block.settings.performance }}</td>
+                <td class="py-8 text-base text-[#785a00]">{{ block.settings.range_impact }}</td>
+                <td class="py-8 text-center">
+                  <div class="flex justify-center text-[#FFC426]">
+                    {%- for i in (1..5) -%}
+                      <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' {% if i <= block.settings.versatility_rating %}1{% else %}0{% endif %};">star</span>
+                    {%- endfor -%}
+                  </div>
+                </td>
+              </tr>
+            {%- endif -%}
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- CTA Banner -->
+<section class="bg-white py-[120px]">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="bg-zinc-900 rounded-2xl p-12 md:p-24 text-center relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <img class="w-full h-full object-cover" data-alt="Dark dramatic silhouette of an electric bike" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaa5QxfUU79UB04sZ79UiJcePkxhC4UxluiLfheuWH3rbxQDR_JkmTmd1G8oInCFj5t2NmCktAVWaPymgy8tZwuH8B50vTNji9VtSSQu0RXhiKgGQodlLhay0pXExbFSu8sX3E8kfJqeQuSyH2AtYaspuEXVgibqaZOn_hviKxeDzKip2mOwF-4YJCn6GbEDhXXCluMwtbNEuIo2KK4fhxK6eC7VE9W7Wcwn5saYrHRmdvXzXLMLLwkBavrhOgb5QfWtg-QQ6IqV9t" alt="">
+      </div>
+      <div class="relative z-10">
+        <h2 class="text-5xl md:text-7xl text-white uppercase mb-8 leading-tight font-bold tracking-tight">{{ section.settings.cta_title | newline_to_br }}</h2>
+        <div class="flex flex-col md:flex-row gap-6 justify-center">
+          <button class="bg-[#FFC426] text-[#6f5200] px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:scale-105">{{ section.settings.cta_primary }}</button>
+          <button class="border-2 border-white text-white px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:bg-white hover:text-zinc-900">{{ section.settings.cta_secondary }}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="bg-white border-t border-zinc-100 full-width py-12 transition-all ease-out duration-300">
+  <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="text-xl font-bold text-zinc-900">{{ section.settings.brand_name }}</div>
+    <div class="flex flex-wrap justify-center gap-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'footer_link' -%}
+          <a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>
+            {{ block.settings.link_text }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <p class="text-base text-zinc-500 text-sm">{{ section.settings.footer_copyright }}</p>
+  </div>
+</footer>

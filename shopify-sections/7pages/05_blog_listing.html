@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Lexend:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                "surface-container-lowest": "#ffffff",
+                "on-secondary-fixed": "#1c1b1b",
+                "surface-container": "#eeeeee",
+                "tertiary-fixed-dim": "#e9c346",
+                "secondary-container": "#e5e2e1",
+                "on-tertiary-container": "#6a5400",
+                "on-primary-container": "#6f5200",
+                "outline-variant": "#d3c5ac",
+                "on-secondary-fixed-variant": "#474646",
+                "inverse-on-surface": "#f0f1f1",
+                "outline": "#817660",
+                "on-tertiary-fixed-variant": "#574500",
+                "on-primary-fixed-variant": "#5b4300",
+                "tertiary": "#735c00",
+                "secondary-fixed-dim": "#c8c6c5",
+                "on-primary": "#ffffff",
+                "primary-fixed": "#ffdf9d",
+                "surface-tint": "#785a00",
+                "tertiary-container": "#f0c94b",
+                "primary-fixed-dim": "#f8be1e",
+                "surface-bright": "#f9f9f9",
+                "primary-container": "#ffc426",
+                "on-secondary": "#ffffff",
+                "error-container": "#ffdad6",
+                "background": "#f9f9f9",
+                "on-tertiary-fixed": "#231b00",
+                "on-surface": "#1a1c1c",
+                "on-primary-fixed": "#251a00",
+                "error": "#ba1a1a",
+                "on-tertiary": "#ffffff",
+                "inverse-surface": "#2f3131",
+                "secondary-fixed": "#e5e2e1",
+                "surface-variant": "#e2e2e2",
+                "surface-container-low": "#f3f3f4",
+                "on-background": "#1a1c1c",
+                "surface-container-high": "#e8e8e8",
+                "inverse-primary": "#f8be1e",
+                "on-secondary-container": "#656464",
+                "on-surface-variant": "#4f4633",
+                "surface": "#f9f9f9",
+                "tertiary-fixed": "#ffe086",
+                "surface-dim": "#dadada",
+                "surface-container-highest": "#e2e2e2",
+                "primary": "#785a00",
+                "secondary": "#5f5e5e",
+                "on-error": "#ffffff",
+                "on-error-container": "#93000a"
+            },
+            "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+            },
+            "spacing": {
+                "section-padding": "120px",
+                "gutter": "24px",
+                "stack-md": "24px",
+                "container-max": "1440px",
+                "base": "8px",
+                "stack-lg": "48px",
+                "stack-sm": "12px"
+            },
+            "fontFamily": {
+                "display-lg": ["Space Grotesk"],
+                "label-md": ["Space Grotesk"],
+                "headline-lg": ["Space Grotesk"],
+                "body-lg": ["Lexend"],
+                "label-lg": ["Space Grotesk"],
+                "headline-xl": ["Space Grotesk"],
+                "body-md": ["Lexend"]
+            },
+            "fontSize": {
+                "display-lg": ["72px", { "lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700" }],
+                "label-md": ["12px", { "lineHeight": "1.2", "fontWeight": "500" }],
+                "headline-lg": ["32px", { "lineHeight": "1.3", "fontWeight": "600" }],
+                "body-lg": ["18px", { "lineHeight": "1.6", "fontWeight": "400" }],
+                "label-lg": ["14px", { "lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700" }],
+                "headline-xl": ["48px", { "lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600" }],
+                "body-md": ["16px", { "lineHeight": "1.5", "fontWeight": "400" }]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #FFC426;
+        }
+        .hover-lift {
+            transition: transform 0.3s ease;
+        }
+        .hover-lift:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased overflow-x-hidden">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 border-b border-zinc-900/10 dark:border-zinc-50/10 bg-white/90 backdrop-blur-md">
+<div class="flex justify-between items-center px-8 h-20 max-w-[1440px] mx-auto">
+<div class="text-2xl font-black tracking-tighter text-zinc-900 font-['Space_Grotesk'] uppercase">VELOCITY</div>
+<nav class="hidden md:flex items-center space-x-8">
+<a class="text-zinc-500 hover:text-zinc-900 transition-colors font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold" href="#">Bikes</a>
+<a class="text-zinc-500 hover:text-zinc-900 transition-colors font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold" href="#">Tech</a>
+<a class="text-zinc-900 border-b-2 border-[#FFC426] pb-1 font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold" href="#">Journal</a>
+<a class="text-zinc-500 hover:text-zinc-900 transition-colors font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold" href="#">About</a>
+<a class="text-zinc-500 hover:text-zinc-900 transition-colors font-['Space_Grotesk'] uppercase tracking-wider text-sm font-bold" href="#">Support</a>
+</nav>
+<div class="flex items-center space-x-6">
+<button class="hover:opacity-80 transition-opacity"><span class="material-symbols-outlined text-zinc-900">shopping_cart</span></button>
+<button class="hover:opacity-80 transition-opacity"><span class="material-symbols-outlined text-zinc-900">person</span></button>
+</div>
+</div>
+</header>
+<main class="pt-32 pb-section-padding px-8 max-w-[1440px] mx-auto">
+<!-- Page Title -->
+<section class="mb-stack-lg text-center">
+<h1 class="font-display-lg text-display-lg text-on-surface uppercase mb-stack-sm">THE JOURNAL</h1>
+<div class="h-1 w-24 bg-primary-container mx-auto"></div>
+</section>
+<!-- Featured Post -->
+<section class="mb-24">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter group cursor-pointer bg-white overflow-hidden">
+<div class="lg:col-span-7 overflow-hidden relative aspect-video lg:aspect-auto">
+<img alt="Featured Post" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A wide panoramic shot of a high-performance electric mountain bike rider navigating a rugged snow-dusted trail during a vibrant winter sunset. The sky is a deep gradient of orange and indigo. The lighting is dramatic and warm, highlighting the bike's sleek matte black frame and glowing yellow technical accents. The overall aesthetic is premium and adventurous, emphasizing cold-weather performance in a minimalist, high-contrast natural environment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZcCmSE0Opt-FORnyC4f7J83rQfTHBqRyJ-AffiCnMMRG0OFCM1E1GCJzI8lCSpF7Fq_Ti8OhiSTbLM-t7laMuNNw0_lQUmUUnrplOJ8cw4hqZi8qzuE9ZsxACXnU-RDvfcuPFRo-SMHpQVU54KO-BXa_bL4rx8QK7zykqgwxlG3HrpJP-NteZV16aKVcyB2cqnWy6SfbuuC9lW1qp2cxipRgUDx0aE6DRruRojETMgWdCGkYnRGQmlAyfVdWB2Xt6QXkVnizTVlLm"/>
+</div>
+<div class="lg:col-span-5 p-12 flex flex-col justify-center bg-surface-container-low border border-outline-variant/10">
+<span class="inline-block px-4 py-1 bg-primary-container text-on-tertiary-fixed font-label-lg text-label-lg mb-6 w-fit uppercase">ADVENTURE</span>
+<h2 class="font-headline-xl text-headline-xl text-on-surface mb-4 leading-tight">BEYOND THE ASPHALT: THE WINTER CROSSING SERIES</h2>
+<p class="font-label-md text-label-md text-secondary mb-6">October 24, 2024</p>
+<p class="font-body-lg text-body-lg text-on-surface-variant mb-8">Pushing the boundaries of battery efficiency and thermal management in sub-zero environments. Our engineering team takes the Velocity X-1 to the northern territories to prove that performance doesn't freeze when the mercury drops.</p>
+<a class="font-label-lg text-label-lg text-on-surface flex items-center group/link" href="#">
+                        READ MORE 
+                        <span class="material-symbols-outlined ml-2 transition-transform group-hover/link:translate-x-2">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Blog Grid -->
+<section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-gutter gap-y-16">
+<!-- Post 1 -->
+<article class="group">
+<div class="overflow-hidden mb-6 aspect-[4/3] bg-zinc-100">
+<img alt="Tech Closeup" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A macro close-up of a high-end e-bike electric motor and battery integration. The lighting is clean and industrial, with sharp shadows that accentuate the precision engineering and carbon fiber textures. The color palette is dominated by dark greys and metallic blacks, with subtle yellow indicator lights providing a pop of color. The style is technical, professional, and minimalist, emphasizing superior craftsmanship." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAcuNRtDrHNCwZx5UFWdMPka2RGwXqjvL7dYhcVg0_YyEWdwiLc7WNXVtnYJ1DpvhHqekbkBT5KGyRckgZuDMkYZ84egHoZJef_A5_6ZU-a7WeA1IZZoghU_d6cIZIvepbBMikxFE8cLthYXT474lcYq-rOP7V0_THKvtOM_46gT0ik9d81KBIZpANANU5xMHyS4NIxLXEzQAcIjCGtnzvOd52YCcfCG_gi4aGkdzZIi3eCyPpHgShDX5Tx8tWPMNfrxj5LMXM-T1uB"/>
+</div>
+<span class="inline-block px-3 py-1 bg-primary-container text-on-tertiary-fixed font-label-md text-[10px] mb-4 uppercase rounded-full">TECH</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary transition-colors">THE QUANTUM HUB: REDEFINING TORQUE DELIVERY</h3>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-secondary">October 18, 2024</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">An in-depth look at our new planetary gear system that delivers 120Nm of torque without the noise of traditional mid-drives.</p>
+</div>
+</article>
+<!-- Post 2 -->
+<article class="group">
+<div class="overflow-hidden mb-6 aspect-[4/3] bg-zinc-100">
+<img alt="Lifestyle Shot" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A cinematic wide-angle shot of a lone cyclist riding through a misty, pine-covered mountain valley at dawn. The morning light is soft and diffused, creating a serene, ethereal atmosphere. The landscape is lush with deep greens and cool blues. The aesthetic is expansive and athletic, capturing the intersection of high-performance technology and the untouched natural world in a clean, modern style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDbCdz7Q51FVSVAMUcsTB42EfYUaw-QcoDnnZqx5spqwVHmDE6tF1byi0WSxe_iLm7EVe1OqfIW_I_cfQQsWjY14WeC2uNKce-A6BKwXSn9jYPpPw8lfpABNIWcGREMM41-W80_X0zqzJ2HR37pLLvnC_eGpPCBKeAIr1ETOFk--ikh1SZBza3XWCD_kuMNCBtCuE7gHmaSdfSNP0hEWT3x0RC-qWXHEFwNENxjE6POnMSX9EdIRGnQkepKEpFX70hndIwH1vuzhco8"/>
+</div>
+<span class="inline-block px-3 py-1 bg-primary-container text-on-tertiary-fixed font-label-md text-[10px] mb-4 uppercase rounded-full">LIFESTYLE</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary transition-colors">MORNING RITUALS: THE DAWN RIDERS OF SEATTLE</h3>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-secondary">October 12, 2024</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Meet the community of enthusiasts who use the quietest hours of the day to reclaim the city streets and mountain trails.</p>
+</div>
+</article>
+<!-- Post 3 -->
+<article class="group">
+<div class="overflow-hidden mb-6 aspect-[4/3] bg-zinc-100">
+<img alt="Urban Cityscape" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A modern, high-contrast urban cityscape at dusk, featuring a cyclist in the foreground riding past architectural brutalist structures. The lighting is dramatic, with city neon reflecting off wet pavement and the bike's metallic surfaces. The color palette is dark and sophisticated, with deep blacks and cool greys punctuated by vibrant yellow street signs and bike lights. The mood is fast-paced and technologically advanced." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAx5GuZJwLHtoUDt1WkEjnLZ9Qvebd8gW4XMjHItZJXfUzS1uzNmRUrGgGnioQiGJNwlrr_CGmTVjLCuBaFzZ64hgE2ysRMpuOG_8ovJXj1DT1Yfok6qC81w4KFrScDRk7l1sPp53_80c7VS1MeNKfjGgr41B3neK0rYn7yPLTwNsFxzRBTsQ-Do8jhpjC6v6NstTkv6OxE71K_wxpgHvUMVAtWHU3P6k9mxM6-Dt_I7DQY1ewHXEbbBzqCsb46NJoxW6nAun7t1Dfa"/>
+</div>
+<span class="inline-block px-3 py-1 bg-primary-container text-on-tertiary-fixed font-label-md text-[10px] mb-4 uppercase rounded-full">COMMUNITY</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary transition-colors">VELOCITY GLOBAL: NEW BERLIN FLAGSHIP OPENING</h3>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-secondary">October 05, 2024</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Join us as we expand our footprint in the heart of Europe's most innovative cycling hub with a new experiential center.</p>
+</div>
+</article>
+<!-- Post 4 -->
+<article class="group">
+<div class="overflow-hidden mb-6 aspect-[4/3] bg-zinc-100">
+<img alt="Engineering Close-up" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="An abstract, high-resolution artistic shot of internal electrical components and wiring harnesses of an electric bike, glowing with a soft ambient yellow light. The background is a deep, textured black, creating a high-contrast minimalist look. The focus is on the precision and complexity of the internal systems, styled like a luxury tech product photography session. The mood is sophisticated and engineering-focused." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAa_LVx-ebtF4RLGAU19P6KZYVJEO-S6UzLBeEV1MXM6DTNkvq5FJtbekG_cRnsKvYQ5eBOwuTN_Xx1YlCBmvnsukwdjXyb6l8w5-Sp6ceS_0epPCmLJ9WcZkWjzqSr6XRPOLlxFTmteY743ufHMBYP083BjWP28DT8QaZ2SApM5TBcOwr9ynAKs-aP6RM3cOdY8Ust3NhAQTN33S4e6NLDUJPR1uMEDKmO2yFQDjKEJ-EKKFSyzMe4ygA6kA8zt1eIw2KsacJg8QCZ"/>
+</div>
+<span class="inline-block px-3 py-1 bg-primary-container text-on-tertiary-fixed font-label-md text-[10px] mb-4 uppercase rounded-full">TECH</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary transition-colors">THE FUTURE OF REGENERATIVE BRAKING</h3>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-secondary">September 28, 2024</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">How our Kinetic Recovery System (KRS) is adding 15% more range to every downhill descent without impacting feel.</p>
+</div>
+</article>
+<!-- Post 5 -->
+<article class="group">
+<div class="overflow-hidden mb-6 aspect-[4/3] bg-zinc-100">
+<img alt="Nature Vista" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A wide, sweeping vista of a sun-drenched desert canyon with a winding trail visible in the distance. The lighting is bright and high-key, with a warm, golden hour glow illuminating the red rock formations. The sky is a clear, pale blue. The visual style is expansive and high-contrast, representing the rugged beauty and freedom of long-distance adventure touring in a minimalist, light-mode aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAhGLtAbunVs-Gns9Ypl1iO3PK16xwYUQNN-iG91t2hXScgbgYH9Tlgyz7m1EvsGx7hkH4GcJ5j9H_0vgE8FRAWGSiBbGoOO2ctro5MuwHi2DlpYKOJJ5lNkBdAn-dsKCqTL1SOnDYAyihueuPSlD1BfGxnZu1oo1Jb18zPku02U1wHhspUouuFDBs3fWDREyMn31M2zIYUITAnR2srZGhiffsU9zhtR6jGjkAZN6pWThqNCe6dtpUvEo5dLAiDWHfIr8JlxJHiMvCr"/>
+</div>
+<span class="inline-block px-3 py-1 bg-primary-container text-on-tertiary-fixed font-label-md text-[10px] mb-4 uppercase rounded-full">ADVENTURE</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary transition-colors">DESERT CROSSING: 500 MILES ON A SINGLE CHARGE?</h3>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-secondary">September 21, 2024</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Testing the new high-capacity range extender in the harsh conditions of the Mojave Desert during peak summer.</p>
+</div>
+</article>
+<!-- Post 6 -->
+<article class="group">
+<div class="overflow-hidden mb-6 aspect-[4/3] bg-zinc-100">
+<img alt="Commuters" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" data-alt="A professional lifestyle shot of a diverse group of commuters riding electric bikes through a clean, modern city park with sleek architecture in the background. The lighting is bright morning sunlight, casting long, clean shadows. The aesthetic is healthy, productive, and urban-minimalist. The color palette features whites, light greys, and pops of corporate yellow, evoking a sense of modern, sustainable urban living." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBboH5RjBAcY3eIEu1nlU-f85ptwWDSs80QS-INPfz69D3dfxg2dZ9LCFlUcuPSO_0Jzoob53Rf-p9clblZ6L72tHz5AbogmMhMSCVzTs_lu4kngomZmmwidlK_0j0S395FIeE_oy0H5lZ8GuXSgfwPyE8T3nVvR_yEm_6UXEdINk-EjXXkzeUY8eF36ku3QRxjPMQ7-NIzX-0krJZLXD_j3y6LjEOGKawLhjD2qZ__6qURaiZdUQipF3CiWm7zDMkmjyqt-C0snIVZ"/>
+</div>
+<span class="inline-block px-3 py-1 bg-primary-container text-on-tertiary-fixed font-label-md text-[10px] mb-4 uppercase rounded-full">LIFESTYLE</span>
+<h3 class="font-headline-lg text-headline-lg text-on-surface mb-3 group-hover:text-primary transition-colors">THE COMMUTER REVOLUTION: WHY NOW?</h3>
+<div class="flex flex-col gap-2">
+<p class="font-label-md text-label-md text-secondary">September 14, 2024</p>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Exploring the social and environmental shift that's moving thousands from cars to two-wheeled electric transport.</p>
+</div>
+</article>
+</section>
+<!-- Pagination -->
+<nav class="mt-24 flex justify-center items-center space-x-2">
+<a class="w-12 h-12 flex items-center justify-center border border-outline-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">chevron_left</span>
+</a>
+<a class="w-12 h-12 flex items-center justify-center bg-primary-container text-on-tertiary-fixed font-label-lg font-bold" href="#">1</a>
+<a class="w-12 h-12 flex items-center justify-center border border-outline-variant hover:bg-surface-container transition-colors font-label-lg" href="#">2</a>
+<a class="w-12 h-12 flex items-center justify-center border border-outline-variant hover:bg-surface-container transition-colors font-label-lg" href="#">3</a>
+<span class="px-4 text-zinc-400">...</span>
+<a class="w-12 h-12 flex items-center justify-center border border-outline-variant hover:bg-surface-container transition-colors font-label-lg" href="#">12</a>
+<a class="w-12 h-12 flex items-center justify-center border border-outline-variant hover:bg-surface-container transition-colors" href="#">
+<span class="material-symbols-outlined">chevron_right</span>
+</a>
+</nav>
+</main>
+<!-- Footer -->
+<footer class="bg-zinc-50 border-t border-zinc-200">
+<div class="max-w-[1440px] mx-auto py-20 px-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+<div class="flex flex-col gap-6">
+<div class="font-black text-xl uppercase tracking-tighter text-zinc-900 font-['Space_Grotesk']">VELOCITY</div>
+<p class="font-['Space_Grotesk'] text-xs tracking-tight text-zinc-500 leading-relaxed uppercase">
+                    © 2024 VELOCITY E-BIKES.<br/>BUILT FOR HIGH-PERFORMANCE ADVENTURE.
+                </p>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm uppercase font-['Space_Grotesk'] tracking-widest text-zinc-900">Support</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="font-['Space_Grotesk'] text-xs text-zinc-500 hover:text-zinc-900 transition-all hover:underline decoration-[#FFC426] underline-offset-4" href="#">Dealer Locator</a></li>
+<li><a class="font-['Space_Grotesk'] text-xs text-zinc-500 hover:text-zinc-900 transition-all hover:underline decoration-[#FFC426] underline-offset-4" href="#">Manuals</a></li>
+<li><a class="font-['Space_Grotesk'] text-xs text-zinc-500 hover:text-zinc-900 transition-all hover:underline decoration-[#FFC426] underline-offset-4" href="#">Warranty</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-4">
+<h4 class="font-bold text-sm uppercase font-['Space_Grotesk'] tracking-widest text-zinc-900">Company</h4>
+<ul class="flex flex-col gap-2">
+<li><a class="font-['Space_Grotesk'] text-xs text-zinc-500 hover:text-zinc-900 transition-all hover:underline decoration-[#FFC426] underline-offset-4" href="#">Sustainability</a></li>
+<li><a class="font-['Space_Grotesk'] text-xs text-zinc-500 hover:text-zinc-900 transition-all hover:underline decoration-[#FFC426] underline-offset-4" href="#">Journal</a></li>
+<li><a class="font-['Space_Grotesk'] text-xs text-zinc-500 hover:text-zinc-900 transition-all hover:underline decoration-[#FFC426] underline-offset-4" href="#">About</a></li>
+</ul>
+</div>
+<div class="flex flex-col gap-6">
+<h4 class="font-bold text-sm uppercase font-['Space_Grotesk'] tracking-widest text-zinc-900">Newsletter</h4>
+<div class="relative">
+<input class="w-full bg-transparent border-b-2 border-zinc-200 py-2 font-['Space_Grotesk'] text-xs focus:outline-none focus:border-[#FFC426] transition-colors" placeholder="JOIN THE LIST" type="email"/>
+<button class="absolute right-0 bottom-2">
+<span class="material-symbols-outlined text-zinc-900">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</footer>
+</body></html>

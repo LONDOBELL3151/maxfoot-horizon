@@ -1,0 +1,294 @@
+{% schema %}
+{
+  "name": "Maxfoot V5 Product Listing",
+  "tag": "section",
+  "class": "maxfoot-v5-product-listing",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "MAXFOOT"
+    },
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "default": "ENGINEERED SERIES"
+    },
+    {
+      "type": "textarea",
+      "id": "section_description",
+      "label": "Section Description",
+      "default": "Pushing the boundaries of electric mobility. Our Engineered Series combines high-performance power units with aerospace-grade materials for the ultimate riding experience."
+    },
+    {
+      "type": "text",
+      "id": "footer_copyright",
+      "label": "Footer Copyright",
+      "default": "2024 MAXFOOT ELECTRIC BIKES. ENGINEERED FOR ADVENTURE."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Navigation Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "checkbox",
+          "id": "is_active",
+          "label": "Is Active",
+          "default": false
+        }
+      ]
+    },
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "product_name",
+          "label": "Product Name",
+          "default": "Trail Master"
+        },
+        {
+          "type": "textarea",
+          "id": "product_description",
+          "label": "Product Description",
+          "default": "Unrivaled off-road performance for explorers who refuse to compromise on power."
+        },
+        {
+          "type": "image_picker",
+          "id": "product_image",
+          "label": "Product Image"
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "default": "Pro Spec"
+        },
+        {
+          "type": "select",
+          "id": "badge_style",
+          "label": "Badge Style",
+          "options": [
+            {"value": "default", "label": "Default (Dark)"},
+            {"value": "primary", "label": "Primary (Yellow)"},
+            {"value": "tertiary", "label": "Tertiary"}
+          ],
+          "default": "default"
+        },
+        {
+          "type": "text",
+          "id": "stat_1_label",
+          "label": "Stat 1 Label",
+          "default": "Range"
+        },
+        {
+          "type": "text",
+          "id": "stat_1_value",
+          "label": "Stat 1 Value",
+          "default": "60mi"
+        },
+        {
+          "type": "text",
+          "id": "stat_2_label",
+          "label": "Stat 2 Label",
+          "default": "Power"
+        },
+        {
+          "type": "text",
+          "id": "stat_2_value",
+          "label": "Stat 2 Value",
+          "default": "1200w"
+        }
+      ]
+    },
+    {
+      "type": "footer_link",
+      "name": "Footer Link",
+      "settings": [
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text"
+        },
+        {
+          "type": "url",
+          "id": "link_url",
+          "label": "Link URL"
+        },
+        {
+          "type": "select",
+          "id": "link_category",
+          "label": "Link Category",
+          "options": [
+            {"value": "support", "label": "Support"},
+            {"value": "company", "label": "Company"}
+          ],
+          "default": "support"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot V5 Product Listing",
+      "blocks": []
+    }
+  ]
+}
+{% endschema %}
+
+{% stylesheet %}
+<style>
+  .material-symbols-outlined {
+    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+  }
+</style>
+{% endstylesheet %}
+
+<nav class="bg-white dark:bg-neutral-950 border-b border-neutral-100 dark:border-neutral-900 docked full-width top-0 z-50 sticky">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+    <div class="text-2xl font-black tracking-tighter text-neutral-900 dark:text-white font-headline-lg">{{ section.settings.brand_name }}</div>
+    <div class="hidden md:flex gap-8 items-center">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <a
+            class="text-neutral-600 dark:text-neutral-400 font-medium text-sm tracking-widest uppercase hover:text-yellow-500 dark:hover:text-yellow-400 transition-colors duration-200 font-label-md {% if block.settings.is_active %}text-yellow-500{% endif %}"
+            href="{{ block.settings.link_url }}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.link_text }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+    <div class="flex items-center gap-6">
+      <div class="flex gap-4 items-center">
+        <button class="material-symbols-outlined text-neutral-600 hover:text-yellow-500 transition-colors">search</button>
+        <button class="material-symbols-outlined text-neutral-600 hover:text-yellow-500 transition-colors">shopping_cart</button>
+      </div>
+      <button class="hidden lg:block bg-[#FFC426] text-[#6f5200] px-6 py-2 rounded font-label-lg uppercase scale-95 active:scale-100 transition-transform">
+        Shop Now
+      </button>
+    </div>
+  </div>
+</nav>
+
+<main class="max-w-[1440px] mx-auto px-6 py-[120px]">
+  <header class="grid grid-cols-1 md:grid-cols-12 gap-6 mb-12 items-end">
+    <div class="md:col-span-5">
+      <h2 class="font-bold text-4xl md:text-5xl text-[#1a1c1c] uppercase tracking-tight">{{ section.settings.section_title }}</h2>
+    </div>
+    <div class="md:col-span-7 pb-2 border-l border-[#d3c5ac] pl-6">
+      <p class="text-lg text-[#5f5e5e] max-w-2xl">
+        {{ section.settings.section_description }}
+      </p>
+    </div>
+  </header>
+
+  <section class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    {%- for block in section.blocks -%}
+      {%- if block.type == 'product_card' -%}
+        <div class="group bg-white rounded-xl border border-[#d3c5ac]/10 p-6 transition-all duration-300 hover:shadow-xl hover:shadow-black/5 flex flex-col h-full" {{ block.shopify_attributes }}>
+          <div class="relative overflow-hidden rounded-xl bg-[#f9f9f9] mb-6 aspect-[4/3]">
+            {%- if block.settings.product_image -%}
+              <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="{{ block.settings.product_image | image_url }}" alt="{{ block.settings.product_name }}">
+            {%- else -%}
+              <div class="w-full h-full bg-zinc-200"></div>
+            {%- endif -%}
+            <span class="absolute top-4 left-4
+              {% if block.settings.badge_style == 'primary' %}bg-[#FFC426] text-[#6f5200]{% elsif block.settings.badge_style == 'tertiary' %}bg-[#f0c94b] text-[#6a5400]{% else %}bg-[#1a1c1c] text-white{% endif %}
+              px-3 py-1 rounded-full font-label-md text-label-md">
+              {{ block.settings.badge_text }}
+            </span>
+          </div>
+          <div class="flex-grow">
+            <h3 class="font-headline-lg text-2xl text-[#1a1c1c] mb-2">{{ block.settings.product_name }}</h3>
+            <p class="text-base text-[#5f5e5e] mb-6">{{ block.settings.product_description }}</p>
+          </div>
+          <div class="grid grid-cols-2 gap-4 pt-6 border-t border-[#d3c5ac]/20">
+            <div>
+              <p class="font-label-md text-[#5f5e5e] uppercase">{{ block.settings.stat_1_label }}</p>
+              <p class="font-headline-lg text-2xl text-[#1a1c1c]">{{ block.settings.stat_1_value }}</p>
+            </div>
+            <div>
+              <p class="font-label-md text-[#5f5e5e] uppercase">{{ block.settings.stat_2_label }}</p>
+              <p class="font-headline-lg text-2xl text-[#785a00]">{{ block.settings.stat_2_value }}</p>
+            </div>
+          </div>
+          <button class="mt-6 w-full py-4 bg-[#1a1c1c] text-white font-label-lg uppercase rounded-lg group-hover:bg-[#FFC426] group-hover:text-[#6f5200] transition-colors">Add to Cart</button>
+        </div>
+      {%- endif -%}
+    {%- endfor -%}
+  </section>
+</main>
+
+<footer class="bg-neutral-50 dark:bg-neutral-900 border-t border-neutral-200 dark:border-neutral-800 full-width py-20 mt-32">
+  <div class="max-w-7xl mx-auto px-8 grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-12">
+    <div class="col-span-2">
+      <div class="text-xl font-bold text-neutral-900 dark:text-white font-headline-lg mb-6">{{ section.settings.brand_name }}</div>
+      <p class="text-neutral-500 dark:text-neutral-400 text-sm mb-8 text-base">
+        Engineered for high-performance adventure and sustainable urban mobility. Designed in the USA.
+      </p>
+      <div class="flex gap-4">
+        <span class="material-symbols-outlined text-neutral-400 hover:text-[#785a00] transition-colors cursor-pointer">public</span>
+        <span class="material-symbols-outlined text-neutral-400 hover:text-[#785a00] transition-colors cursor-pointer">share</span>
+        <span class="material-symbols-outlined text-neutral-400 hover:text-[#785a00] transition-colors cursor-pointer">mail</span>
+      </div>
+    </div>
+
+    {%- assign support_links = section.blocks | where: "type", "footer_link" | where: "settings.link_category", "support" -%}
+    {%- assign company_links = section.blocks | where: "type", "footer_link" | where: "settings.link_category", "company" -%}
+
+    {%- if support_links.size > 0 -%}
+      <div class="flex flex-col gap-4">
+        <p class="font-headline-lg text-sm text-neutral-900 dark:text-white uppercase tracking-widest">Support</p>
+        {%- for block in support_links -%}
+          <a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>
+            {{ block.settings.link_text }}
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    {%- if company_links.size > 0 -%}
+      <div class="flex flex-col gap-4">
+        <p class="font-headline-lg text-sm text-neutral-900 dark:text-white uppercase tracking-widest">Company</p>
+        {%- for block in company_links -%}
+          <a class="text-neutral-500 dark:text-neutral-400 text-sm font-label-md hover:text-neutral-900 dark:hover:text-white underline decoration-yellow-500 decoration-2 underline-offset-4 transition-all duration-300" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>
+            {{ block.settings.link_text }}
+          </a>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+
+    <div class="col-span-2 lg:col-span-2">
+      <p class="font-headline-lg text-sm text-neutral-900 dark:text-white uppercase tracking-widest mb-6">Newsletter</p>
+      <div class="flex gap-2">
+        <input class="bg-transparent border-b-2 border-neutral-300 dark:border-neutral-700 py-2 w-full focus:outline-none focus:border-[#FFC426] transition-colors text-sm font-label-md" placeholder="ENTER EMAIL" type="email"/>
+        <button class="bg-[#1a1c1c] text-white p-2 flex items-center justify-center">
+          <span class="material-symbols-outlined">arrow_forward</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-7xl mx-auto px-8 mt-20 pt-8 border-t border-neutral-200 dark:border-neutral-800">
+    <p class="text-neutral-500 dark:text-neutral-400 text-xs font-label-md">
+      {{ section.settings.footer_copyright }}
+    </p>
+  </div>
+</footer>

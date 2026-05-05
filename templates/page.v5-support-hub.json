@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "maxfoot-v5-support-hub": {
+      "type": "maxfoot-v5-support-hub",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "maxfoot-v5-support-hub"
+  ]
+}

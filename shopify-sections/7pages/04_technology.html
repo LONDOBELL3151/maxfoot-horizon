@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>E-ADVENTURE | Technology v5</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=Lexend:wght@300..600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-container-highest": "#e2e2e2",
+                        "on-error-container": "#93000a",
+                        "inverse-primary": "#f8be1e",
+                        "surface-variant": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "on-secondary-fixed-variant": "#474646",
+                        "tertiary-fixed-dim": "#e9c346",
+                        "secondary-fixed-dim": "#c8c6c5",
+                        "on-background": "#1a1c1c",
+                        "primary-fixed": "#ffdf9d",
+                        "outline-variant": "#d3c5ac",
+                        "on-primary-fixed-variant": "#5b4300",
+                        "surface-container": "#eeeeee",
+                        "on-error": "#ffffff",
+                        "secondary-container": "#e5e2e1",
+                        "background": "#f9f9f9",
+                        "tertiary-container": "#f0c94b",
+                        "on-primary-fixed": "#251a00",
+                        "surface-tint": "#785a00",
+                        "outline": "#817660",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#f8be1e",
+                        "surface-container-high": "#e8e8e8",
+                        "on-secondary-container": "#656464",
+                        "surface-dim": "#dadada",
+                        "tertiary-fixed": "#ffe086",
+                        "surface-container-low": "#f3f3f4",
+                        "primary": "#785a00",
+                        "on-tertiary-fixed-variant": "#574500",
+                        "on-surface": "#1a1c1c",
+                        "surface-bright": "#f9f9f9",
+                        "on-tertiary-container": "#6a5400",
+                        "tertiary": "#735c00",
+                        "on-surface-variant": "#4f4633",
+                        "on-secondary-fixed": "#1c1b1b",
+                        "surface": "#f9f9f9",
+                        "on-tertiary-fixed": "#231b00",
+                        "on-primary": "#ffffff",
+                        "secondary": "#5f5e5e",
+                        "inverse-surface": "#2f3131",
+                        "error-container": "#ffdad6",
+                        "secondary-fixed": "#e5e2e1",
+                        "primary-container": "#ffc426",
+                        "inverse-on-surface": "#f0f1f1",
+                        "on-secondary": "#ffffff",
+                        "error": "#ba1a1a",
+                        "on-primary-container": "#6f5200"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "base": "8px",
+                        "stack-lg": "48px",
+                        "stack-sm": "12px",
+                        "container-max": "1440px",
+                        "gutter": "24px",
+                        "stack-md": "24px",
+                        "section-padding": "120px"
+                    },
+                    "fontFamily": {
+                        "headline-lg": ["Space Grotesk"],
+                        "display-lg": ["Space Grotesk"],
+                        "body-lg": ["Lexend"],
+                        "body-md": ["Lexend"],
+                        "headline-xl": ["Space Grotesk"],
+                        "label-lg": ["Space Grotesk"],
+                        "label-md": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "headline-lg": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "fontWeight": "400"}],
+                        "headline-xl": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "label-lg": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "label-md": ["12px", {"lineHeight": "1.2", "fontWeight": "500"}]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        body { background-color: #ffffff; color: #1a1c1c; }
+        .hero-gradient {
+            background: linear-gradient(180deg, rgba(255,255,255,0) 0%, rgba(243,243,244,1) 100%);
+        }
+        .progress-gradient {
+            background: linear-gradient(90deg, #3b82f6 0%, #FFC426 100%);
+        }
+        .bento-card {
+            transition: transform 0.2s ease-out;
+        }
+        .bento-card:hover {
+            transform: translateY(-4px);
+        }
+    </style>
+</head>
+<body class="font-body-md text-on-background">
+<!-- TopNavBar -->
+<nav class="bg-white/95 backdrop-blur-md border-b border-zinc-100 docked full-width top-0 sticky z-50 transition-all duration-200 ease-in-out">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="text-2xl font-bold tracking-tighter text-zinc-900">E-ADVENTURE</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="text-zinc-600 hover:text-zinc-900 transition-colors font-label-lg uppercase" href="#">Bikes</a>
+<a class="text-[#785a00] border-b-2 border-[#FFC426] pb-1 font-label-lg uppercase" href="#">Technology</a>
+<a class="text-zinc-600 hover:text-zinc-900 transition-colors font-label-lg uppercase" href="#">Innovation</a>
+<a class="text-zinc-600 hover:text-zinc-900 transition-colors font-label-lg uppercase" href="#">Performance</a>
+<a class="text-zinc-600 hover:text-zinc-900 transition-colors font-label-lg uppercase" href="#">Support</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined text-zinc-400 mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 font-body-md" placeholder="Search technology..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-label-lg transition-all hover:opacity-90">Shop Now</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative min-h-[921px] flex flex-col justify-center overflow-hidden hero-gradient">
+<div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-section-padding">
+<div class="z-10">
+<div class="inline-flex items-center bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full mb-8">
+<span class="font-label-lg uppercase tracking-widest text-[11px]">Next Generation Performance</span>
+</div>
+<h1 class="font-display-lg text-on-surface uppercase mb-6 leading-[0.95]">ENGINEERED TO DOMINATE</h1>
+<p class="font-body-lg text-on-surface-variant max-w-md mb-10">
+                    Pushing the boundaries of electric mobility with aerospace-grade materials and industry-leading torque management.
+                </p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:scale-105">Experience Power</button>
+<button class="border-2 border-zinc-900 text-zinc-900 px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:bg-zinc-900 hover:text-white">White Papers</button>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="absolute -z-10 w-[140%] h-[140%] bg-primary-container/10 blur-[100px] rounded-full"></div>
+<div class="bg-white p-8 rounded-xl shadow-2xl border border-zinc-100 flex flex-col items-center">
+<div class="text-[120px] font-display-lg text-primary leading-none mb-2">95<span class="text-4xl font-headline-lg ml-2">Nm</span></div>
+<div class="font-label-lg uppercase tracking-widest text-on-surface-variant">Instant Peak Torque</div>
+<div class="w-full h-px bg-zinc-100 my-8"></div>
+<div class="grid grid-cols-2 gap-8 w-full">
+<div>
+<div class="font-headline-lg text-on-surface">4.2s</div>
+<div class="text-[10px] font-label-md uppercase text-zinc-400">0-20 MPH</div>
+</div>
+<div>
+<div class="font-headline-lg text-on-surface">98%</div>
+<div class="text-[10px] font-label-md uppercase text-zinc-400">Efficiency</div>
+</div>
+</div>
+</div>
+<img class="absolute -bottom-10 -right-20 w-[400px] pointer-events-none opacity-40 grayscale" data-alt="close up of a high performance electric bike motor and drivetrain with precision carbon fiber finishes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAZSJS_2FtURC-8N15MNTzEFHFPr2kZyK8Lm-pie3QYwqJDLsredXMziQHFbtYixvNmJE06wPPH4IuTnW0i3wcPzXx1IUX6tp25DBbmJWVTO4Pg_xgoM-PoOABXETTNsRf6mjwHDh56TB2oIy2-G_xdkMzeBKf6y5SDetKs5X6fGPzCS57Y3dauB8Y6VK40fJvY3BXEyR_XOml5fA2sTTUzUhA7PdmOobgqca0vStck7aD9OLATR_C-3Yl_sSBqbxOynneijMTUNM0t"/>
+</div>
+</div>
+</header>
+<!-- Core Innovations (Bento Grid) -->
+<section class="bg-white py-section-padding">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col items-center text-center mb-16">
+<h2 class="font-headline-xl uppercase mb-4">Core Innovations</h2>
+<div class="w-20 h-1.5 bg-primary-container"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+<!-- Feature 1: Large Bento -->
+<div class="md:col-span-8 md:row-span-2 bento-card bg-surface-container-low rounded-xl overflow-hidden group">
+<div class="h-full w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Internal view of a high capacity electric bike battery with advanced thermal shielding and golden heat sinks" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAujOYG_7TZl-jA8tC6wfKEQaO6xczpZTFKV9aBEUUqcoVHzM7qKrDPZPxco_YARvlSi1m3mf7xvfxq1bgeYJfPr9yBkxK1pj0-0Cl1p5KwxX9wFgKAXF7bUQIefzXHKqiMLDyobBcyfzvgkN23Zah63xI1PlWhc5MXUsebwSTxUZAb2MV04PFqz-uDlXplCz-_5GNejx0dYu2JJIxjIfmeb9kmU0qlrTcbbUZOtSMqyJry3Ch43M2pmdyrzu5NxARZTth8LCphbtdS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10 text-white">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded font-label-md uppercase mb-4 inline-block">Flagship Tech</span>
+<h3 class="font-headline-xl uppercase mb-4">Power Cell v4</h3>
+<p class="font-body-md text-zinc-300 max-w-md">Our patented thermal shielding technology maintains optimal operating temperatures even under extreme heavy-load conditions.</p>
+</div>
+</div>
+</div>
+<!-- Feature 2: Small Bento -->
+<div class="md:col-span-4 bento-card bg-white border border-zinc-100 p-8 flex flex-col justify-between rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl">precision_manufacturing</span>
+<div>
+<h4 class="font-headline-lg uppercase mb-2">Aero-Core</h4>
+<p class="text-on-surface-variant font-body-md">Cold-forged 7075 aluminum frame for unparalleled stiffness-to-weight ratio.</p>
+</div>
+</div>
+<!-- Feature 3: Small Bento -->
+<div class="md:col-span-4 bento-card bg-zinc-900 text-white p-8 flex flex-col justify-between rounded-xl">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-weight="fill">bolt</span>
+<div>
+<h4 class="font-headline-lg uppercase mb-2">Neural Flux</h4>
+<p class="text-zinc-400 font-body-md">Adaptive AI motor controller processing 1,000 sensor inputs per second.</p>
+</div>
+</div>
+<!-- Feature 4: Wide Bento -->
+<div class="md:col-span-12 md:row-span-1 bento-card bg-surface-container rounded-xl overflow-hidden flex flex-col md:flex-row items-center">
+<div class="p-10 flex-1">
+<h4 class="font-headline-xl uppercase mb-4">Ultra-Connect Hub</h4>
+<p class="text-on-surface-variant font-body-md mb-6">Seamless integration with your ecosystem. Real-time diagnostics, over-the-air updates, and military-grade GPS tracking.</p>
+<div class="flex gap-4">
+<span class="font-label-lg text-primary uppercase">Bluetooth 5.3</span>
+<span class="font-label-lg text-primary uppercase">5G Lte</span>
+<span class="font-label-lg text-primary uppercase">RFID Lock</span>
+</div>
+</div>
+<div class="flex-1 h-full w-full bg-zinc-200">
+<img class="w-full h-full object-cover" data-alt="Smartphone showing a sophisticated e-bike diagnostic app with 3D models and performance graphs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1QG1vJZmszWb3D-g7Aa5-xVCuFLGGDOSDg76rNrvtqC0KrjAkT5RrGCCENIoKQSaS9DOQ8UShB3f2N6Jqj3tm_j1sVE4AuYpsr9ugLOJiXUyPGRGQEs6hKjsE5vQkPJOOO35LAo5KfERsj7nbLLjq7e5LJX6tMWBm7XqaqLE9woNGUZvBz3DxDj7w3poq4RF8h_nubr4XkwdRXJtMCvf3OJwgqflhK6RTlfyfllzgB1yJF7ySV8aM_AsvC1MMMwkwX1g3PGeilPap"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Efficiency Stats Section -->
+<section class="bg-surface-container-low py-section-padding">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<!-- Stat 1 -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="font-display-lg leading-none">28</div>
+<div class="font-label-lg text-primary mb-2">MPH TOP SPEED</div>
+</div>
+<div class="w-full h-4 bg-white rounded-full overflow-hidden">
+<div class="h-full w-[85%] progress-gradient"></div>
+</div>
+<p class="font-body-md text-on-surface-variant">Unrestricted class-3 performance capabilities for rapid urban commuting.</p>
+</div>
+<!-- Stat 2 -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="font-display-lg leading-none">750</div>
+<div class="font-label-lg text-primary mb-2">W NOMINAL</div>
+</div>
+<div class="w-full h-4 bg-white rounded-full overflow-hidden">
+<div class="h-full w-[75%] progress-gradient"></div>
+</div>
+<p class="font-body-md text-on-surface-variant">High-efficiency brushless DC motor designed for peak power sustained output.</p>
+</div>
+<!-- Stat 3 -->
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="font-display-lg leading-none">4.0</div>
+<div class="font-label-lg text-primary mb-2">INCH TREAD</div>
+</div>
+<div class="w-full h-4 bg-white rounded-full overflow-hidden">
+<div class="h-full w-[95%] progress-gradient"></div>
+</div>
+<p class="font-body-md text-on-surface-variant">Custom compound fat-tires providing maximum traction on loose terrain.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Riding Adaptivity (Comparison Table) -->
+<section class="bg-white py-section-padding">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="font-headline-xl uppercase mb-2">Riding Adaptivity</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">One machine, multiple personalities. Switch profiles instantly via the integrated cockpit.</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="border-b-2 border-zinc-900">
+<th class="py-6 text-left font-label-lg uppercase tracking-wider">Mode</th>
+<th class="py-6 text-left font-label-lg uppercase tracking-wider">Performance</th>
+<th class="py-6 text-left font-label-lg uppercase tracking-wider">Range Impact</th>
+<th class="py-6 text-center font-label-lg uppercase tracking-wider">Versatility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
+<td class="py-8">
+<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Urban Flow</div>
+<div class="text-xs font-label-md text-zinc-400 uppercase">Eco-Optimized</div>
+</td>
+<td class="py-8 font-body-md">Smooth acceleration, regenerative braking active.</td>
+<td class="py-8 font-body-md text-primary">+25% Extension</td>
+<td class="py-8 text-center">
+<div class="flex justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</td>
+</tr>
+<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
+<td class="py-8">
+<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Apex Peak</div>
+<div class="text-xs font-label-md text-zinc-400 uppercase">Maximum Output</div>
+</td>
+<td class="py-8 font-body-md">Full torque bypass, increased throttle response.</td>
+<td class="py-8 font-body-md text-error">-15% Reduction</td>
+<td class="py-8 text-center">
+<div class="flex justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+</tr>
+<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
+<td class="py-8">
+<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Heavy Load</div>
+<div class="text-xs font-label-md text-zinc-400 uppercase">Utility Focused</div>
+</td>
+<td class="py-8 font-body-md">Stepped power delivery for trailers and gear.</td>
+<td class="py-8 font-body-md text-zinc-500">Nominal</td>
+<td class="py-8 text-center">
+<div class="flex justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
+<!-- CTA Banner -->
+<section class="bg-white py-section-padding">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-zinc-900 rounded-2xl p-12 md:p-24 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<img class="w-full h-full object-cover" data-alt="Dark dramatic silhouette of an electric bike against a glowing golden background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaa5QxfUU79UB04sZ79UiJcePkxhC4UxluiLfheuWH3rbxQDR_JkmTmd1G8oInCFj5t2NmCktAVWaPymgy8tZwuH8B50vTNji9VtSSQu0RXhiKgGQodlLhay0pXExbFSu8sX3E8kfJqeQuSyH2AtYaspuEXVgibqaZOn_hviKxeDzKip2mOwF-4YJCn6GbEDhXXCluMwtbNEuIo2KK4fhxK6eC7VE9W7Wcwn5saYrHRmdvXzXLMLLwkBavrhOgb5QfWtg-QQ6IqV9t"/>
+</div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-white uppercase mb-8 leading-tight">STOP WATCHING.<br/>START RIDING.</h2>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:scale-105">Book a Test Flight</button>
+<button class="border-2 border-white text-white px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:bg-white hover:text-zinc-900">Configure Yours</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-white border-t border-zinc-100 full-width py-12 transition-all ease-out duration-300">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-xl font-bold text-zinc-900">E-ADVENTURE</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Privacy Policy</a>
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Terms of Service</a>
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Warranty</a>
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Contact Us</a>
+</div>
+<p class="font-body-md text-zinc-500 text-sm">© 2024 High-Performance Adventure. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

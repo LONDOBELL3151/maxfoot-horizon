@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>KINETIC Journal | Engineering the Future of E-Mobility</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Lexend:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "on-primary-fixed-variant": "#404758",
+                        "secondary-fixed": "#ffdf9d",
+                        "on-tertiary": "#ffffff",
+                        "on-tertiary-container": "#6f5200",
+                        "tertiary-fixed-dim": "#f8be1e",
+                        "outline-variant": "#d3c5ac",
+                        "secondary": "#785a00",
+                        "on-error": "#ffffff",
+                        "on-primary-container": "#505668",
+                        "on-primary": "#ffffff",
+                        "surface-container-low": "#f1f3ff",
+                        "error-container": "#ffdad6",
+                        "surface-dim": "#d3daef",
+                        "inverse-surface": "#293040",
+                        "on-tertiary-fixed": "#251a00",
+                        "surface-container-lowest": "#ffffff",
+                        "tertiary": "#785a00",
+                        "inverse-primary": "#c0c6db",
+                        "secondary-container": "#fec325",
+                        "on-error-container": "#93000a",
+                        "on-background": "#141b2b",
+                        "on-tertiary-fixed-variant": "#5b4300",
+                        "on-secondary-fixed-variant": "#5b4300",
+                        "surface-container-highest": "#dce2f7",
+                        "secondary-fixed-dim": "#f8be1e",
+                        "background": "#f9f9ff",
+                        "on-surface": "#141b2b",
+                        "inverse-on-surface": "#edf0ff",
+                        "surface-tint": "#575e70",
+                        "surface-bright": "#f9f9ff",
+                        "on-primary-fixed": "#141b2b",
+                        "surface-container-high": "#e1e8fd",
+                        "on-secondary": "#ffffff",
+                        "surface-container": "#e9edff",
+                        "surface": "#f9f9ff",
+                        "primary": "#575e70",
+                        "surface-variant": "#dce2f7",
+                        "on-secondary-fixed": "#251a00",
+                        "on-surface-variant": "#4f4633",
+                        "primary-container": "#c6cce1",
+                        "outline": "#817660",
+                        "tertiary-fixed": "#ffdf9d",
+                        "error": "#ba1a1a",
+                        "primary-fixed-dim": "#c0c6db",
+                        "primary-fixed": "#dce2f7",
+                        "on-secondary-container": "#6e5200",
+                        "tertiary-container": "#ffc426"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.5rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "fontFamily": {
+                        "headline": ["Space Grotesk"],
+                        "display": ["Space Grotesk"],
+                        "body": ["Lexend"],
+                        "label": ["Lexend"]
+                    }
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            vertical-align: middle;
+            line-height: 1;
+        }
+        body { font-family: 'Lexend', sans-serif; background-color: #ffffff; color: #141b2b; }
+        h1, h2, h3, .font-headline { font-family: 'Space Grotesk', sans-serif; }
+    </style>
+</head>
+<body class="bg-white">
+<!-- TopNavBar -->
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl transition-all duration-300 shadow-xl shadow-slate-900/5">
+<nav class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black tracking-tighter text-slate-900 uppercase">KINETIC</div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors font-['Space_Grotesk'] tracking-tight font-medium" href="#">Machines</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors font-['Space_Grotesk'] tracking-tight font-medium" href="#">Engineering</a>
+<a class="text-slate-900 border-b-2 border-[#FFC426] pb-1 font-['Space_Grotesk'] tracking-tight font-medium" href="#">Journal</a>
+<a class="text-slate-500 dark:text-slate-400 hover:text-slate-900 transition-colors font-['Space_Grotesk'] tracking-tight font-medium" href="#">Experience</a>
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden md:block">
+<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-slate-900">search</span>
+</div>
+<button class="bg-tertiary-container text-on-tertiary-container px-6 py-2 rounded-lg font-['Space_Grotesk'] font-bold tracking-tight active:scale-95 duration-200 ease-in-out">
+                    Configure
+                </button>
+</div>
+</nav>
+</header>
+<main class="pt-24">
+<!-- Back Navigation -->
+<div class="max-w-screen-2xl mx-auto px-8 py-6">
+<a class="group flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors" href="#">
+<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+<span class="font-headline font-medium tracking-tight text-sm uppercase">Back to Blog</span>
+</a>
+</div>
+<!-- Hero Image Section -->
+<section class="w-full relative aspect-[21/9] overflow-hidden bg-slate-100">
+<img alt="Cinematic E-Bike Adventure" class="w-full h-full object-cover" data-alt="A cinematic wide-angle shot of a matte black high-performance e-bike parked on a misty coastal cliff during sunrise. The lighting is ethereal with soft golden hues reflecting off the bike's metallic components. The environment is rugged and atmospheric, evoking a sense of premium exploration and engineering excellence consistent with a minimalist luxury aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbSWw2JKcX3hfH6DG_CD_akCODIa-bCuZjtnI4hoFeND6xZFeu4GfxAmst7T90ItQuNCKcP1EMyMGtfuISvQeSB6ye7LXW9P8Liezv2UA5t9tDjNYKvi39mf9DS0Wz3EkC5H1GHj9325SnomYgbuysDzG9ZL9FdJ_PHIv09cMF8OIhAV3417FfMyJJZWssHisC6u4WQBB9T4RBr2UvhR8zQDK5WpIWQp4vtZG56q1QYk-kAHIwydqa6n_Vvbo21WTBHrMaurgxzr8U"/>
+</section>
+<!-- Article Header -->
+<header class="max-w-4xl mx-auto text-center px-8 py-20">
+<span class="inline-block bg-tertiary-container text-on-tertiary-container text-xs font-bold tracking-widest px-4 py-1.5 rounded-full mb-8">ADVENTURE</span>
+<h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] text-slate-900 mb-8">THE ARCHITECTURE OF MOMENTUM.</h1>
+<div class="flex flex-col items-center gap-2 text-slate-500 font-medium">
+<div class="flex items-center gap-2">
+<span class="text-slate-900">By Marcus V.</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>Oct 24, 2026</span>
+<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
+<span>6 min read</span>
+</div>
+</div>
+</header>
+<!-- Article Content -->
+<article class="max-w-4xl mx-auto px-8 pb-20">
+<div class="prose prose-slate prose-xl max-w-none font-body leading-relaxed text-slate-800">
+<p class="mb-12 text-2xl font-light leading-snug">The intersection of mechanical purity and electric efficiency is where the Kinetic Monolith finds its soul. We didn't just design a frame; we engineered a rigid skeleton for the modern explorer. Every weld, every junction, and every internal cable route was scrutinized under the lens of architectural permanence.</p>
+<p class="mb-12">The transition from traditional combustion to high-precision electric drive systems isn't just a technical shift—it's a cultural evolution. As urban landscapes tighten and the call of the wild becomes more persistent, the tools we use to navigate these spaces must adapt. Kinetic represents the pinnacle of this adaptation, blending surgical technicality with a raw, unyielding aesthetic.</p>
+<!-- Pull Quote -->
+<blockquote class="my-20 border-l-8 border-[#FFC426] pl-10 py-4 italic">
+<p class="text-4xl md:text-5xl font-headline font-bold text-slate-900 tracking-tight leading-tight">"Efficiency is the silent roar of engineering excellence. We build not for the commute, but for the kinetic journey."</p>
+</blockquote>
+<p class="mb-12">When we looked at the mid-drive motor integration, the goal was seamlessness. The power delivery should feel like an extension of the human leg, a natural amplification of intent rather than a mechanical intervention. This required a ground-up rethink of the bottom bracket architecture.</p>
+<!-- Inline Image -->
+<figure class="my-16">
+<div class="rounded-xl overflow-hidden shadow-2xl shadow-slate-900/10">
+<img alt="E-Bike Component Precision" class="w-full" data-alt="A high-contrast macro studio photograph of an e-bike motor and carbon fiber frame junction. The lighting is dramatic, highlighting the brushed metal textures and precision-machined bolts. The color palette is composed of deep charcoals, slate grays, and a singular glowing gold indicator light, reflecting a high-end technical manual aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2g1Zq_XZYElWPm0Tg-8xMzNfRaT78bD0gT3zprtTtE8huZFqALz6gvs_i6f3fOcKmORF2Ri9XQUKV30Q5f0VWeBN6PWGQiYYRZIESaBlVFXfMkbejJnA2PNYgS6f2c1r6cgeIelj49GTGK8L8C6F5AC703t2gLuYdBOwNpgkTa-Lo8gCsa5skS6VBXHLQeuZQnwrPglAgcME6QjNOggtYWE1yY8yhHjjb8_-M9jId35vNt3l1WcqmK_MUSW3x7-7LsFTIqMpWzKd6"/>
+</div>
+<figcaption class="mt-4 text-sm text-slate-400 font-medium uppercase tracking-widest text-center">Fig 04. Precision Drive-Unit Integration</figcaption>
+</figure>
+<p>The journey forward is measured not in miles, but in moments of pure clarity. As the KINETIC fleet expands, our commitment to this architectural momentum remains unwavering. We invite you to explore the limits of what a machine can provide when it is stripped of excess and polished to a mirror finish of utility.</p>
+</div>
+<!-- Share Section -->
+<div class="mt-20 py-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
+<span class="font-headline font-bold tracking-widest text-xs uppercase text-slate-400">Share this Story</span>
+<div class="flex gap-8">
+<a class="text-slate-900 hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+<a class="text-slate-900 hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+<a class="text-slate-900 hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">link</span></a>
+</div>
+</div>
+<!-- Author Bio -->
+<div class="mt-12 bg-surface-container-low p-10 rounded-2xl flex flex-col md:flex-row items-center md:items-start gap-8">
+<div class="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-lg">
+<img alt="Author Avatar" class="w-full h-full object-cover" data-alt="A professional headshot of a middle-aged man with a short beard and confident expression, styled in a minimalist black turtleneck. The background is a clean, out-of-focus architectural space with soft daylight, maintaining the high-end editorial vibe of the brand." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr7N4E4hd0LQmFrBXT6P4Vep0LM6mI3W4C0TFbKKm5uhFPyiZV0GV2DGjp_D3mDf7ZXjie_FydDk1xobmwXJ-uP6fmTQIktc8wyDDPVCvxA0tRrfBaud82NCvuJ2zjqflEoSv8YKYME_LJVNeVWkg7eWZJfRpKwxU2BU6ai973nVJlcIlHpAlJa2_1i-koOPNGWtt4pZPjl6dPmkpQz4Npv-MSOpzuDiERUAgmCJKK2zfPO7OXAQgB2wRQaTjv_LwtS_LeiZrlXJK5"/>
+</div>
+<div class="text-center md:text-left">
+<h4 class="font-headline font-bold text-xl text-slate-900 mb-2">Marcus Verhoeven</h4>
+<p class="text-slate-600 leading-relaxed">Lead Design Strategist at KINETIC. Marcus has spent two decades at the intersection of industrial design and electric propulsion, obsessed with the tactile nature of precision movement.</p>
+</div>
+</div>
+</article>
+<!-- Related Posts Section -->
+<section class="bg-slate-50 py-32 mt-20">
+<div class="max-w-screen-2xl mx-auto px-8">
+<div class="flex justify-between items-end mb-16">
+<h2 class="text-5xl font-black tracking-tighter text-slate-900">KEEP EXPLORING</h2>
+<a class="text-[#FFC426] font-headline font-bold tracking-widest text-sm uppercase flex items-center gap-2 hover:translate-x-2 transition-transform" href="#">
+                        View Journal <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Post 1 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-slate-200">
+<img alt="Related Post 1" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A high-end architectural photo of a modern black e-bike against a brutalist concrete wall. Sharp shadows and minimal composition highlight the bike's sleek geometry, fitting the brand's precision e-mobility aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG2nPyevEiNlwCH-Wivnv96dbvHb_9_cj1YqTwe35igpdC-j9Jt7x9N06ctvI0dq1hpNl5vlK_b7J7lgcynf0fMwRzlHDb9xj5YcLyL47qtAp1485NQhQ2wjEYcSj1iobTjbjZ0Uy9MrpJ-Z2Z_8rZklvo3dUX1WsHdSWbFxfr-tqXLPIBEYgOQWxWPCAFJuwolmWBkMjSSYse-5dl58JAfkiZOG6eLiNfEqKAYtzdNIWnqt1E4ZshwP8Nx86LDSy4n0XaFwZhwY7E"/>
+</div>
+<span class="text-xs font-bold tracking-widest text-[#785a00] uppercase mb-4 block">Engineering</span>
+<h3 class="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-tertiary transition-colors">The Carbon Threshold: Why Weight Matters in E-Bikes.</h3>
+</div>
+<!-- Post 2 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-slate-200">
+<img alt="Related Post 2" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="An atmospheric night shot of a city bridge with long-exposure light trails from an e-bike rider. The aesthetic is futuristic and high-tech, using deep blues and warm gold light accents to convey kinetic motion." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCjMDpt609Rr-7vhECenvEch4VtxRZhVmIAc0PnKkVD3O7lub3UUN27V9kMCPxIb0X_RBAUFI354RZPNlBHD7nEFYPi-fNTM0K2WBr_lQCQV03Oy1wdcDA3eepsxcAeVpbmR39N74yEZP2e3AJJFh30Dy3N8i488ukFUpnuSQ8uFqM0T9Ghitm1uL3DVUBzAQ-39SmVVRtkzPMXjD_-Vc_rvZPxUbDReH2_QqwGgoLkytULLYwxoof41pq4DsArxhclumJ59GJXPG2T"/>
+</div>
+<span class="text-xs font-bold tracking-widest text-[#785a00] uppercase mb-4 block">Experience</span>
+<h3 class="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-tertiary transition-colors">Urban Navigation: Rediscovering the City Grid.</h3>
+</div>
+<!-- Post 3 -->
+<div class="group cursor-pointer">
+<div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-slate-200">
+<img alt="Related Post 3" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="A minimalist overhead shot of high-performance bike tires on a textured asphalt surface. The focus is on the intricate tread patterns and the interplay of light and texture, evoking technical precision and engineering detail." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBm81QexIHD-pPRhgsrLgJr6vi3caJIsrRJ0mg61QozwvKiG3gHQEWEEuvtraqZmubnI5jN17r1Uuvn687kypDrDStUceq7EfTmtvlvQKx-pOo66x94965IZHOmvzIKeEmfysW7B8IiV11ldmWY2RlD_JUYKQ4YSGY7nSZ6nSjhAKyRxvy7VU2p65MZ9FXjOPTobddSzgSa3IttK3M2kdBa0fqBZROGEj8hx0tiPp1AdgeSO_wRSj9RMHn92ESCjar7bpbMzVMZesrJ"/>
+</div>
+<span class="text-xs font-bold tracking-widest text-[#785a00] uppercase mb-4 block">Technical</span>
+<h3 class="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-tertiary transition-colors">Silence is Luxury: The Belt Drive Revolution.</h3>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full mt-20 bg-slate-50 dark:bg-slate-900">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full py-16 px-12 max-w-screen-2xl mx-auto items-center">
+<div class="space-y-6">
+<div class="text-xl font-bold text-slate-900 dark:text-white">KINETIC</div>
+<div class="text-slate-500 dark:text-slate-400 font-['Space_Grotesk'] uppercase tracking-widest text-xs">
+                    © 2024 KINETIC MONOLITH. PRECISION E-MOBILITY.
+                </div>
+</div>
+<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-500 dark:text-slate-400 hover:text-[#FFC426] transition-colors" href="#">Privacy Policy</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-500 dark:text-slate-400 hover:text-[#FFC426] transition-colors" href="#">Technical Manuals</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-500 dark:text-slate-400 hover:text-[#FFC426] transition-colors" href="#">Support</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-500 dark:text-slate-400 hover:text-[#FFC426] transition-colors" href="#">Press</a>
+<a class="font-['Space_Grotesk'] uppercase tracking-widest text-xs text-slate-500 dark:text-slate-400 hover:text-[#FFC426] transition-colors" href="#">Careers</a>
+</div>
+</div>
+</footer>
+</body></html>

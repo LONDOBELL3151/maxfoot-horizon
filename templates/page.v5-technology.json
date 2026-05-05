@@ -1,0 +1,12 @@
+{
+  "sections": {
+    "maxfoot-v5-technology": {
+      "type": "maxfoot-v5-technology",
+      "settings": {
+      }
+    }
+  },
+  "order": [
+    "maxfoot-v5-technology"
+  ]
+}
