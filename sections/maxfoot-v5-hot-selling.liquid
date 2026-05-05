@@ -58,8 +58,8 @@
               {%- endif -%}
             </div>
             <div class="p-6 text-center">
-              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title | escape | default: product.title }}</h3>
-              <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.price | escape | default: product.price | money_without_currency | prepend: '$' }}</p>
+              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{% if block.settings.title != blank %}{{ block.settings.title }}{% else %}{{ product.title }}{% endif %}</h3>
+              <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">{% if block.settings.price != blank %}{{ block.settings.price }}{% else %}{{ product.price | money_without_currency | prepend: '$' }}{% endif %}</p>
             </div>
           </div>
         {%- endif -%}
