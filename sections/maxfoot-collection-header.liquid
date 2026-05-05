@@ -1,0 +1,86 @@
+{% comment %}
+  Maxfoot Collection Header Section - Product Listing Page
+  Page header with title, description, and border
+{% endcomment %}
+
+<section
+  id="MaxfootCollectionHeader-{{ section.id }}"
+  class="maxfoot-collection-header"
+>
+  <div class="maxfoot-collection-header__container">
+    <h1 class="maxfoot-collection-header__title">{{ section.settings.heading | default: 'Engineered for Adventure' }}</h1>
+    <p class="maxfoot-collection-header__description">{{ section.settings.description | default: 'Discover our complete lineup of high-performance electric bikes. Built for power, range, and durability on any terrain.' }}</p>
+  </div>
+</section>
+
+<style>
+  .maxfoot-collection-header {
+    background-color: #FFFFFF;
+    padding: 48px 24px;
+    margin-bottom: 0;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .maxfoot-collection-header__container {
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  .maxfoot-collection-header__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #121212;
+    margin: 0 0 12px 0;
+  }
+
+  .maxfoot-collection-header__description {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #6b6b6b;
+    max-width: 720px;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-collection-header {
+      padding: 32px 16px;
+      margin-bottom: 32px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Maxfoot Collection Header",
+  "tag": "section",
+  "class": "maxfoot-collection-header-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Engineered for Adventure"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover our complete lineup of high-performance electric bikes. Built for power, range, and durability on any terrain."
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot Collection Header",
+      "settings": {
+        "heading": "Engineered for Adventure",
+        "description": "Discover our complete lineup of high-performance electric bikes. Built for power, range, and durability on any terrain."
+      }
+    }
+  ]
+}
+{% endschema %}

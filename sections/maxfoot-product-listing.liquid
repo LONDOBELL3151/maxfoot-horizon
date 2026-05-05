@@ -1,0 +1,535 @@
+{% comment %}
+  Maxfoot Product Listing Section - Product Listing Page
+  Sidebar with filters on left, product grid on right
+{% endcomment %}
+
+<section
+  id="MaxfootProductListing-{{ section.id }}"
+  class="maxfoot-product-listing"
+>
+  <div class="maxfoot-product-listing__container">
+    {% comment %} Sidebar Filters {% endcomment %}
+    <aside class="maxfoot-product-listing__sidebar">
+      <div class="maxfoot-product-listing__filters">
+        <h3 class="maxfoot-product-listing__filters-title">{{ section.settings.filters_title | default: 'Filters' }}</h3>
+
+        <div class="maxfoot-product-listing__filter-groups">
+          {% for i in (1..2) %}
+            {% case forloop.index %}
+              {% when 1 %}
+                {% assign group_title = section.settings.filter_1_title | default: 'Bike Type' %}
+                {% assign options = 'All Terrain, Folding, Commuter, Step-Thru' | split: ', ' %}
+              {% when 2 %}
+                {% assign group_title = section.settings.filter_2_title | default: 'Motor Power' %}
+                {% assign options = '500W, 750W, 1000W' | split: ', ' %}
+            {% endcase %}
+
+            <div class="maxfoot-filter-group">
+              <h4 class="maxfoot-filter-group__title">{{ group_title }}</h4>
+              <div class="maxfoot-filter-group__options">
+                {% for option in options %}
+                  <label class="maxfoot-filter-option">
+                    <input
+                      type="checkbox"
+                      class="maxfoot-filter-option__checkbox"
+                      {% if forloop.first %}checked{% endif %}
+                    />
+                    <span class="maxfoot-filter-option__label">{{ option }}</span>
+                  </label>
+                {% endfor %}
+              </div>
+            </div>
+          {% endfor %}
+
+          <div class="maxfoot-filter-group">
+            <h4 class="maxfoot-filter-group__title">{{ section.settings.filter_3_title | default: 'Price Range' }}</h4>
+            <div class="maxfoot-price-range">
+              <input
+                type="range"
+                class="maxfoot-price-range__slider"
+                min="{{ section.settings.min_price | default: 1000 }}"
+                max="{{ section.settings.max_price | default: 3000 }}"
+                value="{{ section.settings.default_price | default: 2000 }}"
+              />
+              <div class="maxfoot-price-range__labels">
+                <span class="maxfoot-price-range__label">${{ section.settings.min_price | default: 1000 }}</span>
+                <span class="maxfoot-price-range__value">Up to ${{ section.settings.default_price | default: 2000 }}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    {% comment %} Main Content {% endcomment %}
+    <div class="maxfoot-product-listing__main">
+      <div class="maxfoot-product-listing__header">
+        <span class="maxfoot-product-listing__count">{{ section.settings.product_count | default: 12 }} Bikes</span>
+        <button class="maxfoot-product-listing__filter-btn md:hidden">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M4 21V14M4 10V3M12 21V12M12 8V3M20 21V16M20 12V3M1 14h6M9 8h6M17 16h6"/>
+          </svg>
+          Filters
+        </button>
+      </div>
+
+      <div class="maxfoot-product-listing__grid">
+        {% for i in (1..6) %}
+          <div class="maxfoot-product-card">
+            <div class="maxfoot-product-card__image-wrapper">
+              <div class="maxfoot-product-card__placeholder"></div>
+              <span class="maxfoot-product-card__badge maxfoot-product-card__badge--default">Best Seller</span>
+              <button class="maxfoot-product-card__wishlist">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+              </button>
+            </div>
+            <div class="maxfoot-product-card__content">
+              <div class="maxfoot-product-card__header">
+                <h3 class="maxfoot-product-card__title">MF-19 Fat Tire</h3>
+                <span class="maxfoot-product-card__price">$1,699</span>
+              </div>
+              <p class="maxfoot-product-card__specs">
+                <span class="maxfoot-product-card__spec">750W Motor</span>
+                <span class="maxfoot-product-card__spec-divider">|</span>
+                <span class="maxfoot-product-card__spec">60 Mile Range</span>
+              </p>
+              <a href="#" class="maxfoot-product-card__btn">View Details</a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .maxfoot-product-listing {
+    background-color: #F3F3F3;
+    padding: 0 24px 120px;
+    min-height: 100vh;
+  }
+
+  .maxfoot-product-listing__container {
+    max-width: 1440px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: 48px;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .maxfoot-product-listing__container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .maxfoot-product-listing__sidebar {
+    position: sticky;
+    top: 120px;
+    height: fit-content;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .maxfoot-product-listing__sidebar {
+      display: none;
+    }
+
+    .maxfoot-product-listing__sidebar.active {
+      display: block;
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      background: #FFFFFF;
+      overflow-y: auto;
+      padding: 24px;
+    }
+  }
+
+  .maxfoot-product-listing__filters {
+    background-color: #FFFFFF;
+    padding: 24px;
+    border-radius: 0px;
+    border: 1px solid #E5E7EB;
+  }
+
+  .maxfoot-product-listing__filters-title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #121212;
+    margin: 0 0 32px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .maxfoot-product-listing__filter-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .maxfoot-filter-group__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #121212;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #E5E7EB;
+  }
+
+  .maxfoot-filter-group__options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .maxfoot-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .maxfoot-filter-option__checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #334FB4;
+    background-color: #F3F3F3;
+    border: 1px solid #E5E7EB;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .maxfoot-filter-option__checkbox:checked {
+    background-color: #334FB4;
+    border-color: #334FB4;
+  }
+
+  .maxfoot-filter-option__label {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    color: #6b6b6b;
+    transition: color 0.3s ease;
+  }
+
+  .maxfoot-filter-option:hover .maxfoot-filter-option__label {
+    color: #121212;
+  }
+
+  .maxfoot-filter-option__checkbox:checked + .maxfoot-filter-option__label {
+    color: #334FB4;
+  }
+
+  .maxfoot-price-range {
+    padding: 8px 8px 0;
+  }
+
+  .maxfoot-price-range__slider {
+    width: 100%;
+    height: 4px;
+    background-color: #E5E7EB;
+    border-radius: 9999px;
+    appearance: none;
+    cursor: pointer;
+    accent-color: #334FB4;
+  }
+
+  .maxfoot-price-range__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #334FB4;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .maxfoot-price-range__labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .maxfoot-price-range__label {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    color: #6b6b6b;
+  }
+
+  .maxfoot-price-range__value {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    color: #334FB4;
+    font-weight: 500;
+  }
+
+  .maxfoot-product-listing__main {
+    flex: 1;
+  }
+
+  .maxfoot-product-listing__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+  }
+
+  .maxfoot-product-listing__count {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    color: #6b6b6b;
+  }
+
+  .maxfoot-product-listing__filter-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #121212;
+    background-color: #FFFFFF;
+    border: 1px solid #E5E7EB;
+    padding: 8px 16px;
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .maxfoot-product-listing__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 1199px) {
+    .maxfoot-product-listing__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media screen and (max-width: 639px) {
+    .maxfoot-product-listing__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .maxfoot-product-card {
+    display: flex;
+    flex-direction: column;
+    background-color: #FFFFFF;
+    border-radius: 0px;
+    border: 1px solid #E5E7EB;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .maxfoot-product-card:hover {
+    border-color: #334FB4;
+    box-shadow: 0 4px 20px rgba(51, 79, 180, 0.15);
+  }
+
+  .maxfoot-product-card__image-wrapper {
+    position: relative;
+    aspect-ratio: 4/3;
+    background-color: #F3F3F3;
+    overflow: hidden;
+  }
+
+  .maxfoot-product-card__placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #F3F3F3 0%, #E5E7EB 100%);
+  }
+
+  .maxfoot-product-card__badge {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 4px 12px;
+    border-radius: 0px;
+  }
+
+  .maxfoot-product-card__badge--default {
+    background-color: #ffc426;
+    color: #000000;
+  }
+
+  .maxfoot-product-card__wishlist {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    background-color: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(8px);
+    padding: 8px;
+    border-radius: 50%;
+    border: 1px solid #E5E7EB;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: #6b6b6b;
+  }
+
+  .maxfoot-product-card__wishlist:hover {
+    color: #334FB4;
+    border-color: #334FB4;
+  }
+
+  .maxfoot-product-card__wishlist svg {
+    width: 20px;
+    height: 20px;
+    display: block;
+  }
+
+  .maxfoot-product-card__content {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 24px;
+  }
+
+  .maxfoot-product-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+  }
+
+  .maxfoot-product-card__title {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #121212;
+    margin: 0;
+  }
+
+  .maxfoot-product-card__price {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: #334FB4;
+  }
+
+  .maxfoot-product-card__specs {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    color: #6b6b6b;
+    margin: 0 0 24px 0;
+    flex: 1;
+  }
+
+  .maxfoot-product-card__spec {
+    color: #334FB4;
+  }
+
+  .maxfoot-product-card__spec-divider {
+    color: #E5E7EB;
+    margin: 0 4px;
+  }
+
+  .maxfoot-product-card__btn {
+    display: block;
+    width: 100%;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-align: center;
+    color: #000000;
+    background-color: #ffc426;
+    padding: 12px 24px;
+    border-radius: 0px;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+  }
+
+  .maxfoot-product-card__btn:hover {
+    background-color: #FFEB3B;
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-product-listing {
+      padding: 0 16px 64px;
+    }
+
+    .maxfoot-product-listing__header {
+      margin-bottom: 16px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Product Listing",
+  "tag": "section",
+  "class": "maxfoot-product-listing-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "filters_title",
+      "label": "Filters Title",
+      "default": "Filters"
+    },
+    {
+      "type": "text",
+      "id": "filter_1_title",
+      "label": "Filter 1 Title",
+      "default": "Bike Type"
+    },
+    {
+      "type": "text",
+      "id": "filter_2_title",
+      "label": "Filter 2 Title",
+      "default": "Motor Power"
+    },
+    {
+      "type": "text",
+      "id": "filter_3_title",
+      "label": "Filter 3 Title",
+      "default": "Price Range"
+    },
+    {
+      "type": "number",
+      "id": "min_price",
+      "label": "Minimum Price",
+      "default": 1000
+    },
+    {
+      "type": "number",
+      "id": "max_price",
+      "label": "Maximum Price",
+      "default": 3000
+    },
+    {
+      "type": "number",
+      "id": "default_price",
+      "label": "Default Price",
+      "default": 2000
+    },
+    {
+      "type": "number",
+      "id": "product_count",
+      "label": "Product Count",
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Listing"
+    }
+  ]
+}
+{% endschema %}

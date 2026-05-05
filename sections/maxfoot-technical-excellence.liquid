@@ -1,0 +1,350 @@
+{% comment %}
+  Maxfoot Technical Excellence Section - Homepage v4
+  Left/right split layout with image, stat bars, and precision engineering content
+{% endcomment %}
+
+{% liquid
+  assign image = section.settings.image
+  assign heading = section.settings.heading | default: 'Precision Engineering'
+  assign accent_word = section.settings.accent_word | default: 'Engineering'
+%}
+
+<section
+  id="MaxfootTechnicalExcellence-{{ section.id }}"
+  class="maxfoot-tech-excellence"
+>
+  <div class="maxfoot-tech-excellence__container">
+    {% comment %} Left side - Image with decorative elements {% endcomment %}
+    <div class="maxfoot-tech-excellence__media">
+      <div class="maxfoot-tech-excellence__media-border"></div>
+      {% if image != blank %}
+        {{
+          image
+          | image_url: width: 800
+          | image_tag:
+            class: 'maxfoot-tech-excellence__image',
+            alt: heading,
+            widths: '400, 600, 800',
+            loading: 'lazy'
+        }}
+      {% else %}
+        <div class="maxfoot-tech-excellence__image-placeholder"></div>
+      {% endif %}
+      <div class="maxfoot-tech-excellence__stat-badge">
+        <p class="maxfoot-tech-excellence__stat-badge-label">Torque Output</p>
+        <p class="maxfoot-tech-excellence__stat-badge-value">95 NM</p>
+      </div>
+    </div>
+
+    {% comment %} Right side - Content {% endcomment %}
+    <div class="maxfoot-tech-excellence__content">
+      <h2 class="maxfoot-tech-excellence__heading">
+        Precision <span class="maxfoot-tech-excellence__heading-accent">{{ accent_word }}</span>
+      </h2>
+
+      <div class="maxfoot-tech-excellence__stats">
+        {% for block in section.blocks %}
+          {% case block.type %}
+            {% when 'stat_bar' %}
+              <div class="maxfoot-tech-stat" {{ block.shopify_attributes }}>
+                <div class="maxfoot-tech-stat__header">
+                  <p class="maxfoot-tech-stat__label">{{ block.settings.label }}</p>
+                  <p class="maxfoot-tech-stat__value">{{ block.settings.value }}</p>
+                </div>
+                <div class="maxfoot-tech-stat__bar">
+                  <div
+                    class="maxfoot-tech-stat__fill"
+                    style="--fill-width: {{ block.settings.percentage }}%"
+                  ></div>
+                </div>
+                <p class="maxfoot-tech-stat__description">{{ block.settings.description }}</p>
+              </div>
+          {% endcase %}
+        {% endfor %}
+      </div>
+
+      <button class="maxfoot-tech-excellence__cta">
+        Explore Tech-Noir Specs
+        <svg class="maxfoot-tech-excellence__cta-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 6V4M12 20h.01M20 12h-4m-1.5 4.5L18 14m-3 3l-1.5 1.5M6 12H2m4.5-4.5L4 10m3 3l1.5 1.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .maxfoot-tech-excellence {
+    padding: 100px 48px;
+    background-color: #F8F8F8;
+    overflow: hidden;
+  }
+
+  .maxfoot-tech-excellence__container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    max-width: 1200px;
+    margin: 0 auto;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .maxfoot-tech-excellence__container {
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+    }
+  }
+
+  .maxfoot-tech-excellence__media {
+    position: relative;
+  }
+
+  .maxfoot-tech-excellence__media-border {
+    display: none;
+  }
+
+  .maxfoot-tech-excellence__image {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+  }
+
+  .maxfoot-tech-excellence__image-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 4px;
+  }
+
+  .maxfoot-tech-excellence__stat-badge {
+    position: absolute;
+    bottom: 24px;
+    right: 24px;
+    background-color: #ffc426;
+    padding: 24px 32px;
+    border-radius: 4px;
+  }
+
+  .maxfoot-tech-excellence__stat-badge-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #121212;
+    margin: 0 0 4px 0;
+  }
+
+  .maxfoot-tech-excellence__stat-badge-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 32px;
+    font-weight: 900;
+    color: #121212;
+    margin: 0;
+    line-height: 1;
+  }
+
+  .maxfoot-tech-excellence__content {
+    color: #121212;
+  }
+
+  .maxfoot-tech-excellence__heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin: 0 0 40px 0;
+  }
+
+  .maxfoot-tech-excellence__heading-accent {
+    color: #ffc426;
+  }
+
+  .maxfoot-tech-excellence__stats {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  .maxfoot-tech-stat__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+  }
+
+  .maxfoot-tech-stat__label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #121212;
+    margin: 0;
+  }
+
+  .maxfoot-tech-stat__value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffc426;
+    margin: 0;
+  }
+
+  .maxfoot-tech-stat__bar {
+    width: 100%;
+    height: 6px;
+    background-color: #e5e5e5;
+    overflow: hidden;
+    border-radius: 3px;
+    margin-bottom: 12px;
+  }
+
+  .maxfoot-tech-stat__fill {
+    height: 100%;
+    width: var(--fill-width, 0%);
+    background: #ffc426;
+    border-radius: 3px;
+  }
+
+  .maxfoot-tech-stat__description {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b6b6b;
+    margin: 0;
+  }
+
+  .maxfoot-tech-excellence__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #121212;
+    background: transparent;
+    border: 2px solid #121212;
+    padding: 14px 28px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .maxfoot-tech-excellence__cta:hover {
+    background-color: #121212;
+    color: #ffc426;
+    border-color: #121212;
+  }
+
+  .maxfoot-tech-excellence__cta-icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-tech-excellence {
+      padding: 64px 24px;
+    }
+
+    .maxfoot-tech-excellence__stat-badge {
+      position: relative;
+      bottom: auto;
+      right: auto;
+      margin-top: 24px;
+      display: inline-block;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Tech Excellence",
+  "tag": "section",
+  "class": "maxfoot-tech-excellence-section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Feature Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Precision Engineering"
+    },
+    {
+      "type": "text",
+      "id": "accent_word",
+      "label": "Accent Word",
+      "default": "Engineering"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat_bar",
+      "name": "Stat Bar",
+      "settings": [
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "Lithium-Ion Core"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "48V 20Ah"
+        },
+        {
+          "type": "range",
+          "id": "percentage",
+          "label": "Fill Percentage",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 85
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Samsung high-capacity cells integrated into the downtube for balanced center of gravity and 80+ mile range."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Tech Excellence",
+      "blocks": [
+        {
+          "type": "stat_bar",
+          "settings": {
+            "label": "Lithium-Ion Core",
+            "value": "48V 20Ah",
+            "percentage": 85,
+            "description": "Samsung high-capacity cells integrated into the downtube for balanced center of gravity and 80+ mile range."
+          }
+        },
+        {
+          "type": "stat_bar",
+          "settings": {
+            "label": "Suspension Matrix",
+            "value": "Triple Stage",
+            "percentage": 70,
+            "description": "Pneumatic dampening system with adjustable rebound, designed to neutralize vibration on cobblestone or mountain trails."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

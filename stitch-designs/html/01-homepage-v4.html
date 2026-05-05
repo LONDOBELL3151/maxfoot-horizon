@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Homepage v4</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300;400;500;700&amp;family=Space+Grotesk:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .energy-lines {
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(0, 212, 255, 0.05) 20px, rgba(0, 212, 255, 0.05) 21px);
+        }
+        .diagonal-cut {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 92% 100%, 0 100%);
+        }
+        .mask-tech-noir {
+            mask-image: linear-gradient(to bottom, black 60%, transparent 100%);
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#d7e3fc",
+                      "on-secondary": "#003642",
+                      "tertiary-fixed-dim": "#bbc7df",
+                      "tertiary-container": "#c2cde6",
+                      "primary-fixed": "#ffdf9d",
+                      "secondary-container": "#00d2fd",
+                      "secondary": "#a2e7ff",
+                      "text-secondary": "#e8e8e8",
+                      "primary-fixed-dim": "#f8be1e",
+                      "surface-container-highest": "#333535",
+                      "error-container": "#93000a",
+                      "on-tertiary-container": "#4c576c",
+                      "inverse-on-surface": "#2f3131",
+                      "surface-ice": "#E8F4F8",
+                      "background-deep-navy": "#0A1628",
+                      "surface-medium-grey": "#2f3131",
+                      "outline-variant": "#4f4633",
+                      "surface-container": "#1e2020",
+                      "surface-tint": "#f8be1e",
+                      "surface-bright": "#383939",
+                      "accent-yellow": "#ffc426",
+                      "on-background": "#e2e2e2",
+                      "outline": "#9c8f79",
+                      "surface-container-high": "#282a2a",
+                      "on-secondary-fixed-variant": "#004e5f",
+                      "surface-charcoal": "#1a1c1c",
+                      "accent-electric-blue": "#00D4FF",
+                      "inverse-primary": "#785a00",
+                      "surface": "#121414",
+                      "secondary-fixed": "#b4ebff",
+                      "background": "#121414",
+                      "secondary-fixed-dim": "#3cd7ff",
+                      "on-primary": "#3f2e00",
+                      "on-surface": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#3c475b",
+                      "primary-container": "#ffc426",
+                      "on-tertiary-fixed": "#101c2e",
+                      "on-secondary-container": "#005669",
+                      "primary": "#ffe6b7",
+                      "inverse-surface": "#e2e2e2",
+                      "on-primary-container": "#6f5200",
+                      "on-primary-fixed": "#251a00",
+                      "surface-variant": "#333535",
+                      "on-secondary-fixed": "#001f27",
+                      "on-surface-variant": "#d3c5ac",
+                      "tertiary": "#e0e9ff",
+                      "surface-dim": "#121414",
+                      "on-primary-fixed-variant": "#5b4300",
+                      "on-error": "#690005",
+                      "error": "#ffb4ab",
+                      "on-error-container": "#ffdad6",
+                      "text-primary": "#ffffff",
+                      "on-tertiary": "#253144",
+                      "surface-container-low": "#1a1c1c",
+                      "surface-container-lowest": "#0c0f0f",
+                      "text-muted": "#9a9a9a"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.125rem",
+                      "lg": "0.25rem",
+                      "xl": "0.5rem",
+                      "full": "0.75rem"
+              },
+              "spacing": {
+                      "gutter": "20px",
+                      "section-gap": "120px",
+                      "unit": "8px",
+                      "container-padding": "24px"
+              },
+              "fontFamily": {
+                      "h2-headline": ["Space Grotesk"],
+                      "h1-secondary": ["Space Grotesk"],
+                      "h1-display": ["Space Grotesk"],
+                      "body-main": ["Lexend"],
+                      "data-large": ["Space Grotesk"],
+                      "label-bold": ["Space Grotesk"],
+                      "body-small": ["Lexend"]
+              },
+              "fontSize": {
+                      "h2-headline": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "h1-secondary": ["48px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "h1-display": ["80px", {"lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-main": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "data-large": ["64px", {"lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "body-small": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+</head>
+<body class="bg-background text-on-background font-body-main selection:bg-accent-yellow selection:text-background-deep-navy">
+<!-- TopNavBar -->
+<header class="fixed top-0 left-0 w-full z-50 bg-[#0A1628] border-b border-[#00D4FF]/20 shadow-[0_4px_20px_rgba(0,212,255,0.1)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-white border-l-4 border-[#ffc426] pl-3 flex items-center gap-2 font-['Space_Grotesk'] tracking-tighter uppercase">
+                MAXFOOT HORIZON
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tighter uppercase font-bold text-sm">
+<a class="text-[#ffc426] border-b-2 border-[#ffc426] pb-1" href="#">Bikes</a>
+<a class="text-slate-300 hover:text-[#ffc426] pb-1 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#ffc426] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left" href="#">Gear</a>
+<a class="text-slate-300 hover:text-[#ffc426] pb-1 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#ffc426] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left" href="#">Tech</a>
+<a class="text-slate-300 hover:text-[#ffc426] pb-1 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#ffc426] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left" href="#">Exploration</a>
+</nav>
+<div class="flex items-center gap-4 text-[#ffc426]">
+<button class="material-symbols-outlined scale-95 active:scale-90 transition-transform">electric_bike</button>
+<button class="material-symbols-outlined scale-95 active:scale-90 transition-transform">shopping_cart</button>
+<button class="material-symbols-outlined scale-95 active:scale-90 transition-transform">account_circle</button>
+</div>
+</div>
+</header>
+<main>
+<!-- Hero Section: Power Rhythm -->
+<section class="relative min-h-screen flex items-center bg-background-deep-navy pt-20 overflow-hidden">
+<div class="absolute inset-0 energy-lines opacity-20"></div>
+<div class="absolute right-0 top-0 w-2/3 h-full overflow-hidden">
+<img alt="High-performance electric fat tire bike on a rugged mountain ridge at dawn" class="w-full h-full object-cover grayscale brightness-50 contrast-125" data-alt="Cinematic side profile of a matte black electric fat bike on a rocky mountain peak during blue hour with glowing headlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAvu4Yas6bCy9Ud9djXeQDYPsZAqxwcirXwzOsLUhCPeDirEbpmZqNhC4uWfMSbKdjJB5H-blchR9ElYlsyng-ulhtuuf5vWeN2acgrcfsYWQgyKwybNQXuE5vjOOf0k70eEema_WF-iM4ReS4yQSWVvIZ1dWGj517zVB_-2S3A_arqX7IfNEoJS4KvD3wdJbC_ptZNcw-GMUiqKBafqms_Jqrt4yZzqgAfpnBCOV4Eaaz2WFk4pcl8GZrq_DIhd-d4LjEBVW1Gmsgd"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background-deep-navy via-background-deep-navy/40 to-transparent"></div>
+</div>
+<div class="container-padding relative z-10 max-w-7xl mx-auto w-full">
+<div class="max-w-3xl">
+<div class="flex items-center gap-2 mb-6">
+<span class="w-12 h-1 bg-accent-yellow"></span>
+<span class="font-label-bold text-accent-electric-blue uppercase">New Generation E-MTB</span>
+</div>
+<h1 class="font-h1-display text-text-primary uppercase mb-4 leading-none">
+<span class="block font-light">Unleash the</span>
+<span class="block text-accent-yellow font-black">Raw Power</span>
+</h1>
+<p class="font-body-main text-text-secondary max-w-xl mb-10 leading-relaxed">
+                        Engineered for the restless. Designed for the peak. The Maxfoot M-3 is a high-torque beast that treats mountains like playgrounds. Conquer every terrain with 1000W of pure adrenaline.
+                    </p>
+<div class="flex flex-wrap gap-6 items-center">
+<button class="bg-accent-yellow text-background-deep-navy font-label-bold py-4 px-10 uppercase tracking-widest hover:-translate-y-1 transition-transform duration-300 font-black">
+                            Pre-Order Now
+                        </button>
+<a class="group flex items-center gap-3 font-label-bold text-accent-electric-blue uppercase tracking-widest border-b border-accent-electric-blue/30 pb-1 hover:border-accent-electric-blue transition-all" href="#">
+                            Technical Specs
+                            <span class="material-symbols-outlined group-hover:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Scroll Indicator -->
+<div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+<span class="font-label-bold text-xs uppercase text-muted tracking-[0.3em]">Scroll to Explore</span>
+<div class="w-px h-16 bg-gradient-to-b from-accent-electric-blue to-transparent"></div>
+</div>
+</section>
+<!-- Categories Section: Ice Grey Rhythm -->
+<section class="py-section-gap bg-surface-ice">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex justify-between items-end mb-20 border-l-8 border-accent-yellow pl-8">
+<div>
+<h2 class="font-h2-headline text-background-deep-navy uppercase mb-2">Engineered Series</h2>
+<p class="font-body-main text-on-tertiary-container">Specialized builds for diverse environmental challenges.</p>
+</div>
+<div class="font-data-large text-accent-electric-blue opacity-20 hidden lg:block">01</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Category Card 1 -->
+<div class="group relative bg-white diagonal-cut p-1 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,212,255,0.15)] overflow-hidden">
+<div class="relative aspect-[4/5] bg-surface-medium-grey overflow-hidden">
+<img alt="Electric bike flying through a forest trail" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" data-alt="Action shot of a mountain e-bike carving through a pine forest with dirt spray and dappled sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC4ryWFKdSw1h6Kf0vXew-0tt_Ynbh1-uzhQtNvZNPbFEyBJhysDMCUIp9C2XdunGGxO6UvHBSXE8pG0y1zQno-7NoLpPB73qjkxUh-Gplx62SDrqUxk2PqFI1A_7iEh361PnTxV5MplyTxkaZJSvZB5Iv-Nk1VgRfsXzayVIdfObQWYe-MqJhTTfYEMFQxWe6HG-qlWmQ8MiYeDuSQTQzabaqDQtjilqhfBGlzdeOrwkXagDjeYOyDNzqJE9S3y1thhu14I7tJQsSr"/>
+<div class="absolute inset-0 bg-background-deep-navy/40 group-hover:bg-background-deep-navy/10 transition-colors"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+<span class="bg-accent-yellow text-background-deep-navy text-[10px] font-black px-2 py-1 uppercase mb-4 inline-block">Pro Spec</span>
+<h3 class="font-h2-headline text-white uppercase text-2xl mb-4">Trail Master</h3>
+<div class="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+<div class="text-white">
+<p class="font-label-bold text-[10px] text-accent-electric-blue uppercase">Range</p>
+<p class="font-data-large text-xl">60mi</p>
+</div>
+<div class="text-white">
+<p class="font-label-bold text-[10px] text-accent-electric-blue uppercase">Peak Power</p>
+<p class="font-data-large text-xl">1200w</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Card 2 -->
+<div class="group relative bg-white diagonal-cut p-1 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,212,255,0.15)] overflow-hidden">
+<div class="relative aspect-[4/5] bg-surface-medium-grey overflow-hidden">
+<img alt="Minimalist e-bike in an industrial city setting" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" data-alt="Sleek silver electric commuter bike parked against a brutalist concrete wall with sharp industrial shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDc_EcPr41lWm488caNJKnAhrXXGBtzxHcZRtSrpoxSYUKgJdx3wb-Tg8m_DzlNcKTIh_ElFj7uOfGlroj2ysgsJEpdmXw0FxA_AleRXK68oQ-UVVplSsx8Z5RPo4kBsykaMgrcjv7m6VsAds12keI-4wzhq4aEye8_GCLPGVUJ2MOnly6eTS5PcE9mv2yEXJHHzbnhr1llQ9yj6Zgq4W0AMtm6hkcu_8U5ak-nnQeH0ZhLkPHyVQE63H5lOIxfDN8m2rW1QIN3rk0J"/>
+<div class="absolute inset-0 bg-background-deep-navy/40 group-hover:bg-background-deep-navy/10 transition-colors"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+<span class="bg-accent-electric-blue text-background-deep-navy text-[10px] font-black px-2 py-1 uppercase mb-4 inline-block">Urban Core</span>
+<h3 class="font-h2-headline text-white uppercase text-2xl mb-4">City Phantom</h3>
+<div class="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+<div class="text-white">
+<p class="font-label-bold text-[10px] text-accent-electric-blue uppercase">Speed</p>
+<p class="font-data-large text-xl">28mph</p>
+</div>
+<div class="text-white">
+<p class="font-label-bold text-[10px] text-accent-electric-blue uppercase">Weight</p>
+<p class="font-data-large text-xl">48lbs</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Category Card 3 -->
+<div class="group relative bg-white diagonal-cut p-1 transition-all duration-500 hover:shadow-[0_20px_50px_rgba(0,212,255,0.15)] overflow-hidden">
+<div class="relative aspect-[4/5] bg-surface-medium-grey overflow-hidden">
+<img alt="Rugged fat tire bike carrying camping gear" class="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-110" data-alt="Heavy duty electric cargo bike loaded with black panniers and camping gear on a gravel desert path" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGmyEtj5J7myHl8jX_pllLdJWSbMIfWOmYHQgpOt3KE8cDq3QZCsMKxI8EXkRw5-ZM16Mkm5nyFmMxgRiFqFtVtIPmDYYFq0QTPuJdvAh5WwqlvzBGejh-vm4pgju60_kzSPJXoSFzlzxT5ohpqZx6A18l9Z1LmeYUp-1RZveyz6eaEbDDhwZC5ht38agRycFGiK_bRm5s0kJBXECWxQYqRRZg92gbfxA2cChFYwdkJVxcb8y2Rk37kaaPkYXK3FP3efJA25cv4I6I"/>
+<div class="absolute inset-0 bg-background-deep-navy/40 group-hover:bg-background-deep-navy/10 transition-colors"></div>
+<div class="absolute bottom-0 left-0 w-full p-8 translate-y-8 group-hover:translate-y-0 transition-transform duration-500">
+<span class="bg-accent-yellow text-background-deep-navy text-[10px] font-black px-2 py-1 uppercase mb-4 inline-block">Heavy Duty</span>
+<h3 class="font-h2-headline text-white uppercase text-2xl mb-4">Cargo X-Treme</h3>
+<div class="flex gap-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+<div class="text-white">
+<p class="font-label-bold text-[10px] text-accent-electric-blue uppercase">Payload</p>
+<p class="font-data-large text-xl">400lbs</p>
+</div>
+<div class="text-white">
+<p class="font-label-bold text-[10px] text-accent-electric-blue uppercase">Dual Bat</p>
+<p class="font-data-large text-xl">Ready</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Excellence: Deep Navy Rhythm -->
+<section class="py-section-gap bg-background-deep-navy overflow-hidden relative">
+<div class="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-accent-electric-blue/40 to-transparent"></div>
+<div class="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative">
+<div class="absolute -top-10 -left-10 w-40 h-40 border-l-2 border-t-2 border-accent-yellow/20"></div>
+<div class="bg-surface-charcoal p-4 diagonal-cut border border-accent-electric-blue/20">
+<img alt="Close-up of e-bike motor and gears" class="w-full h-auto grayscale brightness-75 contrast-125" data-alt="Industrial close-up of a high-torque electric bike mid-drive motor with exposed carbon fiber casing and metallic accents" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBU3Z56QhtgOEZHQFaKdOF5-C28ShFdRuo5B2MG7G-VqHLGhmZj2kU---hJaUNj4wZ2IDWYd0NKy2L2uTEaoZYmEKgBDniSXq1VBXwY3O8O7CTGj8UBSO1uXM4Fc3oGVZ-RAEsnffNTAiwHoMK6NbFu8DMvXCBfRAdsYMqMbNyGzdRqt6iXqeqXshT1vOsj2LC8CzV_0Vjx1SihkSvtcxcUl1SkvXEBJgHwfjMdgeSVNUYAkuc0HLm8jY8ihyE44bYjW_BjoMlgip7I"/>
+</div>
+<div class="absolute -bottom-8 -right-8 bg-accent-yellow p-8 diagonal-cut hidden sm:block">
+<p class="font-label-bold text-background-deep-navy uppercase text-xs">Torque Output</p>
+<p class="font-data-large text-background-deep-navy text-4xl">95 NM</p>
+</div>
+</div>
+<div>
+<h2 class="font-h2-headline text-text-primary uppercase mb-8">Precision <span class="text-accent-electric-blue">Engineering</span></h2>
+<div class="space-y-12">
+<div class="group">
+<div class="flex justify-between items-center mb-4">
+<p class="font-label-bold text-accent-yellow uppercase">Lithium-Ion Core</p>
+<p class="font-data-large text-accent-electric-blue text-2xl tracking-tight">48V 20Ah</p>
+</div>
+<div class="w-full h-2 bg-surface-medium-grey relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-gradient-to-r from-accent-yellow to-accent-electric-blue w-[85%] origin-left transition-all duration-1000"></div>
+</div>
+<p class="font-body-small text-text-muted mt-4">Samsung high-capacity cells integrated into the downtube for balanced center of gravity and 80+ mile range.</p>
+</div>
+<div class="group">
+<div class="flex justify-between items-center mb-4">
+<p class="font-label-bold text-accent-yellow uppercase">Suspension Matrix</p>
+<p class="font-data-large text-accent-electric-blue text-2xl tracking-tight">Triple Stage</p>
+</div>
+<div class="w-full h-2 bg-surface-medium-grey relative overflow-hidden">
+<div class="absolute top-0 left-0 h-full bg-gradient-to-r from-accent-yellow to-accent-electric-blue w-[70%] origin-left transition-all duration-1000"></div>
+</div>
+<p class="font-body-small text-text-muted mt-4">Pneumatic dampening system with adjustable rebound, designed to neutralize vibration on cobblestone or mountain trails.</p>
+</div>
+<div class="pt-6">
+<button class="flex items-center gap-4 text-white font-label-bold uppercase border-2 border-accent-electric-blue/40 px-8 py-4 hover:bg-accent-electric-blue hover:text-background-deep-navy transition-all duration-300">
+                                Explore Tech-Noir Specs
+                                <span class="material-symbols-outlined">settings_input_component</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / CTA -->
+<section class="py-24 bg-accent-yellow relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<svg height="100%" preserveaspectratio="none" viewbox="0 0 100 100" width="100%">
+<path d="M0 100 L100 0" fill="none" stroke="black" stroke-width="0.5"></path>
+<path d="M0 80 L80 0" fill="none" stroke="black" stroke-width="0.5"></path>
+<path d="M20 100 L100 20" fill="none" stroke="black" stroke-width="0.5"></path>
+</svg>
+</div>
+<div class="max-w-4xl mx-auto px-6 relative z-10 text-center">
+<h2 class="font-h1-secondary text-background-deep-navy uppercase mb-4 font-black">Join the Horizon</h2>
+<p class="font-body-main text-background-deep-navy mb-10 opacity-80">Be the first to know about secret drops, terrain guides, and engineering updates.</p>
+<form class="flex flex-col sm:flex-row gap-4">
+<input class="flex-1 bg-white/20 border-2 border-background-deep-navy/10 font-label-bold text-background-deep-navy placeholder:text-background-deep-navy/50 focus:border-background-deep-navy focus:ring-0 px-6 py-4 uppercase" placeholder="ENTER YOUR TRANSMISSION ADDRESS" type="email"/>
+<button class="bg-background-deep-navy text-white font-label-bold px-10 py-4 uppercase tracking-widest hover:scale-105 transition-transform" type="submit">
+                        Subscribe
+                    </button>
+</form>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0A1628] border-t-2 border-[#00D4FF]/30 w-full py-12 px-8">
+<div class="grid grid-cols-1 md:grid-cols-4 gap-8 max-w-7xl mx-auto mb-12">
+<div class="col-span-1 md:col-span-1">
+<div class="text-xl font-black text-[#ffc426] font-['Space_Grotesk'] uppercase mb-6">MAXFOOT HORIZON</div>
+<p class="font-['Space_Grotesk'] text-sm text-[#D1D5DB] leading-relaxed">
+                    Designed for those who view every dead end as a new beginning. We build machines that bridge the gap between imagination and reality.
+                </p>
+</div>
+<div>
+<h4 class="font-['Space_Grotesk'] text-[#00D4FF] uppercase tracking-widest text-xs font-bold mb-6">Engineering</h4>
+<ul class="space-y-4 font-['Space_Grotesk'] text-sm uppercase tracking-widest">
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Frame Tech</li>
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Battery Systems</li>
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Drive Trains</li>
+</ul>
+</div>
+<div>
+<h4 class="font-['Space_Grotesk'] text-[#00D4FF] uppercase tracking-widest text-xs font-bold mb-6">Support</h4>
+<ul class="space-y-4 font-['Space_Grotesk'] text-sm uppercase tracking-widest">
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">User Manuals</li>
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Warranty</li>
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Find a Dealer</li>
+</ul>
+</div>
+<div>
+<h4 class="font-['Space_Grotesk'] text-[#00D4FF] uppercase tracking-widest text-xs font-bold mb-6">Legal</h4>
+<ul class="space-y-4 font-['Space_Grotesk'] text-sm uppercase tracking-widest">
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Privacy</li>
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Terms</li>
+<li class="text-[#D1D5DB] flex items-center before:content-['◆'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] cursor-pointer transition-colors">Safety</li>
+</ul>
+</div>
+</div>
+<div class="pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4">
+<p class="w-full text-center text-[10px] text-slate-400 font-['Space_Grotesk'] uppercase tracking-widest mb-2">⭐ HOME-LATEST-2026-04-27</p><p class="font-['Space_Grotesk'] text-sm uppercase tracking-widest text-[#D1D5DB]">© 2024 MAXFOOT HORIZON. CONQUER EVERY TERRAIN.</p>
+<div class="flex gap-6">
+<span class="material-symbols-outlined text-[#00D4FF] cursor-pointer hover:text-[#ffc426] transition-colors">public</span>
+<span class="material-symbols-outlined text-[#00D4FF] cursor-pointer hover:text-[#ffc426] transition-colors">share</span>
+<span class="material-symbols-outlined text-[#00D4FF] cursor-pointer hover:text-[#ffc426] transition-colors">distance</span>
+</div>
+</div>
+</footer>
+<div class="fixed top-5 right-5 z-[9999] bg-[#FFC426] text-[#121212] py-2 px-4 rounded-lg font-['Space_Grotesk'] font-bold text-xs shadow-md pointer-events-none uppercase tracking-wider">
+    ✅ LATEST VERSION - 2026-04-27 - All P0 fixes applied
+</div></body></html>

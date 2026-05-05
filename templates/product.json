@@ -9,6 +9,90 @@
  */
  {
   "sections": {
+    "product-hero": {
+      "type": "maxfoot-product-hero",
+      "settings": {}
+    },
+    "power-stats": {
+      "type": "maxfoot-power-stats",
+      "blocks": {
+        "stat_speed": {
+          "type": "stat",
+          "settings": {
+            "icon": "speed",
+            "label": "MAX SPEED",
+            "value": "32",
+            "unit": "MPH",
+            "percentage": 85,
+            "description": "Top-tier motor output sustained on flat terrain."
+          }
+        },
+        "stat_range": {
+          "type": "stat",
+          "settings": {
+            "icon": "distance",
+            "label": "MAX RANGE",
+            "value": "65",
+            "unit": "MILES",
+            "percentage": 85,
+            "description": "Extended range with our proprietary lithium-cell pack."
+          }
+        },
+        "stat_watts": {
+          "type": "stat",
+          "settings": {
+            "icon": "offline_bolt",
+            "label": "PEAK WATTS",
+            "value": "1000",
+            "unit": "W",
+            "percentage": 100,
+            "description": "High-torque delivery for steep mountain ascents."
+          }
+        }
+      },
+      "block_order": ["stat_speed", "stat_range", "stat_watts"]
+    },
+    "feature-bento": {
+      "type": "maxfoot-feature-bento",
+      "blocks": {
+        "feature_large": {
+          "type": "feature_card",
+          "settings": {
+            "size": "large",
+            "title": "APEX SUSPENSION",
+            "description": "Hydraulic fork with 120mm of travel. Zero friction. Total control.",
+            "link_text": "TECH SPECS"
+          }
+        },
+        "feature_medium": {
+          "type": "feature_card",
+          "settings": {
+            "size": "medium",
+            "title": "SMART HUB V2",
+            "description": "Real-time GPS and health monitoring integration."
+          }
+        },
+        "feature_small": {
+          "type": "feature_card",
+          "settings": {
+            "size": "small",
+            "title": "TERRAIN TIRES"
+          }
+        },
+        "warranty": {
+          "type": "warranty_card",
+          "settings": {
+            "title": "5-YEAR WARRANTY",
+            "description": "We stand by every weld. Engineered to outlast the competition."
+          }
+        }
+      },
+      "block_order": ["feature_large", "feature_medium", "feature_small", "warranty"]
+    },
+    "cta-banner": {
+      "type": "maxfoot-cta-banner",
+      "settings": {}
+    },
     "main": {
       "type": "product-information",
       "blocks": {
@@ -411,6 +495,10 @@
     }
   },
   "order": [
+    "product-hero",
+    "power-stats",
+    "feature-bento",
+    "cta-banner",
     "main",
     "product_recommendations_qggXJq"
   ]

@@ -1,0 +1,267 @@
+{% comment %}
+  Maxfoot Support Contact Section - Support & Service Page
+  Split layout with contact info on left and form on right
+{% endcomment %}
+
+<section
+  id="MaxfootSupportContact-{{ section.id }}"
+  class="maxfoot-support-contact"
+>
+  <div class="maxfoot-support-contact__container">
+    <div class="maxfoot-support-contact__info">
+      <h2 class="maxfoot-support-contact__title">Still need assistance?</h2>
+      <p class="maxfoot-support-contact__description">
+        Our dedicated support team is ready to get you back on the road. Fill out the form or reach us directly.
+      </p>
+
+      <div class="maxfoot-support-contact__details">
+        <div class="maxfoot-support-contact__detail">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+          </svg>
+          <div>
+            <div class="maxfoot-support-contact__detail-label">Email Support</div>
+            <div class="maxfoot-support-contact__detail-value">support@maxfoot.com</div>
+          </div>
+        </div>
+
+        <div class="maxfoot-support-contact__detail">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zM12 20c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
+          </svg>
+          <div>
+            <div class="maxfoot-support-contact__detail-label">Hours</div>
+            <div class="maxfoot-support-contact__detail-value">Mon - Fri, 9am - 5pm PST</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="maxfoot-support-contact__form-wrapper">
+      <form class="maxfoot-support-contact__form">
+        <div class="maxfoot-support-contact__row">
+          <div class="maxfoot-support-contact__field">
+            <label class="maxfoot-support-contact__label">First Name</label>
+            <input type="text" class="maxfoot-support-contact__input" />
+          </div>
+          <div class="maxfoot-support-contact__field">
+            <label class="maxfoot-support-contact__label">Last Name</label>
+            <input type="text" class="maxfoot-support-contact__input" />
+          </div>
+        </div>
+
+        <div class="maxfoot-support-contact__field">
+          <label class="maxfoot-support-contact__label">Email Address</label>
+          <input type="email" class="maxfoot-support-contact__input" />
+        </div>
+
+        <div class="maxfoot-support-contact__field">
+          <label class="maxfoot-support-contact__label">Order Number (Optional)</label>
+          <input type="text" class="maxfoot-support-contact__input" />
+        </div>
+
+        <div class="maxfoot-support-contact__field">
+          <label class="maxfoot-support-contact__label">How can we help?</label>
+          <textarea class="maxfoot-support-contact__textarea" rows="4"></textarea>
+        </div>
+
+        <button type="submit" class="maxfoot-support-contact__submit">
+          Submit Request
+        </button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<style>
+  .maxfoot-support-contact {
+    background-color: #E8F4F8;
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .maxfoot-support-contact__container {
+    display: grid;
+    grid-template-columns: 5fr 7fr;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .maxfoot-support-contact__container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .maxfoot-support-contact__info {
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-support-contact__info {
+      padding: 32px 24px;
+    }
+  }
+
+  .maxfoot-support-contact__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    color: #1a1c1c;
+    margin: 0;
+  }
+
+  .maxfoot-support-contact__description {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #656464;
+    margin: 0;
+  }
+
+  .maxfoot-support-contact__details {
+    background-color: rgba(255, 255, 255, 0.5);
+    padding: 24px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .maxfoot-support-contact__detail {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .maxfoot-support-contact__detail svg {
+    color: #656464;
+  }
+
+  .maxfoot-support-contact__detail-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #656464;
+    margin-bottom: 2px;
+  }
+
+  .maxfoot-support-contact__detail-value {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    color: #00D4FF;
+    font-weight: 500;
+  }
+
+  .maxfoot-support-contact__form-wrapper {
+    background-color: #0A1628;
+    padding: 48px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-support-contact__form-wrapper {
+      padding: 32px 24px;
+    }
+  }
+
+  .maxfoot-support-contact__form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  .maxfoot-support-contact__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  @media screen and (max-width: 639px) {
+    .maxfoot-support-contact__row {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .maxfoot-support-contact__field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .maxfoot-support-contact__label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #9a9a9a;
+  }
+
+  .maxfoot-support-contact__input,
+  .maxfoot-support-contact__textarea {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.05);
+    border: none;
+    border-bottom: 1px solid #2f3131;
+    padding: 12px 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+  }
+
+  .maxfoot-support-contact__input:focus,
+  .maxfoot-support-contact__textarea:focus {
+    border-bottom-color: #00D4FF;
+    border-bottom-width: 2px;
+  }
+
+  .maxfoot-support-contact__textarea {
+    resize: none;
+  }
+
+  .maxfoot-support-contact__submit {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #1a1c1c;
+    background-color: #ffc426;
+    border: none;
+    padding: 16px 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: opacity 0.3s ease;
+    align-self: flex-start;
+  }
+
+  .maxfoot-support-contact__submit:hover {
+    opacity: 0.9;
+  }
+
+  @media screen and (max-width: 639px) {
+    .maxfoot-support-contact__submit {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Maxfoot Support Contact",
+  "tag": "section",
+  "class": "maxfoot-support-contact-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Maxfoot Support Contact"
+    }
+  ]
+}
+{% endschema %}

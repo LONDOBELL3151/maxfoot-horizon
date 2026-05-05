@@ -1,0 +1,375 @@
+{% comment %}
+  Maxfoot Product Hero Section - Product Detail Page
+  Left/right split layout with product info on left, product image on right
+  Dark tech style with grid pattern background
+{% endcomment %}
+
+{% liquid
+  assign product = section.settings.product | default: closest.product
+  assign product_image = product.featured_image | default: section.settings.image
+  assign product_title = product.title | default: 'MF-1000 HORIZON'
+  assign product_subtitle = section.settings.subtitle | default: 'New Release: Horizon-X Series'
+  assign product_description = product.description | default: 'Engineered for those who reject the pavement. With a dual-motor drive system and aerospace-grade chassis, the Horizon-X is built to dominate alpine trails and urban jungles alike.'
+  assign price = product.price | default: 289900
+  assign button_primary_text = section.settings.button_primary_text | default: 'Add to Cart'
+  assign button_secondary_text = section.settings.button_secondary_text | default: 'Customize Build'
+%}
+
+<section
+  id="MaxfootProductHero-{{ section.id }}"
+  class="maxfoot-product-hero"
+>
+  {% comment %} Grid pattern background {% endcomment %}
+  <div class="maxfoot-product-hero__grid-bg"></div>
+
+  <div class="maxfoot-product-hero__container">
+    {% comment %} Left side - Product info {% endcomment %}
+    <div class="maxfoot-product-hero__content">
+      <div class="maxfoot-product-hero__badge">
+        <svg class="maxfoot-product-hero__bolt-icon" width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M11 21h-1l1-7H7.5c-.58 0-.57-.32-.38-.66.19-.34.05-.08.07-.12C8.48 10.94 10.42 7.54 13 3h1l-1 7h3.5c.49 0 .56.33.47.51l-.07.15C12.96 17.55 11 21 11 21z"/>
+        </svg>
+        <span>{{ product_subtitle }}</span>
+      </div>
+
+      <h1 class="maxfoot-product-hero__title">
+        {{ product_title | split: ' ' | first }}
+        <br/>
+        <span class="maxfoot-product-hero__title-accent">{{ product_title | split: ' ' | last }}</span>
+      </h1>
+
+      <p class="maxfoot-product-hero__description">{{ product_description }}</p>
+
+      <div class="maxfoot-product-hero__actions">
+        <button class="maxfoot-product-hero__btn maxfoot-product-hero__btn--primary">
+          {{ button_primary_text }}
+          <svg class="maxfoot-product-hero__btn-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+            <line x1="3" y1="6" x2="21" y2="6"/>
+            <path d="M16 10a4 4 0 0 1-8 0"/>
+          </svg>
+        </button>
+        <button class="maxfoot-product-hero__btn maxfoot-product-hero__btn--secondary">
+          {{ button_secondary_text }}
+        </button>
+      </div>
+
+      <div class="maxfoot-product-hero__stats">
+        <div class="maxfoot-product-hero__stat">
+          <div class="maxfoot-product-hero__stat-label">Starting at</div>
+          <div class="maxfoot-product-hero__stat-value">{{ price | money }}</div>
+        </div>
+        <div class="maxfoot-product-hero__stat">
+          <div class="maxfoot-product-hero__stat-label">Financing</div>
+          <div class="maxfoot-product-hero__stat-value">0% APR</div>
+        </div>
+      </div>
+    </div>
+
+    {% comment %} Right side - Product image {% endcomment %}
+    <div class="maxfoot-product-hero__visual">
+      <div class="maxfoot-product-hero__visual-bg"></div>
+      <div class="maxfoot-product-hero__image-wrapper">
+        {% if product_image != blank %}
+          {{
+            product_image
+            | image_url: width: 1200
+            | image_tag:
+              class: 'maxfoot-product-hero__image',
+              alt: product_title,
+              widths: '600, 900, 1200',
+              sizes: '50vw'
+          }}
+        {% else %}
+          <div class="maxfoot-product-hero__image-placeholder">
+            <svg width="120" height="120" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M8 12h8M12 8v8"/>
+            </svg>
+          </div>
+        {% endif %}
+      </div>
+      {% comment %} Tech slashes decoration {% endcomment %}
+      <div class="maxfoot-product-hero__slash maxfoot-product-hero__slash--yellow"></div>
+      <div class="maxfoot-product-hero__slash maxfoot-product-hero__slash--blue"></div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .maxfoot-product-hero {
+    position: relative;
+    min-height: 800px;
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  .maxfoot-product-hero__grid-bg {
+    display: none;
+  }
+
+  .maxfoot-product-hero__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  @media screen and (min-width: 768px) {
+    .maxfoot-product-hero__container {
+      flex-direction: row;
+      align-items: center;
+    }
+  }
+
+  .maxfoot-product-hero__content {
+    flex: 1;
+    padding: 80px 0;
+  }
+
+  @media screen and (min-width: 768px) {
+    .maxfoot-product-hero__content {
+      padding: 80px 60px 80px 0;
+      max-width: 50%;
+    }
+  }
+
+  .maxfoot-product-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #121212;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .maxfoot-product-hero__bolt-icon {
+    font-size: 14px;
+    color: #ffc426;
+  }
+
+  .maxfoot-product-hero__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(40px, 8vw, 64px);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin-bottom: 24px;
+  }
+
+  .maxfoot-product-hero__title-accent {
+    color: #ffc426;
+  }
+
+  .maxfoot-product-hero__description {
+    font-family: 'Lexend', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #6b6b6b;
+    max-width: 480px;
+    margin-bottom: 40px;
+  }
+
+  .maxfoot-product-hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-bottom: 48px;
+  }
+
+  .maxfoot-product-hero__btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .maxfoot-product-hero__btn--primary {
+    background-color: #ffc426;
+    color: #121212;
+    border: 2px solid #ffc426;
+  }
+
+  .maxfoot-product-hero__btn--primary:hover {
+    background-color: #121212;
+    border-color: #121212;
+    color: #ffc426;
+  }
+
+  .maxfoot-product-hero__btn--primary:active {
+    transform: scale(0.98);
+  }
+
+  .maxfoot-product-hero__btn--secondary {
+    background-color: transparent;
+    color: #121212;
+    border: 2px solid #121212;
+  }
+
+  .maxfoot-product-hero__btn--secondary:hover {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  .maxfoot-product-hero__btn--secondary:active {
+    transform: scale(0.98);
+  }
+
+  .maxfoot-product-hero__btn-icon {
+    transition: transform 0.3s ease;
+  }
+
+  .maxfoot-product-hero__btn:hover .maxfoot-product-hero__btn-icon {
+    transform: translateX(4px);
+  }
+
+  .maxfoot-product-hero__stats {
+    display: flex;
+    gap: 40px;
+    padding-top: 32px;
+    border-top: 1px solid #e5e5e5;
+  }
+
+  .maxfoot-product-hero__stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+    margin-bottom: 6px;
+  }
+
+  .maxfoot-product-hero__stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 36px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #121212;
+  }
+
+  .maxfoot-product-hero__visual {
+    position: relative;
+    width: 100%;
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  @media screen and (min-width: 768px) {
+    .maxfoot-product-hero__visual {
+      width: 50%;
+      height: 90vh;
+      max-height: 700px;
+    }
+  }
+
+  .maxfoot-product-hero__visual-bg {
+    display: none;
+  }
+
+  .maxfoot-product-hero__image-wrapper {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+  }
+
+  .maxfoot-product-hero__image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+
+  .maxfoot-product-hero__image:hover {
+    filter: none;
+  }
+
+  .maxfoot-product-hero__image-placeholder {
+    color: #e5e5e5;
+  }
+
+  .maxfoot-product-hero__slash {
+    display: none;
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Maxfoot Product Hero",
+  "tag": "section",
+  "class": "maxfoot-product-hero-section",
+  "settings": [
+    {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Fallback Image"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Badge Text",
+      "default": "New Release: Horizon-X Series"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Engineered for those who reject the pavement. With a dual-motor drive system and aerospace-grade chassis, the Horizon-X is built to dominate alpine trails and urban jungles alike."
+    },
+    {
+      "type": "text",
+      "id": "button_primary_text",
+      "label": "Primary Button Text",
+      "default": "Add to Cart"
+    },
+    {
+      "type": "text",
+      "id": "button_secondary_text",
+      "label": "Secondary Button Text",
+      "default": "Customize Build"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot Product Hero",
+      "settings": {
+        "subtitle": "New Release: Horizon-X Series",
+        "description": "Engineered for those who reject the pavement. With a dual-motor drive system and aerospace-grade chassis, the Horizon-X is built to dominate alpine trails and urban jungles alike.",
+        "button_primary_text": "Add to Cart",
+        "button_secondary_text": "Customize Build"
+      }
+    }
+  ]
+}
+{% endschema %}

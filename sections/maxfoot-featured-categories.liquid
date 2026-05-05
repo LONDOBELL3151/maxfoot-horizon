@@ -1,62 +1,83 @@
 {% comment %}
-  Maxfoot Featured Categories Section
-  Three category cards: Mountain, Cruisers, Cargo
+  Maxfoot Featured Categories Section - Homepage v4
+  Three category cards with diagonal-cut, hover effects, and stats
 {% endcomment %}
 
 <section
   id="MaxfootCategories-{{ section.id }}"
-  class="maxfoot-categories color-{{ section.settings.color_scheme }}"
+  class="maxfoot-categories"
 >
-  <div class="maxfoot-categories__header">
-    <h2 class="maxfoot-categories__title">{{ section.settings.section_title }}</h2>
-    <a href="{{ section.settings.view_all_link }}" class="maxfoot-categories__view-all">
-      {{ section.settings.view_all_text }}
-      <svg class="maxfoot-categories__arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M5 12H19M19 12L12 5M19 12L12 19" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </a>
-  </div>
+  <div class="maxfoot-categories__container">
+    <div class="maxfoot-categories__header">
+      <div class="maxfoot-categories__header-content">
+        <h2 class="maxfoot-categories__title">{{ section.settings.section_title | default: 'Engineered Series' }}</h2>
+        <p class="maxfoot-categories__subtitle">{{ section.settings.section_subtitle | default: 'Specialized builds for diverse environmental challenges.' }}</p>
+      </div>
+      <div class="maxfoot-categories__section-number">{{ section.settings.section_number | default: '01' }}</div>
+    </div>
 
-  <div class="maxfoot-categories__grid">
-    {% for block in section.blocks %}
-      {% case block.type %}
-        {% when 'category_card' %}
-          <a
-            href="{{ block.settings.link }}"
-            class="maxfoot-category-card"
-            {{ block.shopify_attributes }}
-          >
-            <div class="maxfoot-category-card__image-wrapper">
-              {% if block.settings.image != blank %}
-                {{
-                  block.settings.image
-                  | image_url: width: 800
-                  | image_tag:
-                    class: 'maxfoot-category-card__image',
-                    alt: block.settings.title,
-                    widths: '400, 600, 800',
-                    sizes: '(min-width: 768px) 33vw, 100vw',
-                    loading: 'lazy'
-                }}
-              {% else %}
-                <div class="maxfoot-category-card__placeholder"></div>
-              {% endif %}
-              <div class="maxfoot-category-card__overlay"></div>
-            </div>
-            <div class="maxfoot-category-card__content">
-              <h3 class="maxfoot-category-card__title">{{ block.settings.title }}</h3>
-              <p class="maxfoot-category-card__description">{{ block.settings.description }}</p>
-            </div>
-          </a>
-      {% endcase %}
-    {% endfor %}
+    <div class="maxfoot-categories__grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'category_card' %}
+            <a
+              href="{{ block.settings.link }}"
+              class="maxfoot-category-card"
+              {{ block.shopify_attributes }}
+            >
+              <div class="maxfoot-category-card__image-wrapper">
+                {% if block.settings.image != blank %}
+                  {{
+                    block.settings.image
+                    | image_url: width: 800
+                    | image_tag:
+                      class: 'maxfoot-category-card__image',
+                      alt: block.settings.title,
+                      widths: '400, 600, 800',
+                      sizes: '(min-width: 768px) 33vw, 100vw',
+                      loading: 'lazy'
+                  }}
+                {% else %}
+                  <div class="maxfoot-category-card__placeholder"></div>
+                {% endif %}
+                <div class="maxfoot-category-card__overlay"></div>
+              </div>
+              <div class="maxfoot-category-card__content">
+                {% if block.settings.badge != blank %}
+                  <span class="maxfoot-category-card__badge">{{ block.settings.badge }}</span>
+                {% endif %}
+                <h3 class="maxfoot-category-card__title">{{ block.settings.title }}</h3>
+                <div class="maxfoot-category-card__stats">
+                  {% if block.settings.stat_label_1 != blank %}
+                    <div class="maxfoot-category-card__stat">
+                      <p class="maxfoot-category-card__stat-label">{{ block.settings.stat_label_1 }}</p>
+                      <p class="maxfoot-category-card__stat-value">{{ block.settings.stat_value_1 }}</p>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.stat_label_2 != blank %}
+                    <div class="maxfoot-category-card__stat">
+                      <p class="maxfoot-category-card__stat-label">{{ block.settings.stat_label_2 }}</p>
+                      <p class="maxfoot-category-card__stat-value">{{ block.settings.stat_value_2 }}</p>
+                    </div>
+                  {% endif %}
+                </div>
+              </div>
+            </a>
+        {% endcase %}
+      {% endfor %}
+    </div>
   </div>
 </section>
 
 <style>
   .maxfoot-categories {
-    padding: 120px 24px;
-    background-color: var(--color-background, #f9f9f9);
+    padding: 100px 48px;
+    background-color: #FFFFFF;
+  }
+
+  .maxfoot-categories__container {
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .maxfoot-categories__header {
@@ -64,54 +85,45 @@
     justify-content: space-between;
     align-items: flex-end;
     margin-bottom: 48px;
-    max-width: 1440px;
-    margin-left: auto;
-    margin-right: auto;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #e5e5e5;
+  }
+
+  .maxfoot-categories__header-content {
+    max-width: 500px;
   }
 
   .maxfoot-categories__title {
-    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
     line-height: 1.2;
     letter-spacing: -0.02em;
-    text-transform: uppercase;
-    color: var(--color-foreground-heading, #1a1c1c);
+    color: #121212;
+    margin: 0 0 12px 0;
+  }
+
+  .maxfoot-categories__subtitle {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: #6b6b6b;
     margin: 0;
   }
 
-  .maxfoot-categories__view-all {
-    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
-    font-size: 0.875rem;
+  .maxfoot-categories__section-number {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
     font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--color-foreground, #1a1c1c);
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    border-bottom: 2px solid transparent;
-    transition: all 0.3s ease;
-    padding-bottom: 0.25rem;
-  }
-
-  .maxfoot-categories__view-all:hover {
-    color: var(--color-primary, #ffc426);
-    border-bottom-color: var(--color-primary, #ffc426);
-  }
-
-  .maxfoot-categories__arrow {
-    width: 20px;
-    height: 20px;
+    color: #ffc426;
+    opacity: 0.8;
+    line-height: 1;
   }
 
   .maxfoot-categories__grid {
     display: grid;
     grid-template-columns: 1fr;
     gap: 24px;
-    max-width: 1440px;
-    margin: 0 auto;
   }
 
   @media screen and (min-width: 768px) {
@@ -123,23 +135,28 @@
   .maxfoot-category-card {
     position: relative;
     display: block;
-    height: 500px;
-    overflow: hidden;
-    border-radius: 0.5rem;
+    background: #ffffff;
     text-decoration: none;
-    background-color: var(--color-surface, #eeeeee);
+    transition: all 0.4s ease;
+    overflow: hidden;
+  }
+
+  .maxfoot-category-card:hover {
+    transform: translateY(-8px);
   }
 
   .maxfoot-category-card__image-wrapper {
-    position: absolute;
-    inset: 0;
+    position: relative;
+    aspect-ratio: 4/5;
+    overflow: hidden;
+    background: #f5f5f5;
   }
 
   .maxfoot-category-card__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.7s ease;
+    transition: all 0.7s ease;
   }
 
   .maxfoot-category-card:hover .maxfoot-category-card__image {
@@ -149,18 +166,12 @@
   .maxfoot-category-card__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(
-      to top,
-      rgba(26, 28, 28, 0.95) 0%,
-      rgba(26, 28, 28, 0.5) 50%,
-      transparent 100%
-    );
-    opacity: 0.8;
+    background: linear-gradient(to top, rgba(18, 18, 18, 0.7) 0%, transparent 60%);
     transition: opacity 0.3s ease;
   }
 
   .maxfoot-category-card:hover .maxfoot-category-card__overlay {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 
   .maxfoot-category-card__content {
@@ -168,57 +179,81 @@
     bottom: 0;
     left: 0;
     right: 0;
-    padding: 24px;
-    z-index: 1;
+    padding: 32px;
+  }
+
+  .maxfoot-category-card__badge {
+    display: inline-block;
+    background-color: #ffc426;
+    color: #121212;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 12px;
+    margin-bottom: 12px;
   }
 
   .maxfoot-category-card__title {
-    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
-    font-size: 2rem;
-    font-weight: 600;
-    line-height: 1.3;
-    text-transform: uppercase;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.2;
     color: #ffffff;
-    margin: 0 0 0.5rem;
-    transition: color 0.3s ease;
+    margin: 0 0 16px 0;
   }
 
-  .maxfoot-category-card:hover .maxfoot-category-card__title {
-    color: var(--color-primary, #ffc426);
+  .maxfoot-category-card__stats {
+    display: flex;
+    gap: 24px;
   }
 
-  .maxfoot-category-card__description {
-    font-family: var(--font-body-family, 'Lexend', sans-serif);
-    font-size: 1rem;
-    line-height: 1.5;
-    color: #e8e8e8;
+  .maxfoot-category-card__stat {
+    color: #ffffff;
+  }
+
+  .maxfoot-category-card__stat-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffc426;
+    margin: 0 0 4px 0;
+  }
+
+  .maxfoot-category-card__stat-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
     margin: 0;
   }
 
   .maxfoot-category-card__placeholder {
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, #eeeeee 0%, #dadada 100%);
+    background: linear-gradient(135deg, #f5f5f5 0%, #e5e5e5 100%);
   }
 
   @media screen and (max-width: 767px) {
     .maxfoot-categories {
-      padding: 80px 16px;
+      padding: 64px 24px;
     }
 
     .maxfoot-categories__header {
       flex-direction: column;
       align-items: flex-start;
-      gap: 1rem;
-      margin-bottom: 2rem;
+      gap: 16px;
+      margin-bottom: 32px;
     }
 
-    .maxfoot-category-card {
-      height: 350px;
+    .maxfoot-categories__section-number {
+      display: none;
     }
 
-    .maxfoot-category-card__title {
-      font-size: 1.5rem;
+    .maxfoot-category-card__content {
+      padding: 24px;
     }
   }
 </style>
@@ -233,19 +268,19 @@
       "type": "text",
       "id": "section_title",
       "label": "Section Title",
-      "default": "Featured Categories"
+      "default": "Engineered Series"
+    },
+    {
+      "type": "textarea",
+      "id": "section_subtitle",
+      "label": "Section Subtitle",
+      "default": "Specialized builds for diverse environmental challenges."
     },
     {
       "type": "text",
-      "id": "view_all_text",
-      "label": "View All Link Text",
-      "default": "View All"
-    },
-    {
-      "type": "text",
-      "id": "view_all_link",
-      "label": "View All Link",
-      "default": "/collections/all"
+      "id": "section_number",
+      "label": "Section Number",
+      "default": "01"
     },
     {
       "type": "header",
@@ -265,15 +300,15 @@
       "settings": [
         {
           "type": "text",
-          "id": "title",
-          "label": "Category Title",
-          "default": "Mountain"
+          "id": "badge",
+          "label": "Badge Text",
+          "default": "Pro Spec"
         },
         {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description",
-          "default": "Dominate the roughest trails with advanced suspension."
+          "type": "text",
+          "id": "title",
+          "label": "Category Title",
+          "default": "Trail Master"
         },
         {
           "type": "image_picker",
@@ -285,6 +320,30 @@
           "id": "link",
           "label": "Link",
           "default": "/collections/mountain"
+        },
+        {
+          "type": "text",
+          "id": "stat_label_1",
+          "label": "Stat 1 Label",
+          "default": "Range"
+        },
+        {
+          "type": "text",
+          "id": "stat_value_1",
+          "label": "Stat 1 Value",
+          "default": "60mi"
+        },
+        {
+          "type": "text",
+          "id": "stat_label_2",
+          "label": "Stat 2 Label",
+          "default": "Peak Power"
+        },
+        {
+          "type": "text",
+          "id": "stat_value_2",
+          "label": "Stat 2 Value",
+          "default": "1200w"
         }
       ]
     }
@@ -296,25 +355,37 @@
         {
           "type": "category_card",
           "settings": {
-            "title": "Mountain",
-            "description": "Dominate the roughest trails with advanced suspension.",
-            "link": "/collections/mountain"
+            "badge": "Pro Spec",
+            "title": "Trail Master",
+            "link": "/collections/mountain",
+            "stat_label_1": "Range",
+            "stat_value_1": "60mi",
+            "stat_label_2": "Peak Power",
+            "stat_value_2": "1200w"
           }
         },
         {
           "type": "category_card",
           "settings": {
-            "title": "Cruisers",
-            "description": "Effortless style and comfort for urban exploration.",
-            "link": "/collections/cruisers"
+            "badge": "Urban Core",
+            "title": "City Phantom",
+            "link": "/collections/commuter",
+            "stat_label_1": "Speed",
+            "stat_value_1": "28mph",
+            "stat_label_2": "Weight",
+            "stat_value_2": "48lbs"
           }
         },
         {
           "type": "category_card",
           "settings": {
-            "title": "Cargo",
-            "description": "Built for heavy loads and uncompromising utility.",
-            "link": "/collections/cargo"
+            "badge": "Heavy Duty",
+            "title": "Cargo X-Treme",
+            "link": "/collections/cargo",
+            "stat_label_1": "Payload",
+            "stat_value_1": "400lbs",
+            "stat_label_2": "Dual Bat",
+            "stat_value_2": "Ready"
           }
         }
       ]

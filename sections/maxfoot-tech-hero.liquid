@@ -1,0 +1,275 @@
+{% comment %}
+  Maxfoot Tech Hero Section - Technology Page
+  Hero with torque stats and terrain pattern background
+{% endcomment %}
+
+<section
+  id="MaxfootTechHero-{{ section.id }}"
+  class="maxfoot-tech-hero"
+>
+  <div class="maxfoot-tech-hero__terrain-pattern"></div>
+  <div class="maxfoot-tech-hero__diagonal-stripes"></div>
+
+  <div class="maxfoot-tech-hero__container">
+    <div class="maxfoot-tech-hero__content">
+      <div class="maxfoot-tech-hero__badge">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M13 3L4 14h7v7l9-11h-7V3z"/>
+        </svg>
+        <span>Next-Gen Propulsion</span>
+      </div>
+
+      <h1 class="maxfoot-tech-hero__title">
+        ENGINEERED <br/> TO <span class="text-accent">DOMINATE</span>
+      </h1>
+
+      <p class="maxfoot-tech-hero__description">
+        Pushing the boundaries of electric mobility. Our 2024 technology suite redefines torque delivery, energy density, and structural integrity for the most demanding environments on Earth.
+      </p>
+
+      <div class="maxfoot-tech-hero__buttons">
+        <button class="maxfoot-tech-hero__btn maxfoot-tech-hero__btn--primary">
+          Technical Specs
+        </button>
+        <button class="maxfoot-tech-hero__btn maxfoot-tech-hero__btn--secondary">
+          Watch Reveal
+        </button>
+      </div>
+    </div>
+
+    <div class="maxfoot-tech-hero__visual">
+      <div class="maxfoot-tech-hero__image-wrapper">
+        <div class="maxfoot-tech-hero__glow"></div>
+        <div class="maxfoot-tech-hero__image-placeholder"></div>
+        <div class="maxfoot-tech-hero__torque-badge">
+          <div class="maxfoot-tech-hero__torque-value">
+            120<span>NM</span>
+          </div>
+          <div class="maxfoot-tech-hero__torque-label">Peak Torque Output</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .maxfoot-tech-hero {
+    position: relative;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    background-color: #FFFFFF;
+    overflow: hidden;
+  }
+
+  .maxfoot-tech-hero__terrain-pattern {
+    display: none;
+  }
+
+  .maxfoot-tech-hero__diagonal-stripes {
+    display: none;
+  }
+
+  .maxfoot-tech-hero__container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 48px;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  @media screen and (min-width: 1024px) {
+    .maxfoot-tech-hero__container {
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+    }
+  }
+
+  .maxfoot-tech-hero__content {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .maxfoot-tech-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    border: 1px solid #ffc426;
+    background-color: rgba(255, 196, 38, 0.1);
+    color: #121212;
+    border-radius: 4px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    width: fit-content;
+  }
+
+  .maxfoot-tech-hero__badge svg {
+    width: 14px;
+    height: 14px;
+  }
+
+  .maxfoot-tech-hero__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(40px, 6vw, 64px);
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    color: #121212;
+    margin: 0;
+  }
+
+  .maxfoot-tech-hero__description {
+    font-family: 'Lexend', sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    color: #6b6b6b;
+    max-width: 560px;
+    margin: 0;
+  }
+
+  .maxfoot-tech-hero__buttons {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .maxfoot-tech-hero__btn {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 16px 32px;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .maxfoot-tech-hero__btn--primary {
+    background-color: #ffc426;
+    color: #121212;
+    border: 2px solid #ffc426;
+  }
+
+  .maxfoot-tech-hero__btn--primary:hover {
+    background-color: #121212;
+    color: #ffc426;
+    border-color: #121212;
+  }
+
+  .maxfoot-tech-hero__btn--secondary {
+    background-color: transparent;
+    color: #121212;
+    border: 2px solid #121212;
+  }
+
+  .maxfoot-tech-hero__btn--secondary:hover {
+    background-color: #121212;
+    color: #ffffff;
+  }
+
+  .maxfoot-tech-hero__visual {
+    position: relative;
+  }
+
+  .maxfoot-tech-hero__image-wrapper {
+    position: relative;
+  }
+
+  .maxfoot-tech-hero__glow {
+    display: none;
+  }
+
+  .maxfoot-tech-hero__image-wrapper:hover .maxfoot-tech-hero__glow {
+    opacity: 0;
+  }
+
+  .maxfoot-tech-hero__image-placeholder {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    aspect-ratio: 4/3;
+    background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+    border-radius: 8px;
+  }
+
+  .maxfoot-tech-hero__torque-badge {
+    position: absolute;
+    bottom: 24px;
+    left: 24px;
+    z-index: 2;
+    background-color: #ffc426;
+    padding: 20px 28px;
+    border-radius: 8px;
+  }
+
+  .maxfoot-tech-hero__torque-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    color: #121212;
+  }
+
+  .maxfoot-tech-hero__torque-value span {
+    font-size: 20px;
+  }
+
+  .maxfoot-tech-hero__torque-label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #121212;
+    margin-top: 4px;
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-tech-hero {
+      min-height: auto;
+      padding: 64px 0;
+    }
+
+    .maxfoot-tech-hero__title {
+      font-size: 48px;
+    }
+
+    .maxfoot-tech-hero__torque-badge {
+      left: 16px;
+      bottom: -16px;
+      padding: 16px;
+    }
+
+    .maxfoot-tech-hero__torque-value {
+      font-size: 48px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Maxfoot Tech Hero",
+  "tag": "section",
+  "class": "maxfoot-tech-hero-section",
+  "settings": [],
+  "presets": [
+    {
+      "name": "Maxfoot Tech Hero"
+    }
+  ]
+}
+{% endschema %}

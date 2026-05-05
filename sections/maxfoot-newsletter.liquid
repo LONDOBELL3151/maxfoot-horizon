@@ -1,0 +1,178 @@
+{% comment %}
+  Maxfoot Newsletter Section - Homepage v4
+  Yellow background with diagonal pattern and email signup
+{% endcomment %}
+
+<section
+  id="MaxfootNewsletter-{{ section.id }}"
+  class="maxfoot-newsletter"
+>
+  <div class="maxfoot-newsletter__pattern"></div>
+  <div class="maxfoot-newsletter__container">
+    <h2 class="maxfoot-newsletter__heading">{{ section.settings.heading | default: 'Join the Horizon' }}</h2>
+    <p class="maxfoot-newsletter__description">{{ section.settings.description | default: 'Be the first to know about secret drops, terrain guides, and engineering updates.' }}</p>
+    <form class="maxfoot-newsletter__form" action="#" method="POST">
+      <input
+        type="email"
+        class="maxfoot-newsletter__input"
+        placeholder="ENTER YOUR TRANSMISSION ADDRESS"
+        required
+      />
+      <button type="submit" class="maxfoot-newsletter__button">
+        {{ section.settings.button_text | default: 'Subscribe' }}
+      </button>
+    </form>
+  </div>
+</section>
+
+<style>
+  .maxfoot-newsletter {
+    position: relative;
+    padding: 96px 24px;
+    background-color: #ffc426;
+    overflow: hidden;
+  }
+
+  .maxfoot-newsletter__pattern {
+    position: absolute;
+    inset: 0;
+    opacity: 0.1;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 20px,
+      #0A1628 20px,
+      #0A1628 20.5px
+    );
+  }
+
+  .maxfoot-newsletter__container {
+    position: relative;
+    z-index: 1;
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .maxfoot-newsletter__heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 900;
+    line-height: 1.1;
+    text-transform: uppercase;
+    color: #0A1628;
+    margin: 0 0 16px 0;
+  }
+
+  .maxfoot-newsletter__description {
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+    color: #0A1628;
+    opacity: 0.8;
+    margin: 0 0 40px 0;
+  }
+
+  .maxfoot-newsletter__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  @media screen and (min-width: 640px) {
+    .maxfoot-newsletter__form {
+      flex-direction: row;
+    }
+  }
+
+  .maxfoot-newsletter__input {
+    flex: 1;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #0A1628;
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(10, 22, 40, 0.1);
+    padding: 16px 24px;
+    outline: none;
+    transition: all 0.3s ease;
+  }
+
+  .maxfoot-newsletter__input::placeholder {
+    color: rgba(10, 22, 40, 0.5);
+  }
+
+  .maxfoot-newsletter__input:focus {
+    border-color: #0A1628;
+    background-color: rgba(255, 255, 255, 0.3);
+  }
+
+  .maxfoot-newsletter__button {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
+    background-color: #0A1628;
+    border: none;
+    padding: 16px 40px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+  }
+
+  .maxfoot-newsletter__button:hover {
+    transform: scale(1.05);
+  }
+
+  @media screen and (max-width: 639px) {
+    .maxfoot-newsletter {
+      padding: 64px 16px;
+    }
+
+    .maxfoot-newsletter__button {
+      width: 100%;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Maxfoot Newsletter",
+  "tag": "section",
+  "class": "maxfoot-newsletter-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Join the Horizon"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Be the first to know about secret drops, terrain guides, and engineering updates."
+    },
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Button Text",
+      "default": "Subscribe"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot Newsletter",
+      "settings": {
+        "heading": "Join the Horizon",
+        "description": "Be the first to know about secret drops, terrain guides, and engineering updates.",
+        "button_text": "Subscribe"
+      }
+    }
+  ]
+}
+{% endschema %}

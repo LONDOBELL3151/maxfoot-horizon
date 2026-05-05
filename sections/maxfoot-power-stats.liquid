@@ -1,0 +1,345 @@
+{% comment %}
+  Maxfoot Power Stats Section - Product Detail Page
+  Three-column grid showing max speed, max range, peak watts with icons and progress bars
+  Dark background with energy line accents
+{% endcomment %}
+
+<section
+  id="MaxfootPowerStats-{{ section.id }}"
+  class="maxfoot-power-stats"
+>
+  <div class="maxfoot-power-stats__energy-line maxfoot-power-stats__energy-line--top"></div>
+
+  <div class="maxfoot-power-stats__container">
+    <div class="maxfoot-power-stats__header">
+      <div>
+        <div class="maxfoot-power-stats__badge">{{ section.settings.badge | default: 'Internal Architecture' }}</div>
+        <h2 class="maxfoot-power-stats__heading">{{ section.settings.heading | default: 'THE POWER CORE' }}</h2>
+      </div>
+      <div class="maxfoot-power-stats__header-desc">
+        <p>{{ section.settings.description | default: 'Real-time performance metrics pulled from our integrated smart-hub. Every watt accounted for.' }}</p>
+      </div>
+    </div>
+
+    <div class="maxfoot-power-stats__grid">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'stat' %}
+            <div class="maxfoot-power-stat" {{ block.shopify_attributes }}>
+              <div class="maxfoot-power-stat__header">
+                <span class="maxfoot-power-stat__icon">
+                  {% case block.settings.icon %}
+                    {% when 'speed' %}
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M12 16c3.314 0 6-2.686 6-6s-2.686-6-6-6-6 2.686-6 6 2.686 6 6 6zm0-10c-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4-1.79-4-4-4zM5.94 19.07c-.93-.93-.57-2.94 1.2-4.3C8.66 13.29 10.5 12.4 12 12c1.5.4 3.34 1.29 4.86 2.77 1.77 1.36 2.13 3.37 1.2 4.3l-2.12 2.12 1.41 1.41L12 17l-4.17 4.17 1.41 1.41 2.12-2.12z"/>
+                      </svg>
+                    {% when 'distance' %}
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 8h-5.5l1.5-3-2-2-5 6-3-3-2.5 4 3 3v4h13V8zm-8.5 8L8 12.5l4 4 4-4L12.5 16z"/>
+                      </svg>
+                    {% when 'offline_bolt' %}
+                      <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M7 2v11h3v9l7-12h-4l4-8z"/>
+                      </svg>
+                  {% endcase %}
+                </span>
+                <span class="maxfoot-power-stat__label">{{ block.settings.label }}</span>
+              </div>
+              <div class="maxfoot-power-stat__value">{{ block.settings.value }} <span>{{ block.settings.unit }}</span></div>
+              <div class="maxfoot-power-stat__bar">
+                <div class="maxfoot-power-stat__fill" style="--fill-width: {{ block.settings.percentage }}%"></div>
+              </div>
+              <p class="maxfoot-power-stat__desc">{{ block.settings.description }}</p>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="maxfoot-power-stats__energy-line maxfoot-power-stats__energy-line--bottom"></div>
+</section>
+
+<style>
+  .maxfoot-power-stats {
+    position: relative;
+    background-color: #FFFFFF;
+    padding: 80px 48px;
+    overflow: hidden;
+  }
+
+  .maxfoot-power-stats__energy-line {
+    display: none;
+  }
+
+  .maxfoot-power-stats__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .maxfoot-power-stats__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    gap: 24px;
+  }
+
+  .maxfoot-power-stats__badge {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #ffc426;
+    margin-bottom: 8px;
+  }
+
+  .maxfoot-power-stats__heading {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin: 0;
+  }
+
+  .maxfoot-power-stats__header-desc {
+    max-width: 360px;
+    text-align: right;
+  }
+
+  .maxfoot-power-stats__header-desc p {
+    font-family: 'Lexend', sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #6b6b6b;
+    margin: 0;
+  }
+
+  .maxfoot-power-stats__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .maxfoot-power-stat {
+    background-color: #F8F8F8;
+    padding: 32px;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+  }
+
+  .maxfoot-power-stat__header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+
+  .maxfoot-power-stat__icon {
+    width: 44px;
+    height: 44px;
+    background-color: #ffc426;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #121212;
+  }
+
+  .maxfoot-power-stat__label {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #6b6b6b;
+  }
+
+  .maxfoot-power-stat__value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 48px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: #121212;
+    margin-bottom: 16px;
+  }
+
+  .maxfoot-power-stat__value span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffc426;
+    letter-spacing: 0.05em;
+  }
+
+  .maxfoot-power-stat__bar {
+    height: 4px;
+    background-color: #e5e5e5;
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: 16px;
+  }
+
+  .maxfoot-power-stat__fill {
+    height: 100%;
+    width: var(--fill-width);
+    background: #ffc426;
+    transition: width 1s ease;
+  }
+
+  .maxfoot-power-stat__desc {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #6b6b6b;
+    margin: 0;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .maxfoot-power-stats__grid {
+      grid-template-columns: 1fr;
+    }
+
+    .maxfoot-power-stats__header {
+      flex-direction: column;
+    }
+
+    .maxfoot-power-stats__header-desc {
+      text-align: left;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-power-stats {
+      padding: 64px 24px;
+    }
+
+    .maxfoot-power-stat {
+      padding: 24px;
+    }
+
+    .maxfoot-power-stat__value {
+      font-size: 36px;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Power Stats",
+  "tag": "section",
+  "class": "maxfoot-power-stats-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "badge",
+      "label": "Badge Text",
+      "default": "Internal Architecture"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "THE POWER CORE"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Real-time performance metrics pulled from our integrated smart-hub. Every watt accounted for."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "stat",
+      "name": "Stat",
+      "settings": [
+        {
+          "type": "select",
+          "id": "icon",
+          "label": "Icon",
+          "options": [
+            { "value": "speed", "label": "Speed" },
+            { "value": "distance", "label": "Distance" },
+            { "value": "offline_bolt", "label": "Power" }
+          ],
+          "default": "speed"
+        },
+        {
+          "type": "text",
+          "id": "label",
+          "label": "Label",
+          "default": "MAX SPEED"
+        },
+        {
+          "type": "text",
+          "id": "value",
+          "label": "Value",
+          "default": "32"
+        },
+        {
+          "type": "text",
+          "id": "unit",
+          "label": "Unit",
+          "default": "MPH"
+        },
+        {
+          "type": "range",
+          "id": "percentage",
+          "label": "Fill Percentage",
+          "min": 0,
+          "max": 100,
+          "step": 5,
+          "default": 85
+        },
+        {
+          "type": "textarea",
+          "id": "description",
+          "label": "Description",
+          "default": "Top-tier motor output sustained on flat terrain."
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Power Stats",
+      "blocks": [
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "speed",
+            "label": "MAX SPEED",
+            "value": "32",
+            "unit": "MPH",
+            "percentage": 85,
+            "description": "Top-tier motor output sustained on flat terrain."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "distance",
+            "label": "MAX RANGE",
+            "value": "65",
+            "unit": "MILES",
+            "percentage": 85,
+            "description": "Extended range with our proprietary lithium-cell pack."
+          }
+        },
+        {
+          "type": "stat",
+          "settings": {
+            "icon": "offline_bolt",
+            "label": "PEAK WATTS",
+            "value": "1000",
+            "unit": "W",
+            "percentage": 100,
+            "description": "High-torque delivery for steep mountain ascents."
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,192 +1,271 @@
 {% comment %}
-  Maxfoot Hero Section - Homepage
-  Full-screen hero with background image, gradient overlay, headline and CTAs
+  Maxfoot Hero Section - Homepage v4
+  Full-screen hero with dark navy background, energy lines, and split layout
 {% endcomment %}
 
 {% liquid
   assign image = section.settings.background_image
-  assign heading = section.settings.heading | default: 'Conquer Every Terrain'
-  assign subheading = section.settings.subheading | default: 'Unleash unparalleled power and precision. Engineered for those who demand more from the journey.'
-  assign button_primary_text = section.settings.button_primary_text | default: 'Shop All Models'
+  assign heading = section.settings.heading | default: 'Unleash the Raw Power'
+  assign heading_accent = section.settings.heading_accent | default: 'Raw Power'
+  assign subheading = section.settings.subheading | default: 'Engineered for the restless. Designed for the peak. The Maxfoot M-3 is a high-torque beast that treats mountains like playgrounds. Conquer every terrain with 1000W of pure adrenaline.'
+  assign badge_text = section.settings.badge_text | default: 'New Generation E-MTB'
+  assign button_primary_text = section.settings.button_primary_text | default: 'Pre-Order Now'
   assign button_primary_link = section.settings.button_primary_link | default: '/collections/all'
-  assign button_secondary_text = section.settings.button_secondary_text | default: 'Explore Technology'
+  assign button_secondary_text = section.settings.button_secondary_text | default: 'Technical Specs'
   assign button_secondary_link = section.settings.button_secondary_link | default: '/pages/technology'
 %}
 
 <section
   id="MaxfootHero-{{ section.id }}"
-  class="maxfoot-hero color-{{ section.settings.color_scheme }}"
-  style="
-    --hero-min-height: {{ section.settings.section_height }}vh;
-    {% if image != blank %}
-      --hero-bg-image: url('{{ image | image_url: width: 1920 }}');
-    {% endif %}
-  "
+  class="maxfoot-hero"
 >
+  {% comment %} Energy lines background pattern {% endcomment %}
+  <div class="maxfoot-hero__energy-lines"></div>
+
+  {% comment %} Right side image {% endcomment %}
   {% if image != blank %}
-    <div class="maxfoot-hero__bg">
+    <div class="maxfoot-hero__image-side">
       {{
         image
         | image_url: width: 1920
         | image_tag:
-          class: 'maxfoot-hero__bg-image',
+          class: 'maxfoot-hero__image',
           alt: heading,
           widths: '750, 1200, 1920, 2560',
-          sizes: '100vw',
+          sizes: '66vw',
           fetchpriority: 'high'
       }}
-      <div class="maxfoot-hero__overlay"></div>
-    </div>
-  {% else %}
-    <div class="maxfoot-hero__bg maxfoot-hero__bg--placeholder">
-      <div class="maxfoot-hero__overlay"></div>
+      <div class="maxfoot-hero__image-overlay"></div>
     </div>
   {% endif %}
 
-  <div class="maxfoot-hero__content">
-    <h1 class="maxfoot-hero__heading">{{ heading }}</h1>
-    <p class="maxfoot-hero__subheading">{{ subheading }}</p>
-    <div class="maxfoot-hero__actions">
-      <a href="{{ button_primary_link }}" class="maxfoot-hero__btn maxfoot-hero__btn--primary">
-        {{ button_primary_text }}
-      </a>
-      <a href="{{ button_secondary_link }}" class="maxfoot-hero__btn maxfoot-hero__btn--secondary">
-        {{ button_secondary_text }}
-      </a>
+  {% comment %} Content {% endcomment %}
+  <div class="maxfoot-hero__container">
+    <div class="maxfoot-hero__content">
+      <div class="maxfoot-hero__badge-line">
+        <span class="maxfoot-hero__badge-line-bar"></span>
+        <span class="maxfoot-hero__badge-text">{{ badge_text }}</span>
+      </div>
+
+      <h1 class="maxfoot-hero__heading">
+        <span class="maxfoot-hero__heading-light">Unleash the</span>
+        <span class="maxfoot-hero__heading-accent">{{ heading_accent }}</span>
+      </h1>
+
+      <p class="maxfoot-hero__subheading">{{ subheading }}</p>
+
+      <div class="maxfoot-hero__actions">
+        <a href="{{ button_primary_link }}" class="maxfoot-hero__btn maxfoot-hero__btn--primary">
+          {{ button_primary_text }}
+        </a>
+        <a href="{{ button_secondary_link }}" class="maxfoot-hero__link">
+          {{ button_secondary_text }}
+          <svg class="maxfoot-hero__link-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M5 12h14M12 5l7 7-7 7"/>
+          </svg>
+        </a>
+      </div>
     </div>
+  </div>
+
+  {% comment %} Scroll indicator {% endcomment %}
+  <div class="maxfoot-hero__scroll-indicator">
+    <span class="maxfoot-hero__scroll-text">Scroll to Explore</span>
+    <div class="maxfoot-hero__scroll-line"></div>
   </div>
 </section>
 
 <style>
   .maxfoot-hero {
     position: relative;
-    min-height: calc(var(--hero-min-height, 100vh) - var(--header-height, 0px));
+    min-height: 100vh;
     display: flex;
     align-items: center;
-    justify-content: center;
+    background-color: #FFFFFF;
     overflow: hidden;
   }
 
-  .maxfoot-hero__bg {
-    position: absolute;
-    inset: 0;
-    z-index: 0;
+  .maxfoot-hero__energy-lines {
+    display: none;
   }
 
-  .maxfoot-hero__bg-image {
+  .maxfoot-hero__image-side {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 55%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+  .maxfoot-hero__image {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    object-position: center;
   }
 
-  .maxfoot-hero__bg--placeholder {
-    background: linear-gradient(135deg, #1a1c1c 0%, #2f3131 100%);
-  }
-
-  .maxfoot-hero__overlay {
+  .maxfoot-hero__image-overlay {
     position: absolute;
     inset: 0;
     background: linear-gradient(
-      to top,
-      rgba(26, 28, 28, 0.9) 0%,
-      rgba(26, 28, 28, 0.4) 50%,
-      rgba(26, 28, 28, 0.2) 100%
+      to right,
+      #FFFFFF 0%,
+      rgba(255, 255, 255, 0.3) 50%,
+      transparent 100%
     );
   }
 
-  .maxfoot-hero__content {
+  .maxfoot-hero__container {
     position: relative;
     z-index: 1;
-    text-align: center;
-    padding: 2rem;
-    max-width: 900px;
-    color: #ffffff;
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 48px;
+  }
+
+  .maxfoot-hero__content {
+    max-width: 580px;
+    padding: 80px 0;
+  }
+
+  .maxfoot-hero__badge-line {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+
+  .maxfoot-hero__badge-line-bar {
+    width: 48px;
+    height: 4px;
+    background-color: #ffc426;
+  }
+
+  .maxfoot-hero__badge-text {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #121212;
   }
 
   .maxfoot-hero__heading {
-    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
-    font-size: clamp(2.5rem, 8vw, 4.5rem);
+    margin: 0 0 24px 0;
+    line-height: 1.05;
+  }
+
+  .maxfoot-hero__heading-light {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(48px, 7vw, 72px);
+    font-weight: 400;
+    color: #121212;
+    letter-spacing: -0.02em;
+  }
+
+  .maxfoot-hero__heading-accent {
+    display: block;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: clamp(48px, 7vw, 72px);
     font-weight: 700;
-    line-height: 1.1;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    margin-bottom: 1.5rem;
-    color: inherit;
+    color: #ffc426;
+    letter-spacing: -0.02em;
   }
 
   .maxfoot-hero__subheading {
-    font-family: var(--font-body-family, 'Lexend', sans-serif);
-    font-size: clamp(1rem, 2vw, 1.125rem);
-    line-height: 1.6;
-    max-width: 600px;
-    margin: 0 auto 2rem;
-    opacity: 0.9;
-    color: inherit;
+    font-family: 'Lexend', sans-serif;
+    font-size: 18px;
+    line-height: 1.7;
+    color: #4c576c;
+    max-width: 500px;
+    margin: 0 0 40px 0;
   }
 
   .maxfoot-hero__actions {
     display: flex;
-    flex-direction: column;
-    gap: 0.75rem;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-  }
-
-  @media screen and (min-width: 640px) {
-    .maxfoot-hero__actions {
-      flex-direction: row;
-      gap: 1rem;
-    }
-  }
-
-  .maxfoot-hero__btn {
-    font-family: var(--font-heading-family, 'Space Grotesk', sans-serif);
-    font-size: 0.875rem;
-    font-weight: 700;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    padding: 1rem 2rem;
-    border-radius: 0.25rem;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 200px;
+    gap: 32px;
   }
 
   .maxfoot-hero__btn--primary {
-    background-color: var(--color-primary-button-background, #ffc426);
-    color: var(--color-primary-button-text, #1a1c1c);
-    border: 2px solid var(--color-primary-button-background, #ffc426);
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 18px 40px;
+    background-color: #ffc426;
+    color: #121212;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s ease;
   }
 
   .maxfoot-hero__btn--primary:hover {
-    background-color: var(--color-primary-button-hover-background, #1a1c1c);
-    color: var(--color-primary-button-hover-text, #ffc426);
-    border-color: var(--color-primary-button-hover-background, #1a1c1c);
+    background-color: #121212;
+    color: #ffc426;
+    transform: translateY(-2px);
   }
 
-  .maxfoot-hero__btn--secondary {
-    background-color: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
+  .maxfoot-hero__link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: #121212;
+    text-decoration: none;
+    transition: all 0.3s ease;
   }
 
-  .maxfoot-hero__btn--secondary:hover {
-    background-color: #ffffff;
-    color: var(--color-foreground, #1a1c1c);
+  .maxfoot-hero__link:hover {
+    color: #ffc426;
   }
 
-  /* Page top offset for transparent header */
-  .maxfoot-hero {
-    margin-top: 0;
+  .maxfoot-hero__link-icon {
+    transition: transform 0.3s ease;
   }
 
-  @media screen and (max-width: 749px) {
+  .maxfoot-hero__link:hover .maxfoot-hero__link-icon {
+    transform: translateX(4px);
+  }
+
+  .maxfoot-hero__scroll-indicator {
+    display: none;
+  }
+
+  @media screen and (max-width: 1024px) {
+    .maxfoot-hero__image-side {
+      width: 100%;
+      opacity: 0.15;
+    }
+
+    .maxfoot-hero__image-overlay {
+      background: linear-gradient(
+        to bottom,
+        #FFFFFF 30%,
+        rgba(255, 255, 255, 0.6) 100%
+      );
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .maxfoot-hero__container {
+      padding: 0 24px;
+    }
+
     .maxfoot-hero__content {
-      padding: 1.5rem;
+      padding: 120px 0 60px;
+    }
+
+    .maxfoot-hero__scroll-indicator {
+      display: none;
     }
   }
 </style>
@@ -207,30 +286,26 @@
       "label": "Background Image"
     },
     {
-      "type": "range",
-      "id": "section_height",
-      "label": "Section Height",
-      "min": 60,
-      "max": 100,
-      "step": 5,
-      "default": 100,
-      "unit": "%"
-    },
-    {
       "type": "header",
       "content": "Content"
     },
     {
       "type": "text",
-      "id": "heading",
-      "label": "Heading",
-      "default": "Conquer Every Terrain"
+      "id": "badge_text",
+      "label": "Badge Text",
+      "default": "New Generation E-MTB"
+    },
+    {
+      "type": "text",
+      "id": "heading_accent",
+      "label": "Heading Accent",
+      "default": "Raw Power"
     },
     {
       "type": "textarea",
       "id": "subheading",
       "label": "Subheading",
-      "default": "Unleash unparalleled power and precision. Engineered for those who demand more from the journey."
+      "default": "Engineered for the restless. Designed for the peak. The Maxfoot M-3 is a high-torque beast that treats mountains like playgrounds. Conquer every terrain with 1000W of pure adrenaline."
     },
     {
       "type": "header",
@@ -240,7 +315,7 @@
       "type": "text",
       "id": "button_primary_text",
       "label": "Button Text",
-      "default": "Shop All Models"
+      "default": "Pre-Order Now"
     },
     {
       "type": "text",
@@ -255,13 +330,13 @@
     {
       "type": "text",
       "id": "button_secondary_text",
-      "label": "Button Text",
-      "default": "Explore Technology"
+      "label": "Link Text",
+      "default": "Technical Specs"
     },
     {
       "type": "text",
       "id": "button_secondary_link",
-      "label": "Button Link",
+      "label": "Link URL",
       "default": "/pages/technology"
     },
     {
@@ -279,12 +354,12 @@
     {
       "name": "Maxfoot Hero",
       "settings": {
-        "section_height": 100,
-        "heading": "Conquer Every Terrain",
-        "subheading": "Unleash unparalleled power and precision. Engineered for those who demand more from the journey.",
-        "button_primary_text": "Shop All Models",
+        "badge_text": "New Generation E-MTB",
+        "heading_accent": "Raw Power",
+        "subheading": "Engineered for the restless. Designed for the peak. The Maxfoot M-3 is a high-torque beast that treats mountains like playgrounds. Conquer every terrain with 1000W of pure adrenaline.",
+        "button_primary_text": "Pre-Order Now",
         "button_primary_link": "/collections/all",
-        "button_secondary_text": "Explore Technology",
+        "button_secondary_text": "Technical Specs",
         "button_secondary_link": "/pages/technology",
         "color_scheme": "maxfoot-dark"
       }

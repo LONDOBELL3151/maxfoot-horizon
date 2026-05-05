@@ -12,12 +12,12 @@
     "maxfoot_hero_jVaWmY": {
       "type": "maxfoot-hero",
       "settings": {
-        "section_height": 100,
-        "heading": "Conquer Every Terrain",
-        "subheading": "Unleash unparalleled power and precision. Engineered for those who demand more from the journey.",
-        "button_primary_text": "Shop All Models",
+        "badge_text": "New Generation E-MTB",
+        "heading_accent": "Raw Power",
+        "subheading": "Engineered for the restless. Designed for the peak. The Maxfoot M-3 is a high-torque beast that treats mountains like playgrounds. Conquer every terrain with 1000W of pure adrenaline.",
+        "button_primary_text": "Pre-Order Now",
         "button_primary_link": "/collections/all",
-        "button_secondary_text": "Explore Technology",
+        "button_secondary_text": "Technical Specs",
         "button_secondary_link": "/pages/technology",
         "color_scheme": "maxfoot-dark"
       }
@@ -28,25 +28,37 @@
         "category_mountain": {
           "type": "category_card",
           "settings": {
-            "title": "Mountain",
-            "description": "Dominate the roughest trails with advanced suspension.",
-            "link": "/collections/mountain"
+            "badge": "Pro Spec",
+            "title": "Trail Master",
+            "link": "/collections/mountain",
+            "stat_label_1": "Range",
+            "stat_value_1": "60mi",
+            "stat_label_2": "Peak Power",
+            "stat_value_2": "1200w"
           }
         },
         "category_cruisers": {
           "type": "category_card",
           "settings": {
-            "title": "Cruisers",
-            "description": "Effortless style and comfort for urban exploration.",
-            "link": "/collections/cruisers"
+            "badge": "Urban Core",
+            "title": "City Phantom",
+            "link": "/collections/commuter",
+            "stat_label_1": "Speed",
+            "stat_value_1": "28mph",
+            "stat_label_2": "Weight",
+            "stat_value_2": "48lbs"
           }
         },
         "category_cargo": {
           "type": "category_card",
           "settings": {
-            "title": "Cargo",
-            "description": "Built for heavy loads and uncompromising utility.",
-            "link": "/collections/cargo"
+            "badge": "Heavy Duty",
+            "title": "Cargo X-Treme",
+            "link": "/collections/cargo",
+            "stat_label_1": "Payload",
+            "stat_value_1": "400lbs",
+            "stat_label_2": "Dual Bat",
+            "stat_value_2": "Ready"
           }
         }
       },
@@ -56,67 +68,56 @@
         "category_cargo"
       ],
       "settings": {
-        "section_title": "Featured Categories",
-        "view_all_text": "View All",
-        "view_all_link": "/collections/all",
+        "section_title": "Engineered Series",
+        "section_subtitle": "Specialized builds for diverse environmental challenges.",
+        "section_number": "01",
         "color_scheme": "maxfoot-light"
       }
     },
-    "maxfoot_specs_K9xLmN": {
-      "type": "maxfoot-technical-specs",
+    "maxfoot_tech_excellence": {
+      "type": "maxfoot-technical-excellence",
       "blocks": {
-        "stat_power": {
-          "type": "stat",
+        "stat_battery": {
+          "type": "stat_bar",
           "settings": {
-            "label": "Power Output",
-            "value": "750W Peak",
-            "percentage": 85
+            "label": "Lithium-Ion Core",
+            "value": "48V 20Ah",
+            "percentage": 85,
+            "description": "Samsung high-capacity cells integrated into the downtube for balanced center of gravity and 80+ mile range."
           }
         },
-        "stat_range": {
-          "type": "stat",
+        "stat_suspension": {
+          "type": "stat_bar",
           "settings": {
-            "label": "Max Range",
-            "value": "65 Miles",
-            "percentage": 70
-          }
-        },
-        "stat_charging": {
-          "type": "stat",
-          "settings": {
-            "label": "Charging Speed",
-            "value": "Fast Charge",
-            "percentage": 90
+            "label": "Suspension Matrix",
+            "value": "Triple Stage",
+            "percentage": 70,
+            "description": "Pneumatic dampening system with adjustable rebound, designed to neutralize vibration on cobblestone or mountain trails."
           }
         }
       },
       "block_order": [
-        "stat_power",
-        "stat_range",
-        "stat_charging"
+        "stat_battery",
+        "stat_suspension"
       ],
       "settings": {
-        "badge_text": "Architecture",
-        "heading": "Engineered<br/>For Performance",
-        "description": "Our proprietary drive system delivers instantaneous torque and sustained power. Built with aerospace-grade aluminum and integrated battery technology for a seamless, aggressive ride.",
-        "button_text": "View Full Specs",
-        "button_link": "/pages/technology",
-        "color_scheme": "maxfoot-dark"
+        "heading": "Precision Engineering",
+        "accent_word": "Engineering"
       }
     },
-    "maxfoot_gallery_P2qRsT": {
-      "type": "maxfoot-social-gallery",
+    "newsletter_cta": {
+      "type": "maxfoot-newsletter",
       "settings": {
-        "title": "Join The Ride",
-        "instagram_handle": "@MAXFOOT_EBIKES",
-        "color_scheme": "maxfoot-light"
+        "heading": "Join the Horizon",
+        "description": "Be the first to know about secret drops, terrain guides, and engineering updates.",
+        "button_text": "Subscribe"
       }
     }
   },
   "order": [
     "maxfoot_hero_jVaWmY",
     "maxfoot_categories_fa6P9H",
-    "maxfoot_specs_K9xLmN",
-    "maxfoot_gallery_P2qRsT"
+    "maxfoot_tech_excellence",
+    "newsletter_cta"
   ]
 }

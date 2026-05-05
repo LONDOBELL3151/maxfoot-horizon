@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700;900&amp;family=Lexend:wght@300;400;500;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glow-blue {
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+        .diagonal-split {
+            clip-path: polygon(0 0, 100% 0, 100% 90%, 0% 100%);
+        }
+        .energy-line {
+            background: linear-gradient(90deg, transparent, #00D4FF, transparent);
+            height: 1px;
+            width: 100%;
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "tertiary-fixed": "#d7e3fc",
+                      "on-secondary": "#003642",
+                      "tertiary-fixed-dim": "#bbc7df",
+                      "tertiary-container": "#c2cde6",
+                      "primary-fixed": "#ffdf9d",
+                      "secondary-container": "#00d2fd",
+                      "secondary": "#a2e7ff",
+                      "text-secondary": "#e8e8e8",
+                      "primary-fixed-dim": "#f8be1e",
+                      "surface-container-highest": "#333535",
+                      "error-container": "#93000a",
+                      "on-tertiary-container": "#4c576c",
+                      "inverse-on-surface": "#2f3131",
+                      "surface-ice": "#E8F4F8",
+                      "background-deep-navy": "#0A1628",
+                      "surface-medium-grey": "#2f3131",
+                      "outline-variant": "#4f4633",
+                      "surface-container": "#1e2020",
+                      "surface-tint": "#f8be1e",
+                      "surface-bright": "#383939",
+                      "accent-yellow": "#ffc426",
+                      "on-background": "#e2e2e2",
+                      "outline": "#9c8f79",
+                      "surface-container-high": "#282a2a",
+                      "on-secondary-fixed-variant": "#004e5f",
+                      "surface-charcoal": "#1a1c1c",
+                      "accent-electric-blue": "#00D4FF",
+                      "inverse-primary": "#785a00",
+                      "surface": "#121414",
+                      "secondary-fixed": "#b4ebff",
+                      "background": "#121414",
+                      "secondary-fixed-dim": "#3cd7ff",
+                      "on-primary": "#3f2e00",
+                      "on-surface": "#e2e2e2",
+                      "on-tertiary-fixed-variant": "#3c475b",
+                      "primary-container": "#ffc426",
+                      "on-tertiary-fixed": "#101c2e",
+                      "on-secondary-container": "#005669",
+                      "primary": "#ffe6b7",
+                      "inverse-surface": "#e2e2e2",
+                      "on-primary-container": "#6f5200",
+                      "on-primary-fixed": "#251a00",
+                      "surface-variant": "#333535",
+                      "on-secondary-fixed": "#001f27",
+                      "on-surface-variant": "#d3c5ac",
+                      "tertiary": "#e0e9ff",
+                      "surface-dim": "#121414",
+                      "on-primary-fixed-variant": "#5b4300",
+                      "on-error": "#690005",
+                      "error": "#ffb4ab",
+                      "on-error-container": "#ffdad6",
+                      "text-primary": "#ffffff",
+                      "on-tertiary": "#253144",
+                      "surface-container-low": "#1a1c1c",
+                      "surface-container-lowest": "#0c0f0f",
+                      "text-muted": "#9a9a9a"
+              },
+              "fontFamily": {
+                      "h2-headline": ["Space Grotesk"],
+                      "h1-secondary": ["Space Grotesk"],
+                      "h1-display": ["Space Grotesk"],
+                      "body-main": ["Lexend"],
+                      "data-large": ["Space Grotesk"],
+                      "label-bold": ["Space Grotesk"],
+                      "body-small": ["Lexend"]
+              },
+              "fontSize": {
+                      "h2-headline": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                      "h1-secondary": ["48px", {"lineHeight": "1.1", "fontWeight": "400"}],
+                      "h1-display": ["80px", {"lineHeight": "1.1", "letterSpacing": "0.05em", "fontWeight": "700"}],
+                      "body-main": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                      "data-large": ["64px", {"lineHeight": "1", "letterSpacing": "-0.02em", "fontWeight": "900"}],
+                      "label-bold": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                      "body-small": ["14px", {"lineHeight": "1.6", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-main selection:bg-accent-yellow selection:text-on-primary">
+<!-- TopNavBar -->
+<header class="bg-[#0A1628] docked full-width top-0 z-50 border-b border-[#00D4FF]/20 shadow-[0_4px_20px_rgba(0,212,255,0.1)]">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-screen-2xl mx-auto">
+<div class="text-2xl font-black text-white border-l-4 border-[#ffc426] pl-3 flex items-center gap-2 font-['Space_Grotesk'] tracking-tighter uppercase font-bold">
+                MAXFOOT HORIZON
+            </div>
+<nav class="hidden md:flex items-center gap-8 font-['Space_Grotesk'] tracking-tighter uppercase font-bold">
+<a class="text-[#ffc426] border-b-2 border-[#ffc426] pb-1 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#ffc426] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left" href="#">Bikes</a>
+<a class="text-slate-300 hover:text-[#ffc426] pb-1 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#ffc426] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left" href="#">Gear</a>
+<a class="text-slate-300 hover:text-[#ffc426] pb-1 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#ffc426] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left" href="#">Tech</a>
+<a class="text-slate-300 hover:text-[#ffc426] pb-1 transition-all duration-300 relative after:content-[''] after:absolute after:w-full after:scale-x-0 after:h-0.5 after:bottom-0 after:left-0 after:bg-[#ffc426] after:origin-bottom-right after:transition-transform after:duration-300 hover:after:scale-x-100 hover:after:origin-bottom-left" href="#">Exploration</a>
+</nav>
+<div class="flex items-center gap-6 text-[#ffc426]">
+<button class="scale-95 active:scale-90 transition-transform"><span class="material-symbols-outlined" data-icon="electric_bike">electric_bike</span></button>
+<button class="scale-95 active:scale-90 transition-transform"><span class="material-symbols-outlined" data-icon="shopping_cart">shopping_cart</span></button>
+<button class="scale-95 active:scale-90 transition-transform"><span class="material-symbols-outlined" data-icon="account_circle">account_circle</span></button>
+</div>
+</div>
+</header>
+<main>
+<!-- Product Hero Section -->
+<section class="relative min-h-[921px] flex flex-col md:flex-row items-center overflow-hidden bg-background">
+<div class="absolute inset-0 opacity-10 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #00D4FF 1px, transparent 0); background-size: 40px 40px;"></div>
+</div>
+<!-- Content -->
+<div class="relative z-10 w-full md:w-1/2 px-gutter md:pl-24 py-12">
+<div class="flex items-center gap-2 text-accent-electric-blue font-label-bold text-label-bold uppercase mb-4">
+<span class="material-symbols-outlined text-sm" data-icon="bolt" data-weight="fill" style="font-variation-settings: 'FILL' 1;">bolt</span>
+                    New Release: Horizon-X Series
+                </div>
+<h1 class="font-h1-display text-h1-display text-white mb-6">
+                    MF-1000 <br/>
+<span class="text-accent-yellow">HORIZON</span>
+</h1>
+<p class="font-body-main text-body-main text-text-secondary max-w-lg mb-10">
+                    Engineered for those who reject the pavement. With a dual-motor drive system and aerospace-grade chassis, the Horizon-X is built to dominate alpine trails and urban jungles alike.
+                </p>
+<div class="flex flex-wrap gap-6 mb-12">
+<button class="bg-accent-yellow text-on-primary px-8 py-4 font-label-bold text-label-bold uppercase flex items-center gap-3 hover:-translate-y-1 transition-all glow-blue group active:scale-95">
+                        ADD TO CART 
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform" data-icon="shopping_bag">shopping_bag</span>
+</button>
+<button class="border-2 border-accent-electric-blue text-accent-electric-blue px-8 py-4 font-label-bold text-label-bold uppercase hover:bg-accent-electric-blue/10 transition-colors active:scale-95">
+                        CUSTOMIZE BUILD
+                    </button>
+</div>
+<div class="flex gap-12 border-t border-white/10 pt-10">
+<div>
+<div class="font-label-bold text-label-bold text-accent-yellow uppercase mb-1">Starting at</div>
+<div class="font-data-large text-data-large text-white">$2,899</div>
+</div>
+<div class="hidden sm:block">
+<div class="font-label-bold text-label-bold text-accent-electric-blue uppercase mb-1">Financing</div>
+<div class="font-data-large text-data-large text-white">0% APR</div>
+</div>
+</div>
+</div>
+<!-- Image/Visual -->
+<div class="relative w-full md:w-1/2 h-[500px] md:h-screen flex items-center justify-center">
+<div class="absolute right-0 top-0 w-3/4 h-full bg-accent-electric-blue/5 skew-x-[-12deg] translate-x-1/4"></div>
+<div class="relative z-10 w-full h-full flex items-center justify-center p-12">
+<img alt="High-performance electric mountain bike" class="object-contain w-full h-full drop-shadow-[0_20px_50px_rgba(0,0,0,0.8)] filter grayscale hover:grayscale-0 transition-all duration-700" data-alt="Modern matte black electric mountain bike with neon blue accents positioned diagonally in a high-tech industrial dark studio setting with cinematic lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbgClNqYeQ9HfongupQS0KlAT0xRfznpO0lVDg3M32E54eNO9CQcnhy6Qrdkria7JpVE3W1v9zPOmFHnGJvdefBj-B6umH4-OcFTye53QEIN9Bsz2yoaWWvA6a1LNvbeCEXS9tlIZFPENvAzdFfUsr0hO-tBqN0ONSulsAfTBdxuYCTRARNs_yxd0DhFA__PsJJ6Q5A5gQVYYp33Pm02B852albg1JRrIAl50ZzR78TgV7Mq6y3Golovuw2CWDa0KdsIjLxx5Dxadm"/>
+</div>
+<!-- Diagonal Tech Slashes -->
+<div class="absolute bottom-20 left-0 w-32 h-1 bg-accent-yellow skew-y-[-45deg]"></div>
+<div class="absolute bottom-24 left-4 w-32 h-1 bg-accent-electric-blue/40 skew-y-[-45deg]"></div>
+</div>
+</section>
+<!-- Technical Specs Section (Dark-Light-Dark Flow) -->
+<section class="bg-surface-charcoal py-section-gap relative">
+<div class="energy-line absolute top-0 left-0"></div>
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-end mb-20 gap-8">
+<div>
+<div class="font-label-bold text-label-bold text-accent-yellow uppercase mb-2">Internal Architecture</div>
+<h2 class="font-h2-headline text-h2-headline text-white">THE POWER CORE</h2>
+</div>
+<div class="text-right">
+<p class="font-body-small text-body-small text-text-muted max-w-sm">
+                            Real-time performance metrics pulled from our integrated smart-hub. Every watt accounted for.
+                        </p>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+<!-- Stat 1 -->
+<div class="relative group p-8 bg-surface-container border-l-2 border-accent-electric-blue hover:bg-surface-bright transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-accent-electric-blue text-4xl" data-icon="speed">speed</span>
+<span class="font-label-bold text-label-bold text-accent-yellow">MAX SPEED</span>
+</div>
+<div class="font-data-large text-data-large text-accent-electric-blue mb-4">32<span class="text-3xl">MPH</span></div>
+<div class="h-1 w-full bg-zinc-800 rounded-full mt-4 overflow-hidden"><div class="h-full bg-gradient-to-r from-[#00D4FF] to-[#FFC426]" style="width: 85%"></div></div>
+<p class="font-body-small text-body-small text-text-muted">Top-tier motor output sustained on flat terrain.</p>
+</div>
+<!-- Stat 2 -->
+<div class="relative group p-8 bg-surface-container border-l-2 border-accent-electric-blue hover:bg-surface-bright transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-accent-electric-blue text-4xl" data-icon="distance">distance</span>
+<span class="font-label-bold text-label-bold text-accent-yellow">MAX RANGE</span>
+</div>
+<div class="font-data-large text-data-large text-accent-electric-blue mb-4">65<span class="text-3xl">MILES</span></div>
+<div class="h-1 w-full bg-zinc-800 rounded-full mt-4 overflow-hidden"><div class="h-full bg-gradient-to-r from-[#00D4FF] to-[#FFC426]" style="width: 87%"></div></div>
+<p class="font-body-small text-body-small text-text-muted">Extended range with our proprietary lithium-cell pack.</p>
+</div>
+<!-- Stat 3 -->
+<div class="relative group p-8 bg-surface-container border-l-2 border-accent-electric-blue hover:bg-surface-bright transition-all">
+<div class="flex justify-between items-start mb-6">
+<span class="material-symbols-outlined text-accent-electric-blue text-4xl" data-icon="offline_bolt">offline_bolt</span>
+<span class="font-label-bold text-label-bold text-accent-yellow">PEAK WATTS</span>
+</div>
+<div class="font-data-large text-data-large text-accent-electric-blue mb-4">1000<span class="text-3xl">W</span></div>
+<div class="h-1 w-full bg-zinc-800 rounded-full mt-4 overflow-hidden"><div class="h-full bg-gradient-to-r from-[#00D4FF] to-[#FFC426]" style="width: 100%"></div></div>
+<p class="font-body-small text-body-small text-text-muted">High-torque delivery for steep mountain ascents.</p>
+</div>
+</div>
+</div>
+<div class="energy-line absolute bottom-0 left-0"></div>
+</section>
+<!-- Feature Bento Grid (Light Rhythm) -->
+<section class="bg-surface-ice py-section-gap">
+<div class="max-w-7xl mx-auto px-gutter">
+<div class="grid grid-cols-1 md:grid-cols-4 md:grid-rows-2 gap-6 h-auto md:h-[800px]">
+<!-- Large Feature Card -->
+<div class="md:col-span-2 md:row-span-2 relative group overflow-hidden bg-white shadow-xl">
+<img alt="Advanced suspension system" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Detailed close-up of a high-tech gold-anodized mountain bike suspension system with mechanical parts and grease textures" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2S1vlIp3RiM5FJeF2jSdocFCYMHPmIcCDnXZwqTvAqMj0ebFnlKmCxS4LiIDotfJxg1Gy7XcXK5I6g1tGJJpt7nR3qecUCXAh0GNVCxPL7RWvkRvGpi9JgAmwND-Hv6uI7YkqwZetDVyn7WixDTFy6gtXzgQnPl-oXh2XsPOeVt9EbEfajFkE0l1WJ_gwvTns23AC303cHMN6hfKCKTZRoxo9G6Vb8sLJ_LVtaOp-z1FLFkCHgdLyjaDYznWb5qK9_o028ypl8oSl"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-deep-navy to-transparent opacity-80"></div>
+<div class="absolute bottom-0 left-0 p-10">
+<h3 class="font-h2-headline text-h2-headline text-white mb-4">APEX SUSPENSION</h3>
+<p class="text-on-surface mb-6 max-w-sm">Hydraulic fork with 120mm of travel. Zero friction. Total control.</p>
+<button class="flex items-center gap-2 text-accent-yellow font-label-bold text-label-bold group/btn">
+                                TECH SPECS <span class="material-symbols-outlined group-hover/btn:translate-x-2 transition-transform" data-icon="chevron_right">chevron_right</span>
+</button>
+</div>
+</div>
+<!-- Medium Feature Card -->
+<div class="md:col-span-2 relative group overflow-hidden bg-white shadow-xl">
+<img alt="Smart dashboard" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Sleek digital dashboard mounted on a bike handlebar showing speed, battery level, and GPS map in glowing blue light" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBCt-BCgVmENUL_1COdE7WPTorUsmsKuk8_cFPspHHZBUQ6igVtCa2Nhs_f_G-whu3xzN6aykPxA2FgLo3dRLUNT6Q351cX0X4qL2OUn0TEmo9h98xRHG76iLIsBvOaX-Mu5bUlj9bVzlc5KaMN8i7y_DN2wJjGPYazbxv9_kZZqjiggHW6MCPel_9jHwU5AECHp_zC8n-ckz-i5Q0boA90Hg4TMHRZ4TrXK1xcTKRXk2DtrwdmvXCpSmov3BVBm300w3w-hY0I-rnK"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-deep-navy to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<h3 class="text-xl font-bold text-white mb-2">SMART HUB V2</h3>
+<p class="text-on-surface text-sm">Real-time GPS and health monitoring integration.</p>
+</div>
+</div>
+<!-- Small Feature Card 1 -->
+<div class="relative group overflow-hidden bg-white shadow-xl">
+<img alt="All-terrain tires" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="Macro photo of thick, aggressive tread on a fat-tire bike covered in light mud and dirt" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA7cbEVS6kZxAihCyVoD1pPMuMAco2Wvx1MMnfB2Cc-SbrCRyrA5NKsaePesaIeMipChr9tIguL-p8GaExRuR5sbDCSBhpeaI-ELnGox0TTv8csJ89tfnv4CXrlZc6lKL2qgQRY1W0pW8z0FZEVzbkmSIJiHC0obOnRsSW20DMikVfra1R0kOQdRfcUOleMlFCGHCyCCF6sKi7VIOYpqbT7j_WfGgGpPwz9fNBNTk2xM3KN61ztWmOw2osayzgz7BzLwtHUaozZzyno"/>
+<div class="absolute inset-0 bg-gradient-to-t from-background-deep-navy to-transparent opacity-70"></div>
+<div class="absolute bottom-0 left-0 p-6">
+<h3 class="text-lg font-bold text-white uppercase">TERRAIN TIRES</h3>
+</div>
+</div>
+<!-- Small Feature Card 2 -->
+<div class="relative group overflow-hidden bg-surface-medium-grey shadow-xl p-8 flex flex-col justify-center">
+<div class="text-accent-yellow mb-4"><span class="material-symbols-outlined text-5xl" data-icon="verified" data-weight="fill">verified</span></div>
+<h3 class="text-lg font-bold text-white uppercase mb-2">5-YEAR WARRANTY</h3>
+<p class="text-text-muted text-xs">We stand by every weld. Engineered to outlast the competition.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section (Industrial Dark) -->
+<section class="bg-background-deep-navy py-section-gap relative overflow-hidden">
+<div class="absolute top-0 right-0 w-1/3 h-full bg-accent-yellow/5 skew-x-[-20deg]"></div>
+<div class="max-w-4xl mx-auto px-gutter text-center relative z-10">
+<div class="font-label-bold text-label-bold text-accent-electric-blue mb-4 uppercase">Ready to Evolve?</div>
+<h2 class="font-h1-secondary text-h1-secondary text-white mb-8">STOP WATCHING. START RIDING.</h2>
+<p class="font-body-main text-body-main text-text-muted mb-12">
+                    Join the 10,000+ explorers who have transitioned to the Horizon ecosystem. Free shipping and local setup included with every purchase.
+                </p>
+<div class="flex flex-col sm:flex-row justify-center gap-6">
+<button class="bg-accent-yellow text-on-primary px-12 py-5 font-label-bold text-label-bold uppercase hover:scale-105 transition-all">CONFIGURE YOUR HORIZON</button>
+<button class="bg-transparent border-2 border-white/20 text-white px-12 py-5 font-label-bold text-label-bold uppercase hover:border-accent-electric-blue transition-colors">LOCATE RETAILER</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-[#0A1628] w-full py-12 px-8 border-t-2 border-[#00D4FF]/30">
+<div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+<div class="md:col-span-1">
+<div class="text-xl font-black text-[#ffc426] font-['Space_Grotesk'] uppercase tracking-widest mb-4">MAXFOOT</div>
+<p class="text-sm font-['Space_Grotesk'] uppercase tracking-widest text-[#D1D5DB]">Conquer Every Terrain.</p>
+</div>
+<div class="grid grid-cols-2 md:col-span-2 gap-8 divide-x divide-slate-800">
+<div class="flex flex-col gap-4 pl-8">
+<a class="text-sm font-['Space_Grotesk'] uppercase tracking-widest text-[#D1D5DB] flex items-center before:content-['\25c6'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] transition-colors cursor-pointer" href="#">Engineering</a>
+<a class="text-sm font-['Space_Grotesk'] uppercase tracking-widest text-[#D1D5DB] flex items-center before:content-['\25c6'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] transition-colors cursor-pointer" href="#">Support</a>
+</div>
+<div class="flex flex-col gap-4 pl-8">
+<a class="text-sm font-['Space_Grotesk'] uppercase tracking-widest text-[#D1D5DB] flex items-center before:content-['\25c6'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] transition-colors cursor-pointer" href="#">Privacy</a>
+<a class="text-sm font-['Space_Grotesk'] uppercase tracking-widest text-[#D1D5DB] flex items-center before:content-['\25c6'] before:text-[#00D4FF] before:mr-2 before:text-[10px] hover:text-[#ffc426] transition-colors cursor-pointer" href="#">Terms</a>
+</div>
+</div>
+<div class="md:col-span-1 text-right">
+<p class="text-sm font-['Space_Grotesk'] uppercase tracking-widest text-[#D1D5DB]">© 2024 MAXFOOT HORIZON. CONQUER EVERY TERRAIN.</p>
+</div>
+</div>
+</footer>
+</body></html>

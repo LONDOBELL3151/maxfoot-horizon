@@ -1,0 +1,324 @@
+{% comment %}
+  Maxfoot Collection Filters Section - Product Listing Page
+  Sidebar with bike type, motor power, and price range filters
+{% endcomment %}
+
+<section
+  id="MaxfootCollectionFilters-{{ section.id }}"
+  class="maxfoot-collection-filters"
+>
+  <div class="maxfoot-collection-filters__container">
+    <h3 class="maxfoot-collection-filters__title">{{ section.settings.title | default: 'Filters' }}</h3>
+
+    <div class="maxfoot-collection-filters__groups">
+      {% for block in section.blocks %}
+        {% case block.type %}
+          {% when 'filter_group' %}
+            <div class="maxfoot-filter-group" {{ block.shopify_attributes }}>
+              <h4 class="maxfoot-filter-group__title">{{ block.settings.group_title }}</h4>
+              <div class="maxfoot-filter-group__options">
+                {% for i in (1..6) %}
+                  {% assign option_label = 'option_' | append: i | append: '_label' %}
+                  {% assign option_checked = 'option_' | append: i | append: '_checked' %}
+                  {% if block.settings[option_label] != blank %}
+                    <label class="maxfoot-filter-option">
+                      <input
+                        type="checkbox"
+                        class="maxfoot-filter-option__checkbox"
+                        {% if block.settings[option_checked] %}checked{% endif %}
+                      />
+                      <span class="maxfoot-filter-option__label">{{ block.settings[option_label] }}</span>
+                    </label>
+                  {% endif %}
+                {% endfor %}
+              </div>
+            </div>
+          {% when 'price_range_block' %}
+            <div class="maxfoot-filter-group" {{ block.shopify_attributes }}>
+              <h4 class="maxfoot-filter-group__title">{{ block.settings.group_title }}</h4>
+              <div class="maxfoot-price-range">
+                <input
+                  type="range"
+                  class="maxfoot-price-range__slider"
+                  min="{{ block.settings.min_price | default: 1000 }}"
+                  max="{{ block.settings.max_price | default: 3000 }}"
+                  value="{{ block.settings.default_price | default: 2000 }}"
+                />
+                <div class="maxfoot-price-range__labels">
+                  <span class="maxfoot-price-range__label">${{ block.settings.min_price | default: 1000 }}</span>
+                  <span class="maxfoot-price-range__value">Up to ${{ block.settings.default_price | default: 2000 }}</span>
+                </div>
+              </div>
+            </div>
+        {% endcase %}
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<style>
+  .maxfoot-collection-filters {
+    width: 100%;
+  }
+
+  .maxfoot-collection-filters__container {
+    position: sticky;
+    top: 120px;
+    background-color: #1a1c1c;
+    padding: 24px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+  }
+
+  .maxfoot-collection-filters__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 32px 0;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #2f3131;
+  }
+
+  .maxfoot-collection-filters__groups {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .maxfoot-filter-group__title {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ffffff;
+    margin: 0 0 16px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #2f3131;
+  }
+
+  .maxfoot-filter-group__options {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .maxfoot-filter-option {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+  }
+
+  .maxfoot-filter-option__checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: #00D4FF;
+    background-color: #0A1628;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+    cursor: pointer;
+  }
+
+  .maxfoot-filter-option__checkbox:checked {
+    background-color: #00D4FF;
+    border-color: #00D4FF;
+  }
+
+  .maxfoot-filter-option__label {
+    font-family: 'Lexend', sans-serif;
+    font-size: 16px;
+    color: #9a9a9a;
+    transition: color 0.3s ease;
+  }
+
+  .maxfoot-filter-option:hover .maxfoot-filter-option__label {
+    color: #ffffff;
+  }
+
+  .maxfoot-filter-option__checkbox:checked + .maxfoot-filter-option__label {
+    color: #00D4FF;
+  }
+
+  .maxfoot-price-range {
+    padding: 8px 8px 0;
+  }
+
+  .maxfoot-price-range__slider {
+    width: 100%;
+    height: 4px;
+    background-color: #2f3131;
+    border-radius: 9999px;
+    appearance: none;
+    cursor: pointer;
+    accent-color: #00D4FF;
+  }
+
+  .maxfoot-price-range__slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    background-color: #00D4FF;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .maxfoot-price-range__labels {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 8px;
+  }
+
+  .maxfoot-price-range__label {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    color: #6b6b6b;
+  }
+
+  .maxfoot-price-range__value {
+    font-family: 'Lexend', sans-serif;
+    font-size: 14px;
+    color: #00D4FF;
+    font-weight: 500;
+  }
+
+  @media screen and (max-width: 1023px) {
+    .maxfoot-collection-filters {
+      display: none;
+    }
+  }
+</style>
+
+{% schema %}
+{
+  "name": "Collection Filters",
+  "tag": "section",
+  "class": "maxfoot-collection-filters-section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Filters"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "filter_group",
+      "name": "Filter Group",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_title",
+          "label": "Group Title",
+          "default": "Bike Type"
+        },
+        {
+          "type": "text",
+          "id": "option_1_label",
+          "label": "Option 1 Label",
+          "default": "All Terrain"
+        },
+        {
+          "type": "checkbox",
+          "id": "option_1_checked",
+          "label": "Option 1 Checked",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "option_2_label",
+          "label": "Option 2 Label",
+          "default": "Folding"
+        },
+        {
+          "type": "text",
+          "id": "option_3_label",
+          "label": "Option 3 Label",
+          "default": "Commuter"
+        },
+        {
+          "type": "text",
+          "id": "option_4_label",
+          "label": "Option 4 Label",
+          "default": "Step-Thru"
+        }
+      ]
+    },
+    {
+      "type": "filter_group_motor",
+      "name": "Filter Group (Motor)",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_title",
+          "label": "Group Title",
+          "default": "Motor Power"
+        },
+        {
+          "type": "text",
+          "id": "option_1_label",
+          "label": "Option 1 Label",
+          "default": "500W"
+        },
+        {
+          "type": "text",
+          "id": "option_2_label",
+          "label": "Option 2 Label",
+          "default": "750W"
+        },
+        {
+          "type": "checkbox",
+          "id": "option_2_checked",
+          "label": "Option 2 Checked",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "option_3_label",
+          "label": "Option 3 Label",
+          "default": "1000W"
+        }
+      ]
+    },
+    {
+      "type": "price_range_block",
+      "name": "Price Range",
+      "settings": [
+        {
+          "type": "text",
+          "id": "group_title",
+          "label": "Group Title",
+          "default": "Price Range"
+        },
+        {
+          "type": "number",
+          "id": "min_price",
+          "label": "Minimum Price",
+          "default": 1000
+        },
+        {
+          "type": "number",
+          "id": "max_price",
+          "label": "Maximum Price",
+          "default": 3000
+        },
+        {
+          "type": "number",
+          "id": "default_price",
+          "label": "Default Price",
+          "default": 2000
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Maxfoot Collection Filters"
+    }
+  ]
+}
+{% endschema %}
