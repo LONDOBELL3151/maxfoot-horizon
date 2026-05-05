@@ -28,48 +28,38 @@
     "v5_hot_selling": {
       "type": "maxfoot-v5-hot-selling",
       "blocks": {
-        "product_card_MeLwKi": {
-          "type": "product_card",
-          "settings": {
-            "product": "maxz-20-fat-tire-step-thru-electric-trike-maxfoot-mf-31-pangea-green",
-            "badge": "HOT",
-            "title": "",
-            "price": ""
-          }
-        },
-        "product_card_URfGBM": {
+        "product_card_UbV66g": {
           "type": "product_card",
           "settings": {
             "product": "mf-33-passenger-electric-tricycle-yellow",
             "badge": "HOT",
-            "title": "",
-            "price": ""
+            "title": "Product Name",
+            "price": "$0.00"
           }
         },
-        "product_card_hcKbjz": {
+        "product_card_FWtTKC": {
           "type": "product_card",
           "settings": {
             "product": "maxfoot-mf-30-electric-assist-adult-tricycle-750w-front-suspension-grey",
             "badge": "HOT",
-            "title": "",
-            "price": ""
+            "title": "Product Name",
+            "price": "$0.00"
           }
         },
-        "product_card_zDXdnt": {
+        "product_card_LxthW9": {
           "type": "product_card",
           "settings": {
             "product": "mf-25-step-thru-commuter-e-bike-burning-orange",
             "badge": "HOT",
-            "title": "",
-            "price": ""
+            "title": "Product Name",
+            "price": "$0.00"
           }
         }
       },
       "block_order": [
-        "product_card_MeLwKi",
-        "product_card_URfGBM",
-        "product_card_hcKbjz",
-        "product_card_zDXdnt"
+        "product_card_UbV66g",
+        "product_card_FWtTKC",
+        "product_card_LxthW9"
       ],
       "settings": {
         "title": "HOT SELLING",
