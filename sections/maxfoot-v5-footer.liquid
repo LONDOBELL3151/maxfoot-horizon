@@ -1,0 +1,80 @@
+{% schema %}
+{
+  "name": "V5 Footer",
+  "tag": "section",
+  "class": "maxfoot-v5-footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "MAXFOOT"
+    },
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Footer Tagline",
+      "default": "Pioneering the future of electric mobility with high-performance bikes designed for the modern adventurer."
+    },
+    {
+      "type": "text",
+      "id": "copyright",
+      "label": "Copyright",
+      "default": "© 2024 MAXFOOT ELECTRIC BIKES. ENGINEERED FOR ADVENTURE."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "footer_link",
+      "name": "Footer Link",
+      "settings": [
+        { "type": "text", "id": "link_text", "label": "Link Text" },
+        { "type": "url", "id": "link_url", "label": "Link URL" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "V5 Footer" }]
+}
+{% endschema %}
+
+<footer class="bg-stone-900 border-t border-stone-800">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-24 max-w-[1440px] mx-auto">
+    <div class="flex flex-col space-y-6">
+      <div class="text-xl font-black tracking-widest text-white uppercase" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
+      <p class="text-stone-400 leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ section.settings.tagline }}</p>
+      <div class="flex space-x-4">
+        <span class="material-symbols-outlined text-[#FFC426] cursor-pointer">public</span>
+        <span class="material-symbols-outlined text-[#FFC426] cursor-pointer">chat</span>
+        <span class="material-symbols-outlined text-[#FFC426] cursor-pointer">mail</span>
+      </div>
+    </div>
+    <div class="flex flex-col space-y-4">
+      <h4 class="text-white font-bold text-sm tracking-widest uppercase mb-4" style="font-family: 'Space Grotesk', sans-serif;">SUPPORT</h4>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'footer_link' -%}
+          <a class="text-stone-400 hover:text-white transition-colors text-sm" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>{{ block.settings.link_text }}</a>
+        {%- endif -%}
+      {%- else -%}
+        <a class="text-stone-400 hover:text-white transition-colors text-sm" href="#">WARRANTY</a>
+        <a class="text-stone-400 hover:text-white transition-colors text-sm" href="#">RETURNS</a>
+        <a class="text-stone-400 hover:text-white transition-colors text-sm" href="#">CONTACT</a>
+        <a class="text-stone-400 hover:text-white transition-colors text-sm" href="#">DEALER LOCATOR</a>
+      {%- endfor -%}
+    </div>
+    <div class="flex flex-col space-y-4">
+      <h4 class="text-white font-bold text-sm tracking-widest uppercase mb-4" style="font-family: 'Space Grotesk', sans-serif;">LEGAL</h4>
+      <a class="text-stone-400 hover:text-white transition-colors text-sm" href="#">PRIVACY POLICY</a>
+      <a class="text-stone-400 hover:text-white transition-colors text-sm" href="#">TERMS OF SERVICE</a>
+    </div>
+    <div class="flex flex-col space-y-6">
+      <h4 class="text-white font-bold text-sm tracking-widest uppercase mb-4" style="font-family: 'Space Grotesk', sans-serif;">NEWSLETTER</h4>
+      <div class="flex border-b border-stone-700 pb-2">
+        <input class="bg-transparent border-none text-white text-sm focus:ring-0 w-full placeholder-stone-600" placeholder="YOUR EMAIL" type="email">
+        <button class="text-[#FFC426] material-symbols-outlined">arrow_forward</button>
+      </div>
+    </div>
+  </div>
+  <div class="max-w-[1440px] mx-auto px-8 py-8 border-t border-stone-800">
+    <p class="text-stone-500 text-sm text-center md:text-left">{{ section.settings.copyright }}</p>
+  </div>
+</footer>

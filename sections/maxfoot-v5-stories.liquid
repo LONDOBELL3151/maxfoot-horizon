@@ -1,0 +1,104 @@
+{% schema %}
+{
+  "name": "V5 Stories",
+  "tag": "section",
+  "class": "maxfoot-v5-stories",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "Latest Stories"
+    },
+    {
+      "type": "text",
+      "id": "link_text",
+      "label": "Link Text",
+      "default": "All Stories"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "blog_card",
+      "name": "Blog Card",
+      "settings": [
+        { "type": "article", "id": "article", "label": "Article" },
+        { "type": "text", "id": "category", "label": "Category" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "date", "label": "Date" },
+        { "type": "textarea", "id": "excerpt", "label": "Excerpt" },
+        { "type": "image_picker", "id": "image", "label": "Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "V5 Stories" }]
+}
+{% endschema %}
+
+<section class="py-[120px] bg-white">
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="flex justify-between items-center mb-12">
+      <h2 class="text-5xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.title }}</h2>
+      <a class="text-[#FFC426] font-bold text-sm tracking-widest border-b-2 border-[#FFC426] pb-1 hover:opacity-80 transition-opacity uppercase" href="#">{{ section.settings.link_text }}</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'blog_card' -%}
+          <div class="group">
+            <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
+              {%- if block.settings.image -%}
+                <img alt="{{ block.settings.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ block.settings.image | image_url: width: 600 }}">
+              {%- else -%}
+                <img alt="{{ block.settings.title }}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTkbW5M_IWlWhJFELJWf23UX3TsevPVIVl8UuehZs2HsBuj6JLRvVFEqPUbONopYjelCWvHHZB2xGkFhq9cLPzDn_QqRZgQg2c56GujFNdEDf62Bih3Gqxt1VebAMZ8wqqnSGfr9LPZLgiWfVz0nE6EF3f1ggGAafnPymJmGlbJVFElaVPSZqXMRPApcITJa04o4hq9SKLYyr11t4u95ZzAFWgStUaYhcE98pk19MfSQYm7tS8UBzSn1aAsJ2Db0Ks2df2hpEIE-Q"/>
+              {%- endif -%}
+              <div class="absolute top-4 left-4 bg-[#FFC426] text-stone-900 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">{{ block.settings.category }}</div>
+            </div>
+            <div class="space-y-3">
+              <p class="text-xs text-stone-400 uppercase tracking-widest" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.date }}</p>
+              <h3 class="text-2xl font-bold group-hover:text-[#FFC426] transition-colors cursor-pointer" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title }}</h3>
+              <p class="text-stone-500 line-clamp-2 leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ block.settings.excerpt }}</p>
+              <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE →</a>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="group">
+          <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
+            <img alt="Adventure Blog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTkbW5M_IWlWhJFELJWf23UX3TsevPVIVl8UuehZs2HsBuj6JLRvVFEqPUbONopYjelCWvHHZB2xGkFhq9cLPzDn_QqRZgQg2c56GujFNdEDf62Bih3Gqxt1VebAMZ8wqqnSGfr9LPZLgiWfVz0nE6EF3f1ggGAafnPymJmGlbJVFElaVPSZqXMRPApcITJa04o4hq9SKLYyr11t4u95ZzAFWgStUaYhcE98pk19MfSQYm7tS8UBzSn1aAsJ2Db0Ks2df2hpEIE-Q"/>
+            <div class="absolute top-4 left-4 bg-[#FFC426] text-stone-900 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">ADVENTURE</div>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs text-stone-400 uppercase tracking-widest" style="font-family: 'Space Grotesk', sans-serif;">MARCH 15, 2024</p>
+            <h3 class="text-2xl font-bold group-hover:text-[#FFC426] transition-colors cursor-pointer" style="font-family: 'Space Grotesk', sans-serif;">Conquering the High Sierras with the M-3</h3>
+            <p class="text-stone-500 line-clamp-2 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Discover how our latest fat-tire model handled the rugged terrain and elevation changes of the Sierra Nevada trails.</p>
+            <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE →</a>
+          </div>
+        </div>
+        <div class="group">
+          <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
+            <img alt="Tech Blog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiSyO2pVwz8uFONt4CIw-v79qEz-xHLmufsjQ3ZlcI2-t_ppJo2lwT8L8-CEGTHvNmbBvkTXY_vqGVWQY4Vmd71Vyj-IpknFeHitCcHL4PsNJ4At8Cl0EK7sNt95rHAKqHQXqbUta2QcqEu6rnJqmKcuzCHXqfwOAyten-odTNtoQKbek5BKcNnqj3U191G0xiuleSGK2vC5WnCsg1oEkuAoIT9R1j_lQuU-vg51PshJgIn1QBnK3U_0i7Y8vq7hJatL8MMnBYqepy"/>
+            <div class="absolute top-4 left-4 bg-[#FFC426] text-stone-900 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">TECH</div>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs text-stone-400 uppercase tracking-widest" style="font-family: 'Space Grotesk', sans-serif;">FEBRUARY 28, 2024</p>
+            <h3 class="text-2xl font-bold group-hover:text-[#FFC426] transition-colors cursor-pointer" style="font-family: 'Space Grotesk', sans-serif;">The Science of High-Torque Hub Motors</h3>
+            <p class="text-stone-500 line-clamp-2 leading-relaxed" style="font-family: 'Lexend', sans-serif;">A deep dive into the engineering behind our 750W brushless motor and how it delivers consistent power.</p>
+            <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE →</a>
+          </div>
+        </div>
+        <div class="group">
+          <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
+            <img alt="Lifestyle Blog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz9HOTPW5DN3Gcq7shYuEgh0U5L1IS8c2VWsmHrMzO2BU6rNg0dk2gVP-WUl1TW_1OocbA5dA2_I7bX45tU7atTNriq0xPgjdrOhoNReNGt3QBf23fqsm6S2i0ljg-2wrqjpEHnTOb3oe9_Qtgw4CpxeahMPttMVz1Jj_Xpua7_-lvSEiogz_IwdluM0Fz56RiH3GBZD96zTqiDB84KJhwbxjCyEkML4jspk2hhMc5OQ6LtorkjQDwE9atlg0LYnMW8ZKKtkfrN0Y7"/>
+            <div class="absolute top-4 left-4 bg-[#FFC426] text-stone-900 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">LIFESTYLE</div>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs text-stone-400 uppercase tracking-widest" style="font-family: 'Space Grotesk', sans-serif;">JANUARY 12, 2024</p>
+            <h3 class="text-2xl font-bold group-hover:text-[#FFC426] transition-colors cursor-pointer" style="font-family: 'Space Grotesk', sans-serif;">Urban Mobility: The Future is Electric</h3>
+            <p class="text-stone-500 line-clamp-2 leading-relaxed" style="font-family: 'Lexend', sans-serif;">How electric bikes are reshaping city transportation and reducing the carbon footprint of daily commutes.</p>
+            <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE →</a>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

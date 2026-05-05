@@ -1,0 +1,117 @@
+{% schema %}
+{
+  "name": "V5 Reviews",
+  "tag": "section",
+  "class": "maxfoot-v5-reviews",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Reviews Title",
+      "default": "Rider Experiences"
+    },
+    {
+      "type": "text",
+      "id": "subtitle",
+      "label": "Reviews Subtitle",
+      "default": "4.9/5 based on 1,200+ reviews"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "review_card",
+      "name": "Review Card",
+      "settings": [
+        { "type": "text", "id": "reviewer_name", "label": "Reviewer Name" },
+        { "type": "textarea", "id": "review_text", "label": "Review Text" },
+        { "type": "range", "id": "rating", "label": "Rating", "min": 1, "max": 5, "default": 5 }
+      ]
+    }
+  ],
+  "presets": [{ "name": "V5 Reviews" }]
+}
+{% endschema %}
+
+<section class="py-[120px] bg-stone-100">
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold text-stone-900 mb-4" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.title }}</h2>
+      <p class="text-[#FFC426] font-bold tracking-widest uppercase">{{ section.settings.subtitle }}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'review_card' -%}
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center" {{ block.shopify_attributes }}>
+            <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+              <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+            </div>
+            <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.reviewer_name }}</h4>
+            <div class="flex text-[#FFC426] mb-4">
+              {%- for i in (1..5) -%}
+                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' {% if i <= block.settings.rating %}1{% else %}0{% endif %};">star</span>
+              {%- endfor -%}
+            </div>
+            <p class="text-stone-500 italic">"{{ block.settings.review_text }}"</p>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+            <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+          </div>
+          <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">James Miller</h4>
+          <div class="flex text-[#FFC426] mb-4">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="text-stone-500 italic">"The M-3 is an absolute beast. The torque is incredible for off-road trails."</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+            <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+          </div>
+          <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">Sarah Chen</h4>
+          <div class="flex text-[#FFC426] mb-4">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="text-stone-500 italic">"Replaced my car for city commuting. Best decision I've made this year."</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+            <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+          </div>
+          <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">Marcus Wright</h4>
+          <div class="flex text-[#FFC426] mb-4">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="text-stone-500 italic">"Build quality is top-notch. It feels sturdy and very premium on every ride."</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+          <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+            <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+          </div>
+          <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">Elena Rossi</h4>
+          <div class="flex text-[#FFC426] mb-4">
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+          </div>
+          <p class="text-stone-500 italic">"Customer support helped me with all my technical questions. Very impressed."</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

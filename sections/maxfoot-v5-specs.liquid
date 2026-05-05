@@ -1,0 +1,85 @@
+{% schema %}
+{
+  "name": "V5 Specs",
+  "tag": "section",
+  "class": "maxfoot-v5-specs",
+  "settings": [
+    {
+      "type": "text",
+      "id": "spec_1_value",
+      "label": "Spec 1 Value",
+      "default": "750W"
+    },
+    {
+      "type": "text",
+      "id": "spec_1_label",
+      "label": "Spec 1 Label",
+      "default": "Brushless Motor"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_value",
+      "label": "Spec 2 Value",
+      "default": "60 MILES"
+    },
+    {
+      "type": "text",
+      "id": "spec_2_label",
+      "label": "Spec 2 Label",
+      "default": "Estimated Range"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_value",
+      "label": "Spec 3 Value",
+      "default": "28 MPH"
+    },
+    {
+      "type": "text",
+      "id": "spec_3_label",
+      "label": "Spec 3 Label",
+      "default": "Top Speed"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_value",
+      "label": "Spec 4 Value",
+      "default": "FAT TIRE"
+    },
+    {
+      "type": "text",
+      "id": "spec_4_label",
+      "label": "Spec 4 Label",
+      "default": "All-Terrain Ready"
+    }
+  ],
+  "presets": [{ "name": "V5 Specs" }]
+}
+{% endschema %}
+
+<section class="py-[120px] bg-stone-50">
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+      <div class="p-8 bg-white border border-stone-100 rounded-xl hover:border-[#FFC426] transition-colors group">
+        <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">bolt</span>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.spec_1_value }}</h3>
+        <p class="text-sm text-stone-400 uppercase tracking-widest">{{ section.settings.spec_1_label }}</p>
+      </div>
+      <div class="p-8 bg-white border border-stone-100 rounded-xl hover:border-[#FFC426] transition-colors group">
+        <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">battery_charging_full</span>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.spec_2_value }}</h3>
+        <p class="text-sm text-stone-400 uppercase tracking-widest">{{ section.settings.spec_2_label }}</p>
+      </div>
+      <div class="p-8 bg-white border border-stone-100 rounded-xl hover:border-[#FFC426] transition-colors group">
+        <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">speed</span>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.spec_3_value }}</h3>
+        <p class="text-sm text-stone-400 uppercase tracking-widest">{{ section.settings.spec_3_label }}</p>
+      </div>
+      <div class="p-8 bg-white border border-stone-100 rounded-xl hover:border-[#FFC426] transition-colors group">
+        <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">terrain</span>
+        <h3 class="text-2xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.spec_4_value }}</h3>
+        <p class="text-sm text-stone-400 uppercase tracking-widest">{{ section.settings.spec_4_label }}</p>
+      </div>
+    </div>
+  </div>
+</section>

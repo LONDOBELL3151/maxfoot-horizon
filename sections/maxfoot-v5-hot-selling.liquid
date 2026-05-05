@@ -1,0 +1,80 @@
+{% schema %}
+{
+  "name": "V5 Hot Selling",
+  "tag": "section",
+  "class": "maxfoot-v5-hot-selling",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Section Title",
+      "default": "HOT SELLING"
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Link Text",
+      "default": "VIEW ALL PRODUCTS"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "product_card",
+      "name": "Product Card",
+      "settings": [
+        { "type": "product", "id": "product", "label": "Product" },
+        { "type": "text", "id": "badge", "label": "Badge Text", "default": "HOT" },
+        { "type": "image_picker", "id": "image", "label": "Custom Image" }
+      ]
+    }
+  ],
+  "presets": [{ "name": "V5 Hot Selling" }]
+}
+{% endschema %}
+
+<section class="py-[120px] bg-white">
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="flex justify-between items-end mb-12">
+      <h2 class="text-4xl font-bold text-stone-900 uppercase tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.title }}</h2>
+      <a class="text-[#FFC426] font-bold text-sm tracking-widest border-b-2 border-[#FFC426] pb-1 hover:opacity-80 transition-opacity" href="#">{{ section.settings.view_all_text }}</a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'product_card' -%}
+          {%- assign product = block.settings.product -%}
+          <div class="group bg-stone-50 border border-stone-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300" {{ block.shopify_attributes }}>
+            <div class="relative aspect-square bg-stone-50 overflow-hidden">
+              <div class="absolute top-4 left-4 z-10 bg-[#FFC426] text-stone-900 px-3 py-1 font-bold text-xs tracking-widest uppercase rounded-sm">
+                {{ block.settings.badge }}
+              </div>
+              {%- if block.settings.image -%}
+                <img alt="{{ product.title }}" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500" src="{{ block.settings.image | image_url }}">
+              {%- elsif product -%}
+                <img alt="{{ product.title }}" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500" src="{{ product.featured_image | image_url: width: 400 }}">
+              {%- else -%}
+                <div class="w-full h-full flex items-center justify-center text-stone-400">Product Image</div>
+              {%- endif -%}
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ product.title | default: 'Product Title' }}</h3>
+              <p class="text-xl font-bold text-[#FFC426]">${{ product.price | default: 1299 | money_without_currency }}.00</p>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        {%- for i in (1..6) -%}
+          <div class="group bg-stone-50 border border-stone-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300">
+            <div class="relative aspect-square bg-stone-50 overflow-hidden">
+              <div class="absolute top-4 left-4 z-10 bg-[#FFC426] text-stone-900 px-3 py-1 font-bold text-xs tracking-widest uppercase rounded-sm">HOT</div>
+              <div class="w-full h-full flex items-center justify-center text-stone-400">Product {{ i }}</div>
+            </div>
+            <div class="p-6 text-center">
+              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">MAXFOOT M-{{ i }}</h3>
+              <p class="text-xl font-bold text-[#FFC426]">${{ 1299 | times: i }}.00</p>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endfor -%}
+    </div>
+  </div>
+</section>

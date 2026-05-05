@@ -9,13 +9,55 @@
  */
 {
   "sections": {
-    "v5_homepage": {
-      "type": "maxfoot-v5-homepage",
+    "v5_nav": {
+      "type": "maxfoot-v5-nav",
+      "settings": {
+      }
+    },
+    "v5_hero": {
+      "type": "maxfoot-v5-hero",
+      "settings": {
+      }
+    },
+    "v5_hot_selling": {
+      "type": "maxfoot-v5-hot-selling",
+      "settings": {
+      }
+    },
+    "v5_specs": {
+      "type": "maxfoot-v5-specs",
+      "settings": {
+      }
+    },
+    "v5_bento_grid": {
+      "type": "maxfoot-v5-bento-grid",
+      "settings": {
+      }
+    },
+    "v5_reviews": {
+      "type": "maxfoot-v5-reviews",
+      "settings": {
+      }
+    },
+    "v5_stories": {
+      "type": "maxfoot-v5-stories",
+      "settings": {
+      }
+    },
+    "v5_footer": {
+      "type": "maxfoot-v5-footer",
       "settings": {
       }
     }
   },
   "order": [
-    "v5_homepage"
+    "v5_nav",
+    "v5_hero",
+    "v5_hot_selling",
+    "v5_specs",
+    "v5_bento_grid",
+    "v5_reviews",
+    "v5_stories",
+    "v5_footer"
   ]
 }

@@ -1,0 +1,51 @@
+{% schema %}
+{
+  "name": "V5 Navigation",
+  "tag": "section",
+  "class": "maxfoot-v5-nav",
+  "settings": [
+    {
+      "type": "text",
+      "id": "brand_name",
+      "label": "Brand Name",
+      "default": "MAXFOOT"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "nav_link",
+      "name": "Nav Link",
+      "settings": [
+        { "type": "text", "id": "link_text", "label": "Link Text" },
+        { "type": "url", "id": "link_url", "label": "Link URL" },
+        { "type": "checkbox", "id": "is_active", "label": "Is Active", "default": false }
+      ]
+    }
+  ],
+  "presets": [{ "name": "V5 Navigation" }]
+}
+{% endschema %}
+
+<header class="bg-white/90 backdrop-blur-md border-b border-stone-100 sticky top-0 z-50">
+  <div class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto">
+    <div class="text-2xl font-bold tracking-tighter text-stone-900">{{ section.settings.brand_name }}</div>
+    <nav class="hidden md:flex items-center space-x-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <a
+            class="text-stone-500 font-medium hover:text-[#FFC426] transition-colors duration-200 text-sm tracking-widest {% if block.settings.is_active %}text-[#FFC426] font-bold{% endif %}"
+            href="{{ block.settings.link_url }}"
+            {{ block.shopify_attributes }}
+          >
+            {{ block.settings.link_text }}
+          </a>
+        {%- endif -%}
+      {%- endfor -%}
+    </nav>
+    <div class="flex items-center space-x-6">
+      <span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-[#FFC426] transition-colors">shopping_cart</span>
+      <span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-[#FFC426] transition-colors">person</span>
+      <button class="bg-[#FFC426] text-stone-900 px-6 py-2 font-bold text-sm tracking-widest active:scale-95 transition-transform duration-150 rounded-lg">TEST RIDE</button>
+    </div>
+  </div>
+</header>
