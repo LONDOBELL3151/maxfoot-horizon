@@ -68,7 +68,7 @@
               </h3>
               <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">
                 {% if block.settings.price == "$0.00" %}
-                  {{ product.price | money_without_currency }}
+                  {{ product.price | money }}
                 {% else %}
                   {{ block.settings.price }}
                 {% endif %}
