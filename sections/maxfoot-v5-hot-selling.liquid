@@ -43,7 +43,8 @@
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
       {%- for block in section.blocks -%}
         {%- if block.type == 'product_card' -%}
-          {%- assign product = block.settings.product -%}
+          {%- assign product_handle = block.settings.product -%}
+          {%- assign product = all_products[product_handle] -%}
           <div class="group bg-stone-50 border border-stone-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300" {{ block.shopify_attributes }}>
             <div class="relative aspect-square bg-stone-50 overflow-hidden">
               <div class="absolute top-4 left-4 z-10 bg-[#FFC426] text-stone-900 px-3 py-1 font-bold text-xs tracking-widest uppercase rounded-sm">
@@ -51,7 +52,7 @@
               </div>
               {%- if block.settings.image -%}
                 <img alt="{{ product.title }}" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500" src="{{ block.settings.image | image_url }}">
-              {%- elsif product -%}
+              {%- elsif product and product != blank -%}
                 <img alt="{{ product.title }}" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500" src="{{ product.featured_image | image_url: width: 400 }}">
               {%- else -%}
                 <div class="w-full h-full flex items-center justify-center text-stone-400">Product Image</div>
