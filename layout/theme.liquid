@@ -31,6 +31,28 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700;900&family=Lexend:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+    {% comment %} Tailwind CSS for V5 Sections {% endcomment %}
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script>
+      tailwind.config = {
+        darkMode: 'class',
+        theme: {
+          extend: {
+            colors: {
+              'primary': '#FFC426',
+              'on-primary': '#6f5200',
+              'surface-container': '#f3f3f4',
+              'surface-container-low': '#f9f9f9',
+              'zinc-900': '#1a1c1c',
+              'zinc-500': '#4f4633',
+              'zinc-400': '#71717a',
+              'zinc-100': '#f3f3f4',
+            }
+          }
+        }
+      }
+    </script>
     {%- render 'scripts' -%}
     {%- render 'theme-styles-variables' -%}
     {%- render 'color-schemes' -%}
