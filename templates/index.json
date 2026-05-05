@@ -11,6 +11,7 @@
   "sections": {
     "v5_nav": {
       "type": "maxfoot-v5-nav",
+      "disabled": true,
       "settings": {
         "brand_name": "MAXFOOT"
       }

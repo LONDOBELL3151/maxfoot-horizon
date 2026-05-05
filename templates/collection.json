@@ -11,7 +11,46 @@
   "sections": {
     "v5_product_listing": {
       "type": "maxfoot-v5-product-listing",
+      "blocks": {
+        "product_card_WCwMDN": {
+          "type": "product_card",
+          "settings": {
+            "product": "maxfoot-mf-25-commuter-step-thru-electric-bike-brooklyn-gray",
+            "badge": "Pro Spec"
+          }
+        },
+        "product_card_TqNxxT": {
+          "type": "product_card",
+          "settings": {
+            "product": "mf-25-step-thru-commuter-e-bike-burning-orange",
+            "badge": "Pro Spec"
+          }
+        },
+        "product_card_ayE7hR": {
+          "type": "product_card",
+          "settings": {
+            "product": "maxfoot-mf-25-commuter-step-thru-electric-bike-verdant-green",
+            "badge": "Pro Spec"
+          }
+        },
+        "product_card_GyzBDT": {
+          "type": "product_card",
+          "settings": {
+            "product": "maxfoot-mf-25-commuter-step-thru-electric-bike-zandvoort-blue",
+            "badge": "Pro Spec"
+          }
+        }
+      },
+      "block_order": [
+        "product_card_WCwMDN",
+        "product_card_TqNxxT",
+        "product_card_ayE7hR",
+        "product_card_GyzBDT"
+      ],
       "settings": {
+        "brand_name": "MAXFOOT",
+        "section_title": "ENGINEERED SERIES",
+        "section_description": "Pushing the boundaries of electric mobility. Our Engineered Series combines high-performance power units with aerospace-grade materials for the ultimate riding experience."
       }
     }
   },
