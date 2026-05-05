@@ -12,41 +12,107 @@
     "v5_nav": {
       "type": "maxfoot-v5-nav",
       "settings": {
+        "brand_name": "MAXFOOT"
       }
     },
     "v5_hero": {
       "type": "maxfoot-v5-hero",
       "settings": {
+        "hero_badge": "NEW GENERATION E-BIKE",
+        "hero_title": "Unleash the RAW Power",
+        "hero_description": "Meet the M-3, a high-torque beast engineered for those who demand uncompromising performance on every terrain. Experience the pinnacle of electric propulsion.",
+        "hero_cta_primary": "PRE-ORDER NOW",
+        "hero_cta_secondary": "TECHNICAL SPECS"
       }
     },
     "v5_hot_selling": {
       "type": "maxfoot-v5-hot-selling",
+      "blocks": {
+        "product_card_MeLwKi": {
+          "type": "product_card",
+          "settings": {
+            "product": "maxz-20-fat-tire-step-thru-electric-trike-maxfoot-mf-31-pangea-green",
+            "badge": "HOT",
+            "title": "",
+            "price": ""
+          }
+        },
+        "product_card_URfGBM": {
+          "type": "product_card",
+          "settings": {
+            "product": "mf-33-passenger-electric-tricycle-yellow",
+            "badge": "HOT",
+            "title": "",
+            "price": ""
+          }
+        },
+        "product_card_hcKbjz": {
+          "type": "product_card",
+          "settings": {
+            "product": "maxfoot-mf-30-electric-assist-adult-tricycle-750w-front-suspension-grey",
+            "badge": "HOT",
+            "title": "",
+            "price": ""
+          }
+        },
+        "product_card_zDXdnt": {
+          "type": "product_card",
+          "settings": {
+            "product": "mf-25-step-thru-commuter-e-bike-burning-orange",
+            "badge": "HOT",
+            "title": "",
+            "price": ""
+          }
+        }
+      },
+      "block_order": [
+        "product_card_MeLwKi",
+        "product_card_URfGBM",
+        "product_card_hcKbjz",
+        "product_card_zDXdnt"
+      ],
       "settings": {
+        "title": "HOT SELLING",
+        "view_all_text": "VIEW ALL PRODUCTS"
       }
     },
     "v5_specs": {
       "type": "maxfoot-v5-specs",
       "settings": {
+        "spec_1_value": "750W",
+        "spec_1_label": "Brushless Motor",
+        "spec_2_value": "60 MILES",
+        "spec_2_label": "Estimated Range",
+        "spec_3_value": "28 MPH",
+        "spec_3_label": "Top Speed",
+        "spec_4_value": "FAT TIRE",
+        "spec_4_label": "All-Terrain Ready"
       }
     },
     "v5_bento_grid": {
       "type": "maxfoot-v5-bento-grid",
-      "settings": {
-      }
+      "settings": {}
     },
     "v5_reviews": {
       "type": "maxfoot-v5-reviews",
       "settings": {
+        "title": "Rider Experiences",
+        "subtitle": "4.9/5 based on 1,200+ reviews"
       }
     },
     "v5_stories": {
       "type": "maxfoot-v5-stories",
       "settings": {
+        "title": "Latest Stories",
+        "link_text": "All Stories"
       }
     },
     "v5_footer": {
       "type": "maxfoot-v5-footer",
       "settings": {
+        "brand_name": "MAXFOOT",
+        "tagline": "Pioneering the future of electric mobility with high-performance bikes designed for the modern adventurer.",
+        "copyright": "© 2024 MAXFOOT ELECTRIC BIKES. ENGINEERED FOR ADVENTURE."
       }
     }
   },
