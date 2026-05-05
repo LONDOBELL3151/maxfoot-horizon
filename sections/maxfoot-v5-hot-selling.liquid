@@ -40,7 +40,7 @@
       <h2 class="text-4xl font-bold text-stone-900 uppercase tracking-tight" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.title }}</h2>
       <a class="text-[#FFC426] font-bold text-sm tracking-widest border-b-2 border-[#FFC426] pb-1 hover:opacity-80 transition-opacity" href="#">{{ section.settings.view_all_text }}</a>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
       {%- for block in section.blocks -%}
         {%- if block.type == 'product_card' -%}
           {%- assign product_handle = block.settings.product -%}
