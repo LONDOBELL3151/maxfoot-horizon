@@ -8,707 +8,339 @@
       "type": "text",
       "id": "brand_name",
       "label": "Brand Name",
-      "default": "VELOCITY"
+      "default": "E-ADVENTURE"
     },
     {
       "type": "text",
-      "id": "page_title",
-      "label": "Page Title",
-      "default": "MF-1000 HORIZON"
+      "id": "hero_title",
+      "label": "Hero Title",
+      "default": "ENGINEERED TO DOMINATE"
     },
     {
       "type": "textarea",
-      "id": "product_tagline",
-      "label": "Product Tagline",
-      "default": "Our flagship powerhouse designed for the explorer who demands zero compromises. Engineered for torque, range, and unrivaled stability."
+      "id": "hero_description",
+      "label": "Hero Description",
+      "default": "Pushing the boundaries of electric mobility with aerospace-grade materials and industry-leading torque management."
     },
     {
       "type": "text",
-      "id": "product_price",
-      "label": "Product Price",
-      "default": "$3,499.00"
+      "id": "hero_stat_value",
+      "label": "Hero Stat Value",
+      "default": "95"
     },
     {
       "type": "text",
-      "id": "story_title",
-      "label": "Story Section Title",
-      "default": "THE ENGINEERED SPIRIT"
-    },
-    {
-      "type": "textarea",
-      "id": "story_paragraph_1",
-      "label": "Story Paragraph 1",
-      "default": "Adventure isn't just about the destination; it's about the confidence to go further. The MF-1000 HORIZON was born from a singular obsession: creating an electric platform that feels as natural as it is powerful. Every weld, every cable route, and every component choice reflects our commitment to precision engineering."
-    },
-    {
-      "type": "textarea",
-      "id": "story_paragraph_2",
-      "label": "Story Paragraph 2",
-      "default": "We've balanced raw 1000W torque with a refined geometry that ensures stability at high speeds, whether you're carving urban canyons or traversing rugged trailheads. This is more than a bike; it's your horizon, expanded."
+      "id": "hero_stat_unit",
+      "label": "Hero Stat Unit",
+      "default": "Nm"
     },
     {
       "type": "text",
-      "id": "story_cta",
-      "label": "Story CTA Button",
-      "default": "DISCOVER OUR TECH"
+      "id": "hero_stat_label",
+      "label": "Hero Stat Label",
+      "default": "Instant Peak Torque"
     },
     {
       "type": "text",
-      "id": "specs_title",
-      "label": "Specifications Title",
-      "default": "TECHNICAL SPECIFICATIONS"
+      "id": "stat_1_value",
+      "label": "Stat 1 Value",
+      "default": "28"
     },
     {
       "type": "text",
-      "id": "geometry_title",
-      "label": "Geometry Section Title",
-      "default": "GEOMETRY & SIZING"
+      "id": "stat_1_label",
+      "label": "Stat 1 Label",
+      "default": "MPH TOP SPEED"
     },
     {
       "type": "text",
-      "id": "geometry_subtitle",
-      "label": "Geometry Section Subtitle",
-      "default": "Find the perfect fit for your riding style."
+      "id": "stat_2_value",
+      "label": "Stat 2 Value",
+      "default": "750"
     },
     {
       "type": "text",
-      "id": "box_title",
-      "label": "What's In The Box Title",
-      "default": "WHAT'S IN THE BOX"
+      "id": "stat_2_label",
+      "label": "Stat 2 Label",
+      "default": "W NOMINAL"
     },
     {
       "type": "text",
-      "id": "reviews_title",
-      "label": "Reviews Section Title",
-      "default": "RIDER PERSPECTIVES"
+      "id": "stat_3_value",
+      "label": "Stat 3 Value",
+      "default": "4.0"
     },
     {
       "type": "text",
-      "id": "reviews_subtitle",
-      "label": "Reviews Subtitle",
-      "default": "Verified stories from the trail."
-    },
-    {
-      "type": "text",
-      "id": "faq_title",
-      "label": "FAQ Section Title",
-      "default": "FREQUENTLY ASKED"
-    },
-    {
-      "type": "text",
-      "id": "compare_title",
-      "label": "Compare Models Title",
-      "default": "FIND YOUR VELOCITY"
-    },
-    {
-      "type": "text",
-      "id": "gear_title",
-      "label": "Related Products Title",
-      "default": "ESSENTIAL GEAR"
+      "id": "stat_3_label",
+      "label": "Stat 3 Label",
+      "default": "INCH TREAD"
     }
   ],
   "blocks": [
     {
       "type": "nav_link",
-      "name": "Navigation Link",
+      "name": "Nav Link",
       "settings": [
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL"
-        },
-        {
-          "type": "checkbox",
-          "id": "is_active",
-          "label": "Is Active",
-          "default": false
-        }
+        { "type": "text", "id": "link_text", "label": "Link Text" },
+        { "type": "url", "id": "link_url", "label": "Link URL" }
       ]
     },
     {
-      "type": "color_option",
-      "name": "Color Option",
+      "type": "feature_card",
+      "name": "Feature Card",
       "settings": [
-        {
-          "type": "text",
-          "id": "color_name",
-          "label": "Color Name"
-        },
-        {
-          "type": "color",
-          "id": "color_value",
-          "label": "Color Value"
-        }
-      ]
-    },
-    {
-      "type": "feature_highlight",
-      "name": "Feature Highlight",
-      "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon Name"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "text",
-          "id": "subtitle",
-          "label": "Subtitle"
-        }
-      ]
-    },
-    {
-      "type": "specification",
-      "name": "Specification",
-      "settings": [
-        {
-          "type": "text",
-          "id": "spec_label",
-          "label": "Label"
-        },
-        {
-          "type": "text",
-          "id": "spec_value",
-          "label": "Value"
-        }
-      ]
-    },
-    {
-      "type": "geometry_size",
-      "name": "Geometry Size",
-      "settings": [
-        {
-          "type": "text",
-          "id": "size_name",
-          "label": "Size Name"
-        },
-        {
-          "type": "textarea",
-          "id": "size_description",
-          "label": "Description"
-        },
-        {
-          "type": "checkbox",
-          "id": "is_default",
-          "label": "Is Default/Primary",
-          "default": false
-        }
-      ]
-    },
-    {
-      "type": "box_item",
-      "name": "Box Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Label"
-        }
-      ]
-    },
-    {
-      "type": "review",
-      "name": "Review",
-      "settings": [
-        {
-          "type": "text",
-          "id": "reviewer_name",
-          "label": "Reviewer Name"
-        },
-        {
-          "type": "textarea",
-          "id": "review_text",
-          "label": "Review Text"
-        },
-        {
-          "type": "range",
-          "id": "rating",
-          "label": "Rating (1-5)",
-          "min": 1,
-          "max": 5,
-          "default": 5
-        }
-      ]
-    },
-    {
-      "type": "faq_item",
-      "name": "FAQ Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question"
-        }
-      ]
-    },
-    {
-      "type": "compare_model",
-      "name": "Compare Model",
-      "settings": [
-        {
-          "type": "text",
-          "id": "model_name",
-          "label": "Model Name"
-        },
-        {
-          "type": "text",
-          "id": "motor",
-          "label": "Motor Power"
-        },
-        {
-          "type": "text",
-          "id": "torque",
-          "label": "Max Torque"
-        },
-        {
-          "type": "text",
-          "id": "battery",
-          "label": "Battery Capacity"
-        },
-        {
-          "type": "text",
-          "id": "price",
-          "label": "Price"
-        },
-        {
-          "type": "checkbox",
-          "id": "is_featured",
-          "label": "Is Featured",
-          "default": false
-        }
-      ]
-    },
-    {
-      "type": "related_product",
-      "name": "Related Product",
-      "settings": [
-        {
-          "type": "text",
-          "id": "product_name",
-          "label": "Product Name"
-        },
-        {
-          "type": "text",
-          "id": "product_price",
-          "label": "Product Price"
-        },
-        {
-          "type": "image_picker",
-          "id": "product_image",
-          "label": "Product Image"
-        }
-      ]
-    },
-    {
-      "type": "footer_link",
-      "name": "Footer Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL"
-        }
+        { "type": "text", "id": "icon", "label": "Icon (material symbol)" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "description", "label": "Description" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "V5 Technology",
-      "blocks": []
-    }
-  ]
+  "presets": [{ "name": "V5 Technology" }]
 }
 {% endschema %}
 
-{% stylesheet %}
-<style>
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  }
-  .hide-scrollbar::-webkit-scrollbar { display: none; }
-  .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-</style>
-{% endstylesheet %}
-
-<!-- HEADER -->
-<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
-  <div class="max-w-[1440px] mx-auto flex justify-between items-center px-8 h-20">
-    <div class="flex items-center gap-12">
-      <span class="text-2xl font-black tracking-widest text-black uppercase">{{ section.settings.brand_name }}</span>
-      <div class="hidden md:flex items-center gap-8">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'nav_link' -%}
-            <a
-              class="text-black/70 hover:text-black transition-colors font-bold tracking-tighter uppercase text-sm {% if block.settings.is_active %}text-yellow-500 border-b-2 border-yellow-500 pb-1{% endif %}"
-              href="{{ block.settings.link_url }}"
-              {{ block.shopify_attributes }}
-            >
-              {{ block.settings.link_text }}
-            </a>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-    <div class="flex items-center gap-6">
-      <span class="material-symbols-outlined cursor-pointer hover:text-[#785a00] transition-colors">shopping_cart</span>
-      <span class="material-symbols-outlined cursor-pointer hover:text-[#785a00] transition-colors">person</span>
-      <button class="md:hidden material-symbols-outlined">menu</button>
-    </div>
-  </div>
+<!-- TopNavBar -->
+<nav class="bg-white/95 backdrop-blur-md border-b border-zinc-100 docked full-width top-0 sticky z-50 transition-all duration-200 ease-in-out">
+<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+<div class="text-2xl font-bold tracking-tighter text-zinc-900">{{ section.settings.brand_name }}</div>
+<div class="hidden md:flex items-center gap-8">
+  {%- for block in section.blocks -%}{%- if block.type == 'nav_link' -%}<a class="text-zinc-600 hover:text-zinc-900 transition-colors font-label-lg uppercase" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>{%- endif -%}{%- endfor -%}
+</div>
+<div class="flex items-center gap-6">
+<div class="hidden lg:flex items-center bg-surface-container px-4 py-2 rounded-lg">
+<span class="material-symbols-outlined text-zinc-400 mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-sm w-32 font-body-md" placeholder="Search technology..." type="text"/>
+</div>
+<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-label-lg transition-all hover:opacity-90">Shop Now</button>
+</div>
+</div>
 </nav>
 
-<main class="pt-20">
-  <!-- PRODUCT GALLERY -->
-  <section class="max-w-[1440px] mx-auto px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white">
-    <div class="lg:col-span-7">
-      <div class="aspect-[16/10] bg-surface-container overflow-hidden rounded">
-        <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDIYeM8Zo048XseM5hZ7Z1LWxmsHI54AyP_iQyu58RnjIMC2gAHJLcp1mXa5NWNSoILM0dWjHyoCpuJDfsQIA2uFsxQktjNChSACe3rrMvTxlOupY3Vkz-Fwg0M_NfqKIBRihneaKfOvtjdUelreyucPkXXYbhnEoFnqXEf8hJx-Tny536D64h7tRFaXn1JuqD43fxfWC-vrQtHRbx_CMF6UHvQHfLeintBPoSTCo0-JMTzTFVHlMKem_CH3D4nPY5gWZE6qKF89H16" alt="">
-      </div>
-      <div class="grid grid-cols-4 gap-4 mt-4">
-        {%- for i in (1..4) -%}
-          <div class="aspect-square bg-surface-container rounded cursor-pointer hover:opacity-80 transition-opacity {% if forloop.first %}border-2 border-[#FFC426]{% endif %}">
-            <img class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBg6G_C7k9s0l1dDk9fdgSOnkYvHIcTiRxEoefWGUNVmtOhyADf_HC8_pN6sRvMds7Pnviqaqd8gH5T_14Rm_XkZd7buA_CrTR8Uitu0sQDgY6yA78EREr4Dkepwy45vmda5g0jGLDA1KommwMu6xHiyGB-kI67DqKMdEtgbFig8t2qqnnWa4y-8TLnCU3GLzp13yO3oUA78oI0WpW6zmFI2lZigVVvF38nU5HKOoGDfC_PXURRfSI1KU9Zq-CFWYLKuPrZ7yf8bY3l" alt="">
-          </div>
-        {%- endfor -%}
-      </div>
-    </div>
-    <div class="lg:col-span-5 flex flex-col justify-center">
-      <div class="space-y-6">
-        <div class="flex items-center gap-2">
-          <span class="bg-[#1a1c1c] text-[#FFC426] px-3 py-1 text-[10px] font-bold tracking-widest uppercase">BEST SELLER</span>
-          <div class="flex text-[#785a00]">
-            {%- for i in (1..5) -%}
-              <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' 1;">star</span>
-            {%- endfor -%}
-          </div>
-        </div>
-        <h1 class="font-bold text-4xl md:text-5xl uppercase tracking-tighter text-[#1a1c1c]">{{ section.settings.page_title }}</h1>
-        <p class="text-lg text-[#5f5e5e] max-w-md">{{ section.settings.product_tagline }}</p>
-        <div class="text-4xl font-bold text-[#1a1c1c]">{{ section.settings.product_price }}</div>
-        <div class="pt-8 space-y-4">
-          <p class="font-label-lg text-label-lg">SELECT COLOR</p>
-          <div class="flex gap-4">
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'color_option' -%}
-                <button
-                  class="w-10 h-10 rounded-full {% if forloop.first %}ring-2 ring-offset-2 ring-[#FFC426]{% else %}ring-2 ring-offset-2 ring-transparent hover:ring-zinc-300{% endif %}"
-                  style="background-color: {{ block.settings.color_value }};"
-                  title="{{ block.settings.color_name }}"
-                  {{ block.shopify_attributes }}
-                ></button>
-              {%- endif -%}
-            {%- endfor -%}
-          </div>
-        </div>
-        <div class="pt-10 flex gap-4">
-          <button class="flex-1 bg-[#1a1c1c] text-[#FFC426] h-16 font-label-lg uppercase tracking-widest flex items-center justify-center gap-2 hover:bg-black transition-all">
-            ADD TO CART
-            <span class="material-symbols-outlined">arrow_forward</span>
-          </button>
-          <button class="w-16 h-16 border border-black/10 flex items-center justify-center hover:bg-surface-container transition-colors">
-            <span class="material-symbols-outlined">favorite</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Hero Section -->
+<header class="relative min-h-[921px] flex flex-col justify-center overflow-hidden hero-gradient">
+<div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-[120px]">
+<div class="z-10">
+<div class="inline-flex items-center bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full mb-8">
+<span class="font-label-lg uppercase tracking-widest text-[11px]">Next Generation Performance</span>
+</div>
+<h1 class="font-display-lg text-on-surface uppercase mb-6 leading-[0.95]">{{ section.settings.hero_title }}</h1>
+<p class="font-body-lg text-on-surface-variant max-w-md mb-10">{{ section.settings.hero_description }}</p>
+<div class="flex flex-wrap gap-4">
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:scale-105">Experience Power</button>
+<button class="border-2 border-zinc-900 text-zinc-900 px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:bg-zinc-900 hover:text-white">White Papers</button>
+</div>
+</div>
+<div class="relative flex justify-center">
+<div class="absolute -z-10 w-[140%] h-[140%] bg-primary-container/10 blur-[100px] rounded-full"></div>
+<div class="bg-white p-8 rounded-xl shadow-2xl border border-zinc-100 flex flex-col items-center">
+<div class="text-[120px] font-display-lg text-primary leading-none mb-2">{{ section.settings.hero_stat_value }}<span class="text-4xl font-headline-lg ml-2">{{ section.settings.hero_stat_unit }}</span></div>
+<div class="font-label-lg uppercase tracking-widest text-on-surface-variant">{{ section.settings.hero_stat_label }}</div>
+<div class="w-full h-px bg-zinc-100 my-8"></div>
+<div class="grid grid-cols-2 gap-8 w-full">
+<div>
+<div class="font-headline-lg text-on-surface">4.2s</div>
+<div class="text-[10px] font-label-md uppercase text-zinc-400">0-20 MPH</div>
+</div>
+<div>
+<div class="font-headline-lg text-on-surface">98%</div>
+<div class="text-[10px] font-label-md uppercase text-zinc-400">Efficiency</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</header>
 
-  <!-- KEY FEATURES HIGHLIGHTS -->
-  <section class="bg-[#1a1c1c] py-20">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'feature_highlight' -%}
-            <div class="flex flex-col items-center text-center p-6 border border-white/10 group hover:bg-white/5 transition-colors" {{ block.shopify_attributes }}>
-              <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4" style="font-variation-settings: 'FILL' 1;">{{ block.settings.icon }}</span>
-              <h4 class="text-white font-label-lg">{{ block.settings.title }}</h4>
-              <p class="text-zinc-500 text-[10px] mt-1 font-label-md">{{ block.settings.subtitle }}</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
+<!-- Core Innovations (Bento Grid) -->
+<section class="bg-white py-[120px]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="flex flex-col items-center text-center mb-16">
+<h2 class="font-headline-xl uppercase mb-4">Core Innovations</h2>
+<div class="w-20 h-1.5 bg-primary-container"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+<!-- Feature 1: Large Bento -->
+<div class="md:col-span-8 md:row-span-2 bento-card bg-surface-container-low rounded-xl overflow-hidden group">
+<div class="h-full w-full relative">
+<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Power Cell v4 battery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAujOYG_7TZl-jA8tC6wfKEQaO6xczpZTFKV9aBEUUqcoVHzM7qKrDPZPxco_YARvlSi1m3mf7xvfxq1bgeYJfPr9yBkxK1pj0-0Cl1p5KwxX9wFgKAXF7bUQIefzXHKqiMLDyobBcyfzvgkN23Zah63xI1PlWhc5MXUsebwSTxUZAb2MV04PFqz-uDlXplCz-_5GNejx0dYu2JJIxjIfmeb9kmU0qlrTcbbUZOtSMqyJry3Ch43M2pmdyrzu5NxARZTth8LCphbtdS"/>
+<div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-10 text-white">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded font-label-md uppercase mb-4 inline-block">Flagship Tech</span>
+<h3 class="font-headline-xl uppercase mb-4">Power Cell v4</h3>
+<p class="font-body-md text-zinc-300 max-w-md">Our patented thermal shielding technology maintains optimal operating temperatures even under extreme heavy-load conditions.</p>
+</div>
+</div>
+</div>
+{%- for block in section.blocks -%}{%- if block.type == 'feature_card' -%}
+<div class="md:col-span-4 bento-card bg-white border border-zinc-100 p-8 flex flex-col justify-between rounded-xl">
+<span class="material-symbols-outlined text-primary text-4xl">{{ block.settings.icon }}</span>
+<div>
+<h4 class="font-headline-lg uppercase mb-2">{{ block.settings.title }}</h4>
+<p class="text-on-surface-variant font-body-md">{{ block.settings.description }}</p>
+</div>
+</div>
+{%- endif -%}{%- endfor -%}
+<!-- Wide Bento: Ultra-Connect Hub -->
+<div class="md:col-span-12 md:row-span-1 bento-card bg-surface-container rounded-xl overflow-hidden flex flex-col md:flex-row items-center">
+<div class="p-10 flex-1">
+<h4 class="font-headline-xl uppercase mb-4">Ultra-Connect Hub</h4>
+<p class="text-on-surface-variant font-body-md mb-6">Seamless integration with your ecosystem. Real-time diagnostics, over-the-air updates, and military-grade GPS tracking.</p>
+<div class="flex gap-4">
+<span class="font-label-lg text-primary uppercase">Bluetooth 5.3</span>
+<span class="font-label-lg text-primary uppercase">5G Lte</span>
+<span class="font-label-lg text-primary uppercase">RFID Lock</span>
+</div>
+</div>
+<div class="flex-1 h-full w-full bg-zinc-200">
+<img class="w-full h-full object-cover" alt="Smartphone diagnostic app" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1QG1vJZmszWb3D-g7Aa5-xVCuFLGGDOSDg76rNrvtqC0KrjAkT5RrGCCENIoKQSaS9DOQ8UShB3f2N6Jqj3tm_j1sVE4AuYpsr9ugLOJiXUyPGRGQEs6hKjsE5vQkPJOOO35LAo5KfERsj7nbLLjq7e5LJX6tMWBm7XqaqLE9woNGUZvBz3DxDj7w3poq4RF8h_nubr4XkwdRXJtMCvf3OJwgqflhK6RTlfyfllzgB1yJF7ySV8aM_AsvC1MMMwkwX1g3PGeilPap"/>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- PRODUCT STORY -->
-  <section class="max-w-[1440px] mx-auto px-8 py-32 flex flex-col lg:flex-row items-center gap-20">
-    <div class="lg:w-1/2 space-y-8">
-      <h2 class="font-bold text-4xl md:text-5xl leading-none uppercase italic text-[#1a1c1c]">{{ section.settings.story_title }}</h2>
-      <div class="w-24 h-2 bg-[#FFC426]"></div>
-      <p class="text-lg text-[#5f5e5e] leading-relaxed">
-        {{ section.settings.story_paragraph_1 }}
-      </p>
-      <p class="text-lg text-[#5f5e5e] leading-relaxed">
-        {{ section.settings.story_paragraph_2 }}
-      </p>
-      <button class="border border-[#1a1c1c] px-8 py-4 font-label-lg uppercase hover:bg-[#1a1c1c] hover:text-white transition-all">{{ section.settings.story_cta }}</button>
-    </div>
-    <div class="lg:w-1/2">
-      <div class="relative">
-        <img class="w-full aspect-square object-cover grayscale brightness-75 rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfbvJNp3RHK5qAIc6JjUX1m1GfHnoOnc2K6cHKtjOn7tNdWqJo2eRnFqEyVExo-HmmzgVI1APfe2C0xC55Q47xKfqRp-q8DPFPxGWY_dA_XHl8QuTuOI2SjtI2lHjzwzZLDs2Wh4qgj5YeaiSChTS4N-WJ-5lno5GKOG5o4zKmj5b-JzhuKCU9ebPVvYv-5fTH_4IKTSMtt0OQFfY_m1aFJGPPhrVE03c_hLQptIwWWEKF03Z4Nmz6yCM5aVeSTeg2RZIv4McMPFm5" alt="">
-        <div class="absolute -bottom-8 -left-8 bg-[#FFC426] p-12 hidden lg:block">
-          <span class="text-6xl font-black font-headline-lg">2024</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<!-- Efficiency Stats Section -->
+<section class="bg-surface-container-low py-[120px]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="font-display-lg leading-none">{{ section.settings.stat_1_value }}</div>
+<div class="font-label-lg text-primary mb-2">{{ section.settings.stat_1_label }}</div>
+</div>
+<div class="w-full h-4 bg-white rounded-full overflow-hidden">
+<div class="h-full w-[85%] progress-gradient"></div>
+</div>
+<p class="font-body-md text-on-surface-variant">Unrestricted class-3 performance capabilities for rapid urban commuting.</p>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="font-display-lg leading-none">{{ section.settings.stat_2_value }}</div>
+<div class="font-label-lg text-primary mb-2">{{ section.settings.stat_2_label }}</div>
+</div>
+<div class="w-full h-4 bg-white rounded-full overflow-hidden">
+<div class="h-full w-[75%] progress-gradient"></div>
+</div>
+<p class="font-body-md text-on-surface-variant">High-efficiency brushless DC motor designed for peak power sustained output.</p>
+</div>
+<div class="space-y-6">
+<div class="flex justify-between items-end">
+<div class="font-display-lg leading-none">{{ section.settings.stat_3_value }}</div>
+<div class="font-label-lg text-primary mb-2">{{ section.settings.stat_3_label }}</div>
+</div>
+<div class="w-full h-4 bg-white rounded-full overflow-hidden">
+<div class="h-full w-[95%] progress-gradient"></div>
+</div>
+<p class="font-body-md text-on-surface-variant">Custom compound fat-tires providing maximum traction on loose terrain.</p>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- FULL SPECIFICATIONS -->
-  <section class="bg-zinc-50 py-32">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <h3 class="font-headline-lg text-2xl uppercase mb-16 text-center">{{ section.settings.specs_title }}</h3>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-x-20 gap-y-4">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'specification' -%}
-            <div class="flex justify-between py-6 border-b border-black/5" {{ block.shopify_attributes }}>
-              <span class="font-label-lg text-[#5f5e5e] uppercase">{{ block.settings.spec_label }}</span>
-              <span class="text-base font-bold">{{ block.settings.spec_value }}</span>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
+<!-- Riding Adaptivity (Comparison Table) -->
+<section class="bg-white py-[120px]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="mb-16">
+<h2 class="font-headline-xl uppercase mb-2">Riding Adaptivity</h2>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">One machine, multiple personalities. Switch profiles instantly via the integrated cockpit.</p>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full border-collapse">
+<thead>
+<tr class="border-b-2 border-zinc-900">
+<th class="py-6 text-left font-label-lg uppercase tracking-wider">Mode</th>
+<th class="py-6 text-left font-label-lg uppercase tracking-wider">Performance</th>
+<th class="py-6 text-left font-label-lg uppercase tracking-wider">Range Impact</th>
+<th class="py-6 text-center font-label-lg uppercase tracking-wider">Versatility</th>
+</tr>
+</thead>
+<tbody>
+<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
+<td class="py-8">
+<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Urban Flow</div>
+<div class="text-xs font-label-md text-zinc-400 uppercase">Eco-Optimized</div>
+</td>
+<td class="py-8 font-body-md">Smooth acceleration, regenerative braking active.</td>
+<td class="py-8 font-body-md text-primary">+25% Extension</td>
+<td class="py-8 text-center">
+<div class="flex justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</td>
+</tr>
+<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
+<td class="py-8">
+<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Apex Peak</div>
+<div class="text-xs font-label-md text-zinc-400 uppercase">Maximum Output</div>
+</td>
+<td class="py-8 font-body-md">Full torque bypass, increased throttle response.</td>
+<td class="py-8 font-body-md text-error">-15% Reduction</td>
+<td class="py-8 text-center">
+<div class="flex justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</td>
+</tr>
+<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
+<td class="py-8">
+<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Heavy Load</div>
+<div class="text-xs font-label-md text-zinc-400 uppercase">Utility Focused</div>
+</td>
+<td class="py-8 font-body-md">Stepped power delivery for trailers and gear.</td>
+<td class="py-8 font-body-md text-zinc-500">Nominal</td>
+<td class="py-8 text-center">
+<div class="flex justify-center text-primary-container">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined">star</span>
+<span class="material-symbols-outlined">star</span>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</section>
 
-  <!-- GEOMETRY & SIZING -->
-  <section class="max-w-[1440px] mx-auto px-8 py-32 text-center">
-    <h3 class="font-headline-lg text-2xl uppercase mb-4">{{ section.settings.geometry_title }}</h3>
-    <p class="text-lg text-[#5f5e5e] mb-16">{{ section.settings.geometry_subtitle }}</p>
-    <div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-      <div>
-        <img class="w-full grayscale brightness-90 rounded" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBHUsAsTZCVxyI7psa8RQZj4IMU8hFph7MN1tak3RROjParKr8U61eZ2LOJMUQmmjoUrnkIQpmILY3GFKQr470-JJp8hV6soDIV8OmsGohnPgA5Bl59Q7HtEknMhq2CEcoClRYF9i3ED4VaKor2zkCAfTsO8akM1hpn9oAOk-3tmcc_h4y0nij5j6KoSAPRj0NLutp9EilrdkGdx6JdO0aPI-cXECacr81bbFzMK_aAhQKFnGY83leiR9k7vMzbSbqCk5uZKgR8KMxM" alt="">
-      </div>
-      <div class="text-left space-y-8">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'geometry_size' -%}
-            <div class="border-l-4 {% if block.settings.is_default %}border-[#FFC426]{% else %}border-zinc-200{% endif %} pl-6" {{ block.shopify_attributes }}>
-              <h5 class="font-headline-lg text-xl uppercase mb-2 {% unless block.settings.is_default %}text-zinc-400{% endunless %}">{{ block.settings.size_name }}</h5>
-              <p class="text-base text-[#5f5e5e]">{{ block.settings.size_description }}</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-        <table class="w-full mt-8">
-          <thead>
-            <tr class="border-b-2 border-[#1a1c1c]">
-              <th class="text-left py-4 font-label-lg uppercase">DIMENSION</th>
-              <th class="text-center py-4 font-label-lg uppercase">STD</th>
-              <th class="text-center py-4 font-label-lg uppercase">TALL</th>
-            </tr>
-          </thead>
-          <tbody class="text-base">
-            <tr class="border-b border-black/5">
-              <td class="py-4 text-[#5f5e5e]">A: Seat Height</td>
-              <td class="py-4 text-center">32" - 38"</td>
-              <td class="py-4 text-center">34" - 40"</td>
-            </tr>
-            <tr class="border-b border-black/5">
-              <td class="py-4 text-[#5f5e5e]">B: Reach</td>
-              <td class="py-4 text-center">16.5"</td>
-              <td class="py-4 text-center">18"</td>
-            </tr>
-            <tr class="border-b border-black/5">
-              <td class="py-4 text-[#5f5e5e]">C: Total Length</td>
-              <td class="py-4 text-center">74"</td>
-              <td class="py-4 text-center">76"</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-  </section>
+<!-- CTA Banner -->
+<section class="bg-white py-[120px]">
+<div class="max-w-7xl mx-auto px-6">
+<div class="bg-zinc-900 rounded-2xl p-12 md:p-24 text-center relative overflow-hidden">
+<div class="absolute inset-0 opacity-10">
+<img class="w-full h-full object-cover" alt="Electric bike silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaa5QxfUU79UB04sZ79UiJcePkxhC4UxluiLfheuWH3rbxQDR_JkmTmd1G8oInCFj5t2NmCktAVWaPymgy8tZwuH8B50vTNji9VtSSQu0RXhiKgGQodlLhay0pXExbFSu8sX3E8kfJqeQuSyH2AtYaspuEXVgibqaZOn_hviKxeDzKip2mOwF-4YJCn6GbEDhXXCluMwtbNEuIo2KK4fhxK6eC7VE9W7Wcwn5saYrHRmdvXzXLMLLwkBavrhOgb5QfWtg-QQ6IqV9t"/>
+</div>
+<div class="relative z-10">
+<h2 class="font-display-lg text-white uppercase mb-8 leading-tight">STOP WATCHING.<br/>START RIDING.</h2>
+<div class="flex flex-col md:flex-row gap-6 justify-center">
+<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:scale-105">Book a Test Flight</button>
+<button class="border-2 border-white text-white px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:bg-white hover:text-zinc-900">Configure Yours</button>
+</div>
+</div>
+</div>
+</div>
+</section>
 
-  <!-- WHAT'S IN THE BOX -->
-  <section class="bg-[#1a1c1c] py-20">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <h3 class="font-headline-lg text-2xl text-white uppercase mb-16 text-center">{{ section.settings.box_title }}</h3>
-      <div class="grid grid-cols-2 md:grid-cols-5 gap-8">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'box_item' -%}
-            <div class="flex flex-col items-center text-white gap-4" {{ block.shopify_attributes }}>
-              <div class="w-24 h-24 bg-white/5 rounded-full flex items-center justify-center">
-                <span class="material-symbols-outlined text-4xl text-[#FFC426]">{{ block.settings.icon }}</span>
-              </div>
-              <span class="font-label-lg uppercase tracking-widest text-center">{{ block.settings.label }}</span>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
-
-  <!-- REAL RIDER REVIEWS -->
-  <section class="max-w-[1440px] mx-auto px-8 py-32">
-    <div class="flex justify-between items-end mb-16">
-      <div>
-        <h3 class="font-headline-lg text-2xl uppercase">{{ section.settings.reviews_title }}</h3>
-        <p class="text-[#5f5e5e] mt-2">{{ section.settings.reviews_subtitle }}</p>
-      </div>
-      <div class="flex gap-4">
-        <button class="w-12 h-12 border border-black/10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors">
-          <span class="material-symbols-outlined">chevron_left</span>
-        </button>
-        <button class="w-12 h-12 border border-black/10 flex items-center justify-center rounded-full hover:bg-surface-container transition-colors">
-          <span class="material-symbols-outlined">chevron_right</span>
-        </button>
-      </div>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'review' -%}
-          <div class="p-8 bg-[#f3f3f4] rounded border border-black/[0.05]" {{ block.shopify_attributes }}>
-            <div class="flex text-[#785a00] mb-6">
-              {%- for i in (1..5) -%}
-                <span class="material-symbols-outlined text-sm" style="font-variation-settings: 'FILL' {% if i <= block.settings.rating %}1{% else %}0{% endif %};">star</span>
-              {%- endfor -%}
-            </div>
-            <p class="text-base text-[#1a1c1c] leading-relaxed mb-6 italic">"{{ block.settings.review_text }}"</p>
-            <div>
-              <p class="font-label-lg uppercase">{{ block.settings.reviewer_name }}</p>
-              <p class="text-xs text-zinc-400">Verified Owner</p>
-            </div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </section>
-
-  <!-- FAQ ACCORDION -->
-  <section class="bg-zinc-50 py-32">
-    <div class="max-w-[800px] mx-auto px-8">
-      <h3 class="font-headline-lg text-2xl uppercase text-center mb-16">{{ section.settings.faq_title }}</h3>
-      <div class="space-y-4">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'faq_item' -%}
-            <div class="bg-white border border-black/10" {{ block.shopify_attributes }}>
-              <button class="w-full flex justify-between items-center px-8 py-6 text-left group">
-                <span class="font-label-lg uppercase">{{ block.settings.question }}</span>
-                <span class="material-symbols-outlined text-[#785a00] transition-transform group-hover:rotate-45">add</span>
-              </button>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
-
-  <!-- COMPARE MODELS -->
-  <section class="max-w-[1440px] mx-auto px-8 py-32">
-    <h3 class="font-headline-lg text-2xl uppercase text-center mb-16">{{ section.settings.compare_title }}</h3>
-    <div class="overflow-x-auto">
-      <table class="w-full border-collapse">
-        <thead>
-          <tr class="bg-[#1a1c1c] text-white">
-            <th class="p-8 text-left font-label-lg uppercase">FEATURE</th>
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'compare_model' -%}
-                <th class="p-8 text-center font-label-lg uppercase {% if block.settings.is_featured %}bg-[#FFC426] text-[#1a1c1c]{% endif %}" {{ block.shopify_attributes }}>
-                  {{ block.settings.model_name }}
-                </th>
-              {%- endif -%}
-            {%- endfor -%}
-          </tr>
-        </thead>
-        <tbody class="text-base">
-          <tr class="border-b border-black/10">
-            <td class="p-8 font-bold">Motor Power</td>
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'compare_model' -%}
-                <td class="p-8 text-center {% if block.settings.is_featured %}bg-zinc-50 font-black{% endif %}">{{ block.settings.motor }}</td>
-              {%- endif -%}
-            {%- endfor -%}
-          </tr>
-          <tr class="border-b border-black/10">
-            <td class="p-8 font-bold">Max Torque</td>
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'compare_model' -%}
-                <td class="p-8 text-center {% if block.settings.is_featured %}bg-zinc-50 font-black{% endif %}">{{ block.settings.torque }}</td>
-              {%- endif -%}
-            {%- endfor -%}
-          </tr>
-          <tr class="border-b border-black/10">
-            <td class="p-8 font-bold">Battery Capacity</td>
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'compare_model' -%}
-                <td class="p-8 text-center {% if block.settings.is_featured %}bg-zinc-50 font-black{% endif %}">{{ block.settings.battery }}</td>
-              {%- endif -%}
-            {%- endfor -%}
-          </tr>
-          <tr class="border-b border-black/10">
-            <td class="p-8 font-bold">Price</td>
-            {%- for block in section.blocks -%}
-              {%- if block.type == 'compare_model' -%}
-                <td class="p-8 text-center {% if block.settings.is_featured %}bg-zinc-50 font-black{% endif %}">{{ block.settings.price }}</td>
-              {%- endif -%}
-            {%- endfor -%}
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </section>
-
-  <!-- RELATED PRODUCTS -->
-  <section class="bg-white py-32 border-t border-black/5">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <div class="flex justify-between items-end mb-16">
-        <h3 class="font-headline-lg text-2xl uppercase">{{ section.settings.gear_title }}</h3>
-        <a class="font-label-lg text-[#785a00] uppercase underline underline-offset-8" href="#">VIEW ALL ACCESSORIES</a>
-      </div>
-      <div class="grid grid-cols-2 lg:grid-cols-4 gap-8">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'related_product' -%}
-            <div class="group cursor-pointer" {{ block.shopify_attributes }}>
-              <div class="aspect-square bg-surface-container overflow-hidden rounded mb-6">
-                {%- if block.settings.product_image -%}
-                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ block.settings.product_image | image_url }}" alt="{{ block.settings.product_name }}">
-                {%- else -%}
-                  <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdXebrUisMyEkt2cBpV5XN1pufHCp4L2Ix4u9WU9G5EOHVFDqRodrxCsejk9YmgWaYXL3giDw4vYPwQFOLRQol60fYJY5MuFGWEkFeXmhVf707q4GY2sUdO-GfghP737or7Z5FyQXkrESLnv_vH7rhNHrDnRYn-FW2mI1D1pP6TkSVgQAivomIkiKC2qPO76Z0bEzhYnvc-AigzZogNVOlIwS4aPbyCWZkvlZ2Yw1aKcyyqrqSf2QKKqbqYeby2PAJEGnbVrXu-Mil" alt="">
-                {%- endif -%}
-              </div>
-              <h4 class="font-label-lg uppercase mb-2">{{ block.settings.product_name }}</h4>
-              <p class="font-headline-lg text-lg">{{ block.settings.product_price }}</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
-</main>
-
-<!-- FOOTER -->
-<footer class="bg-zinc-50 w-full py-12 border-t border-black/10">
-  <div class="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
-    <div class="flex flex-col items-center md:items-start">
-      <span class="text-lg font-bold text-black font-['Space_Grotesk']">{{ section.settings.brand_name }}</span>
-      <p class="text-zinc-500 text-[10px] tracking-[0.2em] mt-2 uppercase">© 2024 VELOCITY ELECTRIC. PRECISION ENGINEERING.</p>
-    </div>
-    <div class="flex gap-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'footer_link' -%}
-          <a class="text-zinc-500 hover:text-yellow-500 underline-offset-4 hover:underline text-[10px] tracking-[0.2em] uppercase" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>
-            {{ block.settings.link_text }}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </div>
+<!-- Footer -->
+<footer class="bg-white border-t border-zinc-100 full-width py-12 transition-all ease-out duration-300">
+<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-xl font-bold text-zinc-900">{{ section.settings.brand_name }}</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Privacy Policy</a>
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Terms of Service</a>
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Warranty</a>
+<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Contact Us</a>
+</div>
+<p class="font-body-md text-zinc-500 text-sm">© 2024 High-Performance Adventure. All rights reserved.</p>
+</div>
 </footer>

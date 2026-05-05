@@ -12,546 +12,94 @@
     },
     {
       "type": "text",
-      "id": "hero_badge",
-      "label": "Hero Badge",
-      "default": "NEW GENERATION E-BIKE"
-    },
-    {
-      "type": "text",
-      "id": "hero_title",
-      "label": "Hero Title",
-      "default": "Unleash the RAW Power"
+      "id": "product_title",
+      "label": "Product Title",
+      "default": "MAXFOOT M-3"
     },
     {
       "type": "textarea",
-      "id": "hero_description",
-      "label": "Hero Description",
-      "default": "Meet the M-3, a high-torque beast engineered for those who demand uncompromising performance on every terrain. Experience the pinnacle of electric propulsion."
+      "id": "product_description",
+      "label": "Description",
+      "default": "Experience the pinnacle of electric propulsion with the M-3."
     },
     {
       "type": "text",
-      "id": "hero_cta_primary",
-      "label": "Primary CTA",
-      "default": "PRE-ORDER NOW"
+      "id": "price",
+      "label": "Price",
+      "default": "$1,599"
     },
     {
       "type": "text",
-      "id": "hero_cta_secondary",
-      "label": "Secondary CTA",
-      "default": "TECHNICAL SPECS"
+      "id": "spec_speed",
+      "label": "Speed Spec",
+      "default": "28 MPH"
     },
     {
       "type": "text",
-      "id": "hot_selling_title",
-      "label": "Hot Selling Title",
-      "default": "HOT SELLING"
+      "id": "spec_range",
+      "label": "Range Spec",
+      "default": "60 Miles"
     },
     {
       "type": "text",
-      "id": "view_all_link",
-      "label": "View All Link Text",
-      "default": "VIEW ALL PRODUCTS"
+      "id": "spec_power",
+      "label": "Power Spec",
+      "default": "750W"
     },
     {
       "type": "text",
-      "id": "reviews_title",
-      "label": "Reviews Section Title",
-      "default": "Rider Experiences"
-    },
-    {
-      "type": "text",
-      "id": "reviews_rating",
-      "label": "Reviews Rating Text",
-      "default": "4.9/5 based on 1,200+ reviews"
-    },
-    {
-      "type": "text",
-      "id": "stories_title",
-      "label": "Latest Stories Title",
-      "default": "Latest Stories"
-    },
-    {
-      "type": "text",
-      "id": "all_stories_link",
-      "label": "All Stories Link Text",
-      "default": "All Stories"
+      "id": "spec_battery",
+      "label": "Battery Spec",
+      "default": "48V 20Ah"
     }
   ],
   "blocks": [
     {
       "type": "nav_link",
-      "name": "Navigation Link",
+      "name": "Nav Link",
       "settings": [
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL"
-        },
-        {
-          "type": "checkbox",
-          "id": "is_active",
-          "label": "Is Active",
-          "default": false
-        }
-      ]
-    },
-    {
-      "type": "product_card",
-      "name": "Hot Selling Product",
-      "settings": [
-        {
-          "type": "text",
-          "id": "product_name",
-          "label": "Product Name",
-          "default": "MAXFOOT M-1"
-        },
-        {
-          "type": "text",
-          "id": "product_price",
-          "label": "Product Price",
-          "default": "$1,299.00"
-        },
-        {
-          "type": "image_picker",
-          "id": "product_image",
-          "label": "Product Image"
-        }
-      ]
-    },
-    {
-      "type": "feature_card",
-      "name": "Feature Highlight",
-      "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon Name",
-          "default": "bolt"
-        },
-        {
-          "type": "text",
-          "id": "value",
-          "label": "Feature Value",
-          "default": "750W"
-        },
-        {
-          "type": "text",
-          "id": "label",
-          "label": "Feature Label",
-          "default": "Brushless Motor"
-        }
-      ]
-    },
-    {
-      "type": "bento_item",
-      "name": "Bento Grid Item",
-      "settings": [
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "text",
-          "id": "cta_text",
-          "label": "CTA Button Text"
-        },
-        {
-          "type": "image_picker",
-          "id": "background_image",
-          "label": "Background Image"
-        },
-        {
-          "type": "select",
-          "id": "style",
-          "label": "Style",
-          "options": [
-            {"value": "dark", "label": "Dark"},
-            {"value": "primary", "label": "Primary (Yellow)"},
-            {"value": "light", "label": "Light"}
-          ],
-          "default": "dark"
-        },
-        {
-          "type": "select",
-          "id": "size",
-          "label": "Grid Size",
-          "options": [
-            {"value": "small", "label": "Small (4 col)"},
-            {"value": "medium", "label": "Medium (8 col)"},
-            {"value": "large", "label": "Large (12 col)"}
-          ],
-          "default": "medium"
-        }
-      ]
-    },
-    {
-      "type": "review_card",
-      "name": "Customer Review",
-      "settings": [
-        {
-          "type": "text",
-          "id": "reviewer_name",
-          "label": "Reviewer Name"
-        },
-        {
-          "type": "textarea",
-          "id": "review_text",
-          "label": "Review Text"
-        },
-        {
-          "type": "range",
-          "id": "rating",
-          "label": "Rating (1-5)",
-          "min": 1,
-          "max": 5,
-          "default": 5
-        }
-      ]
-    },
-    {
-      "type": "blog_card",
-      "name": "Blog Card",
-      "settings": [
-        {
-          "type": "text",
-          "id": "category",
-          "label": "Category"
-        },
-        {
-          "type": "text",
-          "id": "date",
-          "label": "Date"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "excerpt",
-          "label": "Excerpt"
-        },
-        {
-          "type": "image_picker",
-          "id": "image",
-          "label": "Image"
-        }
-      ]
-    },
-    {
-      "type": "footer_link",
-      "name": "Footer Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL"
-        },
-        {
-          "type": "select",
-          "id": "category",
-          "label": "Category",
-          "options": [
-            {"value": "support", "label": "Support"},
-            {"value": "legal", "label": "Legal"}
-          ],
-          "default": "support"
-        }
+        { "type": "text", "id": "link_text", "label": "Link Text" },
+        { "type": "url", "id": "link_url", "label": "Link URL" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "V5 Product Detail",
-      "blocks": []
-    }
-  ]
+  "presets": [{ "name": "V5 Product Detail" }]
 }
 {% endschema %}
 
-{% stylesheet %}
-<style>
-  .material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  }
-</style>
-{% endstylesheet %}
-
-<!-- TopNavBar Component -->
-<header class="bg-white/90 dark:bg-stone-950/90 backdrop-blur-md border-b border-stone-100 dark:border-stone-900 docked full-width top-0 sticky z-50">
-  <div class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto">
-    <div class="text-2xl font-bold tracking-tighter text-stone-900 dark:text-white">{{ section.settings.brand_name }}</div>
-    <nav class="hidden md:flex items-center space-x-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'nav_link' -%}
-          <a
-            class="text-stone-500 dark:text-stone-400 font-medium hover:text-[#FFC426] transition-colors duration-200 text-sm tracking-widest {% if block.settings.is_active %}text-[#FFC426]{% endif %}"
-            href="{{ block.settings.link_url }}"
-            {{ block.shopify_attributes }}
-          >
-            {{ block.settings.link_text }}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </nav>
-    <div class="flex items-center space-x-6">
-      <div class="hidden md:flex items-center space-x-4">
-        <span class="material-symbols-outlined text-[#4f4633] cursor-pointer hover:text-[#785a00] transition-colors">shopping_cart</span>
-        <span class="material-symbols-outlined text-[#4f4633] cursor-pointer hover:text-[#785a00] transition-colors">person</span>
-      </div>
-      <button class="bg-[#FFC426] text-[#6f5200] px-6 py-2 font-bold text-sm tracking-widest active:scale-95 transition-transform duration-150 rounded-lg">TEST RIDE</button>
+<nav class="bg-white border-b border-stone-100 sticky top-0 z-50">
+  <div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
+    <div class="text-2xl font-black tracking-tighter text-stone-900">{{ section.settings.brand_name }}</div>
+    <div class="hidden md:flex gap-8 items-center">
+      {%- for block in section.blocks -%}{%- if block.type == 'nav_link' -%}<a class="text-stone-600 font-medium text-sm tracking-widest uppercase hover:text-yellow-500" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>{%- endif -%}{%- endfor -%}
+    </div>
+    <div class="flex items-center gap-6">
+      <button class="material-symbols-outlined text-stone-600 hover:text-yellow-500">search</button>
+      <button class="material-symbols-outlined text-stone-600 hover:text-yellow-500">shopping_cart</button>
     </div>
   </div>
-</header>
+</nav>
 
-<main>
-  <!-- Hero Section -->
-  <section class="relative bg-white overflow-hidden min-h-[870px] flex items-center">
-    <div class="max-w-[1440px] mx-auto px-8 w-full grid grid-cols-1 md:grid-cols-12 gap-6 items-center py-12">
-      <!-- Left Content -->
-      <div class="md:col-span-6 z-10 py-12">
-        <div class="inline-block bg-[#FFC426] text-[#6f5200] px-4 py-1 mb-6 rounded-sm">
-          <span class="font-label-lg text-label-lg tracking-widest uppercase">{{ section.settings.hero_badge }}</span>
-        </div>
-        <h1 class="font-bold text-6xl md:text-7xl text-[#1a1c1c] mb-6 tracking-tight">
-          {{ section.settings.hero_title | replace: 'RAW', '<span class="text-[#FFC426]">RAW</span>' }}
-        </h1>
-        <p class="text-lg text-[#4f4633] mb-10 max-w-lg">
-          {{ section.settings.hero_description }}
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4">
-          <button class="bg-[#FFC426] text-[#6f5200] px-10 py-4 font-headline-lg text-[18px] font-bold tracking-widest uppercase rounded hover:opacity-90 transition-opacity">
-            {{ section.settings.hero_cta_primary }}
-          </button>
-          <button class="border-2 border-[#1a1c1c] text-[#1a1c1c] px-10 py-4 font-headline-lg text-[18px] font-bold tracking-widest uppercase rounded hover:bg-[#1a1c1c] hover:text-white transition-all">
-            {{ section.settings.hero_cta_secondary }}
-          </button>
-        </div>
+<main class="max-w-[1440px] mx-auto px-6 py-[120px]">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+    <div class="aspect-square bg-stone-100 rounded-xl flex items-center justify-center">
+      <span class="text-stone-400">Product Image</span>
+    </div>
+    <div class="flex flex-col justify-center">
+      <span class="text-sm text-yellow-500 font-bold tracking-widest uppercase mb-4">NEW ARRIVAL</span>
+      <h1 class="text-4xl font-bold text-stone-900 mb-4">{{ section.settings.product_title }}</h1>
+      <p class="text-3xl font-bold text-yellow-500 mb-6">{{ section.settings.price }}</p>
+      <p class="text-stone-600 mb-8">{{ section.settings.product_description }}</p>
+      <div class="grid grid-cols-2 gap-4 mb-8">
+        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Speed</span><span class="font-bold">{{ section.settings.spec_speed }}</span></div>
+        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Range</span><span class="font-bold">{{ section.settings.spec_range }}</span></div>
+        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Power</span><span class="font-bold">{{ section.settings.spec_power }}</span></div>
+        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Battery</span><span class="font-bold">{{ section.settings.spec_battery }}</span></div>
       </div>
-      <!-- Right Content (Image) -->
-      <div class="md:col-span-6 relative h-full flex justify-center items-center">
-        <div class="relative w-full aspect-square md:aspect-auto md:h-[700px]">
-          <img alt="Maxfoot M-3 High-Performance E-Bike" class="w-full h-full object-contain transform scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2IH7UTWZNPde0A1_mJFDXAuTYjRcsJyMiw2nSPpt-OmP3n9qDEC5PT7SiWVPlEZCsiObSsxNTDkrIzmvmvHcciq9KQdL1BzN0q6yKteJt9CQJmdIEknam0a4A4KGEnxGV4_GyxXurxf9j3MqlqENjhdd_aMTtANyK8luYkd_APx5OJwu5al8tHJZ0nQkTiAWauJkLOFJODjgsN1ScbMhsZvz91eTjkvzk6QfDaoan5qqruf_Wp6tHYuUvx4qFHRtE1USeHqkFuTOl" alt="">
-          <div class="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-radial from-stone-50 to-transparent opacity-50 rounded-full"></div>
-        </div>
+      <div class="flex gap-4">
+        <button class="flex-1 bg-yellow-400 text-stone-900 py-4 font-bold uppercase tracking-widest rounded-lg hover:opacity-90">ADD TO CART</button>
+        <button class="px-8 py-4 border-2 border-stone-900 text-stone-900 font-bold uppercase tracking-widest rounded-lg hover:bg-stone-900 hover:text-white transition-all">BUY NOW</button>
       </div>
     </div>
-  </section>
-
-  <!-- Hot Selling Section -->
-  <section class="py-[120px] bg-white">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <div class="flex justify-between items-end mb-12">
-        <h2 class="font-bold text-4xl md:text-5xl text-[#1a1c1c] uppercase tracking-tight">{{ section.settings.hot_selling_title }}</h2>
-        <a class="text-[#FFC426] font-label-lg tracking-widest border-b-2 border-[#FFC426] pb-1 hover:opacity-80 transition-opacity" href="#">{{ section.settings.view_all_link }}</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'product_card' -%}
-            <div class="group bg-[#f3f3f4] border border-stone-100 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300" {{ block.shopify_attributes }}>
-              <div class="relative aspect-square bg-stone-50 overflow-hidden">
-                <div class="absolute top-4 left-4 z-10 bg-[#FFC426] text-stone-900 px-3 py-1 font-bold text-xs tracking-widest uppercase rounded-sm">
-                  HOT
-                </div>
-                {%- if block.settings.product_image -%}
-                  <img alt="{{ block.settings.product_name }}" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500" src="{{ block.settings.product_image | image_url }}">
-                {%- else -%}
-                  <img alt="{{ block.settings.product_name }}" class="w-full h-full object-contain p-8 group-hover:scale-110 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2IH7UTWZNPde0A1_mJFDXAuTYjRcsJyMiw2nSPpt-OmP3n9qDEC5PT7SiWVPlEZCsiObSsxNTDkrIzmvmvHcciq9KQdL1BzN0q6yKteJt9CQJmdIEknam0a4A4KGEnxGV4_GyxXurxf9j3MqlqENjhdd_aMTtANyK8luYkd_APx5OJwu5al8tHJZ0nQkTiAWauJkLOFJODjgsN1ScbMhsZvz91eTjkvzk6QfDaoan5qqruf_Wp6tHYuUvx4qFHRtE1USeHqkFuTOl" alt="">
-                {%- endif -%}
-              </div>
-              <div class="p-6 text-center">
-                <h3 class="font-bold text-2xl text-[#1a1c1c] mb-2">{{ block.settings.product_name }}</h3>
-                <p class="font-bold text-xl text-[#FFC426] tracking-tight">{{ block.settings.product_price }}</p>
-              </div>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
-
-  <!-- Technical Specification Highlights -->
-  <section class="py-[120px] bg-[#ffffff]">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'feature_card' -%}
-            <div class="p-8 bg-white border border-stone-100 rounded-xl hover:border-[#FFC426] transition-colors group" {{ block.shopify_attributes }}>
-              <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">{{ block.settings.icon }}</span>
-              <h3 class="font-headline-lg text-2xl mb-2">{{ block.settings.value }}</h3>
-              <p class="font-label-lg text-[#4f4633] uppercase">{{ block.settings.label }}</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
-
-  <!-- Feature Bento Grid -->
-  <section class="py-[120px] px-8 max-w-[1440px] mx-auto">
-    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[800px]">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'bento_item' -%}
-          <div
-            class="rounded-xl relative overflow-hidden group {% if block.settings.size == 'small' %}md:col-span-4{% elsif block.settings.size == 'large' %}md:col-span-12{% else %}md:col-span-8{% endif %} {% if block.settings.style == 'primary' %}bg-[#FFC426]{% elsif block.settings.style == 'light' %}bg-stone-100{% else %}bg-stone-900{% endif %}"
-            {{ block.shopify_attributes }}
-          >
-            {%- if block.settings.background_image -%}
-              <img alt="" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="{{ block.settings.background_image | image_url }}">
-            {%- endif -%}
-            {%- if block.settings.style == 'dark' -%}
-              <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-              <div class="absolute bottom-12 left-12">
-                <h2 class="text-white font-bold text-3xl md:text-4xl mb-4">{{ block.settings.title }}</h2>
-                <button class="bg-[#FFC426] text-[#6f5200] px-6 py-3 font-bold text-sm tracking-widest rounded-lg">{{ block.settings.cta_text }}</button>
-              </div>
-            {%- elsif block.settings.style == 'primary' -%}
-              <div class="absolute inset-0 flex flex-col justify-center p-12">
-                <h3 class="font-bold text-4xl md:text-5xl leading-tight mb-6 text-[#6f5200]">{{ block.settings.title }}</h3>
-                <p class="text-[#6f5200] opacity-80 mb-8">{{ block.settings.description }}</p>
-                <div class="w-16 h-1 bg-[#6f5200]"></div>
-              </div>
-            {%- else -%}
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
-              <div class="absolute bottom-8 left-8 text-white">
-                <p class="font-label-lg tracking-widest">{{ block.settings.title }}</p>
-              </div>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </section>
-
-  <!-- Customer Reviews Section -->
-  <section class="py-[120px] bg-[#f9f9f9]">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <div class="text-center mb-16">
-        <h2 class="font-bold text-4xl md:text-5xl text-[#1a1c1c] mb-4">{{ section.settings.reviews_title }}</h2>
-        <p class="text-[#FFC426] font-bold tracking-widest uppercase">{{ section.settings.reviews_rating }}</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'review_card' -%}
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center" {{ block.shopify_attributes }}>
-              <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
-                <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
-              </div>
-              <h4 class="font-headline-lg text-[20px] mb-2">{{ block.settings.reviewer_name }}</h4>
-              <div class="flex text-[#FFC426] mb-4">
-                {%- for i in (1..5) -%}
-                  <span class="material-symbols-outlined text-[18px]" style="font-variation-settings: 'FILL' {% if i <= block.settings.rating %}1{% else %}0{% endif %};">star</span>
-                {%- endfor -%}
-              </div>
-              <p class="text-[#4f4633] italic">"{{ block.settings.review_text }}"</p>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
-
-  <!-- Latest Stories Section -->
-  <section class="py-[120px] bg-white">
-    <div class="max-w-[1440px] mx-auto px-8">
-      <div class="flex justify-between items-center mb-12">
-        <h2 class="font-bold text-4xl md:text-5xl text-[#1a1c1c]">{{ section.settings.stories_title }}</h2>
-        <a class="text-[#FFC426] font-label-lg tracking-widest border-b-2 border-[#FFC426] pb-1 hover:opacity-80 transition-opacity uppercase" href="#">{{ section.settings.all_stories_link }}</a>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'blog_card' -%}
-            <div class="group" {{ block.shopify_attributes }}>
-              <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
-                {%- if block.settings.image -%}
-                  <img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="{{ block.settings.image | image_url }}">
-                {%- else -%}
-                  <img alt="" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTkbW5M_IWlWhJFELJWf23UX3TsevPVIVl8UuehZs2HsBuj6JLRvVFEqPUbONopYjelCWvHHZB2xGkFhq9cLPzDn_QqRZgQg2c56GujFNdEDf62Bih3Gqxt1VebAMZ8wqqnSGfr9LPZLgiWfVz0nE6EF3f1ggGAafnPymJmGlbJVFElaVPSZqXMRPApcITJa04o4hq9SKLYyr11t4u95ZzAFWgStUaYhcE98pk19MfSQYm7tS8UBzSn1aAsJ2Db0Ks2df2hpEIE-Q" alt="">
-                {%- endif -%}
-                <div class="absolute top-4 left-4 bg-[#FFC426] text-[#6f5200] px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">{{ block.settings.category }}</div>
-              </div>
-              <div class="space-y-3">
-                <p class="font-label-md text-stone-400">{{ block.settings.date }}</p>
-                <h3 class="font-headline-lg text-2xl group-hover:text-[#785a00] transition-colors cursor-pointer">{{ block.settings.title }}</h3>
-                <p class="text-[#4f4633] line-clamp-2">{{ block.settings.excerpt }}</p>
-                <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE</a>
-              </div>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
+  </div>
 </main>
-
-<!-- Footer Component -->
-<footer class="bg-stone-900 dark:bg-black border-t border-stone-800">
-  <div class="grid grid-cols-1 md:grid-cols-4 gap-12 px-8 py-24 max-w-[1440px] mx-auto">
-    <div class="flex flex-col space-y-6">
-      <div class="text-xl font-black tracking-widest text-white uppercase">{{ section.settings.brand_name }}</div>
-      <p class="text-stone-400 text-base leading-relaxed">
-        Pioneering the future of electric mobility with high-performance bikes designed for the modern adventurer.
-      </p>
-      <div class="flex space-x-4">
-        <span class="material-symbols-outlined text-[#FFC426] cursor-pointer">public</span>
-        <span class="material-symbols-outlined text-[#FFC426] cursor-pointer">chat</span>
-        <span class="material-symbols-outlined text-[#FFC426] cursor-pointer">mail</span>
-      </div>
-    </div>
-
-    {%- assign support_links = section.blocks | where: "type", "footer_link" | where: "settings.category", "support" -%}
-    {%- assign legal_links = section.blocks | where: "type", "footer_link" | where: "settings.category", "legal" -%}
-
-    {%- if support_links.size > 0 -%}
-      <div class="flex flex-col space-y-4">
-        <h4 class="text-white font-label-lg tracking-widest uppercase mb-4">SUPPORT</h4>
-        {%- for block in support_links -%}
-          <a class="text-stone-400 hover:text-white transition-colors text-sm" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>
-            {{ block.settings.link_text }}
-          </a>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-
-    {%- if legal_links.size > 0 -%}
-      <div class="flex flex-col space-y-4">
-        <h4 class="text-white font-label-lg tracking-widest uppercase mb-4">LEGAL</h4>
-        {%- for block in legal_links -%}
-          <a class="text-stone-400 hover:text-white transition-colors text-sm" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>
-            {{ block.settings.link_text }}
-          </a>
-        {%- endfor -%}
-      </div>
-    {%- endif -%}
-
-    <div class="flex flex-col space-y-6">
-      <h4 class="text-white font-label-lg tracking-widest uppercase mb-4">NEWSLETTER</h4>
-      <div class="flex border-b border-stone-700 pb-2">
-        <input class="bg-transparent border-none text-white text-sm focus:ring-0 w-full font-label-md placeholder-stone-600" placeholder="YOUR EMAIL" type="email"/>
-        <button class="text-[#FFC426] material-symbols-outlined">arrow_forward</button>
-      </div>
-    </div>
-  </div>
-  <div class="max-w-[1440px] mx-auto px-8 py-8 border-t border-stone-800">
-    <p class="text-stone-500 font-label-md text-center md:text-left">
-      {{ section.settings.footer_copyright | default: "© 2024 MAXFOOT ELECTRIC BIKES. ENGINEERED FOR ADVENTURE." }}
-    </p>
-  </div>
-</footer>

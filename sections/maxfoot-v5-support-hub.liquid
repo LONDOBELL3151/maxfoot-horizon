@@ -18,7 +18,7 @@
     },
     {
       "type": "text",
-      "id": "search_placeholder",
+      "id": "hero_placeholder",
       "label": "Search Placeholder",
       "default": "Search for manuals, assembly, shipping..."
     },
@@ -27,312 +27,178 @@
       "id": "faq_title",
       "label": "FAQ Section Title",
       "default": "Frequently Asked Questions"
-    },
-    {
-      "type": "text",
-      "id": "contact_title",
-      "label": "Contact Section Title",
-      "default": "Speak with a Technician"
-    },
-    {
-      "type": "text",
-      "id": "contact_subtitle",
-      "label": "Contact Subtitle",
-      "default": "Our expert support team is available Mon-Fri, 9am - 6pm PST."
-    },
-    {
-      "type": "text",
-      "id": "visual_title",
-      "label": "Visual Break Title",
-      "default": "Engineered for the Long Haul."
-    },
-    {
-      "type": "textarea",
-      "id": "visual_description",
-      "label": "Visual Break Description",
-      "default": "Every Kinetic bike is tested across thousands of miles of varied terrain to ensure reliability that matches its performance."
-    },
-    {
-      "type": "text",
-      "id": "footer_copyright",
-      "label": "Footer Copyright",
-      "default": "© 2024 KINETIC MOTORS. ENGINEERED PRECISION."
     }
   ],
   "blocks": [
     {
       "type": "nav_link",
-      "name": "Navigation Link",
+      "name": "Nav Link",
       "settings": [
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL"
-        },
-        {
-          "type": "checkbox",
-          "id": "is_active",
-          "label": "Is Active",
-          "default": false
-        }
+        { "type": "text", "id": "link_text", "label": "Link Text" },
+        { "type": "url", "id": "link_url", "label": "Link URL" }
       ]
     },
     {
       "type": "resource_card",
       "name": "Resource Card",
       "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon Name"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "textarea",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "text",
-          "id": "cta_text",
-          "label": "CTA Text"
-        }
+        { "type": "text", "id": "icon", "label": "Icon (material symbol)" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "textarea", "id": "description", "label": "Description" },
+        { "type": "text", "id": "link_text", "label": "Link Text" }
       ]
     },
     {
       "type": "faq_item",
       "name": "FAQ Item",
       "settings": [
-        {
-          "type": "text",
-          "id": "question",
-          "label": "Question"
-        },
-        {
-          "type": "textarea",
-          "id": "answer",
-          "label": "Answer"
-        }
+        { "type": "text", "id": "question", "label": "Question" },
+        { "type": "textarea", "id": "answer", "label": "Answer" }
       ]
     },
     {
-      "type": "contact_method",
-      "name": "Contact Method",
+      "type": "contact_card",
+      "name": "Contact Card",
       "settings": [
-        {
-          "type": "text",
-          "id": "icon",
-          "label": "Icon Name"
-        },
-        {
-          "type": "text",
-          "id": "title",
-          "label": "Title"
-        },
-        {
-          "type": "text",
-          "id": "description",
-          "label": "Description"
-        },
-        {
-          "type": "text",
-          "id": "contact_value",
-          "label": "Contact Value (phone/email)"
-        },
-        {
-          "type": "select",
-          "id": "contact_type",
-          "label": "Contact Type",
-          "options": [
-            {"value": "phone", "label": "Phone"},
-            {"value": "email", "label": "Email"},
-            {"value": "chat", "label": "Live Chat"}
-          ],
-          "default": "phone"
-        }
-      ]
-    },
-    {
-      "type": "footer_link",
-      "name": "Footer Link",
-      "settings": [
-        {
-          "type": "text",
-          "id": "link_text",
-          "label": "Link Text"
-        },
-        {
-          "type": "url",
-          "id": "link_url",
-          "label": "Link URL"
-        }
+        { "type": "text", "id": "icon", "label": "Icon (material symbol)" },
+        { "type": "text", "id": "title", "label": "Title" },
+        { "type": "text", "id": "description", "label": "Description" },
+        { "type": "text", "id": "contact_value", "label": "Contact Value" },
+        { "type": "text", "id": "contact_type", "label": "Contact Type (phone/email/button)" },
+        { "type": "url", "id": "contact_url", "label": "Contact URL" }
       ]
     }
   ],
-  "presets": [
-    {
-      "name": "V5 Support Hub",
-      "blocks": []
-    }
-  ]
+  "presets": [{ "name": "V5 Support Hub" }]
 }
 {% endschema %}
 
-{% stylesheet %}
 <style>
-  .material-symbols-outlined {
+.material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-  }
+}
+body { font-family: 'Lexend', sans-serif; }
+h1, h2, h3, .technical { font-family: 'Space Grotesk', sans-serif; }
 </style>
-{% endstylesheet %}
 
 <!-- TopNavBar -->
 <nav class="bg-white/80 backdrop-blur-xl sticky top-0 z-50 shadow-[0_24px_24px_rgba(26,28,28,0.04)]">
-  <div class="flex justify-between items-center px-8 py-4 w-full max-w-[1440px] mx-auto">
-    <div class="text-2xl font-bold tracking-tighter text-zinc-900 uppercase font-['Space_Grotesk']">
-      {{ section.settings.brand_name }}
-    </div>
-    <div class="hidden md:flex items-center gap-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'nav_link' -%}
-          <a
-            class="text-zinc-500 font-medium hover:text-[#785a00] transition-all duration-300 {% if block.settings.is_active %}text-zinc-900 font-bold border-b-2 border-[#FFC426] pb-1{% endif %}"
-            href="{{ block.settings.link_url }}"
-            {{ block.shopify_attributes }}
-          >
-            {{ block.settings.link_text }}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-    <div class="flex items-center gap-6">
-      <span class="material-symbols-outlined text-[#1a1c1c] cursor-pointer active:scale-95 transition-transform">shopping_cart</span>
-      <span class="material-symbols-outlined text-[#1a1c1c] cursor-pointer active:scale-95 transition-transform">account_circle</span>
-      <button class="md:hidden">
-        <span class="material-symbols-outlined">menu</span>
-      </button>
-    </div>
-  </div>
+<div class="flex justify-between items-center px-8 py-4 w-full max-w-[1440px] mx-auto">
+<div class="text-2xl font-bold tracking-tighter text-zinc-900 uppercase" style="font-family: 'Space Grotesk', sans-serif;">
+    {{ section.settings.brand_name }}
+</div>
+<div class="hidden md:flex items-center gap-8">
+  {%- for block in section.blocks -%}{%- if block.type == 'nav_link' -%}<a class="text-zinc-500 font-medium hover:text-[#785a00] transition-all duration-300" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>{%- endif -%}{%- endfor -%}
+</div>
+<div class="flex items-center gap-6">
+<span class="material-symbols-outlined text-on-surface cursor-pointer active:scale-95 transition-transform">shopping_cart</span>
+<span class="material-symbols-outlined text-on-surface cursor-pointer active:scale-95 transition-transform">account_circle</span>
+<button class="md:hidden">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
 </nav>
 
 <main>
-  <!-- Hero Section -->
-  <section class="bg-white py-24 md:py-32 flex flex-col items-center justify-center text-center px-6">
-    <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-[#1a1c1c] mb-8 uppercase font-['Space_Grotesk'] leading-tight">
-      {{ section.settings.hero_title }}
-    </h1>
-    <div class="w-full max-w-2xl relative group">
-      <div class="absolute inset-y-0 left-6 flex items-center pointer-events-none text-[#4f4633]">
-        <span class="material-symbols-outlined">search</span>
-      </div>
-      <input class="w-full pl-16 pr-6 py-5 bg-[#f3f3f4] rounded-xl border-none focus:ring-2 focus:ring-[#FFC426] text-lg placeholder:text-[#4f4633] transition-all duration-300 shadow-sm" placeholder="{{ section.settings.search_placeholder }}" type="text"/>
-    </div>
-  </section>
+<!-- Hero Section -->
+<section class="bg-white py-24 md:py-32 flex flex-col items-center justify-center text-center px-6">
+<h1 class="text-4xl md:text-6xl font-bold tracking-tight text-on-surface mb-8 uppercase leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
+    {{ section.settings.hero_title }}
+</h1>
+<div class="w-full max-w-2xl relative group">
+<div class="absolute inset-y-0 left-6 flex items-center pointer-events-none text-on-surface-variant">
+<span class="material-symbols-outlined">search</span>
+</div>
+<input class="w-full pl-16 pr-6 py-5 bg-surface-container-low rounded-xl border-none focus:ring-2 focus:ring-primary-container text-lg placeholder:text-on-surface-variant transition-all duration-300 shadow-sm" placeholder="{{ section.settings.hero_placeholder }}" type="text"/>
+</div>
+</section>
 
-  <!-- Resources Bento Grid -->
-  <section class="max-w-[1440px] mx-auto px-8 py-20">
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'resource_card' -%}
-          <div class="bg-[#ffffff] p-10 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow group cursor-pointer border border-[#d3c5ac]/10" {{ block.shopify_attributes }}>
-            <div>
-              <span class="material-symbols-outlined text-[#785a00] text-4xl mb-6">{{ block.settings.icon }}</span>
-              <h3 class="text-xl font-bold mb-3 tracking-tight">{{ block.settings.title }}</h3>
-              <p class="text-[#4f4633] leading-relaxed">{{ block.settings.description }}</p>
-            </div>
-            <div class="mt-8 flex items-center text-[#785a00] font-semibold text-sm tracking-widest uppercase group-hover:gap-4 transition-all">
-              {{ block.settings.cta_text }} <span class="material-symbols-outlined ml-2">arrow_forward</span>
-            </div>
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </section>
+<!-- Resources Bento Grid -->
+<section class="max-w-[1440px] mx-auto px-8 py-20">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+{%- for block in section.blocks -%}{%- if block.type == 'resource_card' -%}
+<div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow group cursor-pointer border border-outline-variant/10">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">{{ block.settings.icon }}</span>
+<h3 class="text-xl font-bold mb-3 tracking-tight">{{ block.settings.title }}</h3>
+<p class="text-on-surface-variant leading-relaxed">{{ block.settings.description }}</p>
+</div>
+<div class="mt-8 flex items-center text-primary font-semibold text-sm tracking-widest uppercase group-hover:gap-4 transition-all">
+    {{ block.settings.link_text }} <span class="material-symbols-outlined ml-2">arrow_forward</span>
+</div>
+</div>
+{%- endif -%}{%- endfor -%}
+</div>
+</section>
 
-  <!-- FAQ Section -->
-  <section class="bg-[#f3f3f4] py-24">
-    <div class="max-w-4xl mx-auto px-8">
-      <h2 class="text-3xl font-bold mb-12 tracking-tight uppercase font-['Space_Grotesk'] text-center">{{ section.settings.faq_title }}</h2>
-      <div class="space-y-4">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'faq_item' -%}
-            <div class="bg-[#ffffff] rounded-xl overflow-hidden group" {{ block.shopify_attributes }}>
-              <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-zinc-50 transition-colors">
-                <span class="font-medium text-lg font-['Space_Grotesk']">{{ block.settings.question }}</span>
-                <span class="material-symbols-outlined text-[#4f4633] group-hover:text-[#785a00]" >expand_more</span>
-              </button>
-              <div class="px-8 pb-6 text-[#4f4633] font-['Lexend'] leading-relaxed max-w-2xl">
-                {{ block.settings.answer }}
-              </div>
-            </div>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-  </section>
+<!-- FAQ Section -->
+<section class="bg-surface-container-low py-24">
+<div class="max-w-4xl mx-auto px-8">
+<h2 class="text-3xl font-bold mb-12 tracking-tight uppercase text-center" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.faq_title }}</h2>
+<div class="space-y-4">
+{%- for block in section.blocks -%}{%- if block.type == 'faq_item' -%}
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden group">
+<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-zinc-50 transition-colors">
+<span class="font-medium text-lg" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.question }}</span>
+<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">expand_more</span>
+</button>
+<div class="px-8 pb-6 text-on-surface-variant leading-relaxed max-w-2xl" style="font-family: 'Lexend', sans-serif;">
+    {{ block.settings.answer }}
+</div>
+</div>
+{%- endif -%}{%- endfor -%}
+</div>
+</div>
+</section>
 
-  <!-- Contact Section -->
-  <section class="max-w-[1440px] mx-auto px-8 py-32">
-    <div class="text-center mb-16">
-      <h2 class="text-3xl font-bold tracking-tight uppercase font-['Space_Grotesk']">{{ section.settings.contact_title }}</h2>
-      <p class="text-[#4f4633] mt-4 font-['Lexend']">{{ section.settings.contact_subtitle }}</p>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'contact_method' -%}
-          <div class="bg-[#F8F8F8] p-12 rounded-xl flex flex-col items-center text-center" {{ block.shopify_attributes }}>
-            <div class="w-16 h-16 bg-[#FFC426] flex items-center justify-center rounded-full mb-6">
-              <span class="material-symbols-outlined text-[#6f5200] text-2xl">{{ block.settings.icon }}</span>
-            </div>
-            <h3 class="text-xl font-bold mb-2">{{ block.settings.title }}</h3>
-            <p class="text-[#4f4633] mb-6 text-sm">{{ block.settings.description }}</p>
-            {%- if block.settings.contact_type == 'phone' -%}
-              <a class="text-[#785a00] font-bold text-lg hover:underline underline-offset-4 tracking-tight" href="tel:{{ block.settings.contact_value }}">{{ block.settings.contact_value }}</a>
-            {%- elsif block.settings.contact_type == 'email' -%}
-              <a class="text-[#785a00] font-bold text-lg hover:underline underline-offset-4 tracking-tight" href="mailto:{{ block.settings.contact_value }}">{{ block.settings.contact_value }}</a>
-            {%- else -%}
-              <button class="bg-[#FFC426] text-[#6f5200] px-8 py-3 rounded-full font-bold tracking-tight uppercase text-sm hover:brightness-95 transition-all">{{ block.settings.contact_value }}</button>
-            {%- endif -%}
-          </div>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </section>
+<!-- Contact Section -->
+<section class="max-w-[1440px] mx-auto px-8 py-32">
+<div class="text-center mb-16">
+<h2 class="text-3xl font-bold tracking-tight uppercase" style="font-family: 'Space Grotesk', sans-serif;">Speak with a Technician</h2>
+<p class="text-on-surface-variant mt-4" style="font-family: 'Lexend', sans-serif;">Our expert support team is available Mon-Fri, 9am - 6pm PST.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+{%- for block in section.blocks -%}{%- if block.type == 'contact_card' -%}
+<div class="bg-[#F8F8F8] p-12 rounded-xl flex flex-col items-center text-center">
+<div class="w-16 h-16 bg-primary-container flex items-center justify-center rounded-full mb-6">
+<span class="material-symbols-outlined text-on-primary-container text-2xl">{{ block.settings.icon }}</span>
+</div>
+<h3 class="text-xl font-bold mb-2">{{ block.settings.title }}</h3>
+<p class="text-on-surface-variant mb-6 text-sm">{{ block.settings.description }}</p>
+{%- if block.settings.contact_type == 'button' -%}
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full font-bold tracking-tight uppercase text-sm hover:brightness-95 transition-all">{{ block.settings.link_text }}</button>
+{%- else -%}
+<a class="text-primary font-bold text-lg hover:underline underline-offset-4 tracking-tight" href="{{ block.settings.contact_url }}">{{ block.settings.contact_value }}</a>
+{%- endif -%}
+</div>
+{%- endif -%}{%- endfor -%}
+</div>
+</section>
 
-  <!-- High-Performance Visual Break -->
-  <section class="w-full h-[500px] relative overflow-hidden">
-    <div class="absolute inset-0 bg-black/40 z-10"></div>
-    <div class="absolute inset-0 flex flex-col items-center justify-center z-20 text-white px-8 text-center">
-      <h2 class="text-4xl md:text-5xl font-bold tracking-tight uppercase font-['Space_Grotesk'] max-w-3xl">{{ section.settings.visual_title }}</h2>
-      <p class="mt-6 text-lg font-['Lexend'] max-w-xl opacity-90">{{ section.settings.visual_description }}</p>
-    </div>
-    <img alt="" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO1kr4IurWZEsUVjE57yVqI6-BKyD8ZqyBqGZsSTjSG_KjbenvqHFD0xym14BTg7rb12d0PkkrjYD3_oOI2nbqDOoOloSJjOTLn1_P7nlkXNgUawZDhGEsvYgIfDrvHCDHJFDqX5AjYWIJbC6IejPjLcoPIxwhG4ZObZUM0J4584Ioong6ycI_pG3Qud7uZGQ5l5PPbObzVnYYVRZeAznoyR7WysxOXifvvzcUC7nYBSt7x969UVCZiQiEwrb3FC3AfmZKMRxB3A-3" alt="">
-  </section>
+<!-- High-Performance Visual Break -->
+<section class="w-full h-[500px] relative overflow-hidden">
+<div class="absolute inset-0 bg-black/40 z-10"></div>
+<div class="absolute inset-0 flex flex-col items-center justify-center z-20 text-white px-8 text-center">
+<h2 class="text-4xl md:text-5xl font-bold tracking-tight uppercase max-w-3xl" style="font-family: 'Space Grotesk', sans-serif;">Engineered for the Long Haul.</h2>
+<p class="mt-6 text-lg max-w-xl opacity-90" style="font-family: 'Lexend', sans-serif;">Every Kinetic bike is tested across thousands of miles of varied terrain to ensure reliability that matches its performance.</p>
+</div>
+<img alt="Kinetic e-bike close up" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO1kr4IurWZEsUVjE57yVqI6-BKyD8ZqyBqGZsSTjSG_KjbenvqHFD0xym14BTg7rb12d0PkkrjYD3_oOI2nbqDOoOloSJjOTLn1_P7nlkXNgUawZDhGEsvYgIfDrvHCDHJFDqX5AjYWIJbC6IejPjLcoPIxwhG4ZObZUM0J4584Ioong6ycI_pG3Qud7uZGQ5l5PPbObzVnYYVRZeAznoyR7WysxOXifvvzcUC7nYBSt7x969UVCZiQiEwrb3FC3AfmZKMRxB3A-3"/>
+</section>
 </main>
 
 <!-- Footer -->
 <footer class="bg-[#F3F3F3] p-12">
-  <div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full px-8 max-w-[1440px] mx-auto">
-    <div class="text-zinc-500 text-sm uppercase tracking-widest text-center md:text-left">
-      {{ section.settings.footer_copyright }}
-    </div>
-    <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'footer_link' -%}
-          <a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="{{ block.settings.link_url }}" {{ block.shopify_attributes }}>
-            {{ block.settings.link_text }}
-          </a>
-        {%- endif -%}
-      {%- endfor -%}
-    </div>
-  </div>
+<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full px-8 max-w-[1440px] mx-auto">
+<div class="text-zinc-500 text-sm uppercase tracking-widest text-center md:text-left" style="font-family: 'Lexend', sans-serif;">
+    © 2024 {{ section.settings.brand_name }} MOTORS. ENGINEERED PRECISION.
+</div>
+<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
+<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
+<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Warranty</a>
+<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Sustainability</a>
+<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Global Support</a>
+</div>
+</div>
 </footer>
