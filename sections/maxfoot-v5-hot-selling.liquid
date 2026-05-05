@@ -25,7 +25,7 @@
         { "type": "product", "id": "product", "label": "Product" },
         { "type": "text", "id": "badge", "label": "Badge Text", "default": "HOT" },
         { "type": "text", "id": "title", "label": "Product Title" },
-        { "type": "text", "id": "price", "label": "Price" },
+        { "type": "text", "id": "price", "label": "Price", "default": "$1,299.00" },
         { "type": "image_picker", "id": "image", "label": "Custom Image" }
       ]
     }
@@ -58,8 +58,8 @@
               {%- endif -%}
             </div>
             <div class="p-6 text-center">
-              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title | default: product.title | default: 'Product Title' }}</h3>
-              <p class="text-xl font-bold text-[#FFC426]">{{ block.settings.price | default: product.price | default: 1299 | money_without_currency | prepend: '$' }}</p>
+              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title | escape }}</h3>
+              <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.price }}</p>
             </div>
           </div>
         {%- endif -%}
@@ -72,7 +72,7 @@
             </div>
             <div class="p-6 text-center">
               <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">MAXFOOT M-{{ i }}</h3>
-              <p class="text-xl font-bold text-[#FFC426]">${{ 1299 | times: i }}.00</p>
+              <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">${{ 1299 | times: i }}.00</p>
             </div>
           </div>
         {%- endfor -%}
