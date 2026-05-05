@@ -8,7 +8,7 @@
       "type": "text",
       "id": "brand_name",
       "label": "Brand Name",
-      "default": "KINETIC"
+      "default": "MAXFOOT"
     },
     {
       "type": "text",
@@ -20,7 +20,7 @@
       "type": "text",
       "id": "title",
       "label": "Article Title",
-      "default": "THE ARCHITECTURE OF MOMENTUM."
+      "default": "THE ARCHITECTURE OF MOMENTUM"
     },
     {
       "type": "text",
@@ -32,7 +32,7 @@
       "type": "text",
       "id": "date",
       "label": "Date",
-      "default": "Oct 24, 2026"
+      "default": "Oct 24, 2024"
     },
     {
       "type": "text",
@@ -44,7 +44,17 @@
       "type": "textarea",
       "id": "author_bio",
       "label": "Author Bio",
-      "default": "Lead Design Strategist at KINETIC. Marcus has spent two decades at the intersection of industrial design and electric propulsion, obsessed with the tactile nature of precision movement."
+      "default": "Lead Design Strategist at Maxfoot. Marcus has spent two decades at the intersection of industrial design and electric propulsion, obsessed with the tactile nature of precision movement."
+    },
+    {
+      "type": "image_picker",
+      "id": "hero_image",
+      "label": "Hero Image"
+    },
+    {
+      "type": "textarea",
+      "id": "content",
+      "label": "Article Content"
     }
   ],
   "blocks": [
@@ -71,149 +81,167 @@
 }
 {% endschema %}
 
-<style>
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-}
-body { font-family: 'Lexend', sans-serif; background-color: #ffffff; color: #141b2b; }
-h1, h2, h3, .font-headline { font-family: 'Space Grotesk', sans-serif; }
-</style>
-
-<!-- TopNavBar -->
-<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl transition-all duration-300 shadow-xl shadow-slate-900/5">
-<nav class="flex justify-between items-center w-full px-8 py-4 max-w-screen-2xl mx-auto">
-<div class="text-2xl font-black tracking-tighter text-slate-900 uppercase">{{ section.settings.brand_name }}</div>
-<div class="hidden md:flex items-center gap-10">
-  {%- for block in section.blocks -%}{%- if block.type == 'nav_link' -%}<a class="text-slate-500 hover:text-slate-900 transition-colors tracking-tight font-medium" href="{{ block.settings.link_url }}" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.link_text }}</a>{%- endif -%}{%- endfor -%}
-</div>
-<div class="flex items-center gap-6">
-<div class="hidden md:block">
-<span class="material-symbols-outlined text-slate-500 cursor-pointer hover:text-slate-900">search</span>
-</div>
-<button class="bg-tertiary-container text-on-tertiary-container px-6 py-2 rounded-lg font-bold tracking-tight active:scale-95 duration-200 ease-in-out" style="font-family: 'Space Grotesk', sans-serif;">
-    Configure
-</button>
-</div>
-</nav>
+<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl transition-all duration-300 shadow-xl shadow-stone-900/5">
+  <nav class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto">
+    <div class="text-2xl font-black tracking-tighter text-stone-900 uppercase" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
+    <div class="hidden md:flex items-center gap-10">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <a class="text-stone-500 hover:text-[#FFC426] transition-colors tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
+        {%- endif -%}
+      {%- else -%}
+        <a class="text-stone-500 hover:text-[#FFC426] transition-colors tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="#">Bikes</a>
+        <a class="text-stone-500 hover:text-[#FFC426] transition-colors tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="#">Technology</a>
+        <a class="text-stone-900 border-b-2 border-[#FFC426] pb-1 tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="#">Journal</a>
+      {%- endfor -%}
+    </div>
+    <div class="flex items-center gap-6">
+      <span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-[#FFC426]">search</span>
+      <button class="bg-[#FFC426] text-stone-900 px-6 py-2 rounded-lg font-bold tracking-tight active:scale-95 duration-200 transition-all" style="font-family: 'Space Grotesk', sans-serif;">Shop Now</button>
+    </div>
+  </nav>
 </header>
 
 <main class="pt-24">
-<!-- Back Navigation -->
-<div class="max-w-screen-2xl mx-auto px-8 py-6">
-<a class="group flex items-center gap-2 text-slate-500 hover:text-slate-900 transition-colors" href="#">
-<span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
-<span class="font-headline font-medium tracking-tight text-sm uppercase">Back to Blog</span>
-</a>
-</div>
+  <!-- Back Navigation -->
+  <div class="max-w-[1440px] mx-auto px-8 py-6">
+    <a class="group flex items-center gap-2 text-stone-500 hover:text-[#FFC426] transition-colors" href="#">
+      <span class="material-symbols-outlined transition-transform group-hover:-translate-x-1">arrow_back</span>
+      <span class="font-bold tracking-tight text-sm uppercase" style="font-family: 'Space Grotesk', sans-serif;">Back to Blog</span>
+    </a>
+  </div>
 
-<!-- Hero Image Section -->
-<section class="w-full relative aspect-[21/9] overflow-hidden bg-slate-100">
-<img alt="Cinematic E-Bike Adventure" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbSWw2JKcX3hfH6DG_CD_akCODIa-bCuZjtnI4hoFeND6xZFeu4GfxAmst7T90ItQuNCKcP1EMyMGtfuISvQeSB6ye7LXW9P8Liezv2UA5t9tDjNYKvi39mf9DS0Wz3EkC5H1GHj9325SnomYgbuysDzG9ZL9FdJ_PHIv09cMF8OIhAV3417FfMyJJZWssHisC6u4WQBB9T4RBr2UvhR8zQDK5WpIWQp4vtZG56q1QYk-kAHIwydqa6n_Vvbo21WTBHrMaurgxzr8U"/>
-</section>
+  <!-- Hero Image Section -->
+  <section class="w-full relative aspect-[21/9] overflow-hidden bg-stone-100">
+    {%- if section.settings.hero_image -%}
+      <img alt="Article Hero" class="w-full h-full object-cover" src="{{ section.settings.hero_image | image_url: width: 1600 }}">
+    {%- else -%}
+      <img alt="Cinematic E-Bike Adventure" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAbSWw2JKcX3hfH6DG_CD_akCODIa-bCuZjtnI4hoFeND6xZFeu4GfxAmst7T90ItQuNCKcP1EMyMGtfuISvQeSB6ye7LXW9P8Liezv2UA5t9tDjNYKvi39mf9DS0Wz3EkC5H1GHj9325SnomYgbuysDzG9ZL9FdJ_PHIv09cMF8OIhAV3417FfMyJJZWssHisC6u4WQBB9T4RBr2UvhR8zQDK5WpIWQp4vtZG56q1QYk-kAHIwydqa6n_Vvbo21WTBHrMaurgxzr8U">
+    {%- endif -%}
+  </section>
 
-<!-- Article Header -->
-<header class="max-w-4xl mx-auto text-center px-8 py-20">
-<span class="inline-block bg-tertiary-container text-on-tertiary-container text-xs font-bold tracking-widest px-4 py-1.5 rounded-full mb-8">{{ section.settings.category }}</span>
-<h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] text-slate-900 mb-8">{{ section.settings.title }}</h1>
-<div class="flex flex-col items-center gap-2 text-slate-500 font-medium">
-<div class="flex items-center gap-2">
-<span class="text-slate-900">By {{ section.settings.author }}</span>
-<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
-<span>{{ section.settings.date }}</span>
-<span class="w-1 h-1 bg-slate-300 rounded-full"></span>
-<span>{{ section.settings.read_time }}</span>
-</div>
-</div>
-</header>
+  <!-- Article Header -->
+  <header class="max-w-4xl mx-auto text-center px-8 py-20">
+    <span class="inline-block bg-[#FFC426] text-stone-900 text-xs font-bold tracking-widest px-4 py-1.5 rounded-full mb-8" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.category }}</span>
+    <h1 class="text-6xl md:text-8xl font-black tracking-tighter leading-[0.9] text-stone-900 mb-8" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.title }}</h1>
+    <div class="flex flex-col items-center gap-2 text-stone-500 font-medium">
+      <div class="flex items-center gap-2">
+        <span class="text-stone-900">By {{ section.settings.author }}</span>
+        <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
+        <span>{{ section.settings.date }}</span>
+        <span class="w-1 h-1 bg-stone-300 rounded-full"></span>
+        <span>{{ section.settings.read_time }}</span>
+      </div>
+    </div>
+  </header>
 
-<!-- Article Content -->
-<article class="max-w-4xl mx-auto px-8 pb-20">
-<div class="prose prose-slate prose-xl max-w-none font-body leading-relaxed text-slate-800">
-<p class="mb-12 text-2xl font-light leading-snug">The intersection of mechanical purity and electric efficiency is where the Kinetic Monolith finds its soul. We didn't just design a frame; we engineered a rigid skeleton for the modern explorer. Every weld, every junction, and every internal cable route was scrutinized under the lens of architectural permanence.</p>
-<p class="mb-12">The transition from traditional combustion to high-precision electric drive systems isn't just a technical shift—it's a cultural evolution. As urban landscapes tighten and the call of the wild becomes more persistent, the tools we use to navigate these spaces must adapt. Kinetic represents the pinnacle of this adaptation, blending surgical technicality with a raw, unyielding aesthetic.</p>
-<!-- Pull Quote -->
-<blockquote class="my-20 border-l-8 border-[#FFC426] pl-10 py-4 italic">
-<p class="text-4xl md:text-5xl font-headline font-bold text-slate-900 tracking-tight leading-tight">"Efficiency is the silent roar of engineering excellence. We build not for the commute, but for the kinetic journey."</p>
-</blockquote>
-<p class="mb-12">When we looked at the mid-drive motor integration, the goal was seamlessness. The power delivery should feel like an extension of the human leg, a natural amplification of intent rather than a mechanical intervention. This required a ground-up rethink of the bottom bracket architecture.</p>
-<!-- Inline Image -->
-<figure class="my-16">
-<div class="rounded-xl overflow-hidden shadow-2xl shadow-slate-900/10">
-<img alt="E-Bike Component Precision" class="w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2g1Zq_XZYElWPm0Tg-8xMzNfRaT78bD0gT3zprtTtE8huZFqALz6gvs_i6f3fOcKmORF2Ri9XQUKV30Q5f0VWeBN6PWGQiYYRZIESaBlVFXfMkbejJnA2PNYgS6f2c1r6cgeIelj49GTGK8L8C6F5AC703t2gLuYdBOwNpgkTa-Lo8gCsa5skS6VBXHLQeuZQnwrPglAgcME6QjNOggtYWE1yY8yhHjjb8_-M9jId35vNt3l1WcqmK_MUSW3x7-7LsFTIqMpWzKd6"/>
-</div>
-<figcaption class="mt-4 text-sm text-slate-400 font-medium uppercase tracking-widest text-center">Fig 04. Precision Drive-Unit Integration</figcaption>
-</figure>
-<p>The journey forward is measured not in miles, but in moments of pure clarity. As the KINETIC fleet expands, our commitment to this architectural momentum remains unwavering. We invite you to explore the limits of what a machine can provide when it is stripped of excess and polished to a mirror finish of utility.</p>
-</div>
+  <!-- Article Content -->
+  <article class="max-w-4xl mx-auto px-8 pb-20">
+    <div class="leading-relaxed text-stone-800" style="font-family: 'Lexend', sans-serif;">
+      <p class="mb-12 text-2xl font-light leading-snug">The intersection of mechanical purity and electric efficiency is where the Maxfoot Monolith finds its soul. We didn't just design a frame; we engineered a rigid skeleton for the modern explorer. Every weld, every junction, and every internal cable route was scrutinized under the lens of architectural permanence.</p>
+      <p class="mb-12">The transition from traditional combustion to high-precision electric drive systems isn't just a technical shift—it's a cultural evolution. As urban landscapes tighten and the call of the wild becomes more persistent, the tools we use to navigate these spaces must adapt. Maxfoot represents the pinnacle of this adaptation, blending surgical technicality with a raw, unyielding aesthetic.</p>
+      <blockquote class="my-20 border-l-8 border-[#FFC426] pl-10 py-4 italic">
+        <p class="text-4xl md:text-5xl font-bold text-stone-900 tracking-tight leading-tight" style="font-family: 'Space Grotesk', sans-serif;">"Efficiency is the silent roar of engineering excellence. We build not for the commute, but for the kinetic journey."</p>
+      </blockquote>
+      <p class="mb-12">When we looked at the mid-drive motor integration, the goal was seamlessness. The power delivery should feel like an extension of the human leg, a natural amplification of intent rather than a mechanical intervention. This required a ground-up rethink of the bottom bracket architecture.</p>
+      <figure class="my-16">
+        <div class="rounded-xl overflow-hidden shadow-2xl shadow-stone-900/10">
+          <img alt="E-Bike Component Precision" class="w-full" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2g1Zq_XZYElWPm0Tg-8xMzNfRaT78bD0gT3zprtTtE8huZFqALz6gvs_i6f3fOcKmORF2Ri9XQUKV30Q5f0VWeBN6PWGQiYYRZIESaBlVFXfMkbejJnA2PNYgS6f2c1r6cgeIelj49GTGK8L8C6F5AC703t2gLuYdBOwNpgkTa-Lo8gCsa5skS6VBXHLQeuZQnwrPglAgcME6QjNOggtYWE1yY8yhHjjb8_-M9jId35vNt3l1WcqmK_MUSW3x7-7LsFTIqMpWzKd6">
+        </div>
+        <figcaption class="mt-4 text-sm text-stone-400 font-medium uppercase tracking-widest text-center" style="font-family: 'Space Grotesk', sans-serif;">Fig 04. Precision Drive-Unit Integration</figcaption>
+      </figure>
+      <p>The journey forward is measured not in miles, but in moments of pure clarity. As the Maxfoot fleet expands, our commitment to this architectural momentum remains unwavering. We invite you to explore the limits of what a machine can provide when it is stripped of excess and polished to a mirror finish of utility.</p>
+    </div>
 
-<!-- Share Section -->
-<div class="mt-20 py-12 border-t border-slate-100 flex flex-col md:flex-row justify-between items-center gap-8">
-<span class="font-headline font-bold tracking-widest text-xs uppercase text-slate-400">Share this Story</span>
-<div class="flex gap-8">
-<a class="text-slate-900 hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
-<a class="text-slate-900 hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
-<a class="text-slate-900 hover:text-tertiary transition-colors" href="#"><span class="material-symbols-outlined">link</span></a>
-</div>
-</div>
+    <!-- Share Section -->
+    <div class="mt-20 py-12 border-t border-stone-100 flex flex-col md:flex-row justify-between items-center gap-8">
+      <span class="font-bold tracking-widest text-xs uppercase text-stone-400" style="font-family: 'Space Grotesk', sans-serif;">Share this Story</span>
+      <div class="flex gap-8">
+        <a class="text-stone-900 hover:text-[#FFC426] transition-colors" href="#"><span class="material-symbols-outlined">share</span></a>
+        <a class="text-stone-900 hover:text-[#FFC426] transition-colors" href="#"><span class="material-symbols-outlined">alternate_email</span></a>
+        <a class="text-stone-900 hover:text-[#FFC426] transition-colors" href="#"><span class="material-symbols-outlined">link</span></a>
+      </div>
+    </div>
 
-<!-- Author Bio -->
-<div class="mt-12 bg-surface-container-low p-10 rounded-2xl flex flex-col md:flex-row items-center md:items-start gap-8">
-<div class="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-lg">
-<img alt="Author Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr7N4E4hd0LQmFrBXT6P4Vep0LM6mI3W4C0TFbKKm5uhFPyiZV0GV2DGjp_D3mDf7ZXjie_FydDk1xobmwXJ-uP6fmTQIktc8wyDDPVCvxA0tRrfBaud82NCvuJ2zjqflEoSv8YKYME_LJVNeVWkg7eWZJfRpKwxU2BU6ai973nVJlcIlHpAlJa2_1i-koOPNGWtt4pZPjl6dPmkpQz4Npv-MSOpzuDiERUAgmCJKK2zfPO7OXAQgB2wRQaTjv_LwtS_LeiZrlXJK5"/>
-</div>
-<div class="text-center md:text-left">
-<h4 class="font-headline font-bold text-xl text-slate-900 mb-2">{{ section.settings.author }}</h4>
-<p class="text-slate-600 leading-relaxed">{{ section.settings.author_bio }}</p>
-</div>
-</div>
-</article>
+    <!-- Author Bio -->
+    <div class="mt-12 bg-stone-50 p-10 rounded-2xl flex flex-col md:flex-row items-center md:items-start gap-8 border border-stone-100">
+      <div class="w-24 h-24 rounded-full overflow-hidden shrink-0 shadow-lg">
+        <img alt="Author Avatar" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCr7N4E4hd0LQmFrBXT6P4Vep0LM6mI3W4C0TFbKKm5uhFPyiZV0GV2DGjp_D3mDf7ZXjie_FydDk1xobmwXJ-uP6fmTQIktc8wyDDPVCvxA0tRrfBaud82NCvuJ2zjqflEoSv8YKYME_LJVNeVWkg7eWZJfRpKwxU2BU6ai973nVJlcIlHpAlJa2_1i-koOPNGWtt4pZPjl6dPmkpQz4Npv-MSOpzuDiERUAgmCJKK2zfPO7OXAQgB2wRQaTjv_LwtS_LeiZrlXJK5">
+      </div>
+      <div class="text-center md:text-left">
+        <h4 class="font-bold text-xl text-stone-900 mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.author }}</h4>
+        <p class="text-stone-600 leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ section.settings.author_bio }}</p>
+      </div>
+    </div>
+  </article>
 
-<!-- Related Posts Section -->
-<section class="bg-slate-50 py-32 mt-20">
-<div class="max-w-screen-2xl mx-auto px-8">
-<div class="flex justify-between items-end mb-16">
-<h2 class="text-5xl font-black tracking-tighter text-slate-900">KEEP EXPLORING</h2>
-<a class="text-[#FFC426] font-headline font-bold tracking-widest text-sm uppercase flex items-center gap-2 hover:translate-x-2 transition-transform" href="#">
-    View Journal <span class="material-symbols-outlined">arrow_forward</span>
-</a>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-{%- for block in section.blocks -%}{%- if block.type == 'related_post' -%}
-<div class="group cursor-pointer">
-<div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-slate-200">
-{%- if block.settings.image -%}
-<img alt="{{ block.settings.title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="{{ block.settings.image | image_url: width: 400 }}"/>
-{%- else -%}
-<img alt="{{ block.settings.title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG2nPyevEiNlwCH-Wivnv96dbvHb_9_cj1YqTwe35igpdC-j9Jt7x9N06ctvI0dq1hpNl5vlK_b7J7lgcynf0fMwRzlHDb9xj5YcLyL47qtAp1485NQhQ2wjEYcSj1iobTjbjZ0Uy9MrpJ-Z2Z_8rZklvo3dUX1WsHdSWbFxfr-tqXLPIBEYgOQWxWPCAFJuwolmWBkMjSSYse-5dl58JAfkiZOG6eLiNfEqKAYtzdNIWnqt1E4ZshwP8Nx86LDSy4n0XaFwZhwY7E"/>
-{%- endif -%}
-</div>
-<span class="text-xs font-bold tracking-widest text-[#785a00] uppercase mb-4 block">{{ block.settings.category }}</span>
-<h3 class="text-2xl font-bold tracking-tight text-slate-900 group-hover:text-tertiary transition-colors">{{ block.settings.title }}</h3>
-</div>
-{%- endif -%}{%- endfor -%}
-</div>
-</div>
-</section>
+  <!-- Related Posts Section -->
+  <section class="bg-stone-50 py-32 mt-20">
+    <div class="max-w-[1440px] mx-auto px-8">
+      <div class="flex justify-between items-end mb-16">
+        <h2 class="text-5xl font-black tracking-tighter text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">KEEP EXPLORING</h2>
+        <a class="text-[#FFC426] font-bold tracking-widest text-sm uppercase flex items-center gap-2 hover:translate-x-2 transition-transform" style="font-family: 'Space Grotesk', sans-serif;" href="#">
+          View Journal <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'related_post' -%}
+            <div class="group cursor-pointer">
+              <div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-stone-200">
+                {%- if block.settings.image -%}
+                  <img alt="{{ block.settings.title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="{{ block.settings.image | image_url: width: 400 }}">
+                {%- else -%}
+                  <img alt="{{ block.settings.title }}" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG2nPyevEiNlwCH-Wivnv96dbvHb_9_cj1YqTwe35igpdC-j9Jt7x9N06ctvI0dq1hpNl5vlK_b7J7lgcynf0fMwRzlHDb9xj5YcLyL47qtAp1485NQhQ2wjEYcSj1iobTjbjZ0Uy9MrpJ-Z2Z_8rZklvo3dUX1WsHdSWbFxfr-tqXLPIBEYgOQWxWPCAFJuwolmWBkMjSSYse-5dl58JAfkiZOG6eLiNfEqKAYtzdNIWnqt1E4ZshwP8Nx86LDSy4n0XaFwZhwY7E">
+                {%- endif -%}
+              </div>
+              <span class="text-xs font-bold tracking-widest text-[#FFC426] uppercase mb-4 block" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.category }}</span>
+              <h3 class="text-2xl font-bold tracking-tight text-stone-900 group-hover:text-[#FFC426] transition-colors" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title }}</h3>
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          <div class="group cursor-pointer">
+            <div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-stone-200">
+              <img alt="Related Post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBG2nPyevEiNlwCH-Wivnv96dbvHb_9_cj1YqTwe35igpdC-j9Jt7x9N06ctvI0dq1hpNl5vlK_b7J7lgcynf0fMwRzlHDb9xj5YcLyL47qtAp1485NQhQ2wjEYcSj1iobTjbjZ0Uy9MrpJ-Z2Z_8rZklvo3dUX1WsHdSWbFxfr-tqXLPIBEYgOQWxWPCAFJuwolmWBkMjSSYse-5dl58JAfkiZOG6eLiNfEqKAYtzdNIWnqt1E4ZshwP8Nx86LDSy4n0XaFwZhwY7E">
+            </div>
+            <span class="text-xs font-bold tracking-widest text-[#FFC426] uppercase mb-4 block" style="font-family: 'Space Grotesk', sans-serif;">TECH</span>
+            <h3 class="text-2xl font-bold tracking-tight text-stone-900 group-hover:text-[#FFC426] transition-colors" style="font-family: 'Space Grotesk', sans-serif;">The Science of High-Torque Hub Motors</h3>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-stone-200">
+              <img alt="Related Post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTkbW5M_IWlWhJFELJWf23UX3TsevPVIVl8UuehZs2HsBuj6JLRvVFEqPUbONopYjelCWvHHZB2xGkFhq9cLPzDn_QqRZgQg2c56GujFNdEDf62Bih3Gqxt1VebAMZ8wqqnSGfr9LPZLgiWfVz0nE6EF3f1ggGAafnPymJmGlbJVFElaVPSZqXMRPApcITJa04o4hq9SKLYyr11t4u95ZzAFWgStUaYhcE98pk19MfSQYm7tS8UBzSn1aAsJ2Db0Ks2df2hpEIE-Q">
+            </div>
+            <span class="text-xs font-bold tracking-widest text-[#FFC426] uppercase mb-4 block" style="font-family: 'Space Grotesk', sans-serif;">ADVENTURE</span>
+            <h3 class="text-2xl font-bold tracking-tight text-stone-900 group-hover:text-[#FFC426] transition-colors" style="font-family: 'Space Grotesk', sans-serif;">Conquering the High Sierras with the M-3</h3>
+          </div>
+          <div class="group cursor-pointer">
+            <div class="aspect-[16/10] overflow-hidden rounded-xl mb-6 bg-stone-200">
+              <img alt="Related Post" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiSyO2pVwz8uFONt4CIw-v79qEz-xHLmufsjQ3ZlcI2-t_ppJo2lwT8L8-CEGTHvNmbBvkTXY_vqGVWQY4Vmd71Vyj-IpknFeHitCcHL4PsNJ4At8Cl0EK7sNt95rHAKqHQXqbUta2QcqEu6rnJqmKcuzCHXqfwOAyten-odTNtoQKbek5BKcNnqj3U191G0xiuleSGK2vC5WnCsg1oEkuAoIT9R1j_lQuU-vg51PshJgIn1QBnK3U_0i7Y8vq7hJatL8MMnBYqepy">
+            </div>
+            <span class="text-xs font-bold tracking-widest text-[#FFC426] uppercase mb-4 block" style="font-family: 'Space Grotesk', sans-serif;">LIFESTYLE</span>
+            <h3 class="text-2xl font-bold tracking-tight text-stone-900 group-hover:text-[#FFC426] transition-colors" style="font-family: 'Space Grotesk', sans-serif;">Urban Mobility: The Future is Electric</h3>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
 </main>
 
 <!-- Footer -->
-<footer class="w-full mt-20 bg-slate-50">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full py-16 px-12 max-w-screen-2xl mx-auto items-center">
-<div class="space-y-6">
-<div class="text-xl font-bold text-slate-900">{{ section.settings.brand_name }}</div>
-<div class="text-slate-500 uppercase tracking-widest text-xs" style="font-family: 'Space Grotesk', sans-serif;">
-    © 2024 KINETIC MONOLITH. PRECISION E-MOBILITY.
-</div>
-</div>
-<div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
-<a class="uppercase tracking-widest text-xs text-slate-500 hover:text-[#FFC426] transition-colors" href="#">Privacy Policy</a>
-<a class="uppercase tracking-widest text-xs text-slate-500 hover:text-[#FFC426] transition-colors" href="#">Technical Manuals</a>
-<a class="uppercase tracking-widest text-xs text-slate-500 hover:text-[#FFC426] transition-colors" href="#">Support</a>
-<a class="uppercase tracking-widest text-xs text-slate-500 hover:text-[#FFC426] transition-colors" href="#">Press</a>
-<a class="uppercase tracking-widest text-xs text-slate-500 hover:text-[#FFC426] transition-colors" href="#">Careers</a>
-</div>
-</div>
+<footer class="w-full mt-20 bg-stone-50">
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full py-16 px-12 max-w-[1440px] mx-auto items-center">
+    <div class="space-y-6">
+      <div class="text-xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
+      <div class="text-stone-500 uppercase tracking-widest text-xs" style="font-family: 'Space Grotesk', sans-serif;">
+        © 2024 MAXFOOT ELECTRIC BIKES. ENGINEERED FOR ADVENTURE.
+      </div>
+    </div>
+    <div class="flex flex-wrap gap-x-8 gap-y-4 md:justify-end">
+      <a class="uppercase tracking-widest text-xs text-stone-500 hover:text-[#FFC426] transition-colors" href="#">Privacy Policy</a>
+      <a class="uppercase tracking-widest text-xs text-stone-500 hover:text-[#FFC426] transition-colors" href="#">Technical Manuals</a>
+      <a class="uppercase tracking-widest text-xs text-stone-500 hover:text-[#FFC426] transition-colors" href="#">Support</a>
+      <a class="uppercase tracking-widest text-xs text-stone-500 hover:text-[#FFC426] transition-colors" href="#">Press</a>
+      <a class="uppercase tracking-widest text-xs text-stone-500 hover:text-[#FFC426] transition-colors" href="#">Careers</a>
+    </div>
+  </div>
 </footer>

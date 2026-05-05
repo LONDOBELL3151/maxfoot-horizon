@@ -8,7 +8,13 @@
       "type": "text",
       "id": "brand_name",
       "label": "Brand Name",
-      "default": "E-ADVENTURE"
+      "default": "MAXFOOT"
+    },
+    {
+      "type": "text",
+      "id": "hero_badge",
+      "label": "Hero Badge",
+      "default": "Next Generation Performance"
     },
     {
       "type": "text",
@@ -39,42 +45,6 @@
       "id": "hero_stat_label",
       "label": "Hero Stat Label",
       "default": "Instant Peak Torque"
-    },
-    {
-      "type": "text",
-      "id": "stat_1_value",
-      "label": "Stat 1 Value",
-      "default": "28"
-    },
-    {
-      "type": "text",
-      "id": "stat_1_label",
-      "label": "Stat 1 Label",
-      "default": "MPH TOP SPEED"
-    },
-    {
-      "type": "text",
-      "id": "stat_2_value",
-      "label": "Stat 2 Value",
-      "default": "750"
-    },
-    {
-      "type": "text",
-      "id": "stat_2_label",
-      "label": "Stat 2 Label",
-      "default": "W NOMINAL"
-    },
-    {
-      "type": "text",
-      "id": "stat_3_value",
-      "label": "Stat 3 Value",
-      "default": "4.0"
-    },
-    {
-      "type": "text",
-      "id": "stat_3_label",
-      "label": "Stat 3 Label",
-      "default": "INCH TREAD"
     }
   ],
   "blocks": [
@@ -100,247 +70,258 @@
 }
 {% endschema %}
 
-<!-- TopNavBar -->
-<nav class="bg-white/95 backdrop-blur-md border-b border-zinc-100 docked full-width top-0 sticky z-50 transition-all duration-200 ease-in-out">
-<div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-<div class="text-2xl font-bold tracking-tighter text-zinc-900">{{ section.settings.brand_name }}</div>
-<div class="hidden md:flex items-center gap-8">
-  {%- for block in section.blocks -%}{%- if block.type == 'nav_link' -%}<a class="text-zinc-600 hover:text-zinc-900 transition-colors font-label-lg uppercase" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>{%- endif -%}{%- endfor -%}
-</div>
-<div class="flex items-center gap-6">
-<div class="hidden lg:flex items-center bg-surface-container px-4 py-2 rounded-lg">
-<span class="material-symbols-outlined text-zinc-400 mr-2">search</span>
-<input class="bg-transparent border-none focus:ring-0 text-sm w-32 font-body-md" placeholder="Search technology..." type="text"/>
-</div>
-<button class="bg-primary-container text-on-primary-container px-6 py-2.5 rounded-lg font-label-lg transition-all hover:opacity-90">Shop Now</button>
-</div>
-</div>
+<nav class="bg-white/95 backdrop-blur-md border-b border-stone-100 sticky top-0 z-50">
+  <div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
+    <div class="text-2xl font-bold tracking-tighter text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
+    <div class="hidden md:flex items-center gap-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
+        {%- endif -%}
+      {%- else -%}
+        <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Bikes</a>
+        <a class="text-[#FFC426] border-b-2 border-[#FFC426] pb-1 font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Technology</a>
+        <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Innovation</a>
+        <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Support</a>
+      {%- endfor -%}
+    </div>
+    <div class="flex items-center gap-6">
+      <button class="bg-[#FFC426] text-stone-900 px-6 py-2.5 rounded-lg font-bold uppercase text-sm tracking-widest transition-all hover:opacity-90" style="font-family: 'Space Grotesk', sans-serif;">Shop Now</button>
+    </div>
+  </div>
 </nav>
 
-<!-- Hero Section -->
-<header class="relative min-h-[921px] flex flex-col justify-center overflow-hidden hero-gradient">
-<div class="max-w-7xl mx-auto px-6 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-[120px]">
-<div class="z-10">
-<div class="inline-flex items-center bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full mb-8">
-<span class="font-label-lg uppercase tracking-widest text-[11px]">Next Generation Performance</span>
-</div>
-<h1 class="font-display-lg text-on-surface uppercase mb-6 leading-[0.95]">{{ section.settings.hero_title }}</h1>
-<p class="font-body-lg text-on-surface-variant max-w-md mb-10">{{ section.settings.hero_description }}</p>
-<div class="flex flex-wrap gap-4">
-<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:scale-105">Experience Power</button>
-<button class="border-2 border-zinc-900 text-zinc-900 px-10 py-4 rounded-lg font-label-lg uppercase transition-all hover:bg-zinc-900 hover:text-white">White Papers</button>
-</div>
-</div>
-<div class="relative flex justify-center">
-<div class="absolute -z-10 w-[140%] h-[140%] bg-primary-container/10 blur-[100px] rounded-full"></div>
-<div class="bg-white p-8 rounded-xl shadow-2xl border border-zinc-100 flex flex-col items-center">
-<div class="text-[120px] font-display-lg text-primary leading-none mb-2">{{ section.settings.hero_stat_value }}<span class="text-4xl font-headline-lg ml-2">{{ section.settings.hero_stat_unit }}</span></div>
-<div class="font-label-lg uppercase tracking-widest text-on-surface-variant">{{ section.settings.hero_stat_label }}</div>
-<div class="w-full h-px bg-zinc-100 my-8"></div>
-<div class="grid grid-cols-2 gap-8 w-full">
-<div>
-<div class="font-headline-lg text-on-surface">4.2s</div>
-<div class="text-[10px] font-label-md uppercase text-zinc-400">0-20 MPH</div>
-</div>
-<div>
-<div class="font-headline-lg text-on-surface">98%</div>
-<div class="text-[10px] font-label-md uppercase text-zinc-400">Efficiency</div>
-</div>
-</div>
-</div>
-</div>
-</div>
+<header class="relative min-h-[921px] flex flex-col justify-center overflow-hidden bg-gradient-to-b from-white to-stone-50">
+  <div class="max-w-[1440px] mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-[120px]">
+    <div class="z-10">
+      <div class="inline-flex items-center bg-[#FFC426] text-stone-900 px-4 py-1.5 rounded-full mb-8">
+        <span class="font-bold uppercase tracking-widest text-xs" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.hero_badge }}</span>
+      </div>
+      <h1 class="text-5xl lg:text-7xl font-bold text-stone-900 uppercase mb-6 leading-[0.95]" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.hero_title }}</h1>
+      <p class="text-lg text-stone-600 max-w-md mb-10 leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ section.settings.hero_description }}</p>
+      <div class="flex flex-wrap gap-4">
+        <button class="bg-[#FFC426] text-stone-900 px-10 py-4 rounded-lg font-bold uppercase text-sm tracking-widest transition-all hover:opacity-90" style="font-family: 'Space Grotesk', sans-serif;">Experience Power</button>
+        <button class="border-2 border-stone-900 text-stone-900 px-10 py-4 rounded-lg font-bold uppercase text-sm tracking-widest transition-all hover:bg-stone-900 hover:text-white" style="font-family: 'Space Grotesk', sans-serif;">White Papers</button>
+      </div>
+    </div>
+    <div class="relative flex justify-center">
+      <div class="absolute -z-10 w-[140%] h-[140%] bg-[#FFC426]/10 blur-[100px] rounded-full"></div>
+      <div class="bg-white p-8 rounded-xl shadow-2xl border border-stone-100 flex flex-col items-center">
+        <div class="text-[120px] font-bold text-[#FFC426] leading-none mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.hero_stat_value }}<span class="text-4xl font-bold ml-2">{{ section.settings.hero_stat_unit }}</span></div>
+        <div class="font-bold uppercase tracking-widest text-stone-500 text-sm" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.hero_stat_label }}</div>
+        <div class="w-full h-px bg-stone-100 my-8"></div>
+        <div class="grid grid-cols-2 gap-8 w-full">
+          <div>
+            <div class="text-2xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">4.2s</div>
+            <div class="text-[10px] uppercase tracking-widest text-stone-400">0-20 MPH</div>
+          </div>
+          <div>
+            <div class="text-2xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">98%</div>
+            <div class="text-[10px] uppercase tracking-widest text-stone-400">Efficiency</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </header>
 
-<!-- Core Innovations (Bento Grid) -->
 <section class="bg-white py-[120px]">
-<div class="max-w-7xl mx-auto px-6">
-<div class="flex flex-col items-center text-center mb-16">
-<h2 class="font-headline-xl uppercase mb-4">Core Innovations</h2>
-<div class="w-20 h-1.5 bg-primary-container"></div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
-<!-- Feature 1: Large Bento -->
-<div class="md:col-span-8 md:row-span-2 bento-card bg-surface-container-low rounded-xl overflow-hidden group">
-<div class="h-full w-full relative">
-<img class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" alt="Power Cell v4 battery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAujOYG_7TZl-jA8tC6wfKEQaO6xczpZTFKV9aBEUUqcoVHzM7qKrDPZPxco_YARvlSi1m3mf7xvfxq1bgeYJfPr9yBkxK1pj0-0Cl1p5KwxX9wFgKAXF7bUQIefzXHKqiMLDyobBcyfzvgkN23Zah63xI1PlWhc5MXUsebwSTxUZAb2MV04PFqz-uDlXplCz-_5GNejx0dYu2JJIxjIfmeb9kmU0qlrTcbbUZOtSMqyJry3Ch43M2pmdyrzu5NxARZTth8LCphbtdS"/>
-<div class="absolute inset-0 bg-gradient-to-t from-zinc-900/80 to-transparent"></div>
-<div class="absolute bottom-0 left-0 p-10 text-white">
-<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded font-label-md uppercase mb-4 inline-block">Flagship Tech</span>
-<h3 class="font-headline-xl uppercase mb-4">Power Cell v4</h3>
-<p class="font-body-md text-zinc-300 max-w-md">Our patented thermal shielding technology maintains optimal operating temperatures even under extreme heavy-load conditions.</p>
-</div>
-</div>
-</div>
-{%- for block in section.blocks -%}{%- if block.type == 'feature_card' -%}
-<div class="md:col-span-4 bento-card bg-white border border-zinc-100 p-8 flex flex-col justify-between rounded-xl">
-<span class="material-symbols-outlined text-primary text-4xl">{{ block.settings.icon }}</span>
-<div>
-<h4 class="font-headline-lg uppercase mb-2">{{ block.settings.title }}</h4>
-<p class="text-on-surface-variant font-body-md">{{ block.settings.description }}</p>
-</div>
-</div>
-{%- endif -%}{%- endfor -%}
-<!-- Wide Bento: Ultra-Connect Hub -->
-<div class="md:col-span-12 md:row-span-1 bento-card bg-surface-container rounded-xl overflow-hidden flex flex-col md:flex-row items-center">
-<div class="p-10 flex-1">
-<h4 class="font-headline-xl uppercase mb-4">Ultra-Connect Hub</h4>
-<p class="text-on-surface-variant font-body-md mb-6">Seamless integration with your ecosystem. Real-time diagnostics, over-the-air updates, and military-grade GPS tracking.</p>
-<div class="flex gap-4">
-<span class="font-label-lg text-primary uppercase">Bluetooth 5.3</span>
-<span class="font-label-lg text-primary uppercase">5G Lte</span>
-<span class="font-label-lg text-primary uppercase">RFID Lock</span>
-</div>
-</div>
-<div class="flex-1 h-full w-full bg-zinc-200">
-<img class="w-full h-full object-cover" alt="Smartphone diagnostic app" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1QG1vJZmszWb3D-g7Aa5-xVCuFLGGDOSDg76rNrvtqC0KrjAkT5RrGCCENIoKQSaS9DOQ8UShB3f2N6Jqj3tm_j1sVE4AuYpsr9ugLOJiXUyPGRGQEs6hKjsE5vQkPJOOO35LAo5KfERsj7nbLLjq7e5LJX6tMWBm7XqaqLE9woNGUZvBz3DxDj7w3poq4RF8h_nubr4XkwdRXJtMCvf3OJwgqflhK6RTlfyfllzgB1yJF7ySV8aM_AsvC1MMMwkwX1g3PGeilPap"/>
-</div>
-</div>
-</div>
-</div>
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="flex flex-col items-center text-center mb-16">
+      <h2 class="text-4xl lg:text-5xl font-bold text-stone-900 uppercase mb-4" style="font-family: 'Space Grotesk', sans-serif;">Core Innovations</h2>
+      <div class="w-20 h-1.5 bg-[#FFC426]"></div>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[280px]">
+      <div class="md:col-span-8 md:row-span-2 bg-stone-900 rounded-xl overflow-hidden group relative">
+        <img class="absolute inset-0 w-full h-full object-cover opacity-60 transition-transform duration-700 group-hover:scale-105" alt="Power Cell v4 battery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAujOYG_7TZl-jA8tC6wfKEQaO6xczpZTFKV9aBEUUqcoVHzM7qKrDPZPxco_YARvlSi1m3mf7xvfxq1bgeYJfPr9yBkxK1pj0-0Cl1p5KwxX9wFgKAXF7bUQIefzXHKqiMLDyobBcyfzvgkN23Zah63xI1PlWhc5MXUsebwSTxUZAb2MV04PFqz-uDlXplCz-_5GNejx0dYu2JJIxjIfmeb9kmU0qlrTcbbUZOtSMqyJry3Ch43M2pmdyrzu5NxARZTth8LCphbtdS">
+        <div class="absolute inset-0 bg-gradient-to-t from-stone-900/80 to-transparent"></div>
+        <div class="absolute bottom-0 left-0 p-10 text-white">
+          <span class="bg-[#FFC426] text-stone-900 px-3 py-1 rounded font-bold uppercase text-xs mb-4 inline-block">Flagship Tech</span>
+          <h3 class="text-3xl font-bold uppercase mb-4" style="font-family: 'Space Grotesk', sans-serif;">Power Cell v4</h3>
+          <p class="text-stone-300 max-w-md leading-relaxed" style="font-family: 'Lexend', sans-serif;">Our patented thermal shielding technology maintains optimal operating temperatures even under extreme heavy-load conditions.</p>
+        </div>
+      </div>
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'feature_card' -%}
+          <div class="md:col-span-4 bg-white border border-stone-100 p-8 flex flex-col justify-between rounded-xl hover:border-[#FFC426] transition-colors">
+            <span class="material-symbols-outlined text-[#FFC426] text-4xl">{{ block.settings.icon }}</span>
+            <div>
+              <h4 class="text-xl font-bold uppercase mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title }}</h4>
+              <p class="text-stone-500 text-sm leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ block.settings.description }}</p>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="md:col-span-4 bg-white border border-stone-100 p-8 flex flex-col justify-between rounded-xl hover:border-[#FFC426] transition-colors">
+          <span class="material-symbols-outlined text-[#FFC426] text-4xl">bolt</span>
+          <div>
+            <h4 class="text-xl font-bold uppercase mb-2" style="font-family: 'Space Grotesk', sans-serif;">High Efficiency Motor</h4>
+            <p class="text-stone-500 text-sm leading-relaxed" style="font-family: 'Lexend', sans-serif;">750W brushless DC motor with 98% efficiency rating.</p>
+          </div>
+        </div>
+        <div class="md:col-span-4 bg-white border border-stone-100 p-8 flex flex-col justify-between rounded-xl hover:border-[#FFC426] transition-colors">
+          <span class="material-symbols-outlined text-[#FFC426] text-4xl">battery_charging_full</span>
+          <div>
+            <h4 class="text-xl font-bold uppercase mb-2" style="font-family: 'Space Grotesk', sans-serif;">Smart BMS</h4>
+            <p class="text-stone-500 text-sm leading-relaxed" style="font-family: 'Lexend', sans-serif;">Intelligent battery management with real-time monitoring.</p>
+          </div>
+        </div>
+      {%- endfor -%}
+      <div class="md:col-span-12 bg-stone-100 rounded-xl overflow-hidden flex flex-col md:flex-row items-center">
+        <div class="p-10 flex-1">
+          <h4 class="text-3xl font-bold uppercase mb-4" style="font-family: 'Space Grotesk', sans-serif;">Ultra-Connect Hub</h4>
+          <p class="text-stone-600 mb-6 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Seamless integration with your ecosystem. Real-time diagnostics, over-the-air updates, and military-grade GPS tracking.</p>
+          <div class="flex gap-4">
+            <span class="font-bold text-[#FFC426] uppercase text-sm tracking-widest">Bluetooth 5.3</span>
+            <span class="font-bold text-[#FFC426] uppercase text-sm tracking-widest">5G Lte</span>
+            <span class="font-bold text-[#FFC426] uppercase text-sm tracking-widest">RFID Lock</span>
+          </div>
+        </div>
+        <div class="flex-1 h-full w-full bg-stone-200">
+          <img class="w-full h-full object-cover" alt="Smartphone diagnostic app" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA1QG1vJZmszWb3D-g7Aa5-xVCuFLGGDOSDg76rNrvtqC0KrjAkT5RrGCCENIoKQSaS9DOQ8UShB3f2N6Jqj3tm_j1sVE4AuYpsr9ugLOJiXUyPGRGQEs6hKjsE5vQkPJOOO35LAo5KfERsj7nbLLjq7e5LJX6tMWBm7XqaqLE9woNGUZvBz3DxDj7w3poq4RF8h_nubr4XkwdRXJtMCvf3OJwgqflhK6RTlfyfllzgB1yJF7ySV8aM_AsvC1MMMwkwX1g3PGeilPap">
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Efficiency Stats Section -->
-<section class="bg-surface-container-low py-[120px]">
-<div class="max-w-7xl mx-auto px-6">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-16">
-<div class="space-y-6">
-<div class="flex justify-between items-end">
-<div class="font-display-lg leading-none">{{ section.settings.stat_1_value }}</div>
-<div class="font-label-lg text-primary mb-2">{{ section.settings.stat_1_label }}</div>
-</div>
-<div class="w-full h-4 bg-white rounded-full overflow-hidden">
-<div class="h-full w-[85%] progress-gradient"></div>
-</div>
-<p class="font-body-md text-on-surface-variant">Unrestricted class-3 performance capabilities for rapid urban commuting.</p>
-</div>
-<div class="space-y-6">
-<div class="flex justify-between items-end">
-<div class="font-display-lg leading-none">{{ section.settings.stat_2_value }}</div>
-<div class="font-label-lg text-primary mb-2">{{ section.settings.stat_2_label }}</div>
-</div>
-<div class="w-full h-4 bg-white rounded-full overflow-hidden">
-<div class="h-full w-[75%] progress-gradient"></div>
-</div>
-<p class="font-body-md text-on-surface-variant">High-efficiency brushless DC motor designed for peak power sustained output.</p>
-</div>
-<div class="space-y-6">
-<div class="flex justify-between items-end">
-<div class="font-display-lg leading-none">{{ section.settings.stat_3_value }}</div>
-<div class="font-label-lg text-primary mb-2">{{ section.settings.stat_3_label }}</div>
-</div>
-<div class="w-full h-4 bg-white rounded-full overflow-hidden">
-<div class="h-full w-[95%] progress-gradient"></div>
-</div>
-<p class="font-body-md text-on-surface-variant">Custom compound fat-tires providing maximum traction on loose terrain.</p>
-</div>
-</div>
-</div>
+<section class="bg-stone-50 py-[120px]">
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-16">
+      <div class="space-y-6">
+        <div class="flex justify-between items-end">
+          <div class="text-6xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">28</div>
+          <div class="font-bold text-[#FFC426] uppercase text-sm tracking-widest mb-2" style="font-family: 'Space Grotesk', sans-serif;">MPH TOP SPEED</div>
+        </div>
+        <div class="w-full h-4 bg-white rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-blue-500 to-[#FFC426] w-[85%]"></div>
+        </div>
+        <p class="text-stone-500 text-sm leading-relaxed" style="font-family: 'Lexend', sans-serif;">Unrestricted class-3 performance capabilities for rapid urban commuting.</p>
+      </div>
+      <div class="space-y-6">
+        <div class="flex justify-between items-end">
+          <div class="text-6xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">750</div>
+          <div class="font-bold text-[#FFC426] uppercase text-sm tracking-widest mb-2" style="font-family: 'Space Grotesk', sans-serif;">W NOMINAL</div>
+        </div>
+        <div class="w-full h-4 bg-white rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-blue-500 to-[#FFC426] w-[75%]"></div>
+        </div>
+        <p class="text-stone-500 text-sm leading-relaxed" style="font-family: 'Lexend', sans-serif;">High-efficiency brushless DC motor designed for peak power sustained output.</p>
+      </div>
+      <div class="space-y-6">
+        <div class="flex justify-between items-end">
+          <div class="text-6xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">4.0"</div>
+          <div class="font-bold text-[#FFC426] uppercase text-sm tracking-widest mb-2" style="font-family: 'Space Grotesk', sans-serif;">INCH TREAD</div>
+        </div>
+        <div class="w-full h-4 bg-white rounded-full overflow-hidden">
+          <div class="h-full bg-gradient-to-r from-blue-500 to-[#FFC426] w-[95%]"></div>
+        </div>
+        <p class="text-stone-500 text-sm leading-relaxed" style="font-family: 'Lexend', sans-serif;">Custom compound fat-tires providing maximum traction on loose terrain.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Riding Adaptivity (Comparison Table) -->
 <section class="bg-white py-[120px]">
-<div class="max-w-7xl mx-auto px-6">
-<div class="mb-16">
-<h2 class="font-headline-xl uppercase mb-2">Riding Adaptivity</h2>
-<p class="font-body-lg text-on-surface-variant max-w-2xl">One machine, multiple personalities. Switch profiles instantly via the integrated cockpit.</p>
-</div>
-<div class="overflow-x-auto">
-<table class="w-full border-collapse">
-<thead>
-<tr class="border-b-2 border-zinc-900">
-<th class="py-6 text-left font-label-lg uppercase tracking-wider">Mode</th>
-<th class="py-6 text-left font-label-lg uppercase tracking-wider">Performance</th>
-<th class="py-6 text-left font-label-lg uppercase tracking-wider">Range Impact</th>
-<th class="py-6 text-center font-label-lg uppercase tracking-wider">Versatility</th>
-</tr>
-</thead>
-<tbody>
-<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
-<td class="py-8">
-<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Urban Flow</div>
-<div class="text-xs font-label-md text-zinc-400 uppercase">Eco-Optimized</div>
-</td>
-<td class="py-8 font-body-md">Smooth acceleration, regenerative braking active.</td>
-<td class="py-8 font-body-md text-primary">+25% Extension</td>
-<td class="py-8 text-center">
-<div class="flex justify-center text-primary-container">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined">star</span>
-</div>
-</td>
-</tr>
-<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
-<td class="py-8">
-<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Apex Peak</div>
-<div class="text-xs font-label-md text-zinc-400 uppercase">Maximum Output</div>
-</td>
-<td class="py-8 font-body-md">Full torque bypass, increased throttle response.</td>
-<td class="py-8 font-body-md text-error">-15% Reduction</td>
-<td class="py-8 text-center">
-<div class="flex justify-center text-primary-container">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-</div>
-</td>
-</tr>
-<tr class="border-b border-zinc-100 hover:bg-surface-container transition-colors group">
-<td class="py-8">
-<div class="font-headline-lg uppercase text-zinc-400 group-hover:text-zinc-900 transition-colors">Heavy Load</div>
-<div class="text-xs font-label-md text-zinc-400 uppercase">Utility Focused</div>
-</td>
-<td class="py-8 font-body-md">Stepped power delivery for trailers and gear.</td>
-<td class="py-8 font-body-md text-zinc-500">Nominal</td>
-<td class="py-8 text-center">
-<div class="flex justify-center text-primary-container">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
-<span class="material-symbols-outlined">star</span>
-<span class="material-symbols-outlined">star</span>
-</div>
-</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="mb-16">
+      <h2 class="text-4xl font-bold text-stone-900 uppercase mb-2" style="font-family: 'Space Grotesk', sans-serif;">Riding Adaptivity</h2>
+      <p class="text-lg text-stone-500 max-w-2xl leading-relaxed" style="font-family: 'Lexend', sans-serif;">One machine, multiple personalities. Switch profiles instantly via the integrated cockpit.</p>
+    </div>
+    <div class="overflow-x-auto">
+      <table class="w-full border-collapse">
+        <thead>
+          <tr class="border-b-2 border-stone-900">
+            <th class="py-6 text-left font-bold uppercase tracking-wider text-sm" style="font-family: 'Space Grotesk', sans-serif;">Mode</th>
+            <th class="py-6 text-left font-bold uppercase tracking-wider text-sm" style="font-family: 'Space Grotesk', sans-serif;">Performance</th>
+            <th class="py-6 text-left font-bold uppercase tracking-wider text-sm" style="font-family: 'Space Grotesk', sans-serif;">Range Impact</th>
+            <th class="py-6 text-center font-bold uppercase tracking-wider text-sm" style="font-family: 'Space Grotesk', sans-serif;">Versatility</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors group">
+            <td class="py-8">
+              <div class="text-xl font-bold uppercase text-stone-400 group-hover:text-stone-900 transition-colors" style="font-family: 'Space Grotesk', sans-serif;">Urban Flow</div>
+              <div class="text-xs uppercase tracking-widest text-stone-400">Eco-Optimized</div>
+            </td>
+            <td class="py-8 text-stone-600" style="font-family: 'Lexend', sans-serif;">Smooth acceleration, regenerative braking active.</td>
+            <td class="py-8 font-bold text-[#FFC426]">+25% Extension</td>
+            <td class="py-8 text-center">
+              <div class="flex justify-center text-[#FFC426]">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined">star</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors group">
+            <td class="py-8">
+              <div class="text-xl font-bold uppercase text-stone-400 group-hover:text-stone-900 transition-colors" style="font-family: 'Space Grotesk', sans-serif;">Apex Peak</div>
+              <div class="text-xs uppercase tracking-widest text-stone-400">Maximum Output</div>
+            </td>
+            <td class="py-8 text-stone-600" style="font-family: 'Lexend', sans-serif;">Full torque bypass, increased throttle response.</td>
+            <td class="py-8 font-bold text-red-500">-15% Reduction</td>
+            <td class="py-8 text-center">
+              <div class="flex justify-center text-[#FFC426]">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+              </div>
+            </td>
+          </tr>
+          <tr class="border-b border-stone-100 hover:bg-stone-50 transition-colors group">
+            <td class="py-8">
+              <div class="text-xl font-bold uppercase text-stone-400 group-hover:text-stone-900 transition-colors" style="font-family: 'Space Grotesk', sans-serif;">Heavy Load</div>
+              <div class="text-xs uppercase tracking-widest text-stone-400">Utility Focused</div>
+            </td>
+            <td class="py-8 text-stone-600" style="font-family: 'Lexend', sans-serif;">Stepped power delivery for trailers and gear.</td>
+            <td class="py-8 font-bold text-stone-400">Nominal</td>
+            <td class="py-8 text-center">
+              <div class="flex justify-center text-[#FFC426]">
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">star</span>
+                <span class="material-symbols-outlined">star</span>
+                <span class="material-symbols-outlined">star</span>
+              </div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </section>
 
-<!-- CTA Banner -->
 <section class="bg-white py-[120px]">
-<div class="max-w-7xl mx-auto px-6">
-<div class="bg-zinc-900 rounded-2xl p-12 md:p-24 text-center relative overflow-hidden">
-<div class="absolute inset-0 opacity-10">
-<img class="w-full h-full object-cover" alt="Electric bike silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaa5QxfUU79UB04sZ79UiJcePkxhC4UxluiLfheuWH3rbxQDR_JkmTmd1G8oInCFj5t2NmCktAVWaPymgy8tZwuH8B50vTNji9VtSSQu0RXhiKgGQodlLhay0pXExbFSu8sX3E8kfJqeQuSyH2AtYaspuEXVgibqaZOn_hviKxeDzKip2mOwF-4YJCn6GbEDhXXCluMwtbNEuIo2KK4fhxK6eC7VE9W7Wcwn5saYrHRmdvXzXLMLLwkBavrhOgb5QfWtg-QQ6IqV9t"/>
-</div>
-<div class="relative z-10">
-<h2 class="font-display-lg text-white uppercase mb-8 leading-tight">STOP WATCHING.<br/>START RIDING.</h2>
-<div class="flex flex-col md:flex-row gap-6 justify-center">
-<button class="bg-primary-container text-on-primary-container px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:scale-105">Book a Test Flight</button>
-<button class="border-2 border-white text-white px-12 py-5 rounded-lg font-label-lg uppercase transition-all hover:bg-white hover:text-zinc-900">Configure Yours</button>
-</div>
-</div>
-</div>
-</div>
+  <div class="max-w-[1440px] mx-auto px-8">
+    <div class="bg-stone-900 rounded-2xl p-12 md:p-24 text-center relative overflow-hidden">
+      <div class="absolute inset-0 opacity-10">
+        <img class="w-full h-full object-cover" alt="Electric bike silhouette" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCaa5QxfUU79UB04sZ79UiJcePkxhC4UxluiLfheuWH3rbxQDR_JkmTmd1G8oInCFj5t2NmCktAVWaPymgy8tZwuH8B50vTNji9VtSSQu0RXhiKgGQodlLhay0pXExbFSu8sX3E8kfJqeQuSyH2AtYaspuEXVgibqaZOn_hviKxeDzKip2mOwF-4YJCn6GbEDhXXCluMwtbNEuIo2KK4fhxK6eC7VE9W7Wcwn5saYrHRmdvXzXLMLLwkBavrhOgb5QfWtg-QQ6IqV9t">
+      </div>
+      <div class="relative z-10">
+        <h2 class="text-5xl lg:text-7xl font-bold text-white uppercase mb-8 leading-tight" style="font-family: 'Space Grotesk', sans-serif;">STOP WATCHING.<br/>START RIDING.</h2>
+        <div class="flex flex-col md:flex-row gap-6 justify-center">
+          <button class="bg-[#FFC426] text-stone-900 px-12 py-5 rounded-lg font-bold uppercase text-sm tracking-widest transition-all hover:scale-105" style="font-family: 'Space Grotesk', sans-serif;">Book a Test Flight</button>
+          <button class="border-2 border-white text-white px-12 py-5 rounded-lg font-bold uppercase text-sm tracking-widest transition-all hover:bg-white hover:text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Configure Yours</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<!-- Footer -->
-<footer class="bg-white border-t border-zinc-100 full-width py-12 transition-all ease-out duration-300">
-<div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="text-xl font-bold text-zinc-900">{{ section.settings.brand_name }}</div>
-<div class="flex flex-wrap justify-center gap-8">
-<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Privacy Policy</a>
-<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Terms of Service</a>
-<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Warranty</a>
-<a class="text-zinc-500 hover:text-[#FFC426] transition-colors font-label-md uppercase" href="#">Contact Us</a>
-</div>
-<p class="font-body-md text-zinc-500 text-sm">© 2024 High-Performance Adventure. All rights reserved.</p>
-</div>
+<footer class="bg-white border-t border-stone-100 py-12">
+  <div class="max-w-[1440px] mx-auto px-8 flex flex-col md:flex-row justify-between items-center gap-8">
+    <div class="text-xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
+    <div class="flex flex-wrap justify-center gap-8">
+      <a class="text-stone-500 hover:text-[#FFC426] transition-colors font-bold uppercase text-xs tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Privacy Policy</a>
+      <a class="text-stone-500 hover:text-[#FFC426] transition-colors font-bold uppercase text-xs tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Terms of Service</a>
+      <a class="text-stone-500 hover:text-[#FFC426] transition-colors font-bold uppercase text-xs tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Warranty</a>
+      <a class="text-stone-500 hover:text-[#FFC426] transition-colors font-bold uppercase text-xs tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Contact Us</a>
+    </div>
+    <p class="text-stone-500 text-sm">© 2024 MAXFOOT ELECTRIC BIKES. All rights reserved.</p>
+  </div>
 </footer>

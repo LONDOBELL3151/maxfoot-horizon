@@ -5,52 +5,15 @@
   "class": "maxfoot-v5-product-detail",
   "settings": [
     {
+      "type": "product",
+      "id": "product",
+      "label": "Product"
+    },
+    {
       "type": "text",
       "id": "brand_name",
       "label": "Brand Name",
       "default": "MAXFOOT"
-    },
-    {
-      "type": "text",
-      "id": "product_title",
-      "label": "Product Title",
-      "default": "MAXFOOT M-3"
-    },
-    {
-      "type": "textarea",
-      "id": "product_description",
-      "label": "Description",
-      "default": "Experience the pinnacle of electric propulsion with the M-3."
-    },
-    {
-      "type": "text",
-      "id": "price",
-      "label": "Price",
-      "default": "$1,599"
-    },
-    {
-      "type": "text",
-      "id": "spec_speed",
-      "label": "Speed Spec",
-      "default": "28 MPH"
-    },
-    {
-      "type": "text",
-      "id": "spec_range",
-      "label": "Range Spec",
-      "default": "60 Miles"
-    },
-    {
-      "type": "text",
-      "id": "spec_power",
-      "label": "Power Spec",
-      "default": "750W"
-    },
-    {
-      "type": "text",
-      "id": "spec_battery",
-      "label": "Battery Spec",
-      "default": "48V 20Ah"
     }
   ],
   "blocks": [
@@ -67,39 +30,140 @@
 }
 {% endschema %}
 
-<nav class="bg-white border-b border-stone-100 sticky top-0 z-50">
-  <div class="flex justify-between items-center w-full px-6 py-4 max-w-[1440px] mx-auto">
-    <div class="text-2xl font-black tracking-tighter text-stone-900">{{ section.settings.brand_name }}</div>
-    <div class="hidden md:flex gap-8 items-center">
-      {%- for block in section.blocks -%}{%- if block.type == 'nav_link' -%}<a class="text-stone-600 font-medium text-sm tracking-widest uppercase hover:text-yellow-500" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>{%- endif -%}{%- endfor -%}
+{%- assign product_handle = section.settings.product -%}
+{%- assign product = all_products[product_handle] -%}
+
+<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
+  <div class="max-w-[1440px] mx-auto flex justify-between items-center px-8 h-20">
+    <div class="flex items-center gap-12">
+      <span class="text-2xl font-black tracking-widest text-black" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</span>
+      <div class="hidden md:flex items-center gap-8">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'nav_link' -%}
+            <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
+          {%- endif -%}
+        {%- else -%}
+          <a class="text-[#FFC426] border-b-2 border-[#FFC426] pb-1 font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">MODELS</a>
+          <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">TECHNOLOGY</a>
+          <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">ACCESSORIES</a>
+          <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">SUPPORT</a>
+        {%- endfor -%}
+      </div>
     </div>
     <div class="flex items-center gap-6">
-      <button class="material-symbols-outlined text-stone-600 hover:text-yellow-500">search</button>
-      <button class="material-symbols-outlined text-stone-600 hover:text-yellow-500">shopping_cart</button>
+      <span class="material-symbols-outlined cursor-pointer hover:text-[#FFC426] transition-colors">shopping_cart</span>
+      <span class="material-symbols-outlined cursor-pointer hover:text-[#FFC426] transition-colors">person</span>
     </div>
   </div>
 </nav>
 
-<main class="max-w-[1440px] mx-auto px-6 py-[120px]">
-  <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-    <div class="aspect-square bg-stone-100 rounded-xl flex items-center justify-center">
-      <span class="text-stone-400">Product Image</span>
+<main class="pt-20">
+  {%- if product and product != blank -%}
+  <!-- PRODUCT GALLERY -->
+  <section class="max-w-[1440px] mx-auto px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white">
+    <div class="lg:col-span-7">
+      <div class="aspect-[16/10] bg-stone-100 overflow-hidden rounded-xl">
+        {%- if product.featured_image -%}
+          <img class="w-full h-full object-cover" src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title }}">
+        {%- else -%}
+          <div class="w-full h-full flex items-center justify-center text-stone-400">Product Image</div>
+        {%- endif -%}
+      </div>
+      {%- if product.images.size > 1 -%}
+      <div class="grid grid-cols-4 gap-4 mt-4">
+        {%- for image in product.images limit: 4 -%}
+          <div class="aspect-square bg-stone-100 rounded-xl cursor-pointer hover:opacity-80 transition-opacity overflow-hidden">
+            <img class="w-full h-full object-cover" src="{{ image | image_url: width: 200 }}" alt="{{ product.title }}">
+          </div>
+        {%- endfor -%}
+      </div>
+      {%- endif -%}
     </div>
-    <div class="flex flex-col justify-center">
-      <span class="text-sm text-yellow-500 font-bold tracking-widest uppercase mb-4">NEW ARRIVAL</span>
-      <h1 class="text-4xl font-bold text-stone-900 mb-4">{{ section.settings.product_title }}</h1>
-      <p class="text-3xl font-bold text-yellow-500 mb-6">{{ section.settings.price }}</p>
-      <p class="text-stone-600 mb-8">{{ section.settings.product_description }}</p>
+    <div class="lg:col-span-5 flex flex-col justify-center">
+      <span class="text-sm text-[#FFC426] font-bold tracking-widest uppercase mb-4" style="font-family: 'Space Grotesk', sans-serif;">NEW ARRIVAL</span>
+      <h1 class="text-4xl lg:text-5xl font-bold text-stone-900 mb-4" style="font-family: 'Space Grotesk', sans-serif;">{{ product.title }}</h1>
+      <p class="text-3xl font-bold text-[#FFC426] mb-6" style="font-family: 'Space Grotesk', sans-serif;">{{ product.price | money }}</p>
+      <p class="text-stone-600 mb-8 leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ product.description | default: product.metafields.custom.description | default: 'Experience the pinnacle of electric propulsion.' }}</p>
+
       <div class="grid grid-cols-2 gap-4 mb-8">
-        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Speed</span><span class="font-bold">{{ section.settings.spec_speed }}</span></div>
-        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Range</span><span class="font-bold">{{ section.settings.spec_range }}</span></div>
-        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Power</span><span class="font-bold">{{ section.settings.spec_power }}</span></div>
-        <div class="bg-stone-50 p-4 rounded-lg"><span class="block text-xs text-stone-400 uppercase">Battery</span><span class="font-bold">{{ section.settings.spec_battery }}</span></div>
+        <div class="bg-stone-50 p-4 rounded-xl">
+          <span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Speed</span>
+          <span class="font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ product.metafields.custom.speed | default: '28 MPH' }}</span>
+        </div>
+        <div class="bg-stone-50 p-4 rounded-xl">
+          <span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Range</span>
+          <span class="font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ product.metafields.custom.range | default: '60 Miles' }}</span>
+        </div>
+        <div class="bg-stone-50 p-4 rounded-xl">
+          <span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Power</span>
+          <span class="font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">{{ product.metafields.custom.power | default: '750W' }}</span>
+        </div>
+        <div class="bg-stone-50 p-4 rounded-xl">
+          <span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Battery</span>
+          <span class="font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ product.metafields.custom.battery | default: '48V 20Ah' }}</span>
+        </div>
+      </div>
+
+      <div class="flex gap-4">
+        <form method="post" action="/cart/add" class="flex-1">
+          <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+          <button type="submit" class="w-full bg-[#FFC426] text-stone-900 py-4 font-bold uppercase tracking-widest rounded-lg hover:opacity-90 transition-opacity" style="font-family: 'Space Grotesk', sans-serif;">ADD TO CART</button>
+        </form>
+        <button class="px-8 py-4 border-2 border-stone-900 text-stone-900 font-bold uppercase tracking-widest rounded-lg hover:bg-stone-900 hover:text-white transition-all" style="font-family: 'Space Grotesk', sans-serif;">BUY NOW</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL ARCHITECTURE -->
+  <section class="bg-stone-50 py-[120px]">
+    <div class="max-w-[1440px] mx-auto px-8">
+      <div class="text-center mb-16">
+        <h2 class="text-4xl lg:text-5xl font-bold text-stone-900 uppercase tracking-tight mb-4" style="font-family: 'Space Grotesk', sans-serif;">Technical Architecture</h2>
+        <p class="text-stone-500 max-w-2xl mx-auto" style="font-family: 'Lexend', sans-serif;">Engineered for those who demand uncompromising performance. Every component is meticulously crafted to deliver the ultimate riding experience.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-white p-8 rounded-xl border border-stone-100 hover:border-[#FFC426] transition-colors">
+          <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">bolt</span>
+          <h3 class="text-2xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Brushless Hub Motor</h3>
+          <p class="text-stone-500 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Our advanced 750W brushless hub motor delivers instant torque and smooth acceleration with minimal maintenance.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl border border-stone-100 hover:border-[#FFC426] transition-colors">
+          <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">battery_charging_full</span>
+          <h3 class="text-2xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Intelligent BMS</h3>
+          <p class="text-stone-500 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Smart battery management system optimizes charging, monitors cell health, and extends overall battery life.</p>
+        </div>
+        <div class="bg-white p-8 rounded-xl border border-stone-100 hover:border-[#FFC426] transition-colors">
+          <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-4">settings</span>
+          <h3 class="text-2xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Aerospace Grade Frame</h3>
+          <p class="text-stone-500 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Lightweight aluminum alloy frame with aerospace-grade construction ensures durability without compromising agility.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  {%- else -%}
+  <!-- Empty State -->
+  <section class="max-w-[1440px] mx-auto px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white">
+    <div class="lg:col-span-7">
+      <div class="aspect-[16/10] bg-stone-100 rounded-xl flex items-center justify-center">
+        <span class="text-stone-400">Select a product to display</span>
+      </div>
+    </div>
+    <div class="lg:col-span-5 flex flex-col justify-center">
+      <span class="text-sm text-[#FFC426] font-bold tracking-widest uppercase mb-4">NEW ARRIVAL</span>
+      <h1 class="text-4xl lg:text-5xl font-bold text-stone-900 mb-4" style="font-family: 'Space Grotesk', sans-serif;">MAXFOOT M-3</h1>
+      <p class="text-3xl font-bold text-[#FFC426] mb-6">$1,599.00</p>
+      <p class="text-stone-600 mb-8">Experience the pinnacle of electric propulsion with the M-3.</p>
+      <div class="grid grid-cols-2 gap-4 mb-8">
+        <div class="bg-stone-50 p-4 rounded-xl"><span class="block text-xs text-stone-400 uppercase">Speed</span><span class="font-bold">28 MPH</span></div>
+        <div class="bg-stone-50 p-4 rounded-xl"><span class="block text-xs text-stone-400 uppercase">Range</span><span class="font-bold">60 Miles</span></div>
+        <div class="bg-stone-50 p-4 rounded-xl"><span class="block text-xs text-stone-400 uppercase">Power</span><span class="font-bold text-[#FFC426]">750W</span></div>
+        <div class="bg-stone-50 p-4 rounded-xl"><span class="block text-xs text-stone-400 uppercase">Battery</span><span class="font-bold">48V 20Ah</span></div>
       </div>
       <div class="flex gap-4">
-        <button class="flex-1 bg-yellow-400 text-stone-900 py-4 font-bold uppercase tracking-widest rounded-lg hover:opacity-90">ADD TO CART</button>
-        <button class="px-8 py-4 border-2 border-stone-900 text-stone-900 font-bold uppercase tracking-widest rounded-lg hover:bg-stone-900 hover:text-white transition-all">BUY NOW</button>
+        <button class="flex-1 bg-[#FFC426] text-stone-900 py-4 font-bold uppercase tracking-widest rounded-lg">ADD TO CART</button>
+        <button class="px-8 py-4 border-2 border-stone-900 text-stone-900 font-bold uppercase tracking-widest rounded-lg">BUY NOW</button>
       </div>
     </div>
-  </div>
+  </section>
+  {%- endif -%}
 </main>

@@ -8,7 +8,7 @@
       "type": "text",
       "id": "brand_name",
       "label": "Brand Name",
-      "default": "KINETIC"
+      "default": "MAXFOOT"
     },
     {
       "type": "text",
@@ -73,132 +73,211 @@
 }
 {% endschema %}
 
-<style>
-.material-symbols-outlined {
-    font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-}
-body { font-family: 'Lexend', sans-serif; }
-h1, h2, h3, .technical { font-family: 'Space Grotesk', sans-serif; }
-</style>
-
-<!-- TopNavBar -->
 <nav class="bg-white/80 backdrop-blur-xl sticky top-0 z-50 shadow-[0_24px_24px_rgba(26,28,28,0.04)]">
-<div class="flex justify-between items-center px-8 py-4 w-full max-w-[1440px] mx-auto">
-<div class="text-2xl font-bold tracking-tighter text-zinc-900 uppercase" style="font-family: 'Space Grotesk', sans-serif;">
-    {{ section.settings.brand_name }}
-</div>
-<div class="hidden md:flex items-center gap-8">
-  {%- for block in section.blocks -%}{%- if block.type == 'nav_link' -%}<a class="text-zinc-500 font-medium hover:text-[#785a00] transition-all duration-300" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>{%- endif -%}{%- endfor -%}
-</div>
-<div class="flex items-center gap-6">
-<span class="material-symbols-outlined text-on-surface cursor-pointer active:scale-95 transition-transform">shopping_cart</span>
-<span class="material-symbols-outlined text-on-surface cursor-pointer active:scale-95 transition-transform">account_circle</span>
-<button class="md:hidden">
-<span class="material-symbols-outlined">menu</span>
-</button>
-</div>
-</div>
+  <div class="flex justify-between items-center px-8 py-4 w-full max-w-[1440px] mx-auto">
+    <div class="text-2xl font-bold tracking-tighter text-stone-900 uppercase" style="font-family: 'Space Grotesk', sans-serif;">
+      {{ section.settings.brand_name }}
+    </div>
+    <div class="hidden md:flex items-center gap-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'nav_link' -%}
+          <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
+        {%- endif -%}
+      {%- else -%}
+        <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="#">Bikes</a>
+        <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="#">Technology</a>
+        <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="#">Support</a>
+      {%- endfor -%}
+    </div>
+    <div class="flex items-center gap-6">
+      <span class="material-symbols-outlined text-stone-900 cursor-pointer hover:text-[#FFC426] transition-colors">shopping_cart</span>
+      <span class="material-symbols-outlined text-stone-900 cursor-pointer hover:text-[#FFC426] transition-colors">account_circle</span>
+    </div>
+  </div>
 </nav>
 
 <main>
-<!-- Hero Section -->
-<section class="bg-white py-24 md:py-32 flex flex-col items-center justify-center text-center px-6">
-<h1 class="text-4xl md:text-6xl font-bold tracking-tight text-on-surface mb-8 uppercase leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
-    {{ section.settings.hero_title }}
-</h1>
-<div class="w-full max-w-2xl relative group">
-<div class="absolute inset-y-0 left-6 flex items-center pointer-events-none text-on-surface-variant">
-<span class="material-symbols-outlined">search</span>
-</div>
-<input class="w-full pl-16 pr-6 py-5 bg-surface-container-low rounded-xl border-none focus:ring-2 focus:ring-primary-container text-lg placeholder:text-on-surface-variant transition-all duration-300 shadow-sm" placeholder="{{ section.settings.hero_placeholder }}" type="text"/>
-</div>
-</section>
+  <!-- Hero Section -->
+  <section class="bg-white py-24 md:py-32 flex flex-col items-center justify-center text-center px-6">
+    <h1 class="text-4xl md:text-6xl font-bold tracking-tight text-stone-900 mb-8 uppercase leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
+      {{ section.settings.hero_title }}
+    </h1>
+    <div class="w-full max-w-2xl relative group">
+      <div class="absolute inset-y-0 left-6 flex items-center pointer-events-none text-stone-400">
+        <span class="material-symbols-outlined">search</span>
+      </div>
+      <input class="w-full pl-16 pr-6 py-5 bg-stone-50 rounded-xl border-none focus:ring-2 focus:ring-[#FFC426] text-lg placeholder:text-stone-400 transition-all duration-300 shadow-sm" placeholder="{{ section.settings.hero_placeholder }}" type="text">
+    </div>
+  </section>
 
-<!-- Resources Bento Grid -->
-<section class="max-w-[1440px] mx-auto px-8 py-20">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-{%- for block in section.blocks -%}{%- if block.type == 'resource_card' -%}
-<div class="bg-surface-container-lowest p-10 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow group cursor-pointer border border-outline-variant/10">
-<div>
-<span class="material-symbols-outlined text-primary text-4xl mb-6">{{ block.settings.icon }}</span>
-<h3 class="text-xl font-bold mb-3 tracking-tight">{{ block.settings.title }}</h3>
-<p class="text-on-surface-variant leading-relaxed">{{ block.settings.description }}</p>
-</div>
-<div class="mt-8 flex items-center text-primary font-semibold text-sm tracking-widest uppercase group-hover:gap-4 transition-all">
-    {{ block.settings.link_text }} <span class="material-symbols-outlined ml-2">arrow_forward</span>
-</div>
-</div>
-{%- endif -%}{%- endfor -%}
-</div>
-</section>
+  <!-- Resources Bento Grid -->
+  <section class="max-w-[1440px] mx-auto px-8 py-20">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'resource_card' -%}
+          <div class="bg-stone-50 p-10 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow group cursor-pointer border border-stone-100">
+            <div>
+              <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-6">{{ block.settings.icon }}</span>
+              <h3 class="text-xl font-bold mb-3 tracking-tight text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title }}</h3>
+              <p class="text-stone-500 leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ block.settings.description }}</p>
+            </div>
+            <div class="mt-8 flex items-center text-[#FFC426] font-bold text-sm tracking-widest uppercase group-hover:gap-4 transition-all" style="font-family: 'Space Grotesk', sans-serif;">
+              {{ block.settings.link_text }} <span class="material-symbols-outlined ml-2">arrow_forward</span>
+            </div>
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="bg-stone-50 p-10 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow group cursor-pointer border border-stone-100">
+          <div>
+            <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-6">description</span>
+            <h3 class="text-xl font-bold mb-3 tracking-tight text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Owner Manuals</h3>
+            <p class="text-stone-500 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Download detailed manuals and guides for your Maxfoot e-bike model.</p>
+          </div>
+          <div class="mt-8 flex items-center text-[#FFC426] font-bold text-sm tracking-widest uppercase" style="font-family: 'Space Grotesk', sans-serif;">VIEW MANUALS <span class="material-symbols-outlined ml-2">arrow_forward</span></div>
+        </div>
+        <div class="bg-stone-50 p-10 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow group cursor-pointer border border-stone-100">
+          <div>
+            <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-6">build</span>
+            <h3 class="text-xl font-bold mb-3 tracking-tight text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Assembly Guides</h3>
+            <p class="text-stone-500 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Step-by-step assembly instructions to get you riding faster.</p>
+          </div>
+          <div class="mt-8 flex items-center text-[#FFC426] font-bold text-sm tracking-widest uppercase" style="font-family: 'Space Grotesk', sans-serif;">VIEW GUIDES <span class="material-symbols-outlined ml-2">arrow_forward</span></div>
+        </div>
+        <div class="bg-stone-50 p-10 rounded-xl flex flex-col justify-between hover:shadow-lg transition-shadow group cursor-pointer border border-stone-100">
+          <div>
+            <span class="material-symbols-outlined text-[#FFC426] text-4xl mb-6">verified</span>
+            <h3 class="text-xl font-bold mb-3 tracking-tight text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Warranty Claims</h3>
+            <p class="text-stone-500 leading-relaxed" style="font-family: 'Lexend', sans-serif;">File a warranty claim and track your repair status online.</p>
+          </div>
+          <div class="mt-8 flex items-center text-[#FFC426] font-bold text-sm tracking-widest uppercase" style="font-family: 'Space Grotesk', sans-serif;">FILE CLAIM <span class="material-symbols-outlined ml-2">arrow_forward</span></div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
 
-<!-- FAQ Section -->
-<section class="bg-surface-container-low py-24">
-<div class="max-w-4xl mx-auto px-8">
-<h2 class="text-3xl font-bold mb-12 tracking-tight uppercase text-center" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.faq_title }}</h2>
-<div class="space-y-4">
-{%- for block in section.blocks -%}{%- if block.type == 'faq_item' -%}
-<div class="bg-surface-container-lowest rounded-xl overflow-hidden group">
-<button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-zinc-50 transition-colors">
-<span class="font-medium text-lg" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.question }}</span>
-<span class="material-symbols-outlined text-on-surface-variant group-hover:text-primary">expand_more</span>
-</button>
-<div class="px-8 pb-6 text-on-surface-variant leading-relaxed max-w-2xl" style="font-family: 'Lexend', sans-serif;">
-    {{ block.settings.answer }}
-</div>
-</div>
-{%- endif -%}{%- endfor -%}
-</div>
-</div>
-</section>
+  <!-- FAQ Section -->
+  <section class="bg-stone-50 py-24">
+    <div class="max-w-4xl mx-auto px-8">
+      <h2 class="text-3xl font-bold mb-12 tracking-tight uppercase text-center text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.faq_title }}</h2>
+      <div class="space-y-4">
+        {%- for block in section.blocks -%}
+          {%- if block.type == 'faq_item' -%}
+            <div class="bg-white rounded-xl overflow-hidden group border border-stone-100">
+              <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-stone-50 transition-colors">
+                <span class="font-medium text-lg text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.question }}</span>
+                <span class="material-symbols-outlined text-stone-400 group-hover:text-[#FFC426] transition-colors">expand_more</span>
+              </button>
+              <div class="px-8 pb-6 text-stone-500 leading-relaxed max-w-2xl" style="font-family: 'Lexend', sans-serif;">
+                {{ block.settings.answer }}
+              </div>
+            </div>
+          {%- endif -%}
+        {%- else -%}
+          <div class="bg-white rounded-xl overflow-hidden group border border-stone-100">
+            <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-stone-50 transition-colors">
+              <span class="font-medium text-lg text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">How long does shipping take?</span>
+              <span class="material-symbols-outlined text-stone-400 group-hover:text-[#FFC426] transition-colors">expand_more</span>
+            </button>
+            <div class="px-8 pb-6 text-stone-500 leading-relaxed max-w-2xl" style="font-family: 'Lexend', sans-serif;">
+              Standard shipping typically takes 5-7 business days within the continental US. Expedited options are available at checkout.
+            </div>
+          </div>
+          <div class="bg-white rounded-xl overflow-hidden group border border-stone-100">
+            <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-stone-50 transition-colors">
+              <span class="font-medium text-lg text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">What is your warranty policy?</span>
+              <span class="material-symbols-outlined text-stone-400 group-hover:text-[#FFC426] transition-colors">expand_more</span>
+            </button>
+            <div class="px-8 pb-6 text-stone-500 leading-relaxed max-w-2xl" style="font-family: 'Lexend', sans-serif;">
+              All Maxfoot bikes come with a 2-year comprehensive warranty covering frame, motor, battery, and electronics. Registration required.
+            </div>
+          </div>
+          <div class="bg-white rounded-xl overflow-hidden group border border-stone-100">
+            <button class="w-full px-8 py-6 flex justify-between items-center text-left hover:bg-stone-50 transition-colors">
+              <span class="font-medium text-lg text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Can I return my purchase?</span>
+              <span class="material-symbols-outlined text-stone-400 group-hover:text-[#FFC426] transition-colors">expand_more</span>
+            </button>
+            <div class="px-8 pb-6 text-stone-500 leading-relaxed max-w-2xl" style="font-family: 'Lexend', sans-serif;">
+              We offer a 30-day return policy for unused bikes in original packaging. Return shipping costs may apply.
+            </div>
+          </div>
+        {%- endfor -%}
+      </div>
+    </div>
+  </section>
 
-<!-- Contact Section -->
-<section class="max-w-[1440px] mx-auto px-8 py-32">
-<div class="text-center mb-16">
-<h2 class="text-3xl font-bold tracking-tight uppercase" style="font-family: 'Space Grotesk', sans-serif;">Speak with a Technician</h2>
-<p class="text-on-surface-variant mt-4" style="font-family: 'Lexend', sans-serif;">Our expert support team is available Mon-Fri, 9am - 6pm PST.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-{%- for block in section.blocks -%}{%- if block.type == 'contact_card' -%}
-<div class="bg-[#F8F8F8] p-12 rounded-xl flex flex-col items-center text-center">
-<div class="w-16 h-16 bg-primary-container flex items-center justify-center rounded-full mb-6">
-<span class="material-symbols-outlined text-on-primary-container text-2xl">{{ block.settings.icon }}</span>
-</div>
-<h3 class="text-xl font-bold mb-2">{{ block.settings.title }}</h3>
-<p class="text-on-surface-variant mb-6 text-sm">{{ block.settings.description }}</p>
-{%- if block.settings.contact_type == 'button' -%}
-<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full font-bold tracking-tight uppercase text-sm hover:brightness-95 transition-all">{{ block.settings.link_text }}</button>
-{%- else -%}
-<a class="text-primary font-bold text-lg hover:underline underline-offset-4 tracking-tight" href="{{ block.settings.contact_url }}">{{ block.settings.contact_value }}</a>
-{%- endif -%}
-</div>
-{%- endif -%}{%- endfor -%}
-</div>
-</section>
+  <!-- Contact Section -->
+  <section class="max-w-[1440px] mx-auto px-8 py-32">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl font-bold tracking-tight uppercase text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Speak with a Technician</h2>
+      <p class="text-stone-500 mt-4" style="font-family: 'Lexend', sans-serif;">Our expert support team is available Mon-Fri, 9am - 6pm PST.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'contact_card' -%}
+          <div class="bg-stone-50 p-12 rounded-xl flex flex-col items-center text-center border border-stone-100">
+            <div class="w-16 h-16 bg-[#FFC426] flex items-center justify-center rounded-full mb-6">
+              <span class="material-symbols-outlined text-stone-900 text-2xl">{{ block.settings.icon }}</span>
+            </div>
+            <h3 class="text-xl font-bold mb-2 text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title }}</h3>
+            <p class="text-stone-500 mb-6 text-sm" style="font-family: 'Lexend', sans-serif;">{{ block.settings.description }}</p>
+            {%- if block.settings.contact_type == 'button' -%}
+              <button class="bg-[#FFC426] text-stone-900 px-8 py-3 rounded-full font-bold tracking-tight uppercase text-sm hover:opacity-90 transition-all" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.link_text }}</button>
+            {%- else -%}
+              <a class="text-[#FFC426] font-bold text-lg hover:underline underline-offset-4 tracking-tight" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.contact_url }}">{{ block.settings.contact_value }}</a>
+            {%- endif -%}
+          </div>
+        {%- endif -%}
+      {%- else -%}
+        <div class="bg-stone-50 p-12 rounded-xl flex flex-col items-center text-center border border-stone-100">
+          <div class="w-16 h-16 bg-[#FFC426] flex items-center justify-center rounded-full mb-6">
+            <span class="material-symbols-outlined text-stone-900 text-2xl">phone</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Call Us</h3>
+          <p class="text-stone-500 mb-6 text-sm" style="font-family: 'Lexend', sans-serif;">Speak directly with our technical team</p>
+          <a class="text-[#FFC426] font-bold text-lg hover:underline underline-offset-4 tracking-tight" style="font-family: 'Space Grotesk', sans-serif;" href="tel:+18005551234">1-800-555-1234</a>
+        </div>
+        <div class="bg-stone-50 p-12 rounded-xl flex flex-col items-center text-center border border-stone-100">
+          <div class="w-16 h-16 bg-[#FFC426] flex items-center justify-center rounded-full mb-6">
+            <span class="material-symbols-outlined text-stone-900 text-2xl">email</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Email Support</h3>
+          <p class="text-stone-500 mb-6 text-sm" style="font-family: 'Lexend', sans-serif;">Get a response within 24 hours</p>
+          <a class="text-[#FFC426] font-bold text-lg hover:underline underline-offset-4 tracking-tight" style="font-family: 'Space Grotesk', sans-serif;" href="mailto:support@maxfoot.bike">support@maxfoot.bike</a>
+        </div>
+        <div class="bg-stone-50 p-12 rounded-xl flex flex-col items-center text-center border border-stone-100">
+          <div class="w-16 h-16 bg-[#FFC426] flex items-center justify-center rounded-full mb-6">
+            <span class="material-symbols-outlined text-stone-900 text-2xl">chat</span>
+          </div>
+          <h3 class="text-xl font-bold mb-2 text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Live Chat</h3>
+          <p class="text-stone-500 mb-6 text-sm" style="font-family: 'Lexend', sans-serif;">Real-time assistance during business hours</p>
+          <button class="bg-[#FFC426] text-stone-900 px-8 py-3 rounded-full font-bold tracking-tight uppercase text-sm hover:opacity-90 transition-all" style="font-family: 'Space Grotesk', sans-serif;">Start Chat</button>
+        </div>
+      {%- endfor -%}
+    </div>
+  </section>
 
-<!-- High-Performance Visual Break -->
-<section class="w-full h-[500px] relative overflow-hidden">
-<div class="absolute inset-0 bg-black/40 z-10"></div>
-<div class="absolute inset-0 flex flex-col items-center justify-center z-20 text-white px-8 text-center">
-<h2 class="text-4xl md:text-5xl font-bold tracking-tight uppercase max-w-3xl" style="font-family: 'Space Grotesk', sans-serif;">Engineered for the Long Haul.</h2>
-<p class="mt-6 text-lg max-w-xl opacity-90" style="font-family: 'Lexend', sans-serif;">Every Kinetic bike is tested across thousands of miles of varied terrain to ensure reliability that matches its performance.</p>
-</div>
-<img alt="Kinetic e-bike close up" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO1kr4IurWZEsUVjE57yVqI6-BKyD8ZqyBqGZsSTjSG_KjbenvqHFD0xym14BTg7rb12d0PkkrjYD3_oOI2nbqDOoOloSJjOTLn1_P7nlkXNgUawZDhGEsvYgIfDrvHCDHJFDqX5AjYWIJbC6IejPjLcoPIxwhG4ZObZUM0J4584Ioong6ycI_pG3Qud7uZGQ5l5PPbObzVnYYVRZeAznoyR7WysxOXifvvzcUC7nYBSt7x969UVCZiQiEwrb3FC3AfmZKMRxB3A-3"/>
-</section>
+  <!-- High-Performance Visual Break -->
+  <section class="w-full h-[500px] relative overflow-hidden">
+    <div class="absolute inset-0 bg-black/40 z-10"></div>
+    <div class="absolute inset-0 flex flex-col items-center justify-center z-20 text-white px-8 text-center">
+      <h2 class="text-4xl md:text-5xl font-bold tracking-tight uppercase max-w-3xl" style="font-family: 'Space Grotesk', sans-serif;">Engineered for the Long Haul.</h2>
+      <p class="mt-6 text-lg max-w-xl opacity-90" style="font-family: 'Lexend', sans-serif;">Every Maxfoot bike is tested across thousands of miles of varied terrain to ensure reliability that matches its performance.</p>
+    </div>
+    <img alt="Maxfoot e-bike close up" class="absolute inset-0 w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCO1kr4IurWZEsUVjE57yVqI6-BKyD8ZqyBqGZsSTjSG_KjbenvqHFD0xym14BTg7rb12d0PkkrjYD3_oOI2nbqDOoOloSJjOTLn1_P7nlkXNgUawZDhGEsvYgIfDrvHCDHJFDqX5AjYWIJbC6IejPjLcoPIxwhG4ZObZUM0J4584Ioong6ycI_pG3Qud7uZGQ5l5PPbObzVnYYVRZeAznoyR7WysxOXifvvzcUC7nYBSt7x969UVCZiQiEwrb3FC3AfmZKMRxB3A-3">
+  </section>
 </main>
 
 <!-- Footer -->
-<footer class="bg-[#F3F3F3] p-12">
-<div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full px-8 max-w-[1440px] mx-auto">
-<div class="text-zinc-500 text-sm uppercase tracking-widest text-center md:text-left" style="font-family: 'Lexend', sans-serif;">
-    © 2024 {{ section.settings.brand_name }} MOTORS. ENGINEERED PRECISION.
-</div>
-<div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
-<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Privacy Policy</a>
-<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Terms of Service</a>
-<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Warranty</a>
-<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Sustainability</a>
-<a class="text-zinc-500 text-sm uppercase tracking-widest hover:text-[#1A1C1C] transition-colors opacity-80 hover:opacity-100" href="#">Global Support</a>
-</div>
-</div>
+<footer class="bg-stone-100 p-12">
+  <div class="flex flex-col md:flex-row justify-between items-center gap-8 w-full px-8 max-w-[1440px] mx-auto">
+    <div class="text-stone-500 text-sm uppercase tracking-widest text-center md:text-left" style="font-family: 'Space Grotesk', sans-serif;">
+      © 2024 {{ section.settings.brand_name }} ELECTRIC BIKES. ENGINEERED FOR ADVENTURE.
+    </div>
+    <div class="flex flex-wrap justify-center gap-x-8 gap-y-4">
+      <a class="text-stone-500 text-sm uppercase tracking-widest hover:text-[#FFC426] transition-colors" href="#">Privacy Policy</a>
+      <a class="text-stone-500 text-sm uppercase tracking-widest hover:text-[#FFC426] transition-colors" href="#">Terms of Service</a>
+      <a class="text-stone-500 text-sm uppercase tracking-widest hover:text-[#FFC426] transition-colors" href="#">Warranty</a>
+      <a class="text-stone-500 text-sm uppercase tracking-widest hover:text-[#FFC426] transition-colors" href="#">Contact</a>
+    </div>
+  </div>
 </footer>
