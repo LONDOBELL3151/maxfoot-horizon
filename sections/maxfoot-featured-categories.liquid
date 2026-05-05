@@ -1,6 +1,6 @@
 {% comment %}
   Maxfoot Featured Categories Section - Homepage v4
-  Each card pulls data from its referenced product
+  Each card element is individually editable and hideable
 {% endcomment %}
 
 <section
@@ -20,69 +20,92 @@
       {% for block in section.blocks %}
         {% if block.type == 'product_card' %}
           {%- assign product = block.settings.product -%}
-          {% if product %}
-            <a
-              href="{{ product.url }}"
-              class="maxfoot-category-card"
-              {{ block.shopify_attributes }}
-            >
+          {%- assign card_link = product.url | default: '#' -%}
+
+          <a
+            href="{{ card_link }}"
+            class="maxfoot-category-card"
+            {{ block.shopify_attributes }}
+          >
+            {%- if block.settings.show_image -%}
               <div class="maxfoot-category-card__image-wrapper">
-                {% if product.featured_image != blank %}
+                {%- if product.featured_image != blank -%}
                   {{
                     product.featured_image
                     | image_url: width: 800
                     | image_tag:
                       class: 'maxfoot-category-card__image',
-                      alt: product.title,
+                      alt: block.settings.image_alt | default: product.title,
                       widths: '400, 600, 800',
                       sizes: '(min-width: 768px) 33vw, 100vw',
                       loading: 'lazy'
                   }}
-                {% else %}
+                {%- else -%}
                   <div class="maxfoot-category-card__placeholder"></div>
-                {% endif %}
+                {%- endif -%}
                 <div class="maxfoot-category-card__overlay"></div>
               </div>
-              <div class="maxfoot-category-card__content">
-                {% if product.compare_at_price > product.price %}
-                  <span class="maxfoot-category-card__badge">{{ 'products.product.on_sale' | t }}</span>
-                {% elsif product.tags.first %}
-                  <span class="maxfoot-category-card__badge">{{ product.tags.first }}</span>
-                {% endif %}
-                <h3 class="maxfoot-category-card__title">{{ product.title }}</h3>
+            {%- endif -%}
+
+            <div class="maxfoot-category-card__content">
+              {%- if block.settings.show_badge -%}
+                <span class="maxfoot-category-card__badge">
+                  {{ block.settings.badge_text | default: product.tags.first | default: 'New' }}
+                </span>
+              {%- endif -%}
+
+              {%- if block.settings.show_title -%}
+                <h3 class="maxfoot-category-card__title">
+                  {{ block.settings.title | default: product.title | default: 'Product Title' }}
+                </h3>
+              {%- endif -%}
+
+              {%- if block.settings.show_stats -%}
                 <div class="maxfoot-category-card__stats">
-                  <div class="maxfoot-category-card__stat">
-                    <p class="maxfoot-category-card__stat-label">{{ 'products.product.price.label' | t | default: 'Price' }}</p>
-                    <p class="maxfoot-category-card__stat-value">
-                      {% if product.compare_at_price > product.price %}
-                        <span class="sale-price">{{ product.price | money }}</span>
-                      {% else %}
-                        {{ product.price | money }}
-                      {% endif %}
-                    </p>
-                  </div>
-                  {% if product.metafields.custom.peak_power %}
+                  {%- if block.settings.show_price -%}
                     <div class="maxfoot-category-card__stat">
-                      <p class="maxfoot-category-card__stat-label">Peak Power</p>
-                      <p class="maxfoot-category-card__stat-value">{{ product.metafields.custom.peak_power }}</p>
+                      <p class="maxfoot-category-card__stat-label">
+                        {{ block.settings.price_label | default: 'Price' }}
+                      </p>
+                      <p class="maxfoot-category-card__stat-value">
+                        {%- if product.compare_at_price > product.price and block.settings.show_compare_price -%}
+                          <span class="sale-price">{{ product.price | money }}</span>
+                        {%- else -%}
+                          {{ product.price | money }}
+                        {%- endif -%}
+                      </p>
                     </div>
-                  {% elsif product.type %}
+                  {%- endif -%}
+
+                  {%- if block.settings.show_stat_1 -%}
                     <div class="maxfoot-category-card__stat">
-                      <p class="maxfoot-category-card__stat-label">Type</p>
-                      <p class="maxfoot-category-card__stat-value">{{ product.type }}</p>
+                      <p class="maxfoot-category-card__stat-label">
+                        {{ block.settings.stat_1_label | default: product.metafields.custom.peak_power | default: 'Peak Power' }}
+                      </p>
+                      <p class="maxfoot-category-card__stat-value">
+                        {{ block.settings.stat_1_value | default: product.metafields.custom.peak_power | default: product.type | default: '—' }}
+                      </p>
                     </div>
-                  {% endif %}
+                  {%- endif -%}
+
+                  {%- if block.settings.show_stat_2 -%}
+                    <div class="maxfoot-category-card__stat">
+                      <p class="maxfoot-category-card__stat-label">
+                        {{ block.settings.stat_2_label | default: 'Range' }}
+                      </p>
+                      <p class="maxfoot-category-card__stat-value">
+                        {{ block.settings.stat_2_value | default: '—' }}
+                      </p>
+                    </div>
+                  {%- endif -%}
                 </div>
-              </div>
-            </a>
-          {% endif %}
+              {%- endif -%}
+            </div>
+          </a>
         {% endif %}
       {% else %}
         {% for i in (1..3) %}
-          <a
-            href="#"
-            class="maxfoot-category-card"
-          >
+          <a href="#" class="maxfoot-category-card">
             <div class="maxfoot-category-card__image-wrapper">
               <div class="maxfoot-category-card__placeholder"></div>
               <div class="maxfoot-category-card__overlay"></div>
@@ -338,10 +361,124 @@
       "name": "Product Card",
       "settings": [
         {
+          "type": "header",
+          "content": "Product"
+        },
+        {
           "type": "product",
           "id": "product",
           "label": "Product",
-          "info": "Select a product to display"
+          "info": "Select a product to base data on"
+        },
+        {
+          "type": "header",
+          "content": "Image"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_image",
+          "label": "Show Image",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "image_alt",
+          "label": "Image Alt Text",
+          "info": "Leave blank to use product title"
+        },
+        {
+          "type": "header",
+          "content": "Badge"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_badge",
+          "label": "Show Badge",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "badge_text",
+          "label": "Badge Text",
+          "info": "Leave blank to use product tag"
+        },
+        {
+          "type": "header",
+          "content": "Title"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_title",
+          "label": "Show Title",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Custom Title",
+          "info": "Leave blank to use product title"
+        },
+        {
+          "type": "header",
+          "content": "Stats"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stats",
+          "label": "Show Stats",
+          "default": true
+        },
+        {
+          "type": "checkbox",
+          "id": "show_price",
+          "label": "Show Price",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "price_label",
+          "label": "Price Label",
+          "default": "Price"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_compare_price",
+          "label": "Show Compare At Price",
+          "default": false
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stat_1",
+          "label": "Show Stat 1",
+          "default": true
+        },
+        {
+          "type": "text",
+          "id": "stat_1_label",
+          "label": "Stat 1 Label",
+          "info": "Leave blank to use product metafield"
+        },
+        {
+          "type": "text",
+          "id": "stat_1_value",
+          "label": "Stat 1 Value",
+          "info": "Leave blank to use product metafield"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_stat_2",
+          "label": "Show Stat 2",
+          "default": false
+        },
+        {
+          "type": "text",
+          "id": "stat_2_label",
+          "label": "Stat 2 Label"
+        },
+        {
+          "type": "text",
+          "id": "stat_2_value",
+          "label": "Stat 2 Value"
         }
       ]
     }
