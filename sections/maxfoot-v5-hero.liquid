@@ -44,16 +44,24 @@
 }
 {% endschema %}
 
-<section class="relative bg-white overflow-hidden min-h-[870px] flex items-center">
-  <div class="max-w-[1440px] mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-6 items-center relative z-10">
-    <div class="py-12 lg:py-20">
+<section class="relative bg-white overflow-hidden min-h-[870px]">
+  <div class="absolute inset-0">
+    {%- if section.settings.hero_image -%}
+      <img alt="Hero Image" class="w-full h-full object-cover" src="{{ section.settings.hero_image | image_url }}">
+    {%- else -%}
+      <img alt="Maxfoot M-3 High-Performance E-Bike" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2IH7UTWZNPde0A1_mJFDXAuTYjRcsJyMiw2nSPpt-OmP3n9qDEC5PT7SiWVPlEZCsiObSsxNTDkrIzmvmvHcciq9KQdL1BzN0q6yKteJt9CQJmdIEknam0a4A4KGEnxGV4_GyxXurxf9j3MqlqENjhdd_aMTtANyK8luYkd_APx5OJwu5al8tHJZ0nQkTiAWauJkLOFJODjgsN1ScbMhsZvz91eTjkvzk6QfDaoan5qqruf_Wp6tHYuUvx4qFHRtE1USeHqkFuTOl">
+    {%- endif -%}
+  </div>
+  <div class="absolute inset-0 bg-gradient-to-r from-white via-white/90 to-transparent"></div>
+  <div class="relative max-w-[1440px] mx-auto px-8 h-full flex items-center z-10">
+    <div class="max-w-2xl py-20">
       <div class="inline-block bg-[#FFC426] text-stone-900 px-4 py-1 mb-6 rounded-sm">
         <span class="font-bold text-sm tracking-widest uppercase">{{ section.settings.hero_badge }}</span>
       </div>
       <h1 class="text-5xl md:text-7xl font-bold text-stone-900 mb-6 leading-tight" style="font-family: 'Space Grotesk', sans-serif;">
         {{ section.settings.hero_title }}
       </h1>
-      <p class="text-lg text-stone-500 mb-10 max-w-lg leading-relaxed" style="font-family: 'Lexend', sans-serif;">
+      <p class="text-lg text-stone-600 mb-10 max-w-xl leading-relaxed" style="font-family: 'Lexend', sans-serif;">
         {{ section.settings.hero_description }}
       </p>
       <div class="flex flex-col sm:flex-row gap-4">
@@ -64,14 +72,6 @@
           {{ section.settings.hero_cta_secondary }}
         </button>
       </div>
-    </div>
-    <div class="relative w-full lg:h-[700px]">
-      <div class="absolute inset-0 bg-gradient-to-r from-white via-white/80 to-transparent z-10 pointer-events-none lg:w-1/2"></div>
-      {%- if section.settings.hero_image -%}
-        <img alt="Hero Image" class="w-full h-full object-cover" src="{{ section.settings.hero_image | image_url }}">
-      {%- else -%}
-        <img alt="Maxfoot M-3 High-Performance E-Bike" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB2IH7UTWZNPde0A1_mJFDXAuTYjRcsJyMiw2nSPpt-OmP3n9qDEC5PT7SiWVPlEZCsiObSsxNTDkrIzmvmvHcciq9KQdL1BzN0q6yKteJt9CQJmdIEknam0a4A4KGEnxGV4_GyxXurxf9j3MqlqENjhdd_aMTtANyK8luYkd_APx5OJwu5al8tHJZ0nQkTiAWauJkLOFJODjgsN1ScbMhsZvz91eTjkvzk6QfDaoan5qqruf_Wp6tHYuUvx4qFHRtE1USeHqkFuTOl">
-      {%- endif -%}
     </div>
   </div>
 </section>
