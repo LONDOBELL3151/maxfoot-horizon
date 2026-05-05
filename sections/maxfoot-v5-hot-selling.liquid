@@ -24,6 +24,8 @@
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
         { "type": "text", "id": "badge", "label": "Badge Text", "default": "HOT" },
+        { "type": "text", "id": "title", "label": "Product Title" },
+        { "type": "text", "id": "price", "label": "Price" },
         { "type": "image_picker", "id": "image", "label": "Custom Image" }
       ]
     }
@@ -56,8 +58,8 @@
               {%- endif -%}
             </div>
             <div class="p-6 text-center">
-              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ product.title | default: 'Product Title' }}</h3>
-              <p class="text-xl font-bold text-[#FFC426]">${{ product.price | default: 1299 | money_without_currency }}.00</p>
+              <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.title | default: product.title | default: 'Product Title' }}</h3>
+              <p class="text-xl font-bold text-[#FFC426]">{{ block.settings.price | default: product.price | default: 1299 | money_without_currency | prepend: '$' }}</p>
             </div>
           </div>
         {%- endif -%}
