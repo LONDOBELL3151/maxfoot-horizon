@@ -7,7 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
- {
+{
   "sections": {
     "maxfoot_hero_jVaWmY": {
       "type": "maxfoot-hero",
@@ -25,47 +25,77 @@
     "maxfoot_categories_fa6P9H": {
       "type": "maxfoot-featured-categories",
       "blocks": {
-        "category_mountain": {
-          "type": "category_card",
+        "product_card_YUGyFR": {
+          "type": "product_card",
           "settings": {
-            "badge": "Pro Spec",
-            "title": "Trail Master",
-            "link": "/collections/mountain",
-            "stat_label_1": "Range",
-            "stat_value_1": "60mi",
-            "stat_label_2": "Peak Power",
-            "stat_value_2": "1200w"
+            "product": "mf-25-step-thru-commuter-e-bike-burning-orange",
+            "show_image": true,
+            "image_alt": "",
+            "show_badge": true,
+            "badge_text": "",
+            "show_title": true,
+            "title": "",
+            "show_stats": true,
+            "show_price": true,
+            "price_label": "Price",
+            "show_compare_price": false,
+            "show_stat_1": true,
+            "stat_1_label": "",
+            "stat_1_value": "",
+            "show_stat_2": false,
+            "stat_2_label": "",
+            "stat_2_value": ""
           }
         },
-        "category_cruisers": {
-          "type": "category_card",
+        "product_card_gihPPK": {
+          "type": "product_card",
           "settings": {
-            "badge": "Urban Core",
-            "title": "City Phantom",
-            "link": "/collections/commuter",
-            "stat_label_1": "Speed",
-            "stat_value_1": "28mph",
-            "stat_label_2": "Weight",
-            "stat_value_2": "48lbs"
+            "product": "maxfoot-mf-30-electric-assist-adult-tricycle-750w-front-suspension-grey",
+            "show_image": true,
+            "image_alt": "",
+            "show_badge": true,
+            "badge_text": "",
+            "show_title": true,
+            "title": "",
+            "show_stats": true,
+            "show_price": true,
+            "price_label": "Price",
+            "show_compare_price": false,
+            "show_stat_1": true,
+            "stat_1_label": "",
+            "stat_1_value": "",
+            "show_stat_2": false,
+            "stat_2_label": "",
+            "stat_2_value": ""
           }
         },
-        "category_cargo": {
-          "type": "category_card",
+        "product_card_Bnbgah": {
+          "type": "product_card",
           "settings": {
-            "badge": "Heavy Duty",
-            "title": "Cargo X-Treme",
-            "link": "/collections/cargo",
-            "stat_label_1": "Payload",
-            "stat_value_1": "400lbs",
-            "stat_label_2": "Dual Bat",
-            "stat_value_2": "Ready"
+            "product": "mf-33-passenger-electric-tricycle-yellow",
+            "show_image": true,
+            "image_alt": "",
+            "show_badge": true,
+            "badge_text": "",
+            "show_title": true,
+            "title": "",
+            "show_stats": true,
+            "show_price": true,
+            "price_label": "Price",
+            "show_compare_price": false,
+            "show_stat_1": true,
+            "stat_1_label": "",
+            "stat_1_value": "",
+            "show_stat_2": false,
+            "stat_2_label": "",
+            "stat_2_value": ""
           }
         }
       },
       "block_order": [
-        "category_mountain",
-        "category_cruisers",
-        "category_cargo"
+        "product_card_YUGyFR",
+        "product_card_gihPPK",
+        "product_card_Bnbgah"
       ],
       "settings": {
         "section_title": "Engineered Series",
