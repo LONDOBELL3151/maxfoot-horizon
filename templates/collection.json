@@ -9,26 +9,13 @@
  */
 {
   "sections": {
-    "collection_header": {
-      "type": "maxfoot-collection-header",
-      "settings": {}
-    },
-    "product_listing": {
-      "type": "maxfoot-product-listing",
+    "v5_product_listing": {
+      "type": "maxfoot-v5-product-listing",
       "settings": {
-        "filters_title": "Filters",
-        "filter_1_title": "Bike Type",
-        "filter_2_title": "Motor Power",
-        "filter_3_title": "Price Range",
-        "min_price": 1000,
-        "max_price": 3000,
-        "default_price": 2000,
-        "product_count": 12
       }
     }
   },
   "order": [
-    "collection_header",
-    "product_listing"
+    "v5_product_listing"
   ]
 }
