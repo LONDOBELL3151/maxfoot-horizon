@@ -422,11 +422,43 @@
     </div>
   </section>
 
+  <!-- Feature Bento Grid -->
+  <section class="py-[120px] px-8 max-w-[1440px] mx-auto">
+    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 h-[800px]">
+      <div class="md:col-span-8 bg-stone-900 rounded-xl relative overflow-hidden group">
+        <img alt="Adventure Trail" class="absolute inset-0 w-full h-full object-cover opacity-60 group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDjbpi6etQDtHQR5lJ3Mde8nkDKX5FVGDTq1_bqM_RXuiTLgZNd-sbzjjoUcwXHvQUfemN4AfsTK61CXOn4ijx4ksMaXKzPt1Jkb4oj1WSv59D6SXR5GiHbsoko5uS0f4DL7OJ1I6m7Njzyc4kx47UN8-Jkr7wdKrTqH9tTclxhTKw1PtNvmT2l9mukFOrVL_GQ2Ciu3q3L2ywxVbR2Oys2HZP7w69pyDn3E-SfnxeHK2_oGjwBjkIwME81ztAJZ3iKQJ6LoXecJxNE"/>
+        <div class="absolute bottom-12 left-12">
+          <h2 class="text-white text-5xl font-bold mb-4" style="font-family: 'Space Grotesk', sans-serif;">Conquer Any Peak</h2>
+          <button class="bg-[#FFC426] text-stone-900 px-6 py-3 font-bold text-sm tracking-widest rounded-lg">EXPLORE ADVENTURE</button>
+        </div>
+      </div>
+      <div class="md:col-span-4 bg-[#FFC426] rounded-xl flex flex-col justify-center p-12">
+        <h3 class="text-5xl font-bold leading-tight mb-6 text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Built for the Bold.</h3>
+        <p class="text-stone-900 opacity-80 mb-8 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Every Maxfoot is a statement of freedom and engineering excellence. We don't just build bikes; we build adventure machines.</p>
+        <div class="w-16 h-1 bg-stone-900"></div>
+      </div>
+      <div class="md:col-span-4 bg-stone-100 rounded-xl relative overflow-hidden group">
+        <img alt="Tech Details" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA92woK4cEEfBvgiJGbmzqwdpVGV1L9FRkWmp1vDPKYW5SJCU7uYxPAB_QHBlQpxa-g4B2cKCW0YmtTfb9XIsEkl8E-xOLXv2N9K02VSiccC9F2FTNNabR4gLxuqISuI4zAXoojU2IfowB7ZsqfAlC4TnYqqOCLuseAMzNhHwGXgUoxzx1CFgLchzm5chNoB7OrtG9dlFUbeIgq-Vdljf9NVBXZZ8dPuz5L5K6bXaKfoYhdPfZk7YB9ZO4o3_kDKoHqJb_ctiqRH-l9"/>
+        <div class="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
+        <div class="absolute top-8 left-8 text-white">
+          <p class="font-bold tracking-widest text-sm uppercase" style="font-family: 'Space Grotesk', sans-serif;">PRECISION</p>
+        </div>
+      </div>
+      <div class="md:col-span-8 bg-stone-200 rounded-xl relative overflow-hidden group">
+        <img alt="Urban Commute" class="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA5DZm40Kaxq9ujcYrWJvQGjkn61XYjbpGmcdXIcJTO9yTzCrZo4F_Tud9_g4bAuBD7cmyGuNnd1lB9lypMBG-cmuO4oRPQFAoD8F9mwbvuGcpIN2r_PlEwp_ndlDusIcbT6g56euFjvQNGAfuy6tpRnxt3GZzE_3vejol0FES0I0Js1cqvSkYYdOeKEiI2iY-2MYPrdMuUVguAoevuqv4otYZ9yWUyBnngr8GJPP8CD04sw63mRs14EX6UeYU6Tib9ba0OSYvqnq_B"/>
+        <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        <div class="absolute bottom-8 left-8 text-white">
+          <h3 class="text-3xl font-bold" style="font-family: 'Space Grotesk', sans-serif;">Seamless City Flow</h3>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- Reviews Section -->
   <section class="py-[120px] bg-stone-100">
     <div class="max-w-[1440px] mx-auto px-8">
       <div class="text-center mb-16">
-        <h2 class="text-3xl font-bold text-stone-900 mb-4">{{ section.settings.reviews_title }}</h2>
+        <h2 class="text-3xl font-bold text-stone-900 mb-4" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.reviews_title }}</h2>
         <p class="text-[#FFC426] font-bold tracking-widest uppercase">{{ section.settings.reviews_subtitle }}</p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -436,7 +468,7 @@
               <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
                 <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
               </div>
-              <h4 class="text-lg font-bold mb-2">{{ block.settings.reviewer_name }}</h4>
+              <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.reviewer_name }}</h4>
               <div class="flex text-[#FFC426] mb-4">
                 {%- for i in (1..5) -%}
                   <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' {% if i <= block.settings.rating %}1{% else %}0{% endif %};">star</span>
@@ -446,25 +478,111 @@
             </div>
           {%- endif -%}
         {%- else -%}
-          {%- assign reviews = '{"name":"James Miller","text":"The M-3 is an absolute beast. The torque is incredible for off-road trails."}|{"name":"Sarah Chen","text":"Replaced my car for city commuting. Best decision I have made."}|{"name":"Marcus Wright","text":"Build quality is top-notch. It feels sturdy and very premium."}|{"name":"Elena Rossi","text":"Customer support helped me with all my technical questions."}' | split: '|' -%}
-          {%- for review in reviews -%}
-            {%- assign review_data = review | split: '":"' -%}
-            <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
-              <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
-                <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
-              </div>
-              <h4 class="text-lg font-bold mb-2">{{ review_data[0] }}</h4>
-              <div class="flex text-[#FFC426] mb-4">
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-                <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
-              </div>
-              <p class="text-stone-500 italic">"{{ review_data[1] }}"</p>
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+            <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+              <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
             </div>
-          {%- endfor -%}
+            <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">James Miller</h4>
+            <div class="flex text-[#FFC426] mb-4">
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            <p class="text-stone-500 italic">"The M-3 is an absolute beast. The torque is incredible for off-road trails."</p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+            <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+              <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+            </div>
+            <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">Sarah Chen</h4>
+            <div class="flex text-[#FFC426] mb-4">
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            <p class="text-stone-500 italic">"Replaced my car for city commuting. Best decision I've made this year."</p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+            <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+              <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+            </div>
+            <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">Marcus Wright</h4>
+            <div class="flex text-[#FFC426] mb-4">
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            <p class="text-stone-500 italic">"Build quality is top-notch. It feels sturdy and very premium on every ride."</p>
+          </div>
+          <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-100 flex flex-col items-center text-center">
+            <div class="w-16 h-16 rounded-full bg-stone-200 mb-6 flex items-center justify-center">
+              <span class="material-symbols-outlined text-stone-400 text-3xl">person</span>
+            </div>
+            <h4 class="text-lg font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">Elena Rossi</h4>
+            <div class="flex text-[#FFC426] mb-4">
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+              <span class="material-symbols-outlined text-lg" style="font-variation-settings: 'FILL' 1;">star</span>
+            </div>
+            <p class="text-stone-500 italic">"Customer support helped me with all my technical questions. Very impressed."</p>
+          </div>
         {%- endfor -%}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Stories Section -->
+  <section class="py-[120px] bg-white">
+    <div class="max-w-[1440px] mx-auto px-8">
+      <div class="flex justify-between items-center mb-12">
+        <h2 class="text-5xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">Latest Stories</h2>
+        <a class="text-[#FFC426] font-bold text-sm tracking-widest border-b-2 border-[#FFC426] pb-1 hover:opacity-80 transition-opacity uppercase" href="#">{{ section.settings.stories_link_text }}</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+        <div class="group">
+          <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
+            <img alt="Adventure Blog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcTkbW5M_IWlWhJFELJWf23UX3TsevPVIVl8UuehZs2HsBuj6JLRvVFEqPUbONopYjelCWvHHZB2xGkFhq9cLPzDn_QqRZgQg2c56GujFNdEDf62Bih3Gqxt1VebAMZ8wqqnSGfr9LPZLgiWfVz0nE6EF3f1ggGAafnPymJmGlbJVFElaVPSZqXMRPApcITJa04o4hq9SKLYyr11t4u95ZzAFWgStUaYhcE98pk19MfSQYm7tS8UBzSn1aAsJ2Db0Ks2df2hpEIE-Q"/>
+            <div class="absolute top-4 left-4 bg-[#FFC426] text-stone-900 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">ADVENTURE</div>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs text-stone-400 uppercase tracking-widest" style="font-family: 'Space Grotesk', sans-serif;">MARCH 15, 2024</p>
+            <h3 class="text-2xl font-bold group-hover:text-[#FFC426] transition-colors cursor-pointer" style="font-family: 'Space Grotesk', sans-serif;">Conquering the High Sierras with the M-3</h3>
+            <p class="text-stone-500 line-clamp-2 leading-relaxed" style="font-family: 'Lexend', sans-serif;">Discover how our latest fat-tire model handled the rugged terrain and elevation changes of the Sierra Nevada trails.</p>
+            <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE →</a>
+          </div>
+        </div>
+        <div class="group">
+          <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
+            <img alt="Tech Blog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiSyO2pVwz8uFONt4CIw-v79qEz-xHLmufsjQ3ZlcI2-t_ppJo2lwT8L8-CEGTHvNmbBvkTXY_vqGVWQY4Vmd71Vyj-IpknFeHitCcHL4PsNJ4At8Cl0EK7sNt95rHAKqHQXqbUta2QcqEu6rnJqmKcuzCHXqfwOAyten-odTNtoQKbek5BKcNnqj3U191G0xiuleSGK2vC5WnCsg1oEkuAoIT9R1j_lQuU-vg51PshJgIn1QBnK3U_0i7Y8vq7hJatL8MMnBYqepy"/>
+            <div class="absolute top-4 left-4 bg-[#FFC426] text-stone-900 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">TECH</div>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs text-stone-400 uppercase tracking-widest" style="font-family: 'Space Grotesk', sans-serif;">FEBRUARY 28, 2024</p>
+            <h3 class="text-2xl font-bold group-hover:text-[#FFC426] transition-colors cursor-pointer" style="font-family: 'Space Grotesk', sans-serif;">The Science of High-Torque Hub Motors</h3>
+            <p class="text-stone-500 line-clamp-2 leading-relaxed" style="font-family: 'Lexend', sans-serif;">A deep dive into the engineering behind our 750W brushless motor and how it delivers consistent power.</p>
+            <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE →</a>
+          </div>
+        </div>
+        <div class="group">
+          <div class="aspect-video bg-stone-100 rounded-xl overflow-hidden mb-6 relative">
+            <img alt="Lifestyle Blog" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDz9HOTPW5DN3Gcq7shYuEgh0U5L1IS8c2VWsmHrMzO2BU6rNg0dk2gVP-WUl1TW_1OocbA5dA2_I7bX45tU7atTNriq0xPgjdrOhoNReNGt3QBf23fqsm6S2i0ljg-2wrqjpEHnTOb3oe9_Qtgw4CpxeahMPttMVz1Jj_Xpua7_-lvSEiogz_IwdluM0Fz56RiH3GBZD96zTqiDB84KJhwbxjCyEkML4jspk2hhMc5OQ6LtorkjQDwE9atlg0LYnMW8ZKKtkfrN0Y7"/>
+            <div class="absolute top-4 left-4 bg-[#FFC426] text-stone-900 px-3 py-1 text-[10px] font-bold tracking-widest uppercase rounded-sm">LIFESTYLE</div>
+          </div>
+          <div class="space-y-3">
+            <p class="text-xs text-stone-400 uppercase tracking-widest" style="font-family: 'Space Grotesk', sans-serif;">JANUARY 12, 2024</p>
+            <h3 class="text-2xl font-bold group-hover:text-[#FFC426] transition-colors cursor-pointer" style="font-family: 'Space Grotesk', sans-serif;">Urban Mobility: The Future is Electric</h3>
+            <p class="text-stone-500 line-clamp-2 leading-relaxed" style="font-family: 'Lexend', sans-serif;">How electric bikes are reshaping city transportation and reducing the carbon footprint of daily commutes.</p>
+            <a class="inline-block text-[#FFC426] font-bold text-sm tracking-widest hover:translate-x-1 transition-transform" href="#">READ MORE →</a>
+          </div>
+        </div>
       </div>
     </div>
   </section>
