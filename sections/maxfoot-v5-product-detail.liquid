@@ -8,24 +8,9 @@
       "type": "product",
       "id": "product",
       "label": "Product"
-    },
-    {
-      "type": "text",
-      "id": "brand_name",
-      "label": "Brand Name",
-      "default": "MAXFOOT"
     }
   ],
-  "blocks": [
-    {
-      "type": "nav_link",
-      "name": "Nav Link",
-      "settings": [
-        { "type": "text", "id": "link_text", "label": "Link Text" },
-        { "type": "url", "id": "link_url", "label": "Link URL" }
-      ]
-    }
-  ],
+  "blocks": [],
   "presets": [{ "name": "V5 Product Detail" }]
 }
 {% endschema %}
@@ -33,31 +18,7 @@
 {%- assign product_handle = section.settings.product -%}
 {%- assign product = all_products[product_handle] -%}
 
-<nav class="fixed top-0 w-full z-50 bg-white/90 backdrop-blur-md border-b border-black/5">
-  <div class="max-w-[1440px] mx-auto flex justify-between items-center px-8 h-20">
-    <div class="flex items-center gap-12">
-      <span class="text-2xl font-black tracking-widest text-black" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</span>
-      <div class="hidden md:flex items-center gap-8">
-        {%- for block in section.blocks -%}
-          {%- if block.type == 'nav_link' -%}
-            <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
-          {%- endif -%}
-        {%- else -%}
-          <a class="text-[#FFC426] border-b-2 border-[#FFC426] pb-1 font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">MODELS</a>
-          <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">TECHNOLOGY</a>
-          <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">ACCESSORIES</a>
-          <a class="text-stone-700 hover:text-black transition-colors font-bold tracking-tight uppercase text-sm" style="font-family: 'Space Grotesk', sans-serif;" href="#">SUPPORT</a>
-        {%- endfor -%}
-      </div>
-    </div>
-    <div class="flex items-center gap-6">
-      <span class="material-symbols-outlined cursor-pointer hover:text-[#FFC426] transition-colors">shopping_cart</span>
-      <span class="material-symbols-outlined cursor-pointer hover:text-[#FFC426] transition-colors">person</span>
-    </div>
-  </div>
-</nav>
-
-<main class="pt-20">
+<main>
   {%- if product and product != blank -%}
   <!-- PRODUCT GALLERY -->
   <section class="max-w-[1440px] mx-auto px-8 py-12 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 bg-white">
