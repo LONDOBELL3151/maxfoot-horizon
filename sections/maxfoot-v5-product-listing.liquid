@@ -85,7 +85,7 @@
     </div>
   </header>
 
-  <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
+  <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 justify-items-start">
     {%- for block in section.blocks -%}
       {%- if block.type == 'product_card' -%}
         {%- assign product_handle = block.settings.product -%}
