@@ -78,13 +78,13 @@
     </div>
   </header>
 
-  <section class="grid grid-cols-2 md:grid-cols-4 gap-6">
+  <section class="grid grid-cols-2 lg:grid-cols-4 gap-4">
     {%- for block in section.blocks -%}
       {%- if block.type == 'product_card' -%}
         {%- assign product_handle = block.settings.product -%}
         {%- assign product = all_products[product_handle] -%}
-        <a href="{{ product.url }}" class="group bg-white rounded-xl border border-stone-100 p-6 transition-all duration-300 hover:shadow-xl flex flex-col h-full" {{ block.shopify_attributes }}>
-          <div class="relative overflow-hidden rounded-xl bg-stone-50 mb-6 aspect-[4/3]">
+        <a href="{{ product.url }}" class="group bg-white rounded-xl border border-stone-100 p-4 transition-all duration-300 hover:shadow-xl flex flex-col h-full" {{ block.shopify_attributes }}>
+          <div class="relative overflow-hidden rounded-xl bg-stone-50 mb-4 aspect-[4/3]">
             {%- if product and product != blank -%}
               {%- if product.featured_image -%}
                 <img class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" src="{{ product.featured_image | image_url: width: 400 }}" alt="{{ product.title }}">
@@ -94,17 +94,17 @@
             {%- else -%}
               <div class="w-full h-full flex items-center justify-center text-stone-400">Product Image</div>
             {%- endif -%}
-            <span class="absolute top-4 left-4 bg-stone-900 text-white px-3 py-1 rounded-full text-xs font-bold">{{ block.settings.badge }}</span>
+            <span class="absolute top-3 left-3 bg-stone-900 text-white px-2 py-0.5 rounded-full text-xs font-bold">{{ block.settings.badge }}</span>
           </div>
           <div class="flex-grow">
-            <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">
+            <h3 class="text-base font-bold mb-1" style="font-family: 'Space Grotesk', sans-serif;">
               {%- if product and product != blank -%}
                 {{ product.title | default: 'Product Title' }}
               {%- else -%}
                 Product Title
               {%- endif -%}
             </h3>
-            <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">
+            <p class="text-base font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">
               {%- if product and product != blank -%}
                 {{ product.price | money }}
               {%- else -%}
@@ -112,10 +112,10 @@
               {%- endif -%}
             </p>
           </div>
-          <div class="grid grid-cols-2 gap-4 pt-6 border-t border-stone-100 mt-6">
+          <div class="grid grid-cols-2 gap-2 pt-4 border-t border-stone-100 mt-4">
             <div>
-              <p class="text-xs text-stone-400 uppercase tracking-widest mb-1">Range</p>
-              <p class="text-xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Range</p>
+              <p class="text-sm font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">
                 {%- if product and product != blank -%}
                   {{ product.metafields.custom.range | default: '60mi' }}
                 {%- else -%}
@@ -124,8 +124,8 @@
               </p>
             </div>
             <div>
-              <p class="text-xs text-stone-400 uppercase tracking-widest mb-1">Power</p>
-              <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Power</p>
+              <p class="text-sm font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">
                 {%- if product and product != blank -%}
                   {{ product.metafields.custom.power | default: '750W' }}
                 {%- else -%}
@@ -134,31 +134,31 @@
               </p>
             </div>
           </div>
-          <button class="mt-6 w-full py-4 bg-stone-900 text-white font-bold text-sm uppercase tracking-widest rounded-lg hover:bg-[#FFC426] hover:text-stone-900 transition-colors">Add to Cart</button>
+          <button class="mt-4 w-full py-3 bg-stone-900 text-white font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-[#FFC426] hover:text-stone-900 transition-colors">Add to Cart</button>
         </a>
       {%- endif -%}
     {%- else -%}
       {%- for i in (1..6) -%}
-        <div class="group bg-white rounded-xl border border-stone-100 p-6 transition-all duration-300 hover:shadow-xl flex flex-col h-full">
-          <div class="relative overflow-hidden rounded-xl bg-stone-50 mb-6 aspect-[4/3]">
+        <div class="group bg-white rounded-xl border border-stone-100 p-4 transition-all duration-300 hover:shadow-xl flex flex-col h-full">
+          <div class="relative overflow-hidden rounded-xl bg-stone-50 mb-4 aspect-[4/3]">
             <div class="w-full h-full flex items-center justify-center text-stone-400">Product {{ i }}</div>
-            <span class="absolute top-4 left-4 bg-stone-900 text-white px-3 py-1 rounded-full text-xs font-bold">Pro Spec</span>
+            <span class="absolute top-3 left-3 bg-stone-900 text-white px-2 py-0.5 rounded-full text-xs font-bold">Pro Spec</span>
           </div>
           <div class="flex-grow">
-            <h3 class="text-xl font-bold mb-2" style="font-family: 'Space Grotesk', sans-serif;">MAXFOOT M-{{ i }}</h3>
-            <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">${{ 1299 | times: i }}.00</p>
+            <h3 class="text-base font-bold mb-1" style="font-family: 'Space Grotesk', sans-serif;">MAXFOOT M-{{ i }}</h3>
+            <p class="text-base font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">${{ 1299 | times: i }}.00</p>
           </div>
-          <div class="grid grid-cols-2 gap-4 pt-6 border-t border-stone-100 mt-6">
+          <div class="grid grid-cols-2 gap-2 pt-4 border-t border-stone-100 mt-4">
             <div>
-              <p class="text-xs text-stone-400 uppercase tracking-widest mb-1">Range</p>
-              <p class="text-xl font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">60mi</p>
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Range</p>
+              <p class="text-sm font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">60mi</p>
             </div>
             <div>
-              <p class="text-xs text-stone-400 uppercase tracking-widest mb-1">Power</p>
-              <p class="text-xl font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">750W</p>
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Power</p>
+              <p class="text-sm font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">750W</p>
             </div>
           </div>
-          <button class="mt-6 w-full py-4 bg-stone-900 text-white font-bold text-sm uppercase tracking-widest rounded-lg hover:bg-[#FFC426] hover:text-stone-900 transition-colors">Add to Cart</button>
+          <button class="mt-4 w-full py-3 bg-stone-900 text-white font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-[#FFC426] hover:text-stone-900 transition-colors">Add to Cart</button>
         </div>
       {%- endfor -%}
     {%- endfor -%}
