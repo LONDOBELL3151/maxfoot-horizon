@@ -81,10 +81,10 @@
       <p class="text-stone-600 mb-8 leading-relaxed" style="font-family: 'Lexend', sans-serif;">{{ product.description | default: product.metafields.custom.description | default: 'Experience the pinnacle of electric propulsion.' }}</p>
       {%- endif -%}
 
-      <div class="flex flex-wrap gap-3 mb-8">
+      <div class="grid grid-cols-2 gap-3 mb-8">
         {%- for block in section.blocks -%}
           {%- if block.type == 'spec' and block.settings.label != blank and block.settings.value != blank -%}
-            <div class="flex-1 min-w-[calc(20%-9px)] bg-stone-50 p-3 rounded-xl text-center">
+            <div class="bg-stone-50 p-4 rounded-xl text-center">
               <span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">{{ block.settings.label }}</span>
               <span class="font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.value }}</span>
             </div>
@@ -114,11 +114,11 @@
       <h1 class="text-4xl lg:text-5xl font-bold text-stone-900 mb-4" style="font-family: 'Space Grotesk', sans-serif;">MAXFOOT M-3</h1>
       <div class="mb-6"><span class="text-3xl font-bold text-[#FFC426]">$1,599.00</span></div>
       <p class="text-stone-600 mb-8">Experience the pinnacle of electric propulsion with the M-3.</p>
-      <div class="flex flex-wrap gap-3 mb-8">
-        <div class="flex-1 min-w-[calc(20%-9px)] bg-stone-50 p-3 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Speed</span><span class="font-bold">28 MPH</span></div>
-        <div class="flex-1 min-w-[calc(20%-9px)] bg-stone-50 p-3 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Range</span><span class="font-bold">60 Miles</span></div>
-        <div class="flex-1 min-w-[calc(20%-9px)] bg-stone-50 p-3 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Power</span><span class="font-bold text-[#FFC426]">750W</span></div>
-        <div class="flex-1 min-w-[calc(20%-9px)] bg-stone-50 p-3 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Battery</span><span class="font-bold">48V 20Ah</span></div>
+      <div class="grid grid-cols-2 gap-3 mb-8">
+        <div class="bg-stone-50 p-4 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Speed</span><span class="font-bold">28 MPH</span></div>
+        <div class="bg-stone-50 p-4 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Range</span><span class="font-bold">60 Miles</span></div>
+        <div class="bg-stone-50 p-4 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Power</span><span class="font-bold text-[#FFC426]">750W</span></div>
+        <div class="bg-stone-50 p-4 rounded-xl text-center"><span class="block text-xs text-stone-400 uppercase tracking-widest mb-1">Battery</span><span class="font-bold">48V 20Ah</span></div>
       </div>
       <div class="flex gap-4">
         <button class="flex-1 bg-[#FFC426] text-stone-900 py-4 font-bold uppercase tracking-widest rounded-lg">ADD TO CART</button>
