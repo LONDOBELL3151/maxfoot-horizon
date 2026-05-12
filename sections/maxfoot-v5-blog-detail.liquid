@@ -6,12 +6,6 @@
   "settings": [
     {
       "type": "text",
-      "id": "brand_name",
-      "label": "Brand Name",
-      "default": "MAXFOOT"
-    },
-    {
-      "type": "text",
       "id": "category",
       "label": "Category",
       "default": "ADVENTURE"
@@ -59,14 +53,6 @@
   ],
   "blocks": [
     {
-      "type": "nav_link",
-      "name": "Nav Link",
-      "settings": [
-        { "type": "text", "id": "link_text", "label": "Link Text" },
-        { "type": "url", "id": "link_url", "label": "Link URL" }
-      ]
-    },
-    {
       "type": "related_post",
       "name": "Related Post",
       "settings": [
@@ -81,28 +67,7 @@
 }
 {% endschema %}
 
-<header class="fixed top-0 w-full z-50 bg-white/80 backdrop-blur-xl transition-all duration-300 shadow-xl shadow-stone-900/5">
-  <nav class="flex justify-between items-center w-full px-8 py-4 max-w-[1440px] mx-auto">
-    <div class="text-2xl font-black tracking-tighter text-stone-900 uppercase" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
-    <div class="hidden md:flex items-center gap-10">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'nav_link' -%}
-          <a class="text-stone-500 hover:text-[#FFC426] transition-colors tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
-        {%- endif -%}
-      {%- else -%}
-        <a class="text-stone-500 hover:text-[#FFC426] transition-colors tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="#">Bikes</a>
-        <a class="text-stone-500 hover:text-[#FFC426] transition-colors tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="#">Technology</a>
-        <a class="text-stone-900 border-b-2 border-[#FFC426] pb-1 tracking-tight font-medium" style="font-family: 'Space Grotesk', sans-serif;" href="#">Journal</a>
-      {%- endfor -%}
-    </div>
-    <div class="flex items-center gap-6">
-      <span class="material-symbols-outlined text-stone-500 cursor-pointer hover:text-[#FFC426]">search</span>
-      <button class="bg-[#FFC426] text-stone-900 px-6 py-2 rounded-lg font-bold tracking-tight active:scale-95 duration-200 transition-all" style="font-family: 'Space Grotesk', sans-serif;">Shop Now</button>
-    </div>
-  </nav>
-</header>
-
-<main class="pt-24">
+<main>
   <!-- Back Navigation -->
   <div class="max-w-[1440px] mx-auto px-8 py-6">
     <a class="group flex items-center gap-2 text-stone-500 hover:text-[#FFC426] transition-colors" href="#">

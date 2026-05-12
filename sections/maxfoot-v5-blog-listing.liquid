@@ -6,12 +6,6 @@
   "settings": [
     {
       "type": "text",
-      "id": "brand_name",
-      "label": "Brand Name",
-      "default": "MAXFOOT"
-    },
-    {
-      "type": "text",
       "id": "page_title",
       "label": "Page Title",
       "default": "THE JOURNAL"
@@ -42,14 +36,6 @@
   ],
   "blocks": [
     {
-      "type": "nav_link",
-      "name": "Nav Link",
-      "settings": [
-        { "type": "text", "id": "link_text", "label": "Link Text" },
-        { "type": "url", "id": "link_url", "label": "Link URL" }
-      ]
-    },
-    {
       "type": "blog_card",
       "name": "Blog Card",
       "settings": [
@@ -66,29 +52,7 @@
 }
 {% endschema %}
 
-<header class="fixed top-0 w-full z-50 border-b border-stone-100 bg-white/90 backdrop-blur-md">
-  <div class="flex justify-between items-center px-8 h-20 max-w-[1440px] mx-auto">
-    <div class="text-2xl font-black tracking-tighter text-stone-900 uppercase" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
-    <nav class="hidden md:flex items-center space-x-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'nav_link' -%}
-          <a class="text-stone-500 hover:text-[#FFC426] transition-colors uppercase tracking-wider text-sm font-bold" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
-        {%- endif -%}
-      {%- else -%}
-        <a class="text-stone-500 hover:text-[#FFC426] transition-colors uppercase tracking-wider text-sm font-bold" style="font-family: 'Space Grotesk', sans-serif;" href="#">Bikes</a>
-        <a class="text-stone-500 hover:text-[#FFC426] transition-colors uppercase tracking-wider text-sm font-bold" style="font-family: 'Space Grotesk', sans-serif;" href="#">Technology</a>
-        <a class="text-stone-500 hover:text-[#FFC426] transition-colors uppercase tracking-wider text-sm font-bold" style="font-family: 'Space Grotesk', sans-serif;" href="#">Journal</a>
-        <a class="text-stone-500 hover:text-[#FFC426] transition-colors uppercase tracking-wider text-sm font-bold" style="font-family: 'Space Grotesk', sans-serif;" href="#">Support</a>
-      {%- endfor -%}
-    </nav>
-    <div class="flex items-center space-x-6">
-      <span class="material-symbols-outlined text-stone-900 cursor-pointer hover:text-[#FFC426] transition-colors">shopping_cart</span>
-      <span class="material-symbols-outlined text-stone-900 cursor-pointer hover:text-[#FFC426] transition-colors">person</span>
-    </div>
-  </div>
-</header>
-
-<main class="pt-32 pb-[120px] px-8 max-w-[1440px] mx-auto">
+<main class="pb-[120px] px-8 max-w-[1440px] mx-auto">
   <section class="mb-12 text-center">
     <h1 class="text-[72px] text-stone-900 uppercase mb-3 tracking-tight leading-none" style="font-family: 'Space Grotesk', sans-serif; font-weight: 700; letter-spacing: -0.04em;">{{ section.settings.page_title }}</h1>
     <div class="h-1 w-24 bg-[#FFC426] mx-auto"></div>
