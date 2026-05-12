@@ -85,7 +85,7 @@
     </div>
   </header>
 
-  <section class="grid grid-cols-2 lg:grid-cols-4 gap-4 justify-items-start">
+  <section class="flex flex-wrap gap-4">
     {%- for block in section.blocks -%}
       {%- if block.type == 'product_card' -%}
         {%- assign product_handle = block.settings.product -%}
@@ -106,7 +106,7 @@
         {%- if spec1_valid -%}{%- assign valid_count = valid_count | plus: 1 -%}{%- endif -%}
         {%- if spec2_valid -%}{%- assign valid_count = valid_count | plus: 1 -%}{%- endif -%}
         {%- if spec3_valid -%}{%- assign valid_count = valid_count | plus: 1 -%}{%- endif -%}
-        <a href="{{ product.url }}" class="group bg-white rounded-xl border border-stone-100 p-4 transition-all duration-300 hover:shadow-xl flex flex-col h-full" {{ block.shopify_attributes }}>
+        <a href="{{ product.url }}" class="group bg-white rounded-xl border border-stone-100 p-4 transition-all duration-300 hover:shadow-xl flex flex-col basis-[calc(50%-8px)] lg:basis-[calc(25%-12px)]" {{ block.shopify_attributes }}>
           <div class="relative overflow-hidden rounded-xl bg-stone-50 mb-4 aspect-[4/3]">
             {%- if product and product != blank -%}
               {%- if product.featured_image -%}
@@ -185,7 +185,7 @@
       {%- endif -%}
     {%- else -%}
       {%- for i in (1..6) -%}
-        <div class="group bg-white rounded-xl border border-stone-100 p-4 transition-all duration-300 hover:shadow-xl flex flex-col h-full">
+        <div class="group bg-white rounded-xl border border-stone-100 p-4 transition-all duration-300 hover:shadow-xl flex flex-col basis-[calc(50%-8px)] lg:basis-[calc(25%-12px)]">
           <div class="relative overflow-hidden rounded-xl bg-stone-50 mb-4 aspect-[4/3]">
             <div class="w-full h-full flex items-center justify-center text-stone-400">Product {{ i }}</div>
             <span class="absolute top-3 left-3 bg-stone-900 text-white px-2 py-0.5 rounded-full text-xs font-bold">Pro Spec</span>
