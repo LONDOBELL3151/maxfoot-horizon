@@ -6,12 +6,6 @@
   "settings": [
     {
       "type": "text",
-      "id": "brand_name",
-      "label": "Brand Name",
-      "default": "MAXFOOT"
-    },
-    {
-      "type": "text",
       "id": "hero_badge",
       "label": "Hero Badge",
       "default": "Next Generation Performance"
@@ -49,14 +43,6 @@
   ],
   "blocks": [
     {
-      "type": "nav_link",
-      "name": "Nav Link",
-      "settings": [
-        { "type": "text", "id": "link_text", "label": "Link Text" },
-        { "type": "url", "id": "link_url", "label": "Link URL" }
-      ]
-    },
-    {
       "type": "feature_card",
       "name": "Feature Card",
       "settings": [
@@ -69,27 +55,6 @@
   "presets": [{ "name": "V5 Technology" }]
 }
 {% endschema %}
-
-<nav class="bg-white/95 backdrop-blur-md border-b border-stone-100 sticky top-0 z-50">
-  <div class="max-w-[1440px] mx-auto px-8 h-20 flex items-center justify-between">
-    <div class="text-2xl font-bold tracking-tighter text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ section.settings.brand_name }}</div>
-    <div class="hidden md:flex items-center gap-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'nav_link' -%}
-          <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
-        {%- endif -%}
-      {%- else -%}
-        <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Bikes</a>
-        <a class="text-[#FFC426] border-b-2 border-[#FFC426] pb-1 font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Technology</a>
-        <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Innovation</a>
-        <a class="text-stone-600 hover:text-[#FFC426] transition-colors font-bold uppercase text-sm tracking-widest" style="font-family: 'Space Grotesk', sans-serif;" href="#">Support</a>
-      {%- endfor -%}
-    </div>
-    <div class="flex items-center gap-6">
-      <button class="bg-[#FFC426] text-stone-900 px-6 py-2.5 rounded-lg font-bold uppercase text-sm tracking-widest transition-all hover:opacity-90" style="font-family: 'Space Grotesk', sans-serif;">Shop Now</button>
-    </div>
-  </div>
-</nav>
 
 <header class="relative min-h-[921px] flex flex-col justify-center overflow-hidden bg-gradient-to-b from-white to-stone-50">
   <div class="max-w-[1440px] mx-auto px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center py-[120px]">

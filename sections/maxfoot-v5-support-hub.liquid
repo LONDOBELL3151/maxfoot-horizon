@@ -6,12 +6,6 @@
   "settings": [
     {
       "type": "text",
-      "id": "brand_name",
-      "label": "Brand Name",
-      "default": "MAXFOOT"
-    },
-    {
-      "type": "text",
       "id": "hero_title",
       "label": "Hero Title",
       "default": "HOW CAN WE HELP?"
@@ -30,14 +24,6 @@
     }
   ],
   "blocks": [
-    {
-      "type": "nav_link",
-      "name": "Nav Link",
-      "settings": [
-        { "type": "text", "id": "link_text", "label": "Link Text" },
-        { "type": "url", "id": "link_url", "label": "Link URL" }
-      ]
-    },
     {
       "type": "resource_card",
       "name": "Resource Card",
@@ -72,29 +58,6 @@
   "presets": [{ "name": "V5 Support Hub" }]
 }
 {% endschema %}
-
-<nav class="bg-white/80 backdrop-blur-xl sticky top-0 z-50 shadow-[0_24px_24px_rgba(26,28,28,0.04)]">
-  <div class="flex justify-between items-center px-8 py-4 w-full max-w-[1440px] mx-auto">
-    <div class="text-2xl font-bold tracking-tighter text-stone-900 uppercase" style="font-family: 'Space Grotesk', sans-serif;">
-      {{ section.settings.brand_name }}
-    </div>
-    <div class="hidden md:flex items-center gap-8">
-      {%- for block in section.blocks -%}
-        {%- if block.type == 'nav_link' -%}
-          <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="{{ block.settings.link_url }}">{{ block.settings.link_text }}</a>
-        {%- endif -%}
-      {%- else -%}
-        <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="#">Bikes</a>
-        <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="#">Technology</a>
-        <a class="text-stone-500 font-medium hover:text-[#FFC426] transition-all duration-300" style="font-family: 'Space Grotesk', sans-serif;" href="#">Support</a>
-      {%- endfor -%}
-    </div>
-    <div class="flex items-center gap-6">
-      <span class="material-symbols-outlined text-stone-900 cursor-pointer hover:text-[#FFC426] transition-colors">shopping_cart</span>
-      <span class="material-symbols-outlined text-stone-900 cursor-pointer hover:text-[#FFC426] transition-colors">account_circle</span>
-    </div>
-  </div>
-</nav>
 
 <main>
   <!-- Hero Section -->
