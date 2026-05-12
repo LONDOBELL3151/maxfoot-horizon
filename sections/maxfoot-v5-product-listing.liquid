@@ -37,7 +37,14 @@
       "name": "Product Card",
       "settings": [
         { "type": "product", "id": "product", "label": "Product" },
-        { "type": "text", "id": "badge", "label": "Badge", "default": "Pro Spec" }
+        { "type": "text", "id": "badge", "label": "Badge", "default": "Pro Spec" },
+        { "type": "text", "id": "title", "label": "Product Title", "default": "Product Title" },
+        { "type": "text", "id": "spec1_label", "label": "Spec 1 Label", "default": "Range" },
+        { "type": "text", "id": "spec1_value", "label": "Spec 1 Value", "default": "60mi" },
+        { "type": "text", "id": "spec2_label", "label": "Spec 2 Label", "default": "Power" },
+        { "type": "text", "id": "spec2_value", "label": "Spec 2 Value", "default": "750W" },
+        { "type": "text", "id": "spec3_label", "label": "Spec 3 Label", "default": "Speed" },
+        { "type": "text", "id": "spec3_value", "label": "Spec 3 Value", "default": "28mph" }
       ]
     }
   ],
@@ -98,8 +105,10 @@
           </div>
           <div class="flex-grow">
             <h3 class="text-base font-bold mb-1" style="font-family: 'Space Grotesk', sans-serif;">
-              {%- if product and product != blank -%}
-                {{ product.title | default: 'Product Title' }}
+              {%- if block.settings.title != blank and block.settings.title != 'Product Title' -%}
+                {{ block.settings.title }}
+              {%- elsif product and product != blank -%}
+                {{ product.title }}
               {%- else -%}
                 Product Title
               {%- endif -%}
@@ -112,26 +121,18 @@
               {%- endif -%}
             </p>
           </div>
-          <div class="grid grid-cols-2 gap-2 pt-4 border-t border-stone-100 mt-4">
+          <div class="grid grid-cols-3 gap-2 pt-4 border-t border-stone-100 mt-4">
             <div>
-              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Range</p>
-              <p class="text-sm font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">
-                {%- if product and product != blank -%}
-                  {{ product.metafields.custom.range | default: '60mi' }}
-                {%- else -%}
-                  60mi
-                {%- endif -%}
-              </p>
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">{{ block.settings.spec1_label }}</p>
+              <p class="text-sm font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.spec1_value }}</p>
             </div>
             <div>
-              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Power</p>
-              <p class="text-sm font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">
-                {%- if product and product != blank -%}
-                  {{ product.metafields.custom.power | default: '750W' }}
-                {%- else -%}
-                  750W
-                {%- endif -%}
-              </p>
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">{{ block.settings.spec2_label }}</p>
+              <p class="text-sm font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.spec2_value }}</p>
+            </div>
+            <div>
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">{{ block.settings.spec3_label }}</p>
+              <p class="text-sm font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">{{ block.settings.spec3_value }}</p>
             </div>
           </div>
           <button class="mt-4 w-full py-3 bg-stone-900 text-white font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-[#FFC426] hover:text-stone-900 transition-colors">Add to Cart</button>
@@ -148,7 +149,7 @@
             <h3 class="text-base font-bold mb-1" style="font-family: 'Space Grotesk', sans-serif;">MAXFOOT M-{{ i }}</h3>
             <p class="text-base font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">${{ 1299 | times: i }}.00</p>
           </div>
-          <div class="grid grid-cols-2 gap-2 pt-4 border-t border-stone-100 mt-4">
+          <div class="grid grid-cols-3 gap-2 pt-4 border-t border-stone-100 mt-4">
             <div>
               <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Range</p>
               <p class="text-sm font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">60mi</p>
@@ -156,6 +157,10 @@
             <div>
               <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Power</p>
               <p class="text-sm font-bold text-[#FFC426]" style="font-family: 'Space Grotesk', sans-serif;">750W</p>
+            </div>
+            <div>
+              <p class="text-xs text-stone-400 uppercase tracking-widest mb-0.5">Speed</p>
+              <p class="text-sm font-bold text-stone-900" style="font-family: 'Space Grotesk', sans-serif;">28mph</p>
             </div>
           </div>
           <button class="mt-4 w-full py-3 bg-stone-900 text-white font-bold text-xs uppercase tracking-widest rounded-lg hover:bg-[#FFC426] hover:text-stone-900 transition-colors">Add to Cart</button>
